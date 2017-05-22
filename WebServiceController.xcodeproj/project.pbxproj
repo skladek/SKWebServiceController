@@ -11,11 +11,13 @@
 		14B2912B1ED3952F00057D8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B291221ED3952F00057D8E /* AppDelegate.swift */; };
 		14B2912C1ED3952F00057D8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14B291231ED3952F00057D8E /* Assets.xcassets */; };
 		14B2912D1ED3952F00057D8E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14B291241ED3952F00057D8E /* LaunchScreen.storyboard */; };
-		14B2912E1ED3952F00057D8E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14B291261ED3952F00057D8E /* Main.storyboard */; };
-		14B2912F1ED3952F00057D8E /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 14B291281ED3952F00057D8E /* Info.plist */; };
 		14B291331ED3959200057D8E /* PostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B291311ED3959200057D8E /* PostsViewController.swift */; };
 		14B291341ED3959200057D8E /* PostsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B291321ED3959200057D8E /* PostsViewController.xib */; };
 		14B291371ED3964A00057D8E /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B291361ED3964A00057D8E /* TableViewDataSource.swift */; };
+		14B2913C1ED3988500057D8E /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B2913B1ED3988500057D8E /* Post.swift */; };
+		14B291411ED39AD800057D8E /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B291401ED39AD800057D8E /* PostViewModel.swift */; };
+		14B291491ED39E2C00057D8E /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B291471ED39E2C00057D8E /* PostCell.swift */; };
+		14B2914A1ED39E2C00057D8E /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B291481ED39E2C00057D8E /* PostCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,11 +38,14 @@
 		14B291221ED3952F00057D8E /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14B291231ED3952F00057D8E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		14B291251ED3952F00057D8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		14B291271ED3952F00057D8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		14B291281ED3952F00057D8E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14B291311ED3959200057D8E /* PostsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsViewController.swift; sourceTree = "<group>"; };
 		14B291321ED3959200057D8E /* PostsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostsViewController.xib; sourceTree = "<group>"; };
 		14B291361ED3964A00057D8E /* TableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
+		14B2913B1ED3988500057D8E /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		14B291401ED39AD800057D8E /* PostViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
+		14B291471ED39E2C00057D8E /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		14B291481ED39E2C00057D8E /* PostCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +89,10 @@
 			children = (
 				14B291211ED3952F00057D8E /* Application */,
 				14B291351ED3964A00057D8E /* Controllers */,
+				14B2913A1ED3988500057D8E /* Models */,
 				14B291291ED3952F00057D8E /* ViewControllers */,
+				14B2913F1ED39AD800057D8E /* ViewModels */,
+				14B291461ED39E2C00057D8E /* Views */,
 			);
 			path = WebServiceController;
 			sourceTree = "<group>";
@@ -104,7 +112,6 @@
 				14B291221ED3952F00057D8E /* AppDelegate.swift */,
 				14B291231ED3952F00057D8E /* Assets.xcassets */,
 				14B291241ED3952F00057D8E /* LaunchScreen.storyboard */,
-				14B291261ED3952F00057D8E /* Main.storyboard */,
 				14B291281ED3952F00057D8E /* Info.plist */,
 			);
 			path = Application;
@@ -125,6 +132,31 @@
 				14B291361ED3964A00057D8E /* TableViewDataSource.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		14B2913A1ED3988500057D8E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				14B2913B1ED3988500057D8E /* Post.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		14B2913F1ED39AD800057D8E /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				14B291401ED39AD800057D8E /* PostViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		14B291461ED39E2C00057D8E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				14B291471ED39E2C00057D8E /* PostCell.swift */,
+				14B291481ED39E2C00057D8E /* PostCell.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,8 +244,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14B2912F1ED3952F00057D8E /* Info.plist in Resources */,
-				14B2912E1ED3952F00057D8E /* Main.storyboard in Resources */,
+				14B2914A1ED39E2C00057D8E /* PostCell.xib in Resources */,
 				14B2912C1ED3952F00057D8E /* Assets.xcassets in Resources */,
 				14B291341ED3959200057D8E /* PostsViewController.xib in Resources */,
 				14B2912D1ED3952F00057D8E /* LaunchScreen.storyboard in Resources */,
@@ -234,9 +265,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14B291411ED39AD800057D8E /* PostViewModel.swift in Sources */,
 				14B291371ED3964A00057D8E /* TableViewDataSource.swift in Sources */,
 				14B291331ED3959200057D8E /* PostsViewController.swift in Sources */,
 				14B2912B1ED3952F00057D8E /* AppDelegate.swift in Sources */,
+				14B2913C1ED3988500057D8E /* Post.swift in Sources */,
+				14B291491ED39E2C00057D8E /* PostCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,14 +299,6 @@
 				14B291251ED3952F00057D8E /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		14B291261ED3952F00057D8E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				14B291271ED3952F00057D8E /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

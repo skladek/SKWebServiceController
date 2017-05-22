@@ -30,5 +30,7 @@ class PostsViewController: UIViewController {
         })
 
         tableView.dataSource = dataSource
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 100
     }
 }
