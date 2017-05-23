@@ -54,29 +54,30 @@ class WebServiceController: NSObject {
         dataTask.resume()
     }
 
-    func urlWith(endpoint: String, parameters: [String : Any]? = nil) -> (url: URL?, error: Error?) {
-        let queryItems = parameters?.keys.map { URLQueryItem(name: $0, value: parameters?[$0] as? String) }
-        let fullURLString = WebServiceController.baseURL.appending(endpoint)
+    func urlWith(endpoint: String, parameters: [String : String]? = nil) -> (url: URL?, error: Error?) {
+        var fullURLString = WebServiceController.baseURL.appending(endpoint)
+        if let queryParameterString = self.queryParametersString(parameters) {
+            fullURLString.append("?\(queryParameterString)")
+        }
 
-        return (nil, nil)
+        guard let url = URL(string: fullURLString) else {
+            let error = WebServiceError(code: .invalidURL, message: "Could not form a valid URL from the base URL and the endpoint. Attempted string: \(fullURLString)")
+            return (nil, error)
+        }
 
-
-//        guard let urlComponents = URLComponents(string: fullURLString) else {
-//            let error = WebServiceError(code: .invalidURL, message: "Could not form a valid URL from the base URL and the endpoint. Attempted string: \(fullURLString)")
-//            return (nil, error)
-//        }
+        return (url, nil)
     }
 
-    func queryParametersString(_ parametersDictionary: [String : Any]? = nil) -> String? {
+    func queryParametersString(_ parametersDictionary: [String : String]? = nil) -> String? {
         guard let parametersDictionary = parametersDictionary else {
             return nil
         }
 
         var parametersArray = [String]()
 
-        for key in parametersDictionary.keys {
+        for key in parametersDictionary.keys.sorted() {
             if let encodedKey = key.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
-                let encodedValue = (parametersDictionary[key] as? String)?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
+                let encodedValue = parametersDictionary[key]?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
                 parametersArray.append("\(encodedKey)=\(encodedValue)")
             }
         }
