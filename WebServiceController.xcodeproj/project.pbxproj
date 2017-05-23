@@ -20,6 +20,7 @@
 		14B2914A1ED39E2C00057D8E /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B291481ED39E2C00057D8E /* PostCell.xib */; };
 		14B2914F1ED3D6A600057D8E /* WebServiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B2914E1ED3D6A600057D8E /* WebServiceController.swift */; };
 		14B291551ED3DB1F00057D8E /* PostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B291541ED3DB1F00057D8E /* PostController.swift */; };
+		14B291571ED489AE00057D8E /* WebServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B291561ED489AE00057D8E /* WebServiceError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		14B2914E1ED3D6A600057D8E /* WebServiceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceController.swift; sourceTree = "<group>"; };
 		14B291501ED3D91500057D8E /* WebServiceController-BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WebServiceController-BridgingHeader.h"; sourceTree = "<group>"; };
 		14B291541ED3DB1F00057D8E /* PostController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostController.swift; sourceTree = "<group>"; };
+		14B291561ED489AE00057D8E /* WebServiceError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				14B2914E1ED3D6A600057D8E /* WebServiceController.swift */,
+				14B291561ED489AE00057D8E /* WebServiceError.swift */,
 			);
 			path = WebServiceController;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				14B291331ED3959200057D8E /* PostsViewController.swift in Sources */,
 				14B2912B1ED3952F00057D8E /* AppDelegate.swift in Sources */,
 				14B2913C1ED3988500057D8E /* Post.swift in Sources */,
+				14B291571ED489AE00057D8E /* WebServiceError.swift in Sources */,
 				14B291491ED39E2C00057D8E /* PostCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

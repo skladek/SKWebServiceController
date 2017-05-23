@@ -27,7 +27,7 @@ class WebServiceController: NSObject {
     /// - Parameters:
     ///   - endpoint: The endpoint to perform the request on.
     ///   - completion: Returns the json object and/or an error.
-    func get(_ endpoint: String, completion: @escaping (Any?, Error?) -> ()) {
+    func get(_ endpoint: String, parameters: [String : Any]? = nil, completion: @escaping (Any?, Error?) -> ()) {
         let fullURLString = WebServiceController.baseURL.appending(endpoint)
         guard let fullURL = URL(string: fullURLString) else {
             let error = NSError(code: -1, message: "Invalid URL")
@@ -52,6 +52,38 @@ class WebServiceController: NSObject {
         }
         
         dataTask.resume()
+    }
+
+    func urlWith(endpoint: String, parameters: [String : Any]? = nil) -> (url: URL?, error: Error?) {
+        let queryItems = parameters?.keys.map { URLQueryItem(name: $0, value: parameters?[$0] as? String) }
+        let fullURLString = WebServiceController.baseURL.appending(endpoint)
+
+        return (nil, nil)
+
+
+//        guard let urlComponents = URLComponents(string: fullURLString) else {
+//            let error = WebServiceError(code: .invalidURL, message: "Could not form a valid URL from the base URL and the endpoint. Attempted string: \(fullURLString)")
+//            return (nil, error)
+//        }
+    }
+
+    func queryParametersString(_ parametersDictionary: [String : Any]? = nil) -> String? {
+        guard let parametersDictionary = parametersDictionary else {
+            return nil
+        }
+
+        var parametersArray = [String]()
+
+        for key in parametersDictionary.keys {
+            if let encodedKey = key.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+                let encodedValue = (parametersDictionary[key] as? String)?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
+                parametersArray.append("\(encodedKey)=\(encodedValue)")
+            }
+        }
+
+        let parametersString = parametersArray.joined(separator: "&")
+
+        return (parametersString.isEmpty) ? nil : parametersString
     }
 }
 
