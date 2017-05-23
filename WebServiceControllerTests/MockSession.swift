@@ -9,8 +9,10 @@
 import Foundation
 
 class MockSession: URLSession {
+    var shouldReturnError = false
+
     override func dataTask(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
-        let error = NSError(domain: "test.domain", code: 1234, userInfo: nil)
+        let error = shouldReturnError ? NSError(domain: "test.domain", code: 1234, userInfo: nil) : nil
         completionHandler(nil, nil, error)
 
         return MockURLSesionDataTask()

@@ -19,7 +19,7 @@ class WebServiceControllerSpec: QuickSpec {
 
         beforeEach {
             session = MockSession()
-            unitUnderTest = WebServiceController(session: session)
+            unitUnderTest = WebServiceController(testingSession: session)
         }
 
         describe("WebServiceController") {
@@ -93,10 +93,24 @@ class WebServiceControllerSpec: QuickSpec {
                 }
 
                 it("Should return an error through the completion object if the session provides an error") {
+                    session.shouldReturnError = true
+
                     unitUnderTest.get(completion: { (objects, error) in
                         expect((error as NSError?)?.domain).to(equal("test.domain"))
                         expect((error as NSError?)?.code).to(equal(1234))
                     })
+                }
+
+                it("Should call dataToJSON on the deserialization object") {
+                    let mockDeserializer = MockDeserializer()
+                    unitUnderTest = WebServiceController(testingSession: session, deserializer: mockDeserializer)
+
+                    waitUntil() { done in
+                        unitUnderTest.get(completion: { (object, error) in
+                            expect(mockDeserializer.dataToJSONCalled).to(beTrue())
+                            done()
+                        })
+                    }
                 }
             }
         }

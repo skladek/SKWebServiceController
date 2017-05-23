@@ -23,15 +23,19 @@ class WebServiceController: NSObject {
     /// A singleton instance
     static let sharedInstance = WebServiceController()
 
+    fileprivate let deserializer: JSONDeserializing
+
     /// A configured URLSession to route requests through.
     fileprivate let session: URLSession
 
     override init() {
+        self.deserializer = WebServiceJSONDeserializer()
         self.session = URLSession(configuration: .default)
     }
 
-    init(session: URLSession) {
-        self.session = session
+    init(testingSession: URLSession, deserializer: JSONDeserializing? = nil) {
+        self.deserializer = deserializer ?? WebServiceJSONDeserializer()
+        self.session = testingSession
     }
 
     // MARK: Instance Methods
@@ -56,27 +60,14 @@ class WebServiceController: NSObject {
                     return
                 }
 
-                self.handleData(data, completion: completion)
+                self.deserializer.dataToJSON(data, completion: completion)
             }
         }
         
         dataTask.resume()
     }
 
-    func handleData(_ data: Data?, completion: @escaping RequestCompletion) {
-        guard let data = data else {
-            let error = WebServiceError(code: .noData, message: "The server returned without error and without data.")
-            completion(nil, error)
-            return
-        }
 
-        do {
-            let jsonData = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-            completion(jsonData, nil)
-        } catch {
-            completion(nil, error)
-        }
-    }
 
     func urlWith(endpoint: String? = nil, parameters: [String : String]? = nil) -> URLTuple {
         var fullURLString = WebServiceController.baseURL
