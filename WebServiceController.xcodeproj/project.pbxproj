@@ -21,6 +21,10 @@
 		14B2914F1ED3D6A600057D8E /* WebServiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B2914E1ED3D6A600057D8E /* WebServiceController.swift */; };
 		14B291551ED3DB1F00057D8E /* PostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B291541ED3DB1F00057D8E /* PostController.swift */; };
 		14B291571ED489AE00057D8E /* WebServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B291561ED489AE00057D8E /* WebServiceError.swift */; };
+		14B2915D1ED4937F00057D8E /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B291591ED4935F00057D8E /* Nimble.framework */; };
+		14B2915E1ED4937F00057D8E /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B2915A1ED4935F00057D8E /* Quick.framework */; };
+		14B291601ED4940E00057D8E /* Nimble.framework in Copy Carthage Frameworks */ = {isa = PBXBuildFile; fileRef = 14B291591ED4935F00057D8E /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14B291611ED4940E00057D8E /* Quick.framework in Copy Carthage Frameworks */ = {isa = PBXBuildFile; fileRef = 14B2915A1ED4935F00057D8E /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +36,21 @@
 			remoteInfo = WebServiceController;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		14B2915F1ED493FB00057D8E /* Copy Carthage Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				14B291601ED4940E00057D8E /* Nimble.framework in Copy Carthage Frameworks */,
+				14B291611ED4940E00057D8E /* Quick.framework in Copy Carthage Frameworks */,
+			);
+			name = "Copy Carthage Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		14053C851ED394A80094E780 /* WebServiceController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebServiceController.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -53,6 +72,8 @@
 		14B291501ED3D91500057D8E /* WebServiceController-BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WebServiceController-BridgingHeader.h"; sourceTree = "<group>"; };
 		14B291541ED3DB1F00057D8E /* PostController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostController.swift; sourceTree = "<group>"; };
 		14B291561ED489AE00057D8E /* WebServiceError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceError.swift; sourceTree = "<group>"; };
+		14B291591ED4935F00057D8E /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
+		14B2915A1ED4935F00057D8E /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +88,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14B2915E1ED4937F00057D8E /* Quick.framework in Frameworks */,
+				14B2915D1ED4937F00057D8E /* Nimble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +101,7 @@
 			children = (
 				14053C871ED394A80094E780 /* WebServiceController */,
 				14053C9C1ED394A80094E780 /* WebServiceControllerTests */,
+				14B291581ED4933A00057D8E /* Frameworks */,
 				14053C861ED394A80094E780 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -186,6 +210,15 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		14B291581ED4933A00057D8E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				14B291591ED4935F00057D8E /* Nimble.framework */,
+				14B2915A1ED4935F00057D8E /* Quick.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -213,6 +246,7 @@
 				14053C951ED394A80094E780 /* Sources */,
 				14053C961ED394A80094E780 /* Frameworks */,
 				14053C971ED394A80094E780 /* Resources */,
+				14B2915F1ED493FB00057D8E /* Copy Carthage Frameworks */,
 			);
 			buildRules = (
 			);
@@ -338,6 +372,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				BASE_URL = "https://jsonplaceholder.typicode.com/";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -380,6 +415,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "WebServiceController/Application/WebServiceController-BridgingHeader.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -388,6 +424,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				BASE_URL = "https://jsonplaceholder.typicode.com/";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -422,6 +459,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "WebServiceController/Application/WebServiceController-BridgingHeader.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -433,6 +471,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				BASE_URL = "https://jsonplaceholder.typicode.com/";
 				DEVELOPMENT_TEAM = MV978XDK83;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"BASE_URL=(@\\\"${BASE_URL}\\\")",
 					"DEBUG=1",
@@ -452,6 +494,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				BASE_URL = "https://jsonplaceholder.typicode.com/";
 				DEVELOPMENT_TEAM = MV978XDK83;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_PREPROCESSOR_DEFINITIONS = "BASE_URL=(@\\\"${BASE_URL}\\\")";
 				INFOPLIST_FILE = "$(SRCROOT)/WebServiceController/Application/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -468,10 +514,16 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = MV978XDK83;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = "BASE_URL=(@\\\"${BASE_URL}\\\")";
 				INFOPLIST_FILE = WebServiceControllerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.skladek.WebServiceControllerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "WebServiceController/Application/WebServiceController-BridgingHeader.h";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WebServiceController.app/WebServiceController";
 			};
@@ -483,10 +535,16 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = MV978XDK83;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = "BASE_URL=(@\\\"${BASE_URL}\\\")";
 				INFOPLIST_FILE = WebServiceControllerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.skladek.WebServiceControllerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "WebServiceController/Application/WebServiceController-BridgingHeader.h";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WebServiceController.app/WebServiceController";
 			};
