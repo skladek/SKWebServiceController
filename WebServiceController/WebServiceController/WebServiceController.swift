@@ -9,6 +9,12 @@
 import UIKit
 
 class WebServiceController: NSObject {
+    // MARK: Class Types
+
+    typealias RequestCompletion = (Any?, Error?) -> ()
+
+    typealias URLTuple = (url: URL?, error: NSError?)
+
     // MARK: Static Variables
 
     /// The url to append all request endpoints onto.
@@ -18,7 +24,15 @@ class WebServiceController: NSObject {
     static let sharedInstance = WebServiceController()
 
     /// A configured URLSession to route requests through.
-    fileprivate let session = URLSession(configuration: .default)
+    fileprivate let session: URLSession
+
+    override init() {
+        self.session = URLSession(configuration: .default)
+    }
+
+    init(session: URLSession) {
+        self.session = session
+    }
 
     // MARK: Instance Methods
 
@@ -27,7 +41,7 @@ class WebServiceController: NSObject {
     /// - Parameters:
     ///   - endpoint: The endpoint to perform the request on.
     ///   - completion: Returns the json object and/or an error.
-    func get(_ endpoint: String?, parameters: [String : String]? = nil, completion: @escaping (Any?, Error?) -> ()) {
+    func get(_ endpoint: String? = nil, parameters: [String : String]? = nil, completion: @escaping RequestCompletion) {
         let urlTuple = urlWith(endpoint: endpoint, parameters: parameters)
 
         guard let url = urlTuple.url else {
@@ -37,24 +51,34 @@ class WebServiceController: NSObject {
 
         let dataTask = session.dataTask(with: url) { (data, response, error) in
             DispatchQueue.main.async {
-                guard let data = data else {
+                if let error = error {
                     completion(nil, error)
                     return
                 }
 
-                do {
-                    let jsonData = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-                    completion(jsonData, error)
-                } catch {
-                    completion(nil, error)
-                }
+                self.handleData(data, completion: completion)
             }
         }
         
         dataTask.resume()
     }
 
-    func urlWith(endpoint: String? = nil, parameters: [String : String]? = nil) -> (url: URL?, error: NSError?) {
+    func handleData(_ data: Data?, completion: @escaping RequestCompletion) {
+        guard let data = data else {
+            let error = WebServiceError(code: .noData, message: "The server returned without error and without data.")
+            completion(nil, error)
+            return
+        }
+
+        do {
+            let jsonData = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+            completion(jsonData, nil)
+        } catch {
+            completion(nil, error)
+        }
+    }
+
+    func urlWith(endpoint: String? = nil, parameters: [String : String]? = nil) -> URLTuple {
         var fullURLString = WebServiceController.baseURL
 
         if let endpoint = endpoint {

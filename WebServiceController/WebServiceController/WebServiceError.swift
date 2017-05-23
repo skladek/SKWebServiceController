@@ -18,6 +18,7 @@ class WebServiceError: NSError {
     enum Code: Int {
         case unknown = -1
         case invalidURL
+        case noData
     }
 
     // MARK: Static Variables

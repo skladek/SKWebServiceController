@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		14053C9E1ED394A80094E780 /* WebServiceControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14053C9D1ED394A80094E780 /* WebServiceControllerTests.swift */; };
+		14053C9E1ED394A80094E780 /* WebServiceControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14053C9D1ED394A80094E780 /* WebServiceControllerSpec.swift */; };
 		14B2912B1ED3952F00057D8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B291221ED3952F00057D8E /* AppDelegate.swift */; };
 		14B2912C1ED3952F00057D8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14B291231ED3952F00057D8E /* Assets.xcassets */; };
 		14B2912D1ED3952F00057D8E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14B291241ED3952F00057D8E /* LaunchScreen.storyboard */; };
@@ -25,6 +25,9 @@
 		14B2915E1ED4937F00057D8E /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B2915A1ED4935F00057D8E /* Quick.framework */; };
 		14B291601ED4940E00057D8E /* Nimble.framework in Copy Carthage Frameworks */ = {isa = PBXBuildFile; fileRef = 14B291591ED4935F00057D8E /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		14B291611ED4940E00057D8E /* Quick.framework in Copy Carthage Frameworks */ = {isa = PBXBuildFile; fileRef = 14B2915A1ED4935F00057D8E /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14B831C41ED4D81B0004A605 /* WebServiceErrorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B831C31ED4D81B0004A605 /* WebServiceErrorSpec.swift */; };
+		14B831C61ED4DBB20004A605 /* MockSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B831C51ED4DBB20004A605 /* MockSession.swift */; };
+		14B831C81ED4DE2F0004A605 /* MockURLSessionDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B831C71ED4DE2F0004A605 /* MockURLSessionDataTask.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,7 +58,7 @@
 /* Begin PBXFileReference section */
 		14053C851ED394A80094E780 /* WebServiceController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebServiceController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14053C991ED394A80094E780 /* WebServiceControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WebServiceControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		14053C9D1ED394A80094E780 /* WebServiceControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServiceControllerTests.swift; sourceTree = "<group>"; };
+		14053C9D1ED394A80094E780 /* WebServiceControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServiceControllerSpec.swift; sourceTree = "<group>"; };
 		14053C9F1ED394A80094E780 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14B291221ED3952F00057D8E /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14B291231ED3952F00057D8E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -74,6 +77,9 @@
 		14B291561ED489AE00057D8E /* WebServiceError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceError.swift; sourceTree = "<group>"; };
 		14B291591ED4935F00057D8E /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		14B2915A1ED4935F00057D8E /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
+		14B831C31ED4D81B0004A605 /* WebServiceErrorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceErrorSpec.swift; sourceTree = "<group>"; };
+		14B831C51ED4DBB20004A605 /* MockSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockSession.swift; sourceTree = "<group>"; };
+		14B831C71ED4DE2F0004A605 /* MockURLSessionDataTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockURLSessionDataTask.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,7 +139,10 @@
 		14053C9C1ED394A80094E780 /* WebServiceControllerTests */ = {
 			isa = PBXGroup;
 			children = (
-				14053C9D1ED394A80094E780 /* WebServiceControllerTests.swift */,
+				14B831C51ED4DBB20004A605 /* MockSession.swift */,
+				14B831C71ED4DE2F0004A605 /* MockURLSessionDataTask.swift */,
+				14053C9D1ED394A80094E780 /* WebServiceControllerSpec.swift */,
+				14B831C31ED4D81B0004A605 /* WebServiceErrorSpec.swift */,
 				14053C9F1ED394A80094E780 /* Info.plist */,
 			);
 			path = WebServiceControllerTests;
@@ -342,7 +351,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14053C9E1ED394A80094E780 /* WebServiceControllerTests.swift in Sources */,
+				14B831C61ED4DBB20004A605 /* MockSession.swift in Sources */,
+				14B831C41ED4D81B0004A605 /* WebServiceErrorSpec.swift in Sources */,
+				14053C9E1ED394A80094E780 /* WebServiceControllerSpec.swift in Sources */,
+				14B831C81ED4DE2F0004A605 /* MockURLSessionDataTask.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
