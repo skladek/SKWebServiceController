@@ -27,15 +27,15 @@ class WebServiceController: NSObject {
     /// - Parameters:
     ///   - endpoint: The endpoint to perform the request on.
     ///   - completion: Returns the json object and/or an error.
-    func get(_ endpoint: String, parameters: [String : Any]? = nil, completion: @escaping (Any?, Error?) -> ()) {
-        let fullURLString = WebServiceController.baseURL.appending(endpoint)
-        guard let fullURL = URL(string: fullURLString) else {
-            let error = NSError(code: -1, message: "Invalid URL")
-            completion(nil, error)
+    func get(_ endpoint: String?, parameters: [String : String]? = nil, completion: @escaping (Any?, Error?) -> ()) {
+        let urlTuple = urlWith(endpoint: endpoint, parameters: parameters)
+
+        guard let url = urlTuple.url else {
+            completion(nil, urlTuple.error)
             return
         }
 
-        let dataTask = session.dataTask(with: fullURL) { (data, response, error) in
+        let dataTask = session.dataTask(with: url) { (data, response, error) in
             DispatchQueue.main.async {
                 guard let data = data else {
                     completion(nil, error)
@@ -54,8 +54,13 @@ class WebServiceController: NSObject {
         dataTask.resume()
     }
 
-    func urlWith(endpoint: String, parameters: [String : String]? = nil) -> (url: URL?, error: Error?) {
-        var fullURLString = WebServiceController.baseURL.appending(endpoint)
+    func urlWith(endpoint: String? = nil, parameters: [String : String]? = nil) -> (url: URL?, error: NSError?) {
+        var fullURLString = WebServiceController.baseURL
+
+        if let endpoint = endpoint {
+            fullURLString.append(endpoint)
+        }
+
         if let queryParameterString = self.queryParametersString(parameters) {
             fullURLString.append("?\(queryParameterString)")
         }
@@ -85,24 +90,5 @@ class WebServiceController: NSObject {
         let parametersString = parametersArray.joined(separator: "&")
 
         return (parametersString.isEmpty) ? nil : parametersString
-    }
-}
-
-extension NSError {
-    convenience init(code: Int, message: String?) {
-        var localizedDescription = message
-
-        if message == nil {
-            localizedDescription = "An unknown error occurred."
-        }
-
-        var userInfo: [AnyHashable : Any]? = nil
-        if let message = localizedDescription {
-            userInfo = [NSLocalizedDescriptionKey : message]
-        }
-
-        let domain = Bundle.main.bundleIdentifier ?? ""
-
-        self.init(domain: domain, code: code, userInfo: userInfo)
     }
 }

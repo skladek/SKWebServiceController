@@ -42,7 +42,42 @@ class WebServiceControllerSpec: QuickSpec {
                 }
             }
 
-            context("")
+            context("urlWith(endpoint:parameters:)") {
+                it("Should return a URL from the base URL if a no endpoint or parameters are passed in.") {
+                    expect(self.unitUnderTest.urlWith().url?.absoluteString).to(equal("https://jsonplaceholder.typicode.com/"))
+                }
+
+                it("Should append the endpoint onto the base url") {
+                    let endpoint = "endpoint/test"
+                    let urlTuple = self.unitUnderTest.urlWith(endpoint: endpoint)
+                    expect(urlTuple.url?.absoluteString).to(equal("https://jsonplaceholder.typicode.com/endpoint/test"))
+                }
+
+                it("Should append the endpoint onto the base url") {
+                    let endpoint = "endpoint/test"
+                    let urlTuple = self.unitUnderTest.urlWith(endpoint: endpoint)
+                    expect(urlTuple.url?.absoluteString).to(equal("https://jsonplaceholder.typicode.com/endpoint/test"))
+                }
+
+                it("Should append the parameters string onto the base url") {
+                    let parameters = ["key1" : "value1", "key2" : "value2"]
+                    let urlTuple = self.unitUnderTest.urlWith(parameters: parameters)
+                    expect(urlTuple.url?.absoluteString).to(equal("https://jsonplaceholder.typicode.com/?key1=value1&key2=value2"))
+                }
+
+                it("Should append the endpoint before the query parameters") {
+                    let endpoint = "endpoint"
+                    let parameters = ["key1" : "value1", "key2" : "value2"]
+                    let urlTuple = self.unitUnderTest.urlWith(endpoint: endpoint, parameters: parameters)
+                    expect(urlTuple.url?.absoluteString).to(equal("https://jsonplaceholder.typicode.com/endpoint?key1=value1&key2=value2"))
+                }
+
+                it("Should return an error if the URL cannot be formed from the endpoint") {
+                    let endpoint = "Invalid URL Endpoint"
+                    let urlTuple = self.unitUnderTest.urlWith(endpoint: endpoint)
+                    expect(urlTuple.error?.code).to(equal(WebServiceError.Code.invalidURL.rawValue))
+                }
+            }
         }
     }
 }
