@@ -13,24 +13,47 @@ class PostsViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
-    var dataSource: TableViewDataSource<String>?
+    var dataSource: TableViewDataSource<Post>?
 
-    var posts: [String] = []
+    let postController = PostController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         title = "Posts"
 
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: PostsViewController.reuseId)
+        let postCellNib = UINib(nibName: "PostCell", bundle: Bundle.main)
+        tableView.register(postCellNib, forCellReuseIdentifier: PostsViewController.reuseId)
 
-        posts = ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten"]
-        dataSource = TableViewDataSource(objects: posts, cellReuseId: PostsViewController.reuseId, cellPresenter: { (cell, object) in
-            cell.textLabel?.text = object
+        dataSource = TableViewDataSource(objects: [Post](), cellReuseId: PostsViewController.reuseId, cellPresenter: { (cell, object) in
+            guard let cell = cell as? PostCell else {
+                return
+            }
+
+            let viewModel = PostViewModel(post: object)
+            cell.setViewModel(viewModel: viewModel)
         })
 
         tableView.dataSource = dataSource
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100
+
+        getPosts()
+    }
+
+    func getPosts() {
+        postController.getPosts { [weak self] (posts, error) in
+            if let error = error {
+                print(error)
+                return
+            }
+
+            guard let posts = posts else {
+                return
+            }
+
+            self?.dataSource?.objects = [posts]
+            self?.tableView.reloadData()
+        }
     }
 }

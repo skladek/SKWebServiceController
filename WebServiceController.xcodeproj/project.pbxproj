@@ -18,6 +18,8 @@
 		14B291411ED39AD800057D8E /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B291401ED39AD800057D8E /* PostViewModel.swift */; };
 		14B291491ED39E2C00057D8E /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B291471ED39E2C00057D8E /* PostCell.swift */; };
 		14B2914A1ED39E2C00057D8E /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B291481ED39E2C00057D8E /* PostCell.xib */; };
+		14B2914F1ED3D6A600057D8E /* WebServiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B2914E1ED3D6A600057D8E /* WebServiceController.swift */; };
+		14B291551ED3DB1F00057D8E /* PostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B291541ED3DB1F00057D8E /* PostController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,9 @@
 		14B291401ED39AD800057D8E /* PostViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
 		14B291471ED39E2C00057D8E /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		14B291481ED39E2C00057D8E /* PostCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
+		14B2914E1ED3D6A600057D8E /* WebServiceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceController.swift; sourceTree = "<group>"; };
+		14B291501ED3D91500057D8E /* WebServiceController-BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WebServiceController-BridgingHeader.h"; sourceTree = "<group>"; };
+		14B291541ED3DB1F00057D8E /* PostController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,9 +95,11 @@
 				14B291211ED3952F00057D8E /* Application */,
 				14B291351ED3964A00057D8E /* Controllers */,
 				14B2913A1ED3988500057D8E /* Models */,
+				14B291531ED3DB1F00057D8E /* Networking */,
 				14B291291ED3952F00057D8E /* ViewControllers */,
 				14B2913F1ED39AD800057D8E /* ViewModels */,
 				14B291461ED39E2C00057D8E /* Views */,
+				14B2914D1ED3D6A600057D8E /* WebServiceController */,
 			);
 			path = WebServiceController;
 			sourceTree = "<group>";
@@ -113,6 +120,7 @@
 				14B291231ED3952F00057D8E /* Assets.xcassets */,
 				14B291241ED3952F00057D8E /* LaunchScreen.storyboard */,
 				14B291281ED3952F00057D8E /* Info.plist */,
+				14B291501ED3D91500057D8E /* WebServiceController-BridgingHeader.h */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -157,6 +165,22 @@
 				14B291481ED39E2C00057D8E /* PostCell.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		14B2914D1ED3D6A600057D8E /* WebServiceController */ = {
+			isa = PBXGroup;
+			children = (
+				14B2914E1ED3D6A600057D8E /* WebServiceController.swift */,
+			);
+			path = WebServiceController;
+			sourceTree = "<group>";
+		};
+		14B291531ED3DB1F00057D8E /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				14B291541ED3DB1F00057D8E /* PostController.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,6 +290,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				14B291411ED39AD800057D8E /* PostViewModel.swift in Sources */,
+				14B291551ED3DB1F00057D8E /* PostController.swift in Sources */,
+				14B2914F1ED3D6A600057D8E /* WebServiceController.swift in Sources */,
 				14B291371ED3964A00057D8E /* TableViewDataSource.swift in Sources */,
 				14B291331ED3959200057D8E /* PostsViewController.swift in Sources */,
 				14B2912B1ED3952F00057D8E /* AppDelegate.swift in Sources */,
@@ -401,11 +427,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BASE_URL = "https://jsonplaceholder.typicode.com/";
 				DEVELOPMENT_TEAM = MV978XDK83;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"BASE_URL=(@\\\"${BASE_URL}\\\")",
+					"DEBUG=1",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/WebServiceController/Application/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.skladek.WebServiceController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "WebServiceController/Application/WebServiceController-BridgingHeader.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -414,11 +446,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BASE_URL = "https://jsonplaceholder.typicode.com/";
 				DEVELOPMENT_TEAM = MV978XDK83;
+				GCC_PREPROCESSOR_DEFINITIONS = "BASE_URL=(@\\\"${BASE_URL}\\\")";
 				INFOPLIST_FILE = "$(SRCROOT)/WebServiceController/Application/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.skladek.WebServiceController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "WebServiceController/Application/WebServiceController-BridgingHeader.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
