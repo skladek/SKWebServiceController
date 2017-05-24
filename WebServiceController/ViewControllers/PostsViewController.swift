@@ -17,6 +17,27 @@ class PostsViewController: UIViewController {
 
     let postController = PostController()
 
+    func getPosts() {
+        postController.getPosts { [weak self] (posts, error) in
+            if let error = error {
+                print(error)
+                return
+            }
+
+            self?.dataSource?.objects(posts)
+            self?.tableView.reloadData()
+        }
+    }
+
+    func newPost() {
+        pushEditPostViewController(post: nil)
+    }
+
+    func pushEditPostViewController(post: Post?) {
+        let editViewController = EditPostViewController(post: post)
+        navigationController?.pushViewController(editViewController, animated: true)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -44,27 +65,6 @@ class PostsViewController: UIViewController {
         navigationItem.rightBarButtonItem = newPostButton
 
         getPosts()
-    }
-
-    func getPosts() {
-        postController.getPosts { [weak self] (posts, error) in
-            if let error = error {
-                print(error)
-                return
-            }
-
-            self?.dataSource?.objects(posts)
-            self?.tableView.reloadData()
-        }
-    }
-
-    func newPost() {
-        pushEditPostViewController(post: nil)
-    }
-
-    func pushEditPostViewController(post: Post?) {
-        let editViewController = EditPostViewController(post: post)
-        navigationController?.pushViewController(editViewController, animated: true)
     }
 }
 

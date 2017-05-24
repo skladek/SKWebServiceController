@@ -20,6 +20,10 @@ class PostViewModel: NSObject {
     }
 
     func title() -> String {
-        return "\(post.id):" + "    " + post.title.capitalized
+        guard let postId = post.id else {
+            return post.title.capitalized
+        }
+
+        return "\(postId):" + "    " + post.title.capitalized
     }
 }

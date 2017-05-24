@@ -16,15 +16,22 @@ struct Post {
         static let userId = "userId"
     }
 
-    let body: String
-    let id: Int
-    let title: String
-    let userId: Int
+    var body: String
+    let id: Int?
+    var title: String
+    let userId: Int?
+
+    init() {
+        self.body = ""
+        self.id = nil
+        self.title = ""
+        self.userId = nil
+    }
 
     init(dictionary: [String : Any]) {
         self.body = dictionary[DictionaryKeys.body] as? String ?? ""
-        self.id = dictionary[DictionaryKeys.id] as? Int ?? Int.min
+        self.id = dictionary[DictionaryKeys.id] as? Int
         self.title = dictionary[DictionaryKeys.title] as? String ?? ""
-        self.userId = dictionary[DictionaryKeys.userId] as? Int ?? Int.min
+        self.userId = dictionary[DictionaryKeys.userId] as? Int
     }
 }

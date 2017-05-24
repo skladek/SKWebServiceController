@@ -14,10 +14,13 @@ class EditPostViewController: UIViewController {
 
     @IBOutlet weak var titleTextField: UITextField!
 
-    fileprivate var post: Post?
+    fileprivate let newPost: Bool
+
+    fileprivate let post: Post
 
     init(post: Post?) {
-        self.post = post
+        self.newPost = (post == nil)
+        self.post = post ?? Post()
 
         super.init(nibName: nil, bundle: nil)
     }
@@ -26,10 +29,26 @@ class EditPostViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    func createNewPost() {
+
+    }
+
+    func updatePost() {
+
+    }
+
+    @IBAction func submitTapped() {
+        if newPost {
+            createNewPost()
+        } else {
+            updatePost()
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        bodyTextField.text = post?.body
-        titleTextField.text = post?.title
+        bodyTextField.text = post.body
+        titleTextField.text = post.title
     }
 }
