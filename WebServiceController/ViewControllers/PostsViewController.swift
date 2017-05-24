@@ -48,11 +48,7 @@ class PostsViewController: UIViewController {
                 return
             }
 
-            guard let posts = posts else {
-                return
-            }
-
-            self?.dataSource?.objects = [posts]
+            self?.dataSource?.objects(posts)
             self?.tableView.reloadData()
         }
     }
