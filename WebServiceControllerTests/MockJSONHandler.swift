@@ -17,4 +17,8 @@ class MockJSONHandler: JSONHandling {
         dataToJSONCalled = true
         return (nil, nil)
     }
+
+    func jsonToData(_ jsonObject: Any?) -> ConvertedJSON {
+        return (nil, nil)
+    }
 }
