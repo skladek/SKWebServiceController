@@ -18,6 +18,8 @@ class EditPostViewController: UIViewController {
 
     fileprivate let post: Post
 
+    fileprivate let postController = PostController()
+
     init(post: Post?) {
         self.newPost = (post == nil)
         self.post = post ?? Post()
@@ -30,7 +32,11 @@ class EditPostViewController: UIViewController {
     }
 
     func createNewPost() {
-
+        postController.uploadNew(post) { (error) in
+            if let error = error {
+                print(error)
+            }
+        }
     }
 
     func updatePost() {

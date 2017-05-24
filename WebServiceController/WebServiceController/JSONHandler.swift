@@ -22,4 +22,18 @@ class JSONHandler: JSONHandling {
             return (nil, error)
         }
     }
+
+    func jsonToData(_ jsonObject: Any?) -> ConvertedJSON {
+        guard let jsonObject = jsonObject else {
+            let error = WebServiceError(code: .noData, message: "The json object to be converted was nil.")
+            return (nil, error)
+        }
+
+        do {
+            let data = try JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted)
+            return (data, nil)
+        } catch {
+            return (nil, error)
+        }
+    }
 }

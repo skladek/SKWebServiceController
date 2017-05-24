@@ -22,4 +22,12 @@ class PostController: NSObject {
             completion(posts, error)
         }
     }
+
+    func uploadNew(_ post: Post, completion: @escaping (Error?) -> ()) {
+        let endpoint = "posts"
+
+        WebServiceController.sharedInstance.post(endpoint, json: post.toJSON()) { (objects, response, error) in
+            completion(error)
+        }
+    }
 }

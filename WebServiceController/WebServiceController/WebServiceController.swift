@@ -59,12 +59,20 @@ class WebServiceController: NSObject {
     }
 
     @discardableResult
-    func post(_ endpoint: String? = nil, parameters: [String : String]? = nil, data: Data?, completion: @escaping RequestCompletion) -> URLSessionDataTask? {
+    func post(_ endpoint: String? = nil, parameters: [String : String]? = nil, json: Any?, completion: @escaping RequestCompletion) -> URLSessionDataTask? {
         let urlTuple = URLConstructor.urlWith(endpoint: endpoint, parameters: parameters)
         guard let url = urlTuple.url else {
             completion(nil, nil, urlTuple.error)
             return nil
         }
+
+        let convertedJSON = jsonHandler.jsonToData(json)
+        if convertedJSON.error != nil {
+            completion(nil, nil, convertedJSON.error)
+            return nil
+        }
+
+        let data = convertedJSON.object as? Data
 
         let urlRequest = URLRequest(url: url)
         let dataTask = session.uploadTask(with: urlRequest, from: data) { (data, response, error) in

@@ -12,4 +12,5 @@ typealias ConvertedJSON = (object: Any?, error: Error?)
 
 protocol JSONHandling {
     func dataToJSON(_ data: Data?) -> ConvertedJSON
+    func jsonToData(_ jsonObject: Any?) -> ConvertedJSON
 }

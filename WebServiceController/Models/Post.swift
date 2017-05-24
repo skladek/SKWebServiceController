@@ -34,4 +34,11 @@ struct Post {
         self.title = dictionary[DictionaryKeys.title] as? String ?? ""
         self.userId = dictionary[DictionaryKeys.userId] as? Int
     }
+
+    func toJSON() -> [String : String] {
+        return [
+            DictionaryKeys.body : body,
+            DictionaryKeys.title : title,
+        ]
+    }
 }
