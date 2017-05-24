@@ -38,6 +38,11 @@ class PostsViewController: UIViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100
 
+        let refreshButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(getPosts))
+        let newPostButton = UIBarButtonItem(title: "NEW POST", style: .plain, target: self, action: #selector(newPost))
+        navigationItem.leftBarButtonItem = refreshButton
+        navigationItem.rightBarButtonItem = newPostButton
+
         getPosts()
     }
 
@@ -52,13 +57,21 @@ class PostsViewController: UIViewController {
             self?.tableView.reloadData()
         }
     }
+
+    func newPost() {
+        pushEditPostViewController(post: nil)
+    }
+
+    func pushEditPostViewController(post: Post?) {
+        let editViewController = EditPostViewController(post: post)
+        navigationController?.pushViewController(editViewController, animated: true)
+    }
 }
 
 extension PostsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let post = self.dataSource?.object(indexPath)
-        let editViewController = EditPostViewController(post: post)
-        navigationController?.pushViewController(editViewController, animated: true)
+        pushEditPostViewController(post: post)
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
