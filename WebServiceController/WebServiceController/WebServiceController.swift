@@ -45,12 +45,13 @@ class WebServiceController: NSObject {
     /// - Parameters:
     ///   - endpoint: The endpoint to perform the request on.
     ///   - completion: Returns the json object and/or an error.
-    func get(_ endpoint: String? = nil, parameters: [String : String]? = nil, completion: @escaping RequestCompletion) {
+    @discardableResult
+    func get(_ endpoint: String? = nil, parameters: [String : String]? = nil, completion: @escaping RequestCompletion) -> URLSessionDataTask? {
         let urlTuple = urlWith(endpoint: endpoint, parameters: parameters)
 
         guard let url = urlTuple.url else {
             completion(nil, urlTuple.error)
-            return
+            return nil
         }
 
         let dataTask = session.dataTask(with: url) { (data, response, error) in
@@ -65,9 +66,9 @@ class WebServiceController: NSObject {
         }
         
         dataTask.resume()
+
+        return dataTask
     }
-
-
 
     func urlWith(endpoint: String? = nil, parameters: [String : String]? = nil) -> URLTuple {
         var fullURLString = WebServiceController.baseURL
