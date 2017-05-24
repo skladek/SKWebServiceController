@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14024B871ED5E89E006B6F39 /* EditPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14024B851ED5E89E006B6F39 /* EditPostViewController.swift */; };
+		14024B881ED5E89E006B6F39 /* EditPostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14024B861ED5E89E006B6F39 /* EditPostViewController.xib */; };
 		14053C9E1ED394A80094E780 /* WebServiceControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14053C9D1ED394A80094E780 /* WebServiceControllerSpec.swift */; };
 		14B2912B1ED3952F00057D8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B291221ED3952F00057D8E /* AppDelegate.swift */; };
 		14B2912C1ED3952F00057D8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14B291231ED3952F00057D8E /* Assets.xcassets */; };
@@ -60,6 +62,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		14024B851ED5E89E006B6F39 /* EditPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPostViewController.swift; sourceTree = "<group>"; };
+		14024B861ED5E89E006B6F39 /* EditPostViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditPostViewController.xib; sourceTree = "<group>"; };
 		14053C851ED394A80094E780 /* WebServiceController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebServiceController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14053C991ED394A80094E780 /* WebServiceControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WebServiceControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		14053C9D1ED394A80094E780 /* WebServiceControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServiceControllerSpec.swift; sourceTree = "<group>"; };
@@ -173,6 +177,8 @@
 		14B291291ED3952F00057D8E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				14024B851ED5E89E006B6F39 /* EditPostViewController.swift */,
+				14024B861ED5E89E006B6F39 /* EditPostViewController.xib */,
 				14B291311ED3959200057D8E /* PostsViewController.swift */,
 				14B291321ED3959200057D8E /* PostsViewController.xib */,
 			);
@@ -330,6 +336,7 @@
 				14B2912C1ED3952F00057D8E /* Assets.xcassets in Resources */,
 				14B291341ED3959200057D8E /* PostsViewController.xib in Resources */,
 				14B2912D1ED3952F00057D8E /* LaunchScreen.storyboard in Resources */,
+				14024B881ED5E89E006B6F39 /* EditPostViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,6 +364,7 @@
 				14B2913C1ED3988500057D8E /* Post.swift in Sources */,
 				14B831CC1ED4E34A0004A605 /* JSONDeserializing.swift in Sources */,
 				14B291571ED489AE00057D8E /* WebServiceError.swift in Sources */,
+				14024B871ED5E89E006B6F39 /* EditPostViewController.swift in Sources */,
 				14B291491ED39E2C00057D8E /* PostCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

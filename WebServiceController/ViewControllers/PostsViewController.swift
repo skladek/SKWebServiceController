@@ -53,3 +53,12 @@ class PostsViewController: UIViewController {
         }
     }
 }
+
+extension PostsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let post = self.dataSource?.object(indexPath)
+        let editViewController = EditPostViewController(post: post)
+        navigationController?.pushViewController(editViewController, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
