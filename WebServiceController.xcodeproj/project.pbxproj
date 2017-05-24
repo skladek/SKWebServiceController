@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		14024B871ED5E89E006B6F39 /* EditPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14024B851ED5E89E006B6F39 /* EditPostViewController.swift */; };
 		14024B881ED5E89E006B6F39 /* EditPostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14024B861ED5E89E006B6F39 /* EditPostViewController.xib */; };
+		14024B8A1ED5F111006B6F39 /* URLConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14024B891ED5F111006B6F39 /* URLConstructor.swift */; };
+		14024B8C1ED5F23B006B6F39 /* URLConstructorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14024B8B1ED5F23B006B6F39 /* URLConstructorSpec.swift */; };
 		14053C9E1ED394A80094E780 /* WebServiceControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14053C9D1ED394A80094E780 /* WebServiceControllerSpec.swift */; };
 		14B2912B1ED3952F00057D8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B291221ED3952F00057D8E /* AppDelegate.swift */; };
 		14B2912C1ED3952F00057D8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14B291231ED3952F00057D8E /* Assets.xcassets */; };
@@ -64,6 +66,8 @@
 /* Begin PBXFileReference section */
 		14024B851ED5E89E006B6F39 /* EditPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPostViewController.swift; sourceTree = "<group>"; };
 		14024B861ED5E89E006B6F39 /* EditPostViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditPostViewController.xib; sourceTree = "<group>"; };
+		14024B891ED5F111006B6F39 /* URLConstructor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLConstructor.swift; sourceTree = "<group>"; };
+		14024B8B1ED5F23B006B6F39 /* URLConstructorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLConstructorSpec.swift; sourceTree = "<group>"; };
 		14053C851ED394A80094E780 /* WebServiceController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebServiceController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14053C991ED394A80094E780 /* WebServiceControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WebServiceControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		14053C9D1ED394A80094E780 /* WebServiceControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServiceControllerSpec.swift; sourceTree = "<group>"; };
@@ -155,6 +159,7 @@
 				14B831CD1ED4E4AB0004A605 /* MockDeserializer.swift */,
 				14B831C51ED4DBB20004A605 /* MockSession.swift */,
 				14B831C71ED4DE2F0004A605 /* MockURLSessionDataTask.swift */,
+				14024B8B1ED5F23B006B6F39 /* URLConstructorSpec.swift */,
 				14053C9D1ED394A80094E780 /* WebServiceControllerSpec.swift */,
 				14B831C31ED4D81B0004A605 /* WebServiceErrorSpec.swift */,
 				14B831CF1ED4E76F0004A605 /* WebServiceJSONDeserializerSpec.swift */,
@@ -222,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				14B831CB1ED4E34A0004A605 /* JSONDeserializing.swift */,
+				14024B891ED5F111006B6F39 /* URLConstructor.swift */,
 				14B2914E1ED3D6A600057D8E /* WebServiceController.swift */,
 				14B291561ED489AE00057D8E /* WebServiceError.swift */,
 				14B831C91ED4E2FA0004A605 /* WebServiceJSONDeserializer.swift */,
@@ -357,6 +363,7 @@
 				14B291411ED39AD800057D8E /* PostViewModel.swift in Sources */,
 				14B831CA1ED4E2FA0004A605 /* WebServiceJSONDeserializer.swift in Sources */,
 				14B291551ED3DB1F00057D8E /* PostController.swift in Sources */,
+				14024B8A1ED5F111006B6F39 /* URLConstructor.swift in Sources */,
 				14B2914F1ED3D6A600057D8E /* WebServiceController.swift in Sources */,
 				14B291371ED3964A00057D8E /* TableViewDataSource.swift in Sources */,
 				14B291331ED3959200057D8E /* PostsViewController.swift in Sources */,
@@ -375,6 +382,7 @@
 			files = (
 				14B831C61ED4DBB20004A605 /* MockSession.swift in Sources */,
 				14B831D01ED4E76F0004A605 /* WebServiceJSONDeserializerSpec.swift in Sources */,
+				14024B8C1ED5F23B006B6F39 /* URLConstructorSpec.swift in Sources */,
 				14B831CE1ED4E4AB0004A605 /* MockDeserializer.swift in Sources */,
 				14B831C41ED4D81B0004A605 /* WebServiceErrorSpec.swift in Sources */,
 				14053C9E1ED394A80094E780 /* WebServiceControllerSpec.swift in Sources */,
