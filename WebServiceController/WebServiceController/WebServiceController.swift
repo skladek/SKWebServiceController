@@ -74,7 +74,8 @@ class WebServiceController: NSObject {
 
         let data = convertedJSON.object as? Data
 
-        let urlRequest = URLRequest(url: url)
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "POST"
         let dataTask = session.uploadTask(with: urlRequest, from: data) { (data, response, error) in
             self.taskCompletion(data: data, response: response, error: error, completion: completion)
         }
