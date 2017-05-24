@@ -12,7 +12,7 @@ class PostController: NSObject {
     func getPosts(completion: @escaping ([Post]?, Error?) -> ()) {
         let endpoint = "posts"
 
-        WebServiceController.sharedInstance.get(endpoint) { (objects, error) in
+        WebServiceController.sharedInstance.get(endpoint) { (objects, response, error) in
             guard let objects = objects as? [[String : Any]] else {
                 completion(nil, error)
                 return

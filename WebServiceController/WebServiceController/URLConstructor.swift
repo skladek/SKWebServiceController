@@ -14,7 +14,7 @@ class URLConstructor: NSObject {
     /// The url to append all request endpoints onto.
     static fileprivate let baseURL = kBASE_URL
 
-    class func urlWith(endpoint: String? = nil, parameters: [String : String]? = nil) -> URLResult {
+    class func urlWith(endpoint: String?, parameters: [String : String]?) -> URLResult {
         var fullURLString = URLConstructor.baseURL
 
         if let endpoint = endpoint {

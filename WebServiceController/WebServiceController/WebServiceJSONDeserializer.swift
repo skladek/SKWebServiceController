@@ -9,7 +9,7 @@
 import Foundation
 
 class WebServiceJSONDeserializer: JSONDeserializing {
-    func dataToJSON(_ data: Data?, completion: @escaping WebServiceController.RequestCompletion) {
+    func dataToJSON(_ data: Data?, completion: @escaping JSONDeserializeCompletion) {
         guard let data = data else {
             let error = WebServiceError(code: .noData, message: "The server returned without error and without data.")
             completion(nil, error)

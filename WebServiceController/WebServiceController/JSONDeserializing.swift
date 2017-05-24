@@ -8,6 +8,8 @@
 
 import Foundation
 
+typealias JSONDeserializeCompletion = (Any?, Error?) -> ()
+
 protocol JSONDeserializing {
-    func dataToJSON(_ data: Data?, completion: @escaping WebServiceController.RequestCompletion)
+    func dataToJSON(_ data: Data?, completion: @escaping JSONDeserializeCompletion)
 }

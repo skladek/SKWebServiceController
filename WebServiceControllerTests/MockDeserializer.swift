@@ -13,7 +13,7 @@ import Foundation
 class MockDeserializer: JSONDeserializing {
     var dataToJSONCalled = false
 
-    func dataToJSON(_ data: Data?, completion: @escaping WebServiceController.RequestCompletion) {
+    func dataToJSON(_ data: Data?, completion: @escaping JSONDeserializeCompletion) {
         dataToJSONCalled = true
         completion(nil, nil)
     }

@@ -11,7 +11,7 @@ import UIKit
 class WebServiceController: NSObject {
     // MARK: Class Types
 
-    typealias RequestCompletion = (Any?, Error?) -> ()
+    typealias RequestCompletion = (Any?, URLResponse?, Error?) -> ()
 
     // MARK: Static Variables
 
@@ -45,23 +45,47 @@ class WebServiceController: NSObject {
         let urlTuple = URLConstructor.urlWith(endpoint: endpoint, parameters: parameters)
 
         guard let url = urlTuple.url else {
-            completion(nil, urlTuple.error)
+            completion(nil, nil, urlTuple.error)
             return nil
         }
 
         let dataTask = session.dataTask(with: url) { (data, response, error) in
-            DispatchQueue.main.async {
-                if let error = error {
-                    completion(nil, error)
-                    return
-                }
-
-                self.deserializer.dataToJSON(data, completion: completion)
-            }
+            self.taskCompletion(data: data, response: response, error: error, completion: completion)
         }
-        
+
         dataTask.resume()
 
         return dataTask
+    }
+
+    @discardableResult
+    func post(_ endpoint: String? = nil, parameters: [String : String]? = nil, data: Data?, completion: @escaping RequestCompletion) -> URLSessionDataTask? {
+        let urlTuple = URLConstructor.urlWith(endpoint: endpoint, parameters: parameters)
+        guard let url = urlTuple.url else {
+            completion(nil, nil, urlTuple.error)
+            return nil
+        }
+
+        let urlRequest = URLRequest(url: url)
+        let dataTask = session.uploadTask(with: urlRequest, from: data) { (data, response, error) in
+            self.taskCompletion(data: data, response: response, error: error, completion: completion)
+        }
+
+        dataTask.resume()
+
+        return dataTask
+    }
+
+    fileprivate func taskCompletion(data: Data?, response: URLResponse?, error: Error?, completion: @escaping RequestCompletion) {
+        DispatchQueue.main.async {
+            if let error = error {
+                completion(nil, response, error)
+                return
+            }
+
+            self.deserializer.dataToJSON(data, completion: { (objects, error) in
+                completion(objects, response, error)
+            })
+        }
     }
 }

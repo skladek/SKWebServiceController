@@ -41,24 +41,24 @@ class URLConstructorSpec: QuickSpec {
 
             context("urlWith(endpoint:parameters:)") {
                 it("Should return a URL from the base URL if a no endpoint or parameters are passed in.") {
-                    expect(URLConstructor.urlWith().url?.absoluteString).to(equal("https://jsonplaceholder.typicode.com/"))
+                    expect(URLConstructor.urlWith(endpoint: nil, parameters: nil).url?.absoluteString).to(equal("https://jsonplaceholder.typicode.com/"))
                 }
 
                 it("Should append the endpoint onto the base url") {
                     let endpoint = "endpoint/test"
-                    let urlTuple = URLConstructor.urlWith(endpoint: endpoint)
+                    let urlTuple = URLConstructor.urlWith(endpoint: endpoint, parameters: nil)
                     expect(urlTuple.url?.absoluteString).to(equal("https://jsonplaceholder.typicode.com/endpoint/test"))
                 }
 
                 it("Should append the endpoint onto the base url") {
                     let endpoint = "endpoint/test"
-                    let urlTuple = URLConstructor.urlWith(endpoint: endpoint)
+                    let urlTuple = URLConstructor.urlWith(endpoint: endpoint, parameters: nil)
                     expect(urlTuple.url?.absoluteString).to(equal("https://jsonplaceholder.typicode.com/endpoint/test"))
                 }
 
                 it("Should append the parameters string onto the base url") {
                     let parameters = ["key1" : "value1", "key2" : "value2"]
-                    let urlTuple = URLConstructor.urlWith(parameters: parameters)
+                    let urlTuple = URLConstructor.urlWith(endpoint: nil, parameters: parameters)
                     expect(urlTuple.url?.absoluteString).to(equal("https://jsonplaceholder.typicode.com/?key1=value1&key2=value2"))
                 }
 
@@ -71,7 +71,7 @@ class URLConstructorSpec: QuickSpec {
 
                 it("Should return an error if the URL cannot be formed from the endpoint") {
                     let endpoint = "Invalid URL Endpoint"
-                    let urlTuple = URLConstructor.urlWith(endpoint: endpoint)
+                    let urlTuple = URLConstructor.urlWith(endpoint: endpoint, parameters: nil)
                     expect(urlTuple.error?.code).to(equal(WebServiceError.Code.invalidURL.rawValue))
                 }
             }
