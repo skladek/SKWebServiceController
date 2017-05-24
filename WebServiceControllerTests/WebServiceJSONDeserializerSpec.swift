@@ -16,20 +16,16 @@ class WebServiceJSONDeserializerSpec: QuickSpec {
 
     override func spec() {
         describe("WebServiceError") {
-            var unitUnderTest: WebServiceJSONDeserializer!
+            var unitUnderTest: JSONHandler!
 
             beforeEach {
-                unitUnderTest = WebServiceJSONDeserializer()
+                unitUnderTest = JSONHandler()
             }
 
             context("dataToJSON(_:completion:") {
                 it("Should return an error if data is nil") {
-                    waitUntil() { done in
-                        unitUnderTest.dataToJSON(nil, completion: { (objects, error) in
-                            expect((error as NSError?)?.code).to(equal(WebServiceError.Code.noData.rawValue))
-                            done()
-                        })
-                    }
+                    let result = unitUnderTest.dataToJSON(nil)
+                    expect((result.error as NSError?)?.code).to(equal(WebServiceError.Code.noData.rawValue))
                 }
 
                 it("Should deserialize valid data and return the object through the completion closure") {
@@ -42,21 +38,13 @@ class WebServiceJSONDeserializerSpec: QuickSpec {
                         print(error)
                     }
 
-                    waitUntil() { done in
-                        unitUnderTest.dataToJSON(jsonData, completion: { (objects, error) in
-                            expect(objects as? [String : String]).to(equal(dictionary))
-                            done()
-                        })
-                    }
+                    let result = unitUnderTest.dataToJSON(jsonData)
+                    expect(result.object as? [String : String]).to(equal(dictionary))
                 }
 
                 it("Should return an error if the data cannot be deserialized") {
-                    waitUntil() { done in
-                        unitUnderTest.dataToJSON(Data(), completion: { (objects, error) in
-                            expect(error).toNot(beNil())
-                            done()
-                        })
-                    }
+                    let result = unitUnderTest.dataToJSON(Data())
+                    expect(result.error).toNot(beNil())
                 }
             }
         }

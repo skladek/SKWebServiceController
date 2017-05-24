@@ -47,12 +47,12 @@ class WebServiceControllerSpec: QuickSpec {
                 }
 
                 it("Should call dataToJSON on the deserialization object") {
-                    let mockDeserializer = MockDeserializer()
-                    unitUnderTest = WebServiceController(testingSession: session, deserializer: mockDeserializer)
+                    let mockJSONHandler = MockJSONHandler()
+                    unitUnderTest = WebServiceController(testingSession: session, jsonHandler: mockJSONHandler)
 
                     waitUntil() { done in
                         unitUnderTest.get(completion: { (object, _, error) in
-                            expect(mockDeserializer.dataToJSONCalled).to(beTrue())
+                            expect(mockJSONHandler.dataToJSONCalled).to(beTrue())
                             done()
                         })
                     }

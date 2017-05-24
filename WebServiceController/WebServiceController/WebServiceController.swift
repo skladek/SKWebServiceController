@@ -18,18 +18,18 @@ class WebServiceController: NSObject {
     /// A singleton instance
     static let sharedInstance = WebServiceController()
 
-    fileprivate let deserializer: JSONDeserializing
+    fileprivate let jsonHandler: JSONHandling
 
     /// A configured URLSession to route requests through.
     fileprivate let session: URLSession
 
     override init() {
-        self.deserializer = WebServiceJSONDeserializer()
+        self.jsonHandler = JSONHandler()
         self.session = URLSession(configuration: .default)
     }
 
-    init(testingSession: URLSession, deserializer: JSONDeserializing? = nil) {
-        self.deserializer = deserializer ?? WebServiceJSONDeserializer()
+    init(testingSession: URLSession, jsonHandler: JSONHandling? = nil) {
+        self.jsonHandler = jsonHandler ?? JSONHandler()
         self.session = testingSession
     }
 
@@ -83,9 +83,8 @@ class WebServiceController: NSObject {
                 return
             }
 
-            self.deserializer.dataToJSON(data, completion: { (objects, error) in
-                completion(objects, response, error)
-            })
+            let result = self.jsonHandler.dataToJSON(data)
+            completion(result.object, response, error)
         }
     }
 }

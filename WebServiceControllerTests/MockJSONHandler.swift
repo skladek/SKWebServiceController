@@ -10,11 +10,11 @@ import Foundation
 
 @testable import WebServiceController
 
-class MockDeserializer: JSONDeserializing {
+class MockJSONHandler: JSONHandling {
     var dataToJSONCalled = false
 
-    func dataToJSON(_ data: Data?, completion: @escaping JSONDeserializeCompletion) {
+    func dataToJSON(_ data: Data?) -> ConvertedJSON {
         dataToJSONCalled = true
-        completion(nil, nil)
+        return (nil, nil)
     }
 }

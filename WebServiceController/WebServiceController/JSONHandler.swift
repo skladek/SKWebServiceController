@@ -1,5 +1,5 @@
 //
-//  WebServiceJSONDeserializer.swift
+//  JSONHandler.swift
 //  WebServiceController
 //
 //  Created by Sean on 5/23/17.
@@ -8,19 +8,18 @@
 
 import Foundation
 
-class WebServiceJSONDeserializer: JSONDeserializing {
-    func dataToJSON(_ data: Data?, completion: @escaping JSONDeserializeCompletion) {
+class JSONHandler: JSONHandling {
+    func dataToJSON(_ data: Data?) -> ConvertedJSON {
         guard let data = data else {
             let error = WebServiceError(code: .noData, message: "The server returned without error and without data.")
-            completion(nil, error)
-            return
+            return (nil, error)
         }
 
         do {
             let jsonData = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-            completion(jsonData, nil)
+            return (jsonData, nil)
         } catch {
-            completion(nil, error)
+            return (nil, error)
         }
     }
 }
