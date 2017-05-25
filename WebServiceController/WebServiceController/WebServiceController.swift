@@ -11,12 +11,7 @@ import UIKit
 class WebServiceController: NSObject {
     // MARK: Class Types
 
-    fileprivate enum HTTPMethod: String {
-        case get = "GET"
-        case post = "POST"
-        case put = "PUT"
-    }
-
+    /// The completion that is returned with requests.
     typealias RequestCompletion = (Any?, URLResponse?, Error?) -> ()
 
     // MARK: Static Variables
@@ -24,16 +19,33 @@ class WebServiceController: NSObject {
     /// A singleton instance
     static let sharedInstance = WebServiceController()
 
-    fileprivate let jsonHandler: JSONHandling
+    // MARK: Private Class Types
 
-    /// A configured URLSession to route requests through.
-    fileprivate let session: URLSession
+    private enum HTTPMethod: String {
+        case get = "GET"
+        case post = "POST"
+        case put = "PUT"
+    }
 
+    // MARK: Private Variables
+
+    private let jsonHandler: JSONHandling
+
+    private let session: URLSession
+
+    // MARK: Init Methods
+
+    /// An initializer to create a controller with default values.
     override init() {
         self.jsonHandler = JSONHandler()
         self.session = URLSession(configuration: .default)
     }
 
+    /// An initializer to take session and JSON Handler values for testing purposes. Do not use this initializer in production.
+    ///
+    /// - Parameters:
+    ///   - testingSession: The URL session to be used.
+    ///   - jsonHandler: The JSON handler to be used.
     init(testingSession: URLSession, jsonHandler: JSONHandling? = nil) {
         self.jsonHandler = jsonHandler ?? JSONHandler()
         self.session = testingSession
@@ -41,11 +53,13 @@ class WebServiceController: NSObject {
 
     // MARK: Instance Methods
 
-    /// Performs a get request on the concatenated base url and endpoint.
+    /// Performs a get request on the url formed from the base URL, endpoint, and parameters.
     ///
     /// - Parameters:
     ///   - endpoint: The endpoint to perform the request on.
-    ///   - completion: Returns the json object and/or an error.
+    ///   - parameters: The query parameters to be included in the URL.
+    ///   - completion: The closure called when the request completes.
+    /// - Returns: The data task to be performed.
     @discardableResult
     func get(_ endpoint: String? = nil, parameters: [String : String]? = nil, completion: @escaping RequestCompletion) -> URLSessionDataTask? {
         let urlTuple = URLConstructor.urlWith(endpoint: endpoint, parameters: parameters)
@@ -64,17 +78,36 @@ class WebServiceController: NSObject {
         return dataTask
     }
 
+
+    /// Performs a post request on the url formed from the base URL, endpoint, and parameters.
+    ///
+    /// - Parameters:
+    ///   - endpoint: The endpoint to perform the request on.
+    ///   - parameters: The query parameters to be included in the URL.
+    ///   - json: The JSON object to be converted to data. This must be a valid JSON object type.
+    ///   - completion: The closure called when the request completes.
+    /// - Returns: The data task to be performed.
     @discardableResult
     func post(_ endpoint: String? = nil, parameters: [String : String]? = nil, json: Any?, completion: @escaping RequestCompletion) -> URLSessionDataTask? {
         return postPut(endpoint, parameters: parameters, json: json, httpMethod: .post, completion: completion)
     }
 
+    /// Performs a put request on the url formed from the base URL, endpoint, and parameters.
+    ///
+    /// - Parameters:
+    ///   - endpoint: The endpoint to perform the request on.
+    ///   - parameters: The query parameters to be included in the URL.
+    ///   - json: The JSON object to be converted to data. This must be a valid JSON object type.
+    ///   - completion: The closure called when the request completes.
+    /// - Returns: The data task to be performed.
     @discardableResult
     func put(_ endpoint: String? = nil, parameters: [String : String]? = nil, json: Any?, completion: @escaping RequestCompletion) -> URLSessionDataTask? {
         return postPut(endpoint, parameters: parameters, json: json, httpMethod: .put, completion: completion)
     }
 
-    fileprivate func postPut(_ endpoint: String? = nil, parameters: [String : String]? = nil, json: Any?, httpMethod: HTTPMethod, completion: @escaping RequestCompletion) -> URLSessionDataTask? {
+    // MARK: Private Methods
+
+    private func postPut(_ endpoint: String? = nil, parameters: [String : String]? = nil, json: Any?, httpMethod: HTTPMethod, completion: @escaping RequestCompletion) -> URLSessionDataTask? {
         let urlTuple = URLConstructor.urlWith(endpoint: endpoint, parameters: parameters)
         guard let url = urlTuple.url else {
             completion(nil, nil, urlTuple.error)
@@ -100,7 +133,7 @@ class WebServiceController: NSObject {
         return dataTask
     }
 
-    fileprivate func taskCompletion(data: Data?, response: URLResponse?, error: Error?, completion: @escaping RequestCompletion) {
+    private func taskCompletion(data: Data?, response: URLResponse?, error: Error?, completion: @escaping RequestCompletion) {
         DispatchQueue.main.async {
             if let error = error {
                 completion(nil, response, error)

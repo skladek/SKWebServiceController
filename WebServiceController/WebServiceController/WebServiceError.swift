@@ -26,6 +26,8 @@ class WebServiceError: NSError {
     /// The domain for errors. This should be updated to match the app Bundle Id on integration.
     static let errorDomain = Bundle.main.bundleIdentifier ?? ""
 
+    // MARK: Init Methods
+
     /// Initializes an error with the error code and an optional message.
     ///
     /// - Parameters:

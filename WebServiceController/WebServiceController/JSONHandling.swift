@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// A tuple containing the converted object or an error encountered while converting.
 typealias ConvertedJSON = (object: Any?, error: Error?)
 
 protocol JSONHandling {
