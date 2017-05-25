@@ -41,7 +41,9 @@ class EditPostViewController: UIViewController {
 
     func updatePost() {
         postController.update(post) { (error) in
-            print(error)
+            if let error = error {
+                print(error)
+            }
         }
     }
 

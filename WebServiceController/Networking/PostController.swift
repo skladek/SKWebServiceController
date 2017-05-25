@@ -14,6 +14,18 @@ class PostController: NSObject {
         static let postsWithId = "posts/%ld"
     }
 
+    func delete(_ post: Post, completion: @escaping (Error?) -> ()) {
+        guard let postId = post.id else {
+            return
+        }
+
+        let endpoint = String(format: Endpoints.postsWithId, postId)
+
+        WebServiceController.sharedInstance.delete(endpoint) { (objects, response, error) in
+            completion(error)
+        }
+    }
+
     func getPosts(completion: @escaping ([Post]?, Error?) -> ()) {
         WebServiceController.sharedInstance.get(Endpoints.posts) { (objects, response, error) in
             guard let objects = objects as? [[String : Any]] else {

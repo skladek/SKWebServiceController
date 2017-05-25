@@ -22,6 +22,7 @@ class WebServiceController: NSObject {
     // MARK: Private Class Types
 
     private enum HTTPMethod: String {
+        case delete = "DELETE"
         case get = "GET"
         case post = "POST"
         case put = "PUT"
@@ -53,6 +54,26 @@ class WebServiceController: NSObject {
 
     // MARK: Instance Methods
 
+    @discardableResult
+    func delete(_ endpoint: String, completion: @escaping RequestCompletion) -> URLSessionTask? {
+        let urlTuple = URLConstructor.urlWith(endpoint: endpoint, parameters: nil)
+
+        guard let url = urlTuple.url else {
+            completion(nil, nil, urlTuple.error)
+            return nil
+        }
+
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = HTTPMethod.delete.rawValue
+        let dataTask = session.dataTask(with: urlRequest) { (data, response, error) in
+            self.taskCompletion(data: data, response: response, error: error, completion: completion)
+        }
+
+        dataTask.resume()
+        
+        return dataTask
+    }
+
     /// Performs a get request on the url formed from the base URL, endpoint, and parameters.
     ///
     /// - Parameters:
@@ -77,7 +98,6 @@ class WebServiceController: NSObject {
 
         return dataTask
     }
-
 
     /// Performs a post request on the url formed from the base URL, endpoint, and parameters.
     ///

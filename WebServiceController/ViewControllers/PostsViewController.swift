@@ -55,6 +55,7 @@ class PostsViewController: UIViewController {
             cell.setViewModel(viewModel: viewModel)
         })
 
+        dataSource?.delegate = self
         tableView.dataSource = dataSource
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100
@@ -65,6 +66,31 @@ class PostsViewController: UIViewController {
         navigationItem.rightBarButtonItem = newPostButton
 
         getPosts()
+    }
+}
+
+extension PostsViewController: TableViewDataSourceDelegate {
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle != .delete {
+            return
+        }
+
+        if let post = dataSource?.object(indexPath) {
+            dataSource?.delete(indexPath: indexPath)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            postController.delete(post, completion: { [weak self] (error) in
+                if let error = error {
+                    print(error)
+                    return
+                }
+
+                self?.getPosts()
+            })
+        }
     }
 }
 
