@@ -11,6 +11,12 @@ import UIKit
 class WebServiceController: NSObject {
     // MARK: Class Types
 
+    fileprivate enum HTTPMethod: String {
+        case get = "GET"
+        case post = "POST"
+        case put = "PUT"
+    }
+
     typealias RequestCompletion = (Any?, URLResponse?, Error?) -> ()
 
     // MARK: Static Variables
@@ -60,6 +66,15 @@ class WebServiceController: NSObject {
 
     @discardableResult
     func post(_ endpoint: String? = nil, parameters: [String : String]? = nil, json: Any?, completion: @escaping RequestCompletion) -> URLSessionDataTask? {
+        return postPut(endpoint, parameters: parameters, json: json, httpMethod: .post, completion: completion)
+    }
+
+    @discardableResult
+    func put(_ endpoint: String? = nil, parameters: [String : String]? = nil, json: Any?, completion: @escaping RequestCompletion) -> URLSessionDataTask? {
+        return postPut(endpoint, parameters: parameters, json: json, httpMethod: .put, completion: completion)
+    }
+
+    fileprivate func postPut(_ endpoint: String? = nil, parameters: [String : String]? = nil, json: Any?, httpMethod: HTTPMethod, completion: @escaping RequestCompletion) -> URLSessionDataTask? {
         let urlTuple = URLConstructor.urlWith(endpoint: endpoint, parameters: parameters)
         guard let url = urlTuple.url else {
             completion(nil, nil, urlTuple.error)
@@ -75,13 +90,13 @@ class WebServiceController: NSObject {
         let data = convertedJSON.object as? Data
 
         var urlRequest = URLRequest(url: url)
-        urlRequest.httpMethod = "POST"
+        urlRequest.httpMethod = httpMethod.rawValue
         let dataTask = session.uploadTask(with: urlRequest, from: data) { (data, response, error) in
             self.taskCompletion(data: data, response: response, error: error, completion: completion)
         }
 
         dataTask.resume()
-
+        
         return dataTask
     }
 

@@ -9,10 +9,12 @@
 import UIKit
 
 class PostController: NSObject {
-    func getPosts(completion: @escaping ([Post]?, Error?) -> ()) {
-        let endpoint = "posts"
+    struct Endpoints {
+        static let posts = "posts"
+    }
 
-        WebServiceController.sharedInstance.get(endpoint) { (objects, response, error) in
+    func getPosts(completion: @escaping ([Post]?, Error?) -> ()) {
+        WebServiceController.sharedInstance.get(Endpoints.posts) { (objects, response, error) in
             guard let objects = objects as? [[String : Any]] else {
                 completion(nil, error)
                 return
@@ -23,10 +25,12 @@ class PostController: NSObject {
         }
     }
 
-    func uploadNew(_ post: Post, completion: @escaping (Error?) -> ()) {
-        let endpoint = "posts"
+    func update(_ post: Post, completion: @escaping (Error?) -> ()) {
+        
+    }
 
-        WebServiceController.sharedInstance.post(endpoint, json: post.toJSON()) { (objects, response, error) in
+    func uploadNew(_ post: Post, completion: @escaping (Error?) -> ()) {
+        WebServiceController.sharedInstance.post(Endpoints.posts, json: post.toJSON()) { (objects, response, error) in
             completion(error)
         }
     }

@@ -31,7 +31,6 @@
 		14B291611ED4940E00057D8E /* Quick.framework in Copy Carthage Frameworks */ = {isa = PBXBuildFile; fileRef = 14B2915A1ED4935F00057D8E /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		14B831C41ED4D81B0004A605 /* WebServiceErrorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B831C31ED4D81B0004A605 /* WebServiceErrorSpec.swift */; };
 		14B831C61ED4DBB20004A605 /* MockSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B831C51ED4DBB20004A605 /* MockSession.swift */; };
-		14B831C81ED4DE2F0004A605 /* MockURLSessionDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B831C71ED4DE2F0004A605 /* MockURLSessionDataTask.swift */; };
 		14B831CA1ED4E2FA0004A605 /* JSONHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B831C91ED4E2FA0004A605 /* JSONHandler.swift */; };
 		14B831CC1ED4E34A0004A605 /* JSONHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B831CB1ED4E34A0004A605 /* JSONHandling.swift */; };
 		14B831CE1ED4E4AB0004A605 /* MockJSONHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B831CD1ED4E4AB0004A605 /* MockJSONHandler.swift */; };
@@ -91,7 +90,6 @@
 		14B2915A1ED4935F00057D8E /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		14B831C31ED4D81B0004A605 /* WebServiceErrorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceErrorSpec.swift; sourceTree = "<group>"; };
 		14B831C51ED4DBB20004A605 /* MockSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockSession.swift; sourceTree = "<group>"; };
-		14B831C71ED4DE2F0004A605 /* MockURLSessionDataTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockURLSessionDataTask.swift; sourceTree = "<group>"; };
 		14B831C91ED4E2FA0004A605 /* JSONHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONHandler.swift; sourceTree = "<group>"; };
 		14B831CB1ED4E34A0004A605 /* JSONHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONHandling.swift; sourceTree = "<group>"; };
 		14B831CD1ED4E4AB0004A605 /* MockJSONHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockJSONHandler.swift; sourceTree = "<group>"; };
@@ -158,7 +156,6 @@
 				14053C9F1ED394A80094E780 /* Info.plist */,
 				14B831CD1ED4E4AB0004A605 /* MockJSONHandler.swift */,
 				14B831C51ED4DBB20004A605 /* MockSession.swift */,
-				14B831C71ED4DE2F0004A605 /* MockURLSessionDataTask.swift */,
 				14024B8B1ED5F23B006B6F39 /* URLConstructorSpec.swift */,
 				14053C9D1ED394A80094E780 /* WebServiceControllerSpec.swift */,
 				14B831C31ED4D81B0004A605 /* WebServiceErrorSpec.swift */,
@@ -386,7 +383,6 @@
 				14B831CE1ED4E4AB0004A605 /* MockJSONHandler.swift in Sources */,
 				14B831C41ED4D81B0004A605 /* WebServiceErrorSpec.swift in Sources */,
 				14053C9E1ED394A80094E780 /* WebServiceControllerSpec.swift in Sources */,
-				14B831C81ED4DE2F0004A605 /* MockURLSessionDataTask.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

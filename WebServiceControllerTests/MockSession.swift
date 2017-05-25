@@ -17,4 +17,23 @@ class MockSession: URLSession {
 
         return MockURLSesionDataTask()
     }
+
+    override func uploadTask(with request: URLRequest, from bodyData: Data?, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionUploadTask {
+        let error = shouldReturnError ? NSError(domain: "test.domain", code: 5678, userInfo: nil) : nil
+        completionHandler(nil, nil, error)
+
+        return MockURLSessionUploadTask()
+    }
+}
+
+class MockURLSesionDataTask: URLSessionDataTask {
+    override func resume() {
+        // NO OP
+    }
+}
+
+class MockURLSessionUploadTask: URLSessionUploadTask {
+    override func resume() {
+        // NO OP
+    }
 }
