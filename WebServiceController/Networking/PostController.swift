@@ -11,6 +11,7 @@ import UIKit
 class PostController: NSObject {
     struct Endpoints {
         static let posts = "posts"
+        static let postsWithId = "posts/%ld"
     }
 
     func getPosts(completion: @escaping ([Post]?, Error?) -> ()) {
@@ -26,7 +27,15 @@ class PostController: NSObject {
     }
 
     func update(_ post: Post, completion: @escaping (Error?) -> ()) {
-        
+        guard let postId = post.id else {
+            return
+        }
+
+        let endpoint = String(format: Endpoints.postsWithId, postId)
+
+        WebServiceController.sharedInstance.put(endpoint, parameters: nil, json: post.toJSON()) { (objects, response, error) in
+            completion(error)
+        }
     }
 
     func uploadNew(_ post: Post, completion: @escaping (Error?) -> ()) {

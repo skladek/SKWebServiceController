@@ -40,7 +40,9 @@ class EditPostViewController: UIViewController {
     }
 
     func updatePost() {
-
+        postController.update(post) { (error) in
+            print(error)
+        }
     }
 
     @IBAction func submitTapped() {
