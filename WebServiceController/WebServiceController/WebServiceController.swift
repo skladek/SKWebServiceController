@@ -36,13 +36,13 @@ class WebServiceController: NSObject {
 
     // MARK: Init Methods
 
-    /// An initializer to create a controller with default values.
+    /// Creates a controller with the defualt values.
     override init() {
         self.jsonHandler = JSONHandler()
         self.session = URLSession(configuration: .default)
     }
 
-    /// An initializer to take session and JSON Handler values for testing purposes. Do not use this initializer in production.
+    /// Creates a controller with the session and JSON Handler values for testing purposes. Do not use this initializer in production.
     ///
     /// - Parameters:
     ///   - testingSession: The URL session to be used.
@@ -54,6 +54,13 @@ class WebServiceController: NSObject {
 
     // MARK: Instance Methods
 
+
+    /// Performs a delete request on the url formed from the base URL and endpoint.
+    ///
+    /// - Parameters:
+    ///   - endpoint: The endpoint to perform the request on.
+    ///   - completion: The closure called when the request completes.
+    /// - Returns: The data task to be performed.
     @discardableResult
     func delete(_ endpoint: String, completion: @escaping RequestCompletion) -> URLSessionTask? {
         let urlTuple = URLConstructor.urlWith(endpoint: endpoint, parameters: nil)
@@ -106,7 +113,7 @@ class WebServiceController: NSObject {
     ///   - parameters: The query parameters to be included in the URL.
     ///   - json: The JSON object to be converted to data. This must be a valid JSON object type.
     ///   - completion: The closure called when the request completes.
-    /// - Returns: The data task to be performed.
+    /// - Returns: The upload task to be performed.
     @discardableResult
     func post(_ endpoint: String? = nil, parameters: [String : String]? = nil, json: Any?, completion: @escaping RequestCompletion) -> URLSessionDataTask? {
         return postPut(endpoint, parameters: parameters, json: json, httpMethod: .post, completion: completion)
@@ -119,7 +126,7 @@ class WebServiceController: NSObject {
     ///   - parameters: The query parameters to be included in the URL.
     ///   - json: The JSON object to be converted to data. This must be a valid JSON object type.
     ///   - completion: The closure called when the request completes.
-    /// - Returns: The data task to be performed.
+    /// - Returns: The upload task to be performed.
     @discardableResult
     func put(_ endpoint: String? = nil, parameters: [String : String]? = nil, json: Any?, completion: @escaping RequestCompletion) -> URLSessionDataTask? {
         return postPut(endpoint, parameters: parameters, json: json, httpMethod: .put, completion: completion)
