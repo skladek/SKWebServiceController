@@ -113,12 +113,6 @@ class WebServiceControllerSpec: QuickSpec {
                     })
                 }
 
-                it("Should return an error through the completion closure if the json object is nil") {
-                    unitUnderTest.post(json: nil, completion: { (_, _, error) in
-                        expect((error as NSError?)?.code).to(equal(WebServiceError.Code.noData.rawValue))
-                    })
-                }
-
                 it("Should return an error if the json object cannot be converted to data") {
                     unitUnderTest.post(json: NSObject(), completion: { (_,_, error) in
                         expect((error as NSError?)?.code).to(equal(WebServiceError.Code.invalidData.rawValue))
@@ -145,12 +139,6 @@ class WebServiceControllerSpec: QuickSpec {
                     let endpoint = "Invalid URL Endpoint"
                     unitUnderTest.put(endpoint, json: nil, completion: { (_, _, error) in
                         expect((error as NSError?)?.code).to(equal(WebServiceError.Code.invalidURL.rawValue))
-                    })
-                }
-
-                it("Should return an error through the completion closure if the json object is nil") {
-                    unitUnderTest.put(json: nil, completion: { (_, _, error) in
-                        expect((error as NSError?)?.code).to(equal(WebServiceError.Code.noData.rawValue))
                     })
                 }
 

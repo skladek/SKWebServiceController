@@ -63,7 +63,7 @@ class WebServiceController: NSObject {
     /// - Returns: The data task to be performed.
     @discardableResult
     func delete(_ endpoint: String? = nil, completion: @escaping RequestCompletion) -> URLSessionDataTask? {
-        return getDelete(endpoint, parameters: nil, httpMethod: .delete, completion: completion)
+        return performRequest(endpoint: endpoint, httpMethod: .delete, completion: completion)
     }
 
     /// Performs a get request on the url formed from the base URL, endpoint, and parameters.
@@ -75,7 +75,7 @@ class WebServiceController: NSObject {
     /// - Returns: The data task to be performed.
     @discardableResult
     func get(_ endpoint: String? = nil, parameters: [String : String]? = nil, completion: @escaping RequestCompletion) -> URLSessionDataTask? {
-        return getDelete(endpoint, parameters: parameters, httpMethod: .get, completion: completion)
+        return performRequest(endpoint: endpoint, parameters: parameters, httpMethod: .get, completion: completion)
     }
 
     /// Performs a post request on the url formed from the base URL, endpoint, and parameters.
@@ -88,7 +88,7 @@ class WebServiceController: NSObject {
     /// - Returns: The upload task to be performed.
     @discardableResult
     func post(_ endpoint: String? = nil, parameters: [String : String]? = nil, json: Any?, completion: @escaping RequestCompletion) -> URLSessionDataTask? {
-        return postPut(endpoint, parameters: parameters, json: json, httpMethod: .post, completion: completion)
+        return performRequest(endpoint: endpoint, parameters: parameters, json: json, httpMethod: .post, completion: completion)
     }
 
     /// Performs a put request on the url formed from the base URL, endpoint, and parameters.
@@ -101,23 +101,13 @@ class WebServiceController: NSObject {
     /// - Returns: The upload task to be performed.
     @discardableResult
     func put(_ endpoint: String? = nil, parameters: [String : String]? = nil, json: Any?, completion: @escaping RequestCompletion) -> URLSessionDataTask? {
-        return postPut(endpoint, parameters: parameters, json: json, httpMethod: .put, completion: completion)
+        return performRequest(endpoint: endpoint, parameters: parameters, json: json, httpMethod: .put, completion: completion)
     }
 
     // MARK: Private Methods
 
-    @discardableResult
-    private func getDelete(_ endpoint: String?, parameters: [String : String]?, httpMethod: HTTPMethod, completion: @escaping RequestCompletion) -> URLSessionDataTask? {
-        let urlTuple = URLConstructor.urlWith(endpoint: endpoint, parameters: nil)
-
-        guard let url = urlTuple.url else {
-            completion(nil, nil, urlTuple.error)
-            return nil
-        }
-
-        var urlRequest = URLRequest(url: url)
-        urlRequest.httpMethod = httpMethod.rawValue
-        let dataTask = session.dataTask(with: urlRequest) { (data, response, error) in
+    private func dataTask(request: URLRequest, completion: @escaping RequestCompletion) -> URLSessionDataTask {
+        let dataTask = session.dataTask(with: request) { (data, response, error) in
             self.taskCompletion(data: data, response: response, error: error, completion: completion)
         }
 
@@ -126,30 +116,37 @@ class WebServiceController: NSObject {
         return dataTask
     }
 
-    private func postPut(_ endpoint: String?, parameters: [String : String]?, json: Any?, httpMethod: HTTPMethod, completion: @escaping RequestCompletion) -> URLSessionDataTask? {
+    private func performRequest(endpoint: String?, parameters: [String : String]? = nil, json: Any? = nil, httpMethod: HTTPMethod, completion: @escaping RequestCompletion) -> URLSessionDataTask? {
         let urlTuple = URLConstructor.urlWith(endpoint: endpoint, parameters: parameters)
         guard let url = urlTuple.url else {
             completion(nil, nil, urlTuple.error)
             return nil
         }
 
-        let convertedJSON = jsonHandler.jsonToData(json)
-        if convertedJSON.error != nil {
-            completion(nil, nil, convertedJSON.error)
-            return nil
-        }
-
-        let data = convertedJSON.object as? Data
-
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = httpMethod.rawValue
-        let dataTask = session.uploadTask(with: urlRequest, from: data) { (data, response, error) in
-            self.taskCompletion(data: data, response: response, error: error, completion: completion)
+
+        var data: Data? = nil
+        var sessionTask: URLSessionDataTask? = nil
+
+        if let json = json {
+            let convertedJSON = jsonHandler.jsonToData(json)
+            if convertedJSON.error != nil {
+                completion(nil, nil, convertedJSON.error)
+                return nil
+            }
+
+            data = convertedJSON.object as? Data
         }
 
-        dataTask.resume()
-        
-        return dataTask
+        switch httpMethod {
+        case .delete, .get:
+            sessionTask = dataTask(request: urlRequest, completion: completion)
+        case .post, .put:
+            sessionTask = uploadTask(request: urlRequest, data: data, completion: completion)
+        }
+
+        return sessionTask
     }
 
     private func taskCompletion(data: Data?, response: URLResponse?, error: Error?, completion: @escaping RequestCompletion) {
@@ -162,5 +159,15 @@ class WebServiceController: NSObject {
             let result = self.jsonHandler.dataToJSON(data)
             completion(result.object, response, error)
         }
+    }
+
+    private func uploadTask(request: URLRequest, data: Data?, completion: @escaping RequestCompletion) -> URLSessionDataTask {
+        let dataTask = session.uploadTask(with: request, from: data) { (data, response, error) in
+            self.taskCompletion(data: data, response: response, error: error, completion: completion)
+        }
+
+        dataTask.resume()
+
+        return dataTask
     }
 }
