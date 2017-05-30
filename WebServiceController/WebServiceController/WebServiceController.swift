@@ -62,23 +62,8 @@ class WebServiceController: NSObject {
     ///   - completion: The closure called when the request completes.
     /// - Returns: The data task to be performed.
     @discardableResult
-    func delete(_ endpoint: String, completion: @escaping RequestCompletion) -> URLSessionTask? {
-        let urlTuple = URLConstructor.urlWith(endpoint: endpoint, parameters: nil)
-
-        guard let url = urlTuple.url else {
-            completion(nil, nil, urlTuple.error)
-            return nil
-        }
-
-        var urlRequest = URLRequest(url: url)
-        urlRequest.httpMethod = HTTPMethod.delete.rawValue
-        let dataTask = session.dataTask(with: urlRequest) { (data, response, error) in
-            self.taskCompletion(data: data, response: response, error: error, completion: completion)
-        }
-
-        dataTask.resume()
-        
-        return dataTask
+    func delete(_ endpoint: String? = nil, completion: @escaping RequestCompletion) -> URLSessionDataTask? {
+        return getDelete(endpoint, parameters: nil, httpMethod: .delete, completion: completion)
     }
 
     /// Performs a get request on the url formed from the base URL, endpoint, and parameters.
@@ -90,20 +75,7 @@ class WebServiceController: NSObject {
     /// - Returns: The data task to be performed.
     @discardableResult
     func get(_ endpoint: String? = nil, parameters: [String : String]? = nil, completion: @escaping RequestCompletion) -> URLSessionDataTask? {
-        let urlTuple = URLConstructor.urlWith(endpoint: endpoint, parameters: parameters)
-
-        guard let url = urlTuple.url else {
-            completion(nil, nil, urlTuple.error)
-            return nil
-        }
-
-        let dataTask = session.dataTask(with: url) { (data, response, error) in
-            self.taskCompletion(data: data, response: response, error: error, completion: completion)
-        }
-
-        dataTask.resume()
-
-        return dataTask
+        return getDelete(endpoint, parameters: parameters, httpMethod: .get, completion: completion)
     }
 
     /// Performs a post request on the url formed from the base URL, endpoint, and parameters.
@@ -134,7 +106,27 @@ class WebServiceController: NSObject {
 
     // MARK: Private Methods
 
-    private func postPut(_ endpoint: String? = nil, parameters: [String : String]? = nil, json: Any?, httpMethod: HTTPMethod, completion: @escaping RequestCompletion) -> URLSessionDataTask? {
+    @discardableResult
+    private func getDelete(_ endpoint: String?, parameters: [String : String]?, httpMethod: HTTPMethod, completion: @escaping RequestCompletion) -> URLSessionDataTask? {
+        let urlTuple = URLConstructor.urlWith(endpoint: endpoint, parameters: nil)
+
+        guard let url = urlTuple.url else {
+            completion(nil, nil, urlTuple.error)
+            return nil
+        }
+
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = httpMethod.rawValue
+        let dataTask = session.dataTask(with: urlRequest) { (data, response, error) in
+            self.taskCompletion(data: data, response: response, error: error, completion: completion)
+        }
+
+        dataTask.resume()
+
+        return dataTask
+    }
+
+    private func postPut(_ endpoint: String?, parameters: [String : String]?, json: Any?, httpMethod: HTTPMethod, completion: @escaping RequestCompletion) -> URLSessionDataTask? {
         let urlTuple = URLConstructor.urlWith(endpoint: endpoint, parameters: parameters)
         guard let url = urlTuple.url else {
             completion(nil, nil, urlTuple.error)
