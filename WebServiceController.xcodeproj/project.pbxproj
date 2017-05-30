@@ -10,8 +10,6 @@
 		14024B871ED5E89E006B6F39 /* EditPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14024B851ED5E89E006B6F39 /* EditPostViewController.swift */; };
 		14024B881ED5E89E006B6F39 /* EditPostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14024B861ED5E89E006B6F39 /* EditPostViewController.xib */; };
 		14024B8A1ED5F111006B6F39 /* URLConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14024B891ED5F111006B6F39 /* URLConstructor.swift */; };
-		14024B8C1ED5F23B006B6F39 /* URLConstructorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14024B8B1ED5F23B006B6F39 /* URLConstructorSpec.swift */; };
-		14053C9E1ED394A80094E780 /* WebServiceControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14053C9D1ED394A80094E780 /* WebServiceControllerSpec.swift */; };
 		14B2912B1ED3952F00057D8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B291221ED3952F00057D8E /* AppDelegate.swift */; };
 		14B2912C1ED3952F00057D8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14B291231ED3952F00057D8E /* Assets.xcassets */; };
 		14B2912D1ED3952F00057D8E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14B291241ED3952F00057D8E /* LaunchScreen.storyboard */; };
@@ -29,13 +27,15 @@
 		14B2915E1ED4937F00057D8E /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B2915A1ED4935F00057D8E /* Quick.framework */; };
 		14B291601ED4940E00057D8E /* Nimble.framework in Copy Carthage Frameworks */ = {isa = PBXBuildFile; fileRef = 14B291591ED4935F00057D8E /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		14B291611ED4940E00057D8E /* Quick.framework in Copy Carthage Frameworks */ = {isa = PBXBuildFile; fileRef = 14B2915A1ED4935F00057D8E /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		14B831C41ED4D81B0004A605 /* WebServiceErrorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B831C31ED4D81B0004A605 /* WebServiceErrorSpec.swift */; };
-		14B831C61ED4DBB20004A605 /* MockSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B831C51ED4DBB20004A605 /* MockSession.swift */; };
 		14B831CA1ED4E2FA0004A605 /* JSONHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B831C91ED4E2FA0004A605 /* JSONHandler.swift */; };
 		14B831CC1ED4E34A0004A605 /* JSONHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B831CB1ED4E34A0004A605 /* JSONHandling.swift */; };
-		14B831CE1ED4E4AB0004A605 /* MockJSONHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B831CD1ED4E4AB0004A605 /* MockJSONHandler.swift */; };
-		14B831D01ED4E76F0004A605 /* JSONHandlerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B831CF1ED4E76F0004A605 /* JSONHandlerSpec.swift */; };
-		14D90EED1EDE0B4C002D0ABA /* MockJSONSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D90EEC1EDE0B4C002D0ABA /* MockJSONSerialization.swift */; };
+		14D90EF61EDE1F3D002D0ABA /* JSONHandlerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D90EEF1EDE1F3D002D0ABA /* JSONHandlerSpec.swift */; };
+		14D90EF71EDE1F3D002D0ABA /* MockJSONHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D90EF01EDE1F3D002D0ABA /* MockJSONHandler.swift */; };
+		14D90EF81EDE1F3D002D0ABA /* MockJSONSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D90EF11EDE1F3D002D0ABA /* MockJSONSerialization.swift */; };
+		14D90EF91EDE1F3D002D0ABA /* MockSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D90EF21EDE1F3D002D0ABA /* MockSession.swift */; };
+		14D90EFA1EDE1F3D002D0ABA /* URLConstructorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D90EF31EDE1F3D002D0ABA /* URLConstructorSpec.swift */; };
+		14D90EFB1EDE1F3D002D0ABA /* WebServiceControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D90EF41EDE1F3D002D0ABA /* WebServiceControllerSpec.swift */; };
+		14D90EFC1EDE1F3D002D0ABA /* WebServiceErrorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D90EF51EDE1F3D002D0ABA /* WebServiceErrorSpec.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,10 +67,8 @@
 		14024B851ED5E89E006B6F39 /* EditPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPostViewController.swift; sourceTree = "<group>"; };
 		14024B861ED5E89E006B6F39 /* EditPostViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditPostViewController.xib; sourceTree = "<group>"; };
 		14024B891ED5F111006B6F39 /* URLConstructor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLConstructor.swift; sourceTree = "<group>"; };
-		14024B8B1ED5F23B006B6F39 /* URLConstructorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLConstructorSpec.swift; sourceTree = "<group>"; };
 		14053C851ED394A80094E780 /* WebServiceController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebServiceController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14053C991ED394A80094E780 /* WebServiceControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WebServiceControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		14053C9D1ED394A80094E780 /* WebServiceControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServiceControllerSpec.swift; sourceTree = "<group>"; };
 		14053C9F1ED394A80094E780 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14B291221ED3952F00057D8E /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14B291231ED3952F00057D8E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -89,13 +87,15 @@
 		14B291561ED489AE00057D8E /* WebServiceError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceError.swift; sourceTree = "<group>"; };
 		14B291591ED4935F00057D8E /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		14B2915A1ED4935F00057D8E /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
-		14B831C31ED4D81B0004A605 /* WebServiceErrorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceErrorSpec.swift; sourceTree = "<group>"; };
-		14B831C51ED4DBB20004A605 /* MockSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockSession.swift; sourceTree = "<group>"; };
 		14B831C91ED4E2FA0004A605 /* JSONHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONHandler.swift; sourceTree = "<group>"; };
 		14B831CB1ED4E34A0004A605 /* JSONHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONHandling.swift; sourceTree = "<group>"; };
-		14B831CD1ED4E4AB0004A605 /* MockJSONHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockJSONHandler.swift; sourceTree = "<group>"; };
-		14B831CF1ED4E76F0004A605 /* JSONHandlerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONHandlerSpec.swift; sourceTree = "<group>"; };
-		14D90EEC1EDE0B4C002D0ABA /* MockJSONSerialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockJSONSerialization.swift; sourceTree = "<group>"; };
+		14D90EEF1EDE1F3D002D0ABA /* JSONHandlerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONHandlerSpec.swift; sourceTree = "<group>"; };
+		14D90EF01EDE1F3D002D0ABA /* MockJSONHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockJSONHandler.swift; sourceTree = "<group>"; };
+		14D90EF11EDE1F3D002D0ABA /* MockJSONSerialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockJSONSerialization.swift; sourceTree = "<group>"; };
+		14D90EF21EDE1F3D002D0ABA /* MockSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockSession.swift; sourceTree = "<group>"; };
+		14D90EF31EDE1F3D002D0ABA /* URLConstructorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLConstructorSpec.swift; sourceTree = "<group>"; };
+		14D90EF41EDE1F3D002D0ABA /* WebServiceControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceControllerSpec.swift; sourceTree = "<group>"; };
+		14D90EF51EDE1F3D002D0ABA /* WebServiceErrorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceErrorSpec.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,13 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				14053C9F1ED394A80094E780 /* Info.plist */,
-				14B831CF1ED4E76F0004A605 /* JSONHandlerSpec.swift */,
-				14B831CD1ED4E4AB0004A605 /* MockJSONHandler.swift */,
-				14D90EEC1EDE0B4C002D0ABA /* MockJSONSerialization.swift */,
-				14B831C51ED4DBB20004A605 /* MockSession.swift */,
-				14024B8B1ED5F23B006B6F39 /* URLConstructorSpec.swift */,
-				14053C9D1ED394A80094E780 /* WebServiceControllerSpec.swift */,
-				14B831C31ED4D81B0004A605 /* WebServiceErrorSpec.swift */,
+				14D90EEE1EDE1F3D002D0ABA /* WebServiceControllerTests */,
 			);
 			path = WebServiceControllerTests;
 			sourceTree = "<group>";
@@ -250,6 +244,20 @@
 				14B2915A1ED4935F00057D8E /* Quick.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		14D90EEE1EDE1F3D002D0ABA /* WebServiceControllerTests */ = {
+			isa = PBXGroup;
+			children = (
+				14D90EEF1EDE1F3D002D0ABA /* JSONHandlerSpec.swift */,
+				14D90EF01EDE1F3D002D0ABA /* MockJSONHandler.swift */,
+				14D90EF11EDE1F3D002D0ABA /* MockJSONSerialization.swift */,
+				14D90EF21EDE1F3D002D0ABA /* MockSession.swift */,
+				14D90EF31EDE1F3D002D0ABA /* URLConstructorSpec.swift */,
+				14D90EF41EDE1F3D002D0ABA /* WebServiceControllerSpec.swift */,
+				14D90EF51EDE1F3D002D0ABA /* WebServiceErrorSpec.swift */,
+			);
+			path = WebServiceControllerTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -380,13 +388,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14B831C61ED4DBB20004A605 /* MockSession.swift in Sources */,
-				14B831D01ED4E76F0004A605 /* JSONHandlerSpec.swift in Sources */,
-				14024B8C1ED5F23B006B6F39 /* URLConstructorSpec.swift in Sources */,
-				14B831CE1ED4E4AB0004A605 /* MockJSONHandler.swift in Sources */,
-				14D90EED1EDE0B4C002D0ABA /* MockJSONSerialization.swift in Sources */,
-				14B831C41ED4D81B0004A605 /* WebServiceErrorSpec.swift in Sources */,
-				14053C9E1ED394A80094E780 /* WebServiceControllerSpec.swift in Sources */,
+				14D90EF71EDE1F3D002D0ABA /* MockJSONHandler.swift in Sources */,
+				14D90EF61EDE1F3D002D0ABA /* JSONHandlerSpec.swift in Sources */,
+				14D90EF91EDE1F3D002D0ABA /* MockSession.swift in Sources */,
+				14D90EFB1EDE1F3D002D0ABA /* WebServiceControllerSpec.swift in Sources */,
+				14D90EFA1EDE1F3D002D0ABA /* URLConstructorSpec.swift in Sources */,
+				14D90EFC1EDE1F3D002D0ABA /* WebServiceErrorSpec.swift in Sources */,
+				14D90EF81EDE1F3D002D0ABA /* MockJSONSerialization.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
