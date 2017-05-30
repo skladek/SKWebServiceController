@@ -34,7 +34,8 @@
 		14B831CA1ED4E2FA0004A605 /* JSONHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B831C91ED4E2FA0004A605 /* JSONHandler.swift */; };
 		14B831CC1ED4E34A0004A605 /* JSONHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B831CB1ED4E34A0004A605 /* JSONHandling.swift */; };
 		14B831CE1ED4E4AB0004A605 /* MockJSONHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B831CD1ED4E4AB0004A605 /* MockJSONHandler.swift */; };
-		14B831D01ED4E76F0004A605 /* WebServiceJSONDeserializerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B831CF1ED4E76F0004A605 /* WebServiceJSONDeserializerSpec.swift */; };
+		14B831D01ED4E76F0004A605 /* JSONHandlerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B831CF1ED4E76F0004A605 /* JSONHandlerSpec.swift */; };
+		14D90EED1EDE0B4C002D0ABA /* MockJSONSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D90EEC1EDE0B4C002D0ABA /* MockJSONSerialization.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,7 +94,8 @@
 		14B831C91ED4E2FA0004A605 /* JSONHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONHandler.swift; sourceTree = "<group>"; };
 		14B831CB1ED4E34A0004A605 /* JSONHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONHandling.swift; sourceTree = "<group>"; };
 		14B831CD1ED4E4AB0004A605 /* MockJSONHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockJSONHandler.swift; sourceTree = "<group>"; };
-		14B831CF1ED4E76F0004A605 /* WebServiceJSONDeserializerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceJSONDeserializerSpec.swift; sourceTree = "<group>"; };
+		14B831CF1ED4E76F0004A605 /* JSONHandlerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONHandlerSpec.swift; sourceTree = "<group>"; };
+		14D90EEC1EDE0B4C002D0ABA /* MockJSONSerialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockJSONSerialization.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,12 +156,13 @@
 			isa = PBXGroup;
 			children = (
 				14053C9F1ED394A80094E780 /* Info.plist */,
+				14B831CF1ED4E76F0004A605 /* JSONHandlerSpec.swift */,
 				14B831CD1ED4E4AB0004A605 /* MockJSONHandler.swift */,
+				14D90EEC1EDE0B4C002D0ABA /* MockJSONSerialization.swift */,
 				14B831C51ED4DBB20004A605 /* MockSession.swift */,
 				14024B8B1ED5F23B006B6F39 /* URLConstructorSpec.swift */,
 				14053C9D1ED394A80094E780 /* WebServiceControllerSpec.swift */,
 				14B831C31ED4D81B0004A605 /* WebServiceErrorSpec.swift */,
-				14B831CF1ED4E76F0004A605 /* WebServiceJSONDeserializerSpec.swift */,
 			);
 			path = WebServiceControllerTests;
 			sourceTree = "<group>";
@@ -378,9 +381,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				14B831C61ED4DBB20004A605 /* MockSession.swift in Sources */,
-				14B831D01ED4E76F0004A605 /* WebServiceJSONDeserializerSpec.swift in Sources */,
+				14B831D01ED4E76F0004A605 /* JSONHandlerSpec.swift in Sources */,
 				14024B8C1ED5F23B006B6F39 /* URLConstructorSpec.swift in Sources */,
 				14B831CE1ED4E4AB0004A605 /* MockJSONHandler.swift in Sources */,
+				14D90EED1EDE0B4C002D0ABA /* MockJSONSerialization.swift in Sources */,
 				14B831C41ED4D81B0004A605 /* WebServiceErrorSpec.swift in Sources */,
 				14053C9E1ED394A80094E780 /* WebServiceControllerSpec.swift in Sources */,
 			);

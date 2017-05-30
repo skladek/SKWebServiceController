@@ -78,8 +78,10 @@ class WebServiceControllerSpec: QuickSpec {
                     })
                 }
 
-                it("Should throw an exception if the json object cannot be converted to data") {
-                    expect(unitUnderTest.post(json: NSObject(), completion: { (_,_,_) in })).to(raiseException())
+                it("Should return an error if the json object cannot be converted to data") {
+                    unitUnderTest.post(json: NSObject(), completion: { (_,_, error) in
+                        expect((error as NSError?)?.code).to(equal(WebServiceError.Code.invalidData.rawValue))
+                    })
                 }
 
                 it("Should return an error through the completion closure if the session provides an error") {
@@ -111,8 +113,10 @@ class WebServiceControllerSpec: QuickSpec {
                     })
                 }
 
-                it("Should throw an exception if the json object cannot be converted to data") {
-                    expect(unitUnderTest.put(json: NSObject(), completion: { (_,_,_) in })).to(raiseException())
+                it("Should return an error if the json object cannot be converted to data") {
+                    unitUnderTest.put(json: NSObject(), completion: { (_,_, error) in
+                        expect((error as NSError?)?.code).to(equal(WebServiceError.Code.invalidData.rawValue))
+                    })
                 }
 
                 it("Should return an error through the completion closure if the session provides an error") {

@@ -1,5 +1,5 @@
 //
-//  WebServiceJSONDeserializerSpec.swift
+//  JSONHandler.swift
 //  WebServiceController
 //
 //  Created by Sean on 5/23/17.
@@ -12,7 +12,7 @@ import Quick
 
 @testable import WebServiceController
 
-class WebServiceJSONDeserializerSpec: QuickSpec {
+class JSONHandlerSpec: QuickSpec {
 
     override func spec() {
         describe("WebServiceError") {
@@ -22,7 +22,7 @@ class WebServiceJSONDeserializerSpec: QuickSpec {
                 unitUnderTest = JSONHandler()
             }
 
-            context("dataToJSON(_:completion:") {
+            context("dataToJSON(_:") {
                 it("Should return an error if data is nil") {
                     let result = unitUnderTest.dataToJSON(nil)
                     expect((result.error as NSError?)?.code).to(equal(WebServiceError.Code.noData.rawValue))
@@ -45,6 +45,33 @@ class WebServiceJSONDeserializerSpec: QuickSpec {
                 it("Should return an error if the data cannot be deserialized") {
                     let result = unitUnderTest.dataToJSON(Data())
                     expect(result.error).toNot(beNil())
+                }
+            }
+
+            context("jsonToData(_:)") {
+                it("Should return an error if the json object is nil") {
+                    let result = unitUnderTest.jsonToData(nil)
+                    expect((result.error as NSError?)?.code).to(equal(WebServiceError.Code.noData.rawValue))
+                }
+
+                it("Should return data if a valid json object is passed in") {
+                    let dictionary = ["key1" : "value1", "key2" : "value2"]
+                    let result = unitUnderTest.jsonToData(dictionary)
+
+                    expect(result.object).toNot(beNil())
+                }
+
+                it("Should return an error if the object is not a valid JSON object") {
+                    let result = unitUnderTest.jsonToData(NSObject())
+                    expect((result.error as NSError?)?.code).to(equal(WebServiceError.Code.invalidData.rawValue))
+                }
+
+                it("Should return an error if the object cannot be serialized") {
+                    unitUnderTest = JSONHandler(JSONSerializationType: MockJSONSerialization.self)
+                    let dictionary = ["key1" : "value1", "key2" : "value2"]
+                    let result = unitUnderTest.jsonToData(dictionary)
+
+                    expect((result.error as NSError?)?.code).to(equal(2345))
                 }
             }
         }

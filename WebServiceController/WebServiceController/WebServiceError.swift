@@ -19,6 +19,7 @@ class WebServiceError: NSError {
         case unknown = -1
         case invalidURL
         case noData
+        case invalidData
     }
 
     // MARK: Static Variables

@@ -9,6 +9,12 @@
 import Foundation
 
 class JSONHandler: JSONHandling {
+    let jsonSerialization: JSONSerialization.Type
+
+    init(JSONSerializationType: JSONSerialization.Type = JSONSerialization.self) {
+        self.jsonSerialization = JSONSerializationType
+    }
+
     // MARK: Instance Methods
 
     /// Converts the provided data into a JSON object.
@@ -21,12 +27,16 @@ class JSONHandler: JSONHandling {
             return (nil, error)
         }
 
+        var jsonObject: Any? = nil
+        var serializationError: Error? = nil
+
         do {
-            let jsonData = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-            return (jsonData, nil)
+            jsonObject = try jsonSerialization.jsonObject(with: data, options: .allowFragments)
         } catch {
-            return (nil, error)
+            serializationError = error
         }
+
+        return (jsonObject, serializationError)
     }
 
     /// Converts the provided JSON object into data.
@@ -35,15 +45,24 @@ class JSONHandler: JSONHandling {
     /// - Returns: A tuple containing the JSON object or an error.
     func jsonToData(_ jsonObject: Any?) -> ConvertedJSON {
         guard let jsonObject = jsonObject else {
-            let error = WebServiceError(code: .noData, message: "The json object to be converted was nil.")
+            let error = WebServiceError(code: .noData, message: "The JSON object to be converted was nil.")
             return (nil, error)
         }
 
-        do {
-            let data = try JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted)
-            return (data, nil)
-        } catch {
+        if !JSONSerialization.isValidJSONObject(jsonObject) {
+            let error = WebServiceError(code: .invalidData, message: "The object to be converted was not a valid JSON object.")
             return (nil, error)
         }
+
+        var jsonData: Any? = nil
+        var serializationError: Error? = nil
+
+        do {
+            jsonData = try jsonSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted)
+        } catch {
+            serializationError = error
+        }
+
+        return (jsonData, serializationError)
     }
 }
