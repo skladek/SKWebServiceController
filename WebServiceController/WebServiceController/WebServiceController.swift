@@ -14,11 +14,6 @@ class WebServiceController: NSObject {
     /// The completion that is returned with requests.
     typealias RequestCompletion = (Any?, URLResponse?, Error?) -> ()
 
-    // MARK: Static Variables
-
-    /// A singleton instance
-    static let sharedInstance = WebServiceController()
-
     // MARK: Private Class Types
 
     private enum HTTPMethod: String {
@@ -30,16 +25,22 @@ class WebServiceController: NSObject {
 
     // MARK: Private Variables
 
+    private let defaultParameters: [String : String]
+
     private let jsonHandler: JSONHandling
 
     private let session: URLSession
 
+    private let urlConstructor: URLConstructor
+
     // MARK: Init Methods
 
     /// Creates a controller with the defualt values.
-    override init() {
+    init(baseURL: String, defaultParameters: [String : String] = [:]) {
+        self.defaultParameters = defaultParameters
         self.jsonHandler = JSONHandler()
         self.session = URLSession(configuration: .default)
+        self.urlConstructor = URLConstructor(baseURL: baseURL)
     }
 
     /// Creates a controller with the session and JSON Handler values for testing purposes. Do not use this initializer in production.
@@ -47,9 +48,11 @@ class WebServiceController: NSObject {
     /// - Parameters:
     ///   - testingSession: The URL session to be used.
     ///   - jsonHandler: The JSON handler to be used.
-    init(testingSession: URLSession, jsonHandler: JSONHandling? = nil) {
+    init(testingBaseURL: String, defaultParameters: [String : String], session: URLSession, jsonHandler: JSONHandling? = nil) {
+        self.defaultParameters = defaultParameters
         self.jsonHandler = jsonHandler ?? JSONHandler()
-        self.session = testingSession
+        self.session = session
+        self.urlConstructor = URLConstructor(baseURL: testingBaseURL)
     }
 
     // MARK: Instance Methods
@@ -117,7 +120,7 @@ class WebServiceController: NSObject {
     }
 
     private func performRequest(endpoint: String?, parameters: [String : String]? = nil, json: Any? = nil, httpMethod: HTTPMethod, completion: @escaping RequestCompletion) -> URLSessionDataTask? {
-        let urlTuple = URLConstructor.urlWith(endpoint: endpoint, parameters: parameters)
+        let urlTuple = urlConstructor.urlWith(endpoint: endpoint, parameters: parameters)
         guard let url = urlTuple.url else {
             completion(nil, nil, urlTuple.error)
             return nil
@@ -165,9 +168,9 @@ class WebServiceController: NSObject {
         let dataTask = session.uploadTask(with: request, from: data) { (data, response, error) in
             self.taskCompletion(data: data, response: response, error: error, completion: completion)
         }
-
+        
         dataTask.resume()
-
+        
         return dataTask
     }
 }

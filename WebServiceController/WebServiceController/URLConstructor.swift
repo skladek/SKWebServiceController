@@ -15,7 +15,15 @@ class URLConstructor: NSObject {
     typealias URLResult = (url: URL?, error: NSError?)
 
     /// The url to append all request endpoints onto.
-    static fileprivate let baseURL = kBASE_URL
+    private let baseURL: String
+
+    // MARK: Init Methods
+
+    init(baseURL: String) {
+        self.baseURL = baseURL
+    }
+
+    // MARK: Instance Methods
 
     /// Constructs a URL from the base URL build setting, endpoint, and parameters.
     ///
@@ -23,8 +31,8 @@ class URLConstructor: NSObject {
     ///   - endpoint: The endpoint to append to the base url
     ///   - parameters: A dictionary of query parameters to include in the URL
     /// - Returns: A result object with the URL or an error.
-    class func urlWith(endpoint: String?, parameters: [String : String]?) -> URLResult {
-        var fullURLString = URLConstructor.baseURL
+    func urlWith(endpoint: String?, parameters: [String : String]?) -> URLResult {
+        var fullURLString = baseURL
 
         if let endpoint = endpoint {
             fullURLString.append(endpoint)
@@ -34,15 +42,10 @@ class URLConstructor: NSObject {
             fullURLString.append("?\(queryParameterString)")
         }
 
-        return URLConstructor.urlWith(fullURL: fullURLString)
+        return urlWith(fullURL: fullURLString)
     }
 
-
-    /// Constructs a URL from the full URL string provided.
-    ///
-    /// - Parameter fullURL: The URL string to be converted into a URL object.
-    /// - Returns: A result object with the URL or an error.
-    class func urlWith(fullURL: String) -> URLResult {
+    func urlWith(fullURL: String) -> URLResult {
         guard let url = URL(string: fullURL) else {
             let error = WebServiceError(code: .invalidURL, message: "Could not form a valid URL from the base URL and the endpoint. Attempted string: \(fullURL)")
             return (nil, error)
@@ -55,7 +58,7 @@ class URLConstructor: NSObject {
     ///
     /// - Parameter parametersDictionary: The dictionary to transform into a string representation.
     /// - Returns: The string representation or nil if there are no parameters.
-    class func queryParametersString(_ parametersDictionary: [String : String]? = nil) -> String? {
+    func queryParametersString(_ parametersDictionary: [String : String]? = nil) -> String? {
         guard let parametersDictionary = parametersDictionary else {
             return nil
         }
