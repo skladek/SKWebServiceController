@@ -34,8 +34,17 @@ class URLConstructor: NSObject {
             fullURLString.append("?\(queryParameterString)")
         }
 
-        guard let url = URL(string: fullURLString) else {
-            let error = WebServiceError(code: .invalidURL, message: "Could not form a valid URL from the base URL and the endpoint. Attempted string: \(fullURLString)")
+        return URLConstructor.urlWith(fullURL: fullURLString)
+    }
+
+
+    /// Constructs a URL from the full URL string provided.
+    ///
+    /// - Parameter fullURL: The URL string to be converted into a URL object.
+    /// - Returns: A result object with the URL or an error.
+    class func urlWith(fullURL: String) -> URLResult {
+        guard let url = URL(string: fullURL) else {
+            let error = WebServiceError(code: .invalidURL, message: "Could not form a valid URL from the base URL and the endpoint. Attempted string: \(fullURL)")
             return (nil, error)
         }
 
@@ -61,7 +70,7 @@ class URLConstructor: NSObject {
         }
 
         let parametersString = parametersArray.joined(separator: "&")
-
+        
         return (parametersString.isEmpty) ? nil : parametersString
     }
 }
