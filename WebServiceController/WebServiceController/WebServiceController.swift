@@ -153,12 +153,15 @@ class WebServiceController: NSObject {
         case .post, .put:
             sessionTask = uploadTask(request: request, data: data, completion: completion)
         }
-        
+
         return sessionTask
     }
 
     private func performRequest(endpoint: String?, parameters: [String : String]? = nil, json: Any? = nil, httpMethod: HTTPMethod, completion: @escaping RequestCompletion) -> URLSessionDataTask? {
-        let urlTuple = urlConstructor.urlWith(endpoint: endpoint, parameters: parameters)
+        var combinedParameters = defaultParameters
+        parameters?.forEach{ (key, value) in combinedParameters[key] = value }
+        let urlTuple = urlConstructor.urlWith(endpoint: endpoint, parameters: combinedParameters)
+
         guard let url = urlTuple.url else {
             completion(nil, nil, urlTuple.error)
             return nil
