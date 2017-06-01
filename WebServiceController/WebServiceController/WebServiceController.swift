@@ -81,6 +81,20 @@ class WebServiceController: NSObject {
         return performRequest(endpoint: endpoint, parameters: parameters, httpMethod: .get, completion: completion)
     }
 
+    /// Performs a get request on the provided URL.
+    ///
+    /// - Parameters:
+    ///   - url: The URL to perform the GET request on.
+    ///   - completion: The closure called when the request completes.
+    /// - Returns: The data task to be performed.
+    @discardableResult
+    func get(_ url: URL, completion: @escaping RequestCompletion) -> URLSessionDataTask? {
+        var request = URLRequest(url: url)
+        request.httpMethod = HTTPMethod.get.rawValue
+
+        return performRequest(request, httpMethod: .get, completion: completion)
+    }
+
     /// Performs a post request on the url formed from the base URL, endpoint, and parameters.
     ///
     /// - Parameters:
@@ -119,16 +133,7 @@ class WebServiceController: NSObject {
         return dataTask
     }
 
-    private func performRequest(endpoint: String?, parameters: [String : String]? = nil, json: Any? = nil, httpMethod: HTTPMethod, completion: @escaping RequestCompletion) -> URLSessionDataTask? {
-        let urlTuple = urlConstructor.urlWith(endpoint: endpoint, parameters: parameters)
-        guard let url = urlTuple.url else {
-            completion(nil, nil, urlTuple.error)
-            return nil
-        }
-
-        var urlRequest = URLRequest(url: url)
-        urlRequest.httpMethod = httpMethod.rawValue
-
+    private func performRequest(_ request: URLRequest, httpMethod: HTTPMethod, json: Any? = nil, completion: @escaping RequestCompletion) -> URLSessionDataTask? {
         var data: Data? = nil
         var sessionTask: URLSessionDataTask? = nil
 
@@ -144,12 +149,25 @@ class WebServiceController: NSObject {
 
         switch httpMethod {
         case .delete, .get:
-            sessionTask = dataTask(request: urlRequest, completion: completion)
+            sessionTask = dataTask(request: request, completion: completion)
         case .post, .put:
-            sessionTask = uploadTask(request: urlRequest, data: data, completion: completion)
+            sessionTask = uploadTask(request: request, data: data, completion: completion)
+        }
+        
+        return sessionTask
+    }
+
+    private func performRequest(endpoint: String?, parameters: [String : String]? = nil, json: Any? = nil, httpMethod: HTTPMethod, completion: @escaping RequestCompletion) -> URLSessionDataTask? {
+        let urlTuple = urlConstructor.urlWith(endpoint: endpoint, parameters: parameters)
+        guard let url = urlTuple.url else {
+            completion(nil, nil, urlTuple.error)
+            return nil
         }
 
-        return sessionTask
+        var request = URLRequest(url: url)
+        request.httpMethod = httpMethod.rawValue
+
+        return performRequest(request, httpMethod: httpMethod, json: json, completion: completion)
     }
 
     private func taskCompletion(data: Data?, response: URLResponse?, error: Error?, completion: @escaping RequestCompletion) {

@@ -60,7 +60,7 @@ class WebServiceControllerSpec: QuickSpec {
 
                 it("Should return an URLSessionDataTask if valid parameters are included") {
                     let result = unitUnderTest.delete(completion: {_,_,_ in })
-                    expect(result).to(beAKindOf(URLSessionDataTask.self))
+                    expect(result).toNot(beNil())
                 }
             }
 
@@ -101,7 +101,40 @@ class WebServiceControllerSpec: QuickSpec {
 
                 it("Should return an URLSessionDataTask if valid parameters are included") {
                     let result = unitUnderTest.get(completion: {_,_,_ in })
-                    expect(result).to(beAKindOf(URLSessionDataTask.self))
+                    expect(result).toNot(beNil())
+                }
+            }
+
+            context("func get(url:completion:)") {
+                var url: URL!
+
+                beforeEach {
+                    url = URL(string: "https://google.com")
+                }
+
+                it("Should return an error through the completion closure if the session provides an error") {
+                    session.shouldReturnError = true
+                    unitUnderTest.get(url, completion: { (_, _, error) in
+                        expect((error as NSError?)?.domain).to(equal("test.domain"))
+                        expect((error as NSError?)?.code).to(equal(1234))
+                    })
+                }
+
+                it("Should call dataToJSON on the deserialization object") {
+                    let mockJSONHandler = MockJSONHandler()
+                    unitUnderTest = WebServiceController(testingBaseURL: kBASE_URL, defaultParameters: [:], session: session, jsonHandler: mockJSONHandler)
+
+                    waitUntil() { done in
+                        unitUnderTest.get(url, completion: { (_, _, _) in
+                            expect(mockJSONHandler.dataToJSONCalled).to(beTrue())
+                            done()
+                        })
+                    }
+                }
+
+                it("Should return an URLSessionDataTask if valid parameters are included") {
+                    let result = unitUnderTest.get(url, completion: { (_, _, _) in })
+                    expect(result).toNot(beNil())
                 }
             }
 
@@ -130,7 +163,7 @@ class WebServiceControllerSpec: QuickSpec {
 
                 it("Should return an URLSessionDataTask if valid parameters are included") {
                     let result = unitUnderTest.post(json: [:], completion: { (_,_,_) in })
-                    expect(result).to(beAKindOf(URLSessionUploadTask.self))
+                    expect(result).toNot(beNil())
                 }
             }
 
@@ -159,7 +192,7 @@ class WebServiceControllerSpec: QuickSpec {
 
                 it("Should return an URLSessionDataTask if valid parameters are included") {
                     let result = unitUnderTest.put(json: [:], completion: { (_,_,_) in })
-                    expect(result).to(beAKindOf(URLSessionUploadTask.self))
+                    expect(result).toNot(beNil())
                 }
             }
         }

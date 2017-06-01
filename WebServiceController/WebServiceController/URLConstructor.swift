@@ -14,11 +14,16 @@ class URLConstructor: NSObject {
     /// A tuple containing the constructed URL or an error explaining why the URL could not be constructed.
     typealias URLResult = (url: URL?, error: NSError?)
 
-    /// The url to append all request endpoints onto.
+    // MARK: Private Properties
+
     private let baseURL: String
 
     // MARK: Init Methods
 
+
+    /// Initializes a URL constructor with a base URL to use to construct URLs from.
+    ///
+    /// - Parameter baseURL: The URL to append endpoints and parameters onto.
     init(baseURL: String) {
         self.baseURL = baseURL
     }
@@ -45,9 +50,13 @@ class URLConstructor: NSObject {
         return urlWith(fullURL: fullURLString)
     }
 
+    /// Creates a URL object from the provided string or returns an error.
+    ///
+    /// - Parameter fullURL: The string to convert into a URL.
+    /// - Returns: A result object with the URL or an error.
     func urlWith(fullURL: String) -> URLResult {
         guard let url = URL(string: fullURL) else {
-            let error = WebServiceError(code: .invalidURL, message: "Could not form a valid URL from the base URL and the endpoint. Attempted string: \(fullURL)")
+            let error = WebServiceError(code: .invalidURL, message: "Could not form a valid URL. Attempted string: \(fullURL)")
             return (nil, error)
         }
 
