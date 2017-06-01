@@ -36,6 +36,7 @@
 		14D90EFA1EDE1F3D002D0ABA /* URLConstructorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D90EF31EDE1F3D002D0ABA /* URLConstructorSpec.swift */; };
 		14D90EFB1EDE1F3D002D0ABA /* WebServiceControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D90EF41EDE1F3D002D0ABA /* WebServiceControllerSpec.swift */; };
 		14D90EFC1EDE1F3D002D0ABA /* WebServiceErrorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D90EF51EDE1F3D002D0ABA /* WebServiceErrorSpec.swift */; };
+		14D90F471EE067E5002D0ABA /* MyWebServiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D90F461EE067E5002D0ABA /* MyWebServiceController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,7 @@
 		14D90EF31EDE1F3D002D0ABA /* URLConstructorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLConstructorSpec.swift; sourceTree = "<group>"; };
 		14D90EF41EDE1F3D002D0ABA /* WebServiceControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceControllerSpec.swift; sourceTree = "<group>"; };
 		14D90EF51EDE1F3D002D0ABA /* WebServiceErrorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceErrorSpec.swift; sourceTree = "<group>"; };
+		14D90F461EE067E5002D0ABA /* MyWebServiceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyWebServiceController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +234,7 @@
 		14B291531ED3DB1F00057D8E /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				14D90F461EE067E5002D0ABA /* MyWebServiceController.swift */,
 				14B291541ED3DB1F00057D8E /* PostController.swift */,
 			);
 			path = Networking;
@@ -378,6 +381,7 @@
 				14B2912B1ED3952F00057D8E /* AppDelegate.swift in Sources */,
 				14B2913C1ED3988500057D8E /* Post.swift in Sources */,
 				14B831CC1ED4E34A0004A605 /* JSONHandling.swift in Sources */,
+				14D90F471EE067E5002D0ABA /* MyWebServiceController.swift in Sources */,
 				14B291571ED489AE00057D8E /* WebServiceError.swift in Sources */,
 				14024B871ED5E89E006B6F39 /* EditPostViewController.swift in Sources */,
 				14B291491ED39E2C00057D8E /* PostCell.swift in Sources */,

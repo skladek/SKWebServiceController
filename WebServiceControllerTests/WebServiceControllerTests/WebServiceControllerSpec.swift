@@ -19,7 +19,7 @@ class WebServiceControllerSpec: QuickSpec {
 
         beforeEach {
             session = MockSession()
-            unitUnderTest = WebServiceController(testingSession: session)
+            unitUnderTest = WebServiceController(testingBaseURL: kBASE_URL, defaultParameters: [:], session: session)
         }
 
         describe("WebServiceController") {
@@ -48,7 +48,7 @@ class WebServiceControllerSpec: QuickSpec {
 
                 it("Should call dataToJSON on the deserialization object") {
                     let mockJSONHandler = MockJSONHandler()
-                    unitUnderTest = WebServiceController(testingSession: session, jsonHandler: mockJSONHandler)
+                    unitUnderTest = WebServiceController(testingBaseURL: kBASE_URL, defaultParameters: [:], session: session, jsonHandler: mockJSONHandler)
 
                     waitUntil() { done in
                         unitUnderTest.delete(completion: { (object, _, error) in
@@ -89,7 +89,7 @@ class WebServiceControllerSpec: QuickSpec {
 
                 it("Should call dataToJSON on the deserialization object") {
                     let mockJSONHandler = MockJSONHandler()
-                    unitUnderTest = WebServiceController(testingSession: session, jsonHandler: mockJSONHandler)
+                    unitUnderTest = WebServiceController(testingBaseURL: kBASE_URL, defaultParameters: [:], session: session, jsonHandler: mockJSONHandler)
 
                     waitUntil() { done in
                         unitUnderTest.get(completion: { (object, _, error) in

@@ -21,13 +21,13 @@ class PostController: NSObject {
 
         let endpoint = String(format: Endpoints.postsWithId, postId)
 
-        WebServiceController.sharedInstance.delete(endpoint) { (objects, response, error) in
+        MyWebServiceController.sharedInstance.delete(endpoint) { (objects, response, error) in
             completion(error)
         }
     }
 
     func getPosts(completion: @escaping ([Post]?, Error?) -> ()) {
-        WebServiceController.sharedInstance.get(Endpoints.posts) { (objects, response, error) in
+        MyWebServiceController.sharedInstance.get(Endpoints.posts) { (objects, response, error) in
             guard let objects = objects as? [[String : Any]] else {
                 completion(nil, error)
                 return
@@ -45,13 +45,13 @@ class PostController: NSObject {
 
         let endpoint = String(format: Endpoints.postsWithId, postId)
 
-        WebServiceController.sharedInstance.put(endpoint, parameters: nil, json: post.toJSON()) { (objects, response, error) in
+        MyWebServiceController.sharedInstance.put(endpoint, parameters: nil, json: post.toJSON()) { (objects, response, error) in
             completion(error)
         }
     }
 
     func uploadNew(_ post: Post, completion: @escaping (Error?) -> ()) {
-        WebServiceController.sharedInstance.post(Endpoints.posts, json: post.toJSON()) { (objects, response, error) in
+        MyWebServiceController.sharedInstance.post(Endpoints.posts, json: post.toJSON()) { (objects, response, error) in
             completion(error)
         }
     }
