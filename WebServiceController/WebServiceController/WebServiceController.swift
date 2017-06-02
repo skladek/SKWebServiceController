@@ -147,6 +147,11 @@ class WebServiceController: NSObject {
 
     private func imageCompletion(data: Data?, response: URLResponse?, error: Error?, completion: @escaping ImageCompletion) {
         DispatchQueue.main.async {
+            if let error = error {
+                completion(nil, response, error)
+                return
+            }
+
             guard let data = data else {
                 completion(nil, response, error)
                 return
@@ -159,13 +164,13 @@ class WebServiceController: NSObject {
 
     private func jsonCompletion(data: Data?, response: URLResponse?, error: Error?, completion: @escaping JSONCompletion) {
         DispatchQueue.main.async {
-            guard let data = data else {
+            if let error = error {
                 completion(nil, response, error)
                 return
             }
 
             let result = self.jsonHandler.dataToJSON(data)
-            completion(result.object, response, result.error ?? error)
+            completion(result.object, response, result.error)
         }
     }
 

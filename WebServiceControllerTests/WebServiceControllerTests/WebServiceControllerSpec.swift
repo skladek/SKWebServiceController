@@ -67,7 +67,7 @@ class WebServiceControllerSpec: QuickSpec {
             context("get(endpoint:parameters:completion:") {
                 it("Should return an error through the completion closure if an invalid endpoint is provided") {
                     let endpoint = "Invalid URL Endpoint"
-                    unitUnderTest.delete(endpoint, completion: { (objects, _, error) in
+                    unitUnderTest.get(endpoint, completion: { (objects, _, error) in
                         expect((error as NSError?)?.code).to(equal(WebServiceError.Code.invalidURL.rawValue))
                     })
                 }
@@ -105,7 +105,7 @@ class WebServiceControllerSpec: QuickSpec {
                 }
             }
 
-            context("func get(url:completion:)") {
+            context("getImage(url:completion:)") {
                 var url: URL!
 
                 beforeEach {
@@ -114,26 +114,14 @@ class WebServiceControllerSpec: QuickSpec {
 
                 it("Should return an error through the completion closure if the session provides an error") {
                     session.shouldReturnError = true
-                    unitUnderTest.get(url, completion: { (_, _, error) in
+                    unitUnderTest.getImage(url, completion: { (_, _, error) in
                         expect((error as NSError?)?.domain).to(equal("test.domain"))
                         expect((error as NSError?)?.code).to(equal(1234))
                     })
                 }
 
-                it("Should call dataToJSON on the deserialization object") {
-                    let mockJSONHandler = MockJSONHandler()
-                    unitUnderTest = WebServiceController(testingBaseURL: kBASE_URL, defaultParameters: [:], session: session, jsonHandler: mockJSONHandler)
-
-                    waitUntil() { done in
-                        unitUnderTest.get(url, completion: { (_, _, _) in
-                            expect(mockJSONHandler.dataToJSONCalled).to(beTrue())
-                            done()
-                        })
-                    }
-                }
-
                 it("Should return an URLSessionDataTask if valid parameters are included") {
-                    let result = unitUnderTest.get(url, completion: { (_, _, _) in })
+                    let result = unitUnderTest.getImage(url, completion: { (_, _, _) in })
                     expect(result).toNot(beNil())
                 }
             }

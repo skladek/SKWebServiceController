@@ -13,21 +13,21 @@ class MockSession: URLSession {
 
     override func dataTask(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
         let error = shouldReturnError ? NSError(domain: "test.domain", code: 1234, userInfo: nil) : nil
-        completionHandler(nil, nil, error)
+        completionHandler(Data(), nil, error)
 
         return MockURLSesionDataTask()
     }
 
     override func dataTask(with request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
         let error = shouldReturnError ? NSError(domain: "test.domain", code: 1234, userInfo: nil) : nil
-        completionHandler(nil, nil, error)
+        completionHandler(Data(), nil, error)
 
         return MockURLSesionDataTask()
     }
 
     override func uploadTask(with request: URLRequest, from bodyData: Data?, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionUploadTask {
         let error = shouldReturnError ? NSError(domain: "test.domain", code: 5678, userInfo: nil) : nil
-        completionHandler(nil, nil, error)
+        completionHandler(Data(), nil, error)
 
         return MockURLSessionUploadTask()
     }
