@@ -12,6 +12,6 @@ class MyWebServiceController: WebServiceController {
     static let sharedInstance = MyWebServiceController()
 
     init() {
-        super.init(baseURL: kBASE_URL)
+        super.init(baseURL: "https://jsonplaceholder.typicode.com/")
     }
 }

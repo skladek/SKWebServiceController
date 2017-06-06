@@ -14,9 +14,9 @@ class URLConstructor: NSObject {
     /// A tuple containing the constructed URL or an error explaining why the URL could not be constructed.
     typealias URLResult = (url: URL?, error: NSError?)
 
-    // MARK: Private Properties
+    // MARK: Internal Properties
 
-    private let baseURL: String
+    let baseURL: String
 
     // MARK: Init Methods
 

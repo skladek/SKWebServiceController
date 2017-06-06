@@ -23,6 +23,20 @@ class WebServiceControllerSpec: QuickSpec {
         }
 
         describe("WebServiceController") {
+            context("init(baseURL:defaultParameters:)") {
+                it("Should set default parameters") {
+                    let defaultParameters = ["key1" : "value1", "key2" : "value2"]
+                    unitUnderTest = WebServiceController(baseURL: "", defaultParameters: defaultParameters)
+                    expect(unitUnderTest.defaultParameters).to(equal(defaultParameters))
+                }
+
+                it("Should set a URL constructor with the specified base URL") {
+                    let baseURL = "testbaseURL"
+                    unitUnderTest = WebServiceController(baseURL: baseURL)
+                    expect(unitUnderTest.urlConstructor.baseURL).to(equal(baseURL))
+                }
+            }
+
             context("delete(endpoint:completion:)") {
                 it("Should return an error through the completion closure if an invalid endpoint is provided") {
                     let endpoint = "Invalid URL Endpoint"
