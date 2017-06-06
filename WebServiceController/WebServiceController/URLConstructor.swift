@@ -8,7 +8,7 @@
 
 import UIKit
 
-class URLConstructor: NSObject {
+class URLConstructor {
     // MARK: Class Types
 
     /// A tuple containing the constructed URL or an error explaining why the URL could not be constructed.

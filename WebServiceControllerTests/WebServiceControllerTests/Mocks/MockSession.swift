@@ -9,27 +9,29 @@
 import Foundation
 
 class MockSession: URLSession {
-    var shouldReturnError = false
+    var dataTask: MockURLSesionDataTask? = nil
+    var uploadTask: MockURLSessionUploadTask? = nil
 
-    override func dataTask(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
-        let error = shouldReturnError ? NSError(domain: "test.domain", code: 1234, userInfo: nil) : nil
-        completionHandler(Data(), nil, error)
-
-        return MockURLSesionDataTask()
-    }
+    var dataTaskWithRequestCalled = false
+    var dataTaskWithURLCalled = false
+    var uploadTaskCalled = false
 
     override func dataTask(with request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
-        let error = shouldReturnError ? NSError(domain: "test.domain", code: 1234, userInfo: nil) : nil
-        completionHandler(Data(), nil, error)
+        dataTaskWithRequestCalled = true
 
-        return MockURLSesionDataTask()
+        return dataTask ?? MockURLSesionDataTask()
+    }
+
+    override func dataTask(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
+        dataTaskWithURLCalled = true
+
+        return dataTask ?? MockURLSesionDataTask()
     }
 
     override func uploadTask(with request: URLRequest, from bodyData: Data?, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionUploadTask {
-        let error = shouldReturnError ? NSError(domain: "test.domain", code: 5678, userInfo: nil) : nil
-        completionHandler(Data(), nil, error)
-
-        return MockURLSessionUploadTask()
+        uploadTaskCalled = true
+        
+        return uploadTask ?? MockURLSessionUploadTask()
     }
 }
 

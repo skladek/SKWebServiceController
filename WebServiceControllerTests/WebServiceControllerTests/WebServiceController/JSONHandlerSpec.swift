@@ -15,7 +15,7 @@ import Quick
 class JSONHandlerSpec: QuickSpec {
 
     override func spec() {
-        describe("WebServiceError") {
+        describe("JSONHandler") {
             var unitUnderTest: JSONHandler!
 
             beforeEach {
