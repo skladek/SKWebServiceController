@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		147FBB351EE6482000D2441D /* WebServiceController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 147FBB2B1EE6482000D2441D /* WebServiceController.framework */; };
-		147FBBA61EE6490400D2441D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 147FBB941EE6490400D2441D /* Info.plist */; };
 		147FBBA71EE6490400D2441D /* JSONHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FBB961EE6490400D2441D /* JSONHandler.swift */; };
 		147FBBA81EE6490400D2441D /* JSONHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FBB971EE6490400D2441D /* JSONHandling.swift */; };
 		147FBBA91EE6490400D2441D /* URLConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FBB981EE6490400D2441D /* URLConstructor.swift */; };
@@ -16,13 +15,13 @@
 		147FBBAB1EE6490400D2441D /* WebServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FBB9A1EE6490400D2441D /* WebServiceError.swift */; };
 		147FBBAC1EE6490400D2441D /* WebServiceController.h in Headers */ = {isa = PBXBuildFile; fileRef = 147FBB9B1EE6490400D2441D /* WebServiceController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		147FBBAD1EE6490400D2441D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 147FBB9D1EE6490400D2441D /* Info.plist */; };
-		147FBBAE1EE6490400D2441D /* JSONHandlerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FBB9F1EE6490400D2441D /* JSONHandlerSpec.swift */; };
-		147FBBAF1EE6490400D2441D /* MockJSONHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FBBA01EE6490400D2441D /* MockJSONHandler.swift */; };
-		147FBBB01EE6490400D2441D /* MockJSONSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FBBA11EE6490400D2441D /* MockJSONSerialization.swift */; };
-		147FBBB11EE6490400D2441D /* MockSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FBBA21EE6490400D2441D /* MockSession.swift */; };
-		147FBBB21EE6490400D2441D /* URLConstructorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FBBA31EE6490400D2441D /* URLConstructorSpec.swift */; };
-		147FBBB31EE6490400D2441D /* WebServiceControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FBBA41EE6490400D2441D /* WebServiceControllerSpec.swift */; };
-		147FBBB41EE6490400D2441D /* WebServiceErrorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FBBA51EE6490400D2441D /* WebServiceErrorSpec.swift */; };
+		147FBBB61EE64C7D00D2441D /* JSONHandlerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FBB9F1EE6490400D2441D /* JSONHandlerSpec.swift */; };
+		147FBBB71EE64C7D00D2441D /* MockJSONHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FBBA01EE6490400D2441D /* MockJSONHandler.swift */; };
+		147FBBB81EE64C7D00D2441D /* MockJSONSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FBBA11EE6490400D2441D /* MockJSONSerialization.swift */; };
+		147FBBB91EE64C7D00D2441D /* MockSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FBBA21EE6490400D2441D /* MockSession.swift */; };
+		147FBBBA1EE64C7D00D2441D /* URLConstructorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FBBA31EE6490400D2441D /* URLConstructorSpec.swift */; };
+		147FBBBB1EE64C7D00D2441D /* WebServiceControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FBBA41EE6490400D2441D /* WebServiceControllerSpec.swift */; };
+		147FBBBC1EE64C7D00D2441D /* WebServiceErrorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FBBA51EE6490400D2441D /* WebServiceErrorSpec.swift */; };
 		681A275D412E80D830339675 /* Pods_WebServiceControllerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BB7433E3EB7FB81B6D8BDD9 /* Pods_WebServiceControllerTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -260,7 +259,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				147FBBAD1EE6490400D2441D /* Info.plist in Resources */,
-				147FBBA61EE6490400D2441D /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,18 +324,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				147FBBB01EE6490400D2441D /* MockJSONSerialization.swift in Sources */,
 				147FBBAB1EE6490400D2441D /* WebServiceError.swift in Sources */,
 				147FBBAA1EE6490400D2441D /* WebServiceController.swift in Sources */,
-				147FBBB31EE6490400D2441D /* WebServiceControllerSpec.swift in Sources */,
-				147FBBB21EE6490400D2441D /* URLConstructorSpec.swift in Sources */,
 				147FBBA91EE6490400D2441D /* URLConstructor.swift in Sources */,
-				147FBBAE1EE6490400D2441D /* JSONHandlerSpec.swift in Sources */,
 				147FBBA81EE6490400D2441D /* JSONHandling.swift in Sources */,
-				147FBBB41EE6490400D2441D /* WebServiceErrorSpec.swift in Sources */,
-				147FBBB11EE6490400D2441D /* MockSession.swift in Sources */,
 				147FBBA71EE6490400D2441D /* JSONHandler.swift in Sources */,
-				147FBBAF1EE6490400D2441D /* MockJSONHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,6 +336,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				147FBBB61EE64C7D00D2441D /* JSONHandlerSpec.swift in Sources */,
+				147FBBB71EE64C7D00D2441D /* MockJSONHandler.swift in Sources */,
+				147FBBB81EE64C7D00D2441D /* MockJSONSerialization.swift in Sources */,
+				147FBBB91EE64C7D00D2441D /* MockSession.swift in Sources */,
+				147FBBBA1EE64C7D00D2441D /* URLConstructorSpec.swift in Sources */,
+				147FBBBB1EE64C7D00D2441D /* WebServiceControllerSpec.swift in Sources */,
+				147FBBBC1EE64C7D00D2441D /* WebServiceErrorSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

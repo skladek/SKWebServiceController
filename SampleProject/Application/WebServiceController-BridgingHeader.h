@@ -8,4 +8,4 @@
 
 #import <Foundation/Foundation.h>
 
-static NSString * const kBASE_URL = BASE_URL;
+//static NSString * const kBASE_URL = BASE_URL;

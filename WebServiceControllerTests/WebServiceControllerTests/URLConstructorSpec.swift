@@ -18,7 +18,7 @@ class URLConstructorSpec: QuickSpec {
             var unitUnderTest: URLConstructor!
 
             beforeEach {
-                unitUnderTest = URLConstructor(baseURL: kBASE_URL)
+                unitUnderTest = URLConstructor(baseURL: "https://jsonplaceholder.typicode.com/")
             }
 
             context("queryParametersString(parametersDictionary:)") {
