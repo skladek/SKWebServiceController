@@ -25,9 +25,9 @@ class Requester: Requesting {
 
     private let session: URLSession
 
-    let urlConstructor: URLConstructor
+    let urlConstructor: URLConstructable
 
-    init(defaultParameters: [String : String], jsonHandler: JSONHandling, session: URLSession, urlConstructor: URLConstructor) {
+    init(defaultParameters: [String : String], jsonHandler: JSONHandling, session: URLSession, urlConstructor: URLConstructable) {
         self.defaultParameters = defaultParameters
         self.jsonHandler = jsonHandler
         self.session = session

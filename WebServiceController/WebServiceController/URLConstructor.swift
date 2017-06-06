@@ -8,11 +8,15 @@
 
 import UIKit
 
-class URLConstructor {
-    // MARK: Class Types
+/// A tuple containing the constructed URL or an error explaining why the URL could not be constructed.
+typealias URLResult = (url: URL?, error: NSError?)
 
-    /// A tuple containing the constructed URL or an error explaining why the URL could not be constructed.
-    typealias URLResult = (url: URL?, error: NSError?)
+protocol URLConstructable {
+    func urlWith(endpoint: String?, parameters: [String : String]?) -> URLResult
+}
+
+class URLConstructor: URLConstructable {
+    // MARK: Class Types
 
     // MARK: Internal Properties
 

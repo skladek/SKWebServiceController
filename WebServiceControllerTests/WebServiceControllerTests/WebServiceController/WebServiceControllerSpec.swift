@@ -34,7 +34,7 @@ class WebServiceControllerSpec: QuickSpec {
                 }
 
                 it("Should pass the base URL to the URLConstructor") {
-                    expect((unitUnderTest.requester as! Requester).urlConstructor.baseURL).to(equal(baseURL))
+                    expect(((unitUnderTest.requester as! Requester).urlConstructor as! URLConstructor).baseURL).to(equal(baseURL))
                 }
 
                 it("Should pass the default parameters to the requester") {

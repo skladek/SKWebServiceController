@@ -19,14 +19,14 @@ class RequesterSpec: QuickSpec {
             var defaultParameters: [String : String]!
             var jsonHandler: MockJSONHandler!
             var session: MockSession!
-            var urlConstructor: URLConstructor!
+            var urlConstructor: MockURLConstructor!
             var unitUnderTest: Requester!
 
             beforeEach {
                 defaultParameters = ["key1" : "value1", "key2" : "value2"]
                 jsonHandler = MockJSONHandler()
                 session = MockSession()
-                urlConstructor = URLConstructor(baseURL: "https://example.url/")
+                urlConstructor = MockURLConstructor()
                 unitUnderTest = Requester(defaultParameters: defaultParameters, jsonHandler: jsonHandler, session: session, urlConstructor: urlConstructor)
             }
 
@@ -173,6 +173,28 @@ class RequesterSpec: QuickSpec {
                 it("Should call uploadTask for a put request") {
                     let _ = unitUnderTest.performRequest(request, httpMethod: .put, json: nil, completion: { (_, _, _) in })
                     expect(session.uploadTaskCalled).to(beTrue())
+                }
+            }
+
+            context("performRequest(endpoint:parameters:json:httpMethod:completion:)") {
+                it("Should combine the default parameters with the provided parameters") {
+                    let _ = unitUnderTest.performRequest(endpoint: nil, parameters: ["key3" : "value3"], json: nil, httpMethod: .get, completion: { (_, _, _) in })
+                    expect(urlConstructor.parameters).to(equal(["key1" : "value1", "key2" : "value2", "key3" : "value3"]))
+                }
+
+                it("Should call urlWith on the URL Constructor") {
+                    let _ = unitUnderTest.performRequest(endpoint: nil, parameters: nil, json: nil, httpMethod: .get, completion: { (_, _, _) in })
+                    expect(urlConstructor.urlWithEndpointCalled).to(beTrue())
+                }
+
+                it("Should return an error through the closure if the URL constructor returns an error") {
+                    urlConstructor.shouldReturnError = true
+                    waitUntil { done in
+                        let _ = unitUnderTest.performRequest(endpoint: nil, parameters: nil, json: nil, httpMethod: .get, completion: { (_, _, outputError) in
+                            expect(outputError).toNot(beNil())
+                            done()
+                        })
+                    }
                 }
             }
         }

@@ -25,6 +25,7 @@
 		147FBBDB1EE7077700D2441D /* WebServiceErrorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FBBD31EE7077700D2441D /* WebServiceErrorSpec.swift */; };
 		147FBBDD1EE7161100D2441D /* RequesterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FBBDC1EE7161100D2441D /* RequesterSpec.swift */; };
 		147FBBDF1EE71D5B00D2441D /* testimage.png in Resources */ = {isa = PBXBuildFile; fileRef = 147FBBDE1EE71D5B00D2441D /* testimage.png */; };
+		147FBBE31EE73B6600D2441D /* MockURLConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FBBE21EE73B6600D2441D /* MockURLConstructor.swift */; };
 		681A275D412E80D830339675 /* Pods_WebServiceControllerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BB7433E3EB7FB81B6D8BDD9 /* Pods_WebServiceControllerTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +60,7 @@
 		147FBBD31EE7077700D2441D /* WebServiceErrorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceErrorSpec.swift; sourceTree = "<group>"; };
 		147FBBDC1EE7161100D2441D /* RequesterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequesterSpec.swift; sourceTree = "<group>"; };
 		147FBBDE1EE71D5B00D2441D /* testimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = testimage.png; sourceTree = "<group>"; };
+		147FBBE21EE73B6600D2441D /* MockURLConstructor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockURLConstructor.swift; sourceTree = "<group>"; };
 		481E3F5AD5ED06292CB38784 /* Pods-WebServiceControllerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebServiceControllerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WebServiceControllerTests/Pods-WebServiceControllerTests.release.xcconfig"; sourceTree = "<group>"; };
 		7BB7433E3EB7FB81B6D8BDD9 /* Pods_WebServiceControllerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebServiceControllerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		804FACC918EF8BC287EF9593 /* Pods-WebServiceControllerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebServiceControllerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WebServiceControllerTests/Pods-WebServiceControllerTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				147FBBCC1EE7077700D2441D /* MockJSONSerialization.swift */,
 				147FBBCD1EE7077700D2441D /* MockRequester.swift */,
 				147FBBCE1EE7077700D2441D /* MockSession.swift */,
+				147FBBE21EE73B6600D2441D /* MockURLConstructor.swift */,
 				147FBBDE1EE71D5B00D2441D /* testimage.png */,
 			);
 			path = Mocks;
@@ -366,6 +369,7 @@
 				147FBBD51EE7077700D2441D /* MockJSONSerialization.swift in Sources */,
 				147FBBD91EE7077700D2441D /* URLConstructorSpec.swift in Sources */,
 				147FBBDD1EE7161100D2441D /* RequesterSpec.swift in Sources */,
+				147FBBE31EE73B6600D2441D /* MockURLConstructor.swift in Sources */,
 				147FBBD41EE7077700D2441D /* MockJSONHandler.swift in Sources */,
 				147FBBD71EE7077700D2441D /* MockSession.swift in Sources */,
 				147FBBD61EE7077700D2441D /* MockRequester.swift in Sources */,
