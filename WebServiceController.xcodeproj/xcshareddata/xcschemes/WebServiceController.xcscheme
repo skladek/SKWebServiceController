@@ -14,8 +14,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "14053C841ED394A80094E780"
-               BuildableName = "WebServiceController.app"
+               BlueprintIdentifier = "147FBB2A1EE6482000D2441D"
+               BuildableName = "WebServiceController.framework"
                BlueprintName = "WebServiceController"
                ReferencedContainer = "container:WebServiceController.xcodeproj">
             </BuildableReference>
@@ -26,14 +26,13 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES"
-      codeCoverageEnabled = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "14053C981ED394A80094E780"
+               BlueprintIdentifier = "147FBB331EE6482000D2441D"
                BuildableName = "WebServiceControllerTests.xctest"
                BlueprintName = "WebServiceControllerTests"
                ReferencedContainer = "container:WebServiceController.xcodeproj">
@@ -43,8 +42,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "14053C841ED394A80094E780"
-            BuildableName = "WebServiceController.app"
+            BlueprintIdentifier = "147FBB2A1EE6482000D2441D"
+            BuildableName = "WebServiceController.framework"
             BlueprintName = "WebServiceController"
             ReferencedContainer = "container:WebServiceController.xcodeproj">
          </BuildableReference>
@@ -62,16 +61,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "14053C841ED394A80094E780"
-            BuildableName = "WebServiceController.app"
+            BlueprintIdentifier = "147FBB2A1EE6482000D2441D"
+            BuildableName = "WebServiceController.framework"
             BlueprintName = "WebServiceController"
             ReferencedContainer = "container:WebServiceController.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -81,16 +79,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "14053C841ED394A80094E780"
-            BuildableName = "WebServiceController.app"
+            BlueprintIdentifier = "147FBB2A1EE6482000D2441D"
+            BuildableName = "WebServiceController.framework"
             BlueprintName = "WebServiceController"
             ReferencedContainer = "container:WebServiceController.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

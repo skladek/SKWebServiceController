@@ -7,276 +7,182 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		14024B871ED5E89E006B6F39 /* EditPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14024B851ED5E89E006B6F39 /* EditPostViewController.swift */; };
-		14024B881ED5E89E006B6F39 /* EditPostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14024B861ED5E89E006B6F39 /* EditPostViewController.xib */; };
-		14024B8A1ED5F111006B6F39 /* URLConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14024B891ED5F111006B6F39 /* URLConstructor.swift */; };
-		14B2912B1ED3952F00057D8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B291221ED3952F00057D8E /* AppDelegate.swift */; };
-		14B2912C1ED3952F00057D8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14B291231ED3952F00057D8E /* Assets.xcassets */; };
-		14B2912D1ED3952F00057D8E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14B291241ED3952F00057D8E /* LaunchScreen.storyboard */; };
-		14B291331ED3959200057D8E /* PostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B291311ED3959200057D8E /* PostsViewController.swift */; };
-		14B291341ED3959200057D8E /* PostsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B291321ED3959200057D8E /* PostsViewController.xib */; };
-		14B291371ED3964A00057D8E /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B291361ED3964A00057D8E /* TableViewDataSource.swift */; };
-		14B2913C1ED3988500057D8E /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B2913B1ED3988500057D8E /* Post.swift */; };
-		14B291411ED39AD800057D8E /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B291401ED39AD800057D8E /* PostViewModel.swift */; };
-		14B291491ED39E2C00057D8E /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B291471ED39E2C00057D8E /* PostCell.swift */; };
-		14B2914A1ED39E2C00057D8E /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B291481ED39E2C00057D8E /* PostCell.xib */; };
-		14B2914F1ED3D6A600057D8E /* WebServiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B2914E1ED3D6A600057D8E /* WebServiceController.swift */; };
-		14B291551ED3DB1F00057D8E /* PostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B291541ED3DB1F00057D8E /* PostController.swift */; };
-		14B291571ED489AE00057D8E /* WebServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B291561ED489AE00057D8E /* WebServiceError.swift */; };
-		14B831CA1ED4E2FA0004A605 /* JSONHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B831C91ED4E2FA0004A605 /* JSONHandler.swift */; };
-		14B831CC1ED4E34A0004A605 /* JSONHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B831CB1ED4E34A0004A605 /* JSONHandling.swift */; };
-		14D90EF61EDE1F3D002D0ABA /* JSONHandlerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D90EEF1EDE1F3D002D0ABA /* JSONHandlerSpec.swift */; };
-		14D90EF71EDE1F3D002D0ABA /* MockJSONHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D90EF01EDE1F3D002D0ABA /* MockJSONHandler.swift */; };
-		14D90EF81EDE1F3D002D0ABA /* MockJSONSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D90EF11EDE1F3D002D0ABA /* MockJSONSerialization.swift */; };
-		14D90EF91EDE1F3D002D0ABA /* MockSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D90EF21EDE1F3D002D0ABA /* MockSession.swift */; };
-		14D90EFA1EDE1F3D002D0ABA /* URLConstructorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D90EF31EDE1F3D002D0ABA /* URLConstructorSpec.swift */; };
-		14D90EFB1EDE1F3D002D0ABA /* WebServiceControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D90EF41EDE1F3D002D0ABA /* WebServiceControllerSpec.swift */; };
-		14D90EFC1EDE1F3D002D0ABA /* WebServiceErrorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D90EF51EDE1F3D002D0ABA /* WebServiceErrorSpec.swift */; };
-		14D90F471EE067E5002D0ABA /* MyWebServiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D90F461EE067E5002D0ABA /* MyWebServiceController.swift */; };
-		AAA3F3E83781FE45D9182960 /* Pods_WebServiceControllerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC97E0C297F701B32FD529EB /* Pods_WebServiceControllerTests.framework */; };
+		147FBB351EE6482000D2441D /* WebServiceController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 147FBB2B1EE6482000D2441D /* WebServiceController.framework */; };
+		147FBBA61EE6490400D2441D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 147FBB941EE6490400D2441D /* Info.plist */; };
+		147FBBA71EE6490400D2441D /* JSONHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FBB961EE6490400D2441D /* JSONHandler.swift */; };
+		147FBBA81EE6490400D2441D /* JSONHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FBB971EE6490400D2441D /* JSONHandling.swift */; };
+		147FBBA91EE6490400D2441D /* URLConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FBB981EE6490400D2441D /* URLConstructor.swift */; };
+		147FBBAA1EE6490400D2441D /* WebServiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FBB991EE6490400D2441D /* WebServiceController.swift */; };
+		147FBBAB1EE6490400D2441D /* WebServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FBB9A1EE6490400D2441D /* WebServiceError.swift */; };
+		147FBBAC1EE6490400D2441D /* WebServiceController.h in Headers */ = {isa = PBXBuildFile; fileRef = 147FBB9B1EE6490400D2441D /* WebServiceController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		147FBBAD1EE6490400D2441D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 147FBB9D1EE6490400D2441D /* Info.plist */; };
+		147FBBAE1EE6490400D2441D /* JSONHandlerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FBB9F1EE6490400D2441D /* JSONHandlerSpec.swift */; };
+		147FBBAF1EE6490400D2441D /* MockJSONHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FBBA01EE6490400D2441D /* MockJSONHandler.swift */; };
+		147FBBB01EE6490400D2441D /* MockJSONSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FBBA11EE6490400D2441D /* MockJSONSerialization.swift */; };
+		147FBBB11EE6490400D2441D /* MockSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FBBA21EE6490400D2441D /* MockSession.swift */; };
+		147FBBB21EE6490400D2441D /* URLConstructorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FBBA31EE6490400D2441D /* URLConstructorSpec.swift */; };
+		147FBBB31EE6490400D2441D /* WebServiceControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FBBA41EE6490400D2441D /* WebServiceControllerSpec.swift */; };
+		147FBBB41EE6490400D2441D /* WebServiceErrorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FBBA51EE6490400D2441D /* WebServiceErrorSpec.swift */; };
+		681A275D412E80D830339675 /* Pods_WebServiceControllerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BB7433E3EB7FB81B6D8BDD9 /* Pods_WebServiceControllerTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		14053C9A1ED394A80094E780 /* PBXContainerItemProxy */ = {
+		147FBB361EE6482000D2441D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 14053C7D1ED394A80094E780 /* Project object */;
+			containerPortal = 147FBB221EE6482000D2441D /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 14053C841ED394A80094E780;
+			remoteGlobalIDString = 147FBB2A1EE6482000D2441D;
 			remoteInfo = WebServiceController;
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		14B2915F1ED493FB00057D8E /* Copy Carthage Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Copy Carthage Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		14024B851ED5E89E006B6F39 /* EditPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPostViewController.swift; sourceTree = "<group>"; };
-		14024B861ED5E89E006B6F39 /* EditPostViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditPostViewController.xib; sourceTree = "<group>"; };
-		14024B891ED5F111006B6F39 /* URLConstructor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLConstructor.swift; sourceTree = "<group>"; };
-		14053C851ED394A80094E780 /* WebServiceController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebServiceController.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		14053C991ED394A80094E780 /* WebServiceControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WebServiceControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		14053C9F1ED394A80094E780 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		14B291221ED3952F00057D8E /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		14B291231ED3952F00057D8E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		14B291251ED3952F00057D8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		14B291281ED3952F00057D8E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		14B291311ED3959200057D8E /* PostsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsViewController.swift; sourceTree = "<group>"; };
-		14B291321ED3959200057D8E /* PostsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostsViewController.xib; sourceTree = "<group>"; };
-		14B291361ED3964A00057D8E /* TableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
-		14B2913B1ED3988500057D8E /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
-		14B291401ED39AD800057D8E /* PostViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
-		14B291471ED39E2C00057D8E /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
-		14B291481ED39E2C00057D8E /* PostCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
-		14B2914E1ED3D6A600057D8E /* WebServiceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceController.swift; sourceTree = "<group>"; };
-		14B291501ED3D91500057D8E /* WebServiceController-BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WebServiceController-BridgingHeader.h"; sourceTree = "<group>"; };
-		14B291541ED3DB1F00057D8E /* PostController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostController.swift; sourceTree = "<group>"; };
-		14B291561ED489AE00057D8E /* WebServiceError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceError.swift; sourceTree = "<group>"; };
-		14B831C91ED4E2FA0004A605 /* JSONHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONHandler.swift; sourceTree = "<group>"; };
-		14B831CB1ED4E34A0004A605 /* JSONHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONHandling.swift; sourceTree = "<group>"; };
-		14D90EEF1EDE1F3D002D0ABA /* JSONHandlerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONHandlerSpec.swift; sourceTree = "<group>"; };
-		14D90EF01EDE1F3D002D0ABA /* MockJSONHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockJSONHandler.swift; sourceTree = "<group>"; };
-		14D90EF11EDE1F3D002D0ABA /* MockJSONSerialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockJSONSerialization.swift; sourceTree = "<group>"; };
-		14D90EF21EDE1F3D002D0ABA /* MockSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockSession.swift; sourceTree = "<group>"; };
-		14D90EF31EDE1F3D002D0ABA /* URLConstructorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLConstructorSpec.swift; sourceTree = "<group>"; };
-		14D90EF41EDE1F3D002D0ABA /* WebServiceControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceControllerSpec.swift; sourceTree = "<group>"; };
-		14D90EF51EDE1F3D002D0ABA /* WebServiceErrorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceErrorSpec.swift; sourceTree = "<group>"; };
-		14D90F461EE067E5002D0ABA /* MyWebServiceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyWebServiceController.swift; sourceTree = "<group>"; };
-		B4C866147C1498B93AC09A91 /* Pods-WebServiceControllerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebServiceControllerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WebServiceControllerTests/Pods-WebServiceControllerTests.release.xcconfig"; sourceTree = "<group>"; };
-		CB71FD1A4A4242536D750E5E /* Pods-WebServiceControllerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebServiceControllerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WebServiceControllerTests/Pods-WebServiceControllerTests.debug.xcconfig"; sourceTree = "<group>"; };
-		FC97E0C297F701B32FD529EB /* Pods_WebServiceControllerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebServiceControllerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		147FBB2B1EE6482000D2441D /* WebServiceController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WebServiceController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		147FBB341EE6482000D2441D /* WebServiceControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WebServiceControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		147FBB941EE6490400D2441D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		147FBB961EE6490400D2441D /* JSONHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONHandler.swift; sourceTree = "<group>"; };
+		147FBB971EE6490400D2441D /* JSONHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONHandling.swift; sourceTree = "<group>"; };
+		147FBB981EE6490400D2441D /* URLConstructor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLConstructor.swift; sourceTree = "<group>"; };
+		147FBB991EE6490400D2441D /* WebServiceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceController.swift; sourceTree = "<group>"; };
+		147FBB9A1EE6490400D2441D /* WebServiceError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceError.swift; sourceTree = "<group>"; };
+		147FBB9B1EE6490400D2441D /* WebServiceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebServiceController.h; sourceTree = "<group>"; };
+		147FBB9D1EE6490400D2441D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		147FBB9F1EE6490400D2441D /* JSONHandlerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONHandlerSpec.swift; sourceTree = "<group>"; };
+		147FBBA01EE6490400D2441D /* MockJSONHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockJSONHandler.swift; sourceTree = "<group>"; };
+		147FBBA11EE6490400D2441D /* MockJSONSerialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockJSONSerialization.swift; sourceTree = "<group>"; };
+		147FBBA21EE6490400D2441D /* MockSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockSession.swift; sourceTree = "<group>"; };
+		147FBBA31EE6490400D2441D /* URLConstructorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLConstructorSpec.swift; sourceTree = "<group>"; };
+		147FBBA41EE6490400D2441D /* WebServiceControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceControllerSpec.swift; sourceTree = "<group>"; };
+		147FBBA51EE6490400D2441D /* WebServiceErrorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceErrorSpec.swift; sourceTree = "<group>"; };
+		481E3F5AD5ED06292CB38784 /* Pods-WebServiceControllerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebServiceControllerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WebServiceControllerTests/Pods-WebServiceControllerTests.release.xcconfig"; sourceTree = "<group>"; };
+		7BB7433E3EB7FB81B6D8BDD9 /* Pods_WebServiceControllerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebServiceControllerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		804FACC918EF8BC287EF9593 /* Pods-WebServiceControllerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebServiceControllerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WebServiceControllerTests/Pods-WebServiceControllerTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		14053C821ED394A80094E780 /* Frameworks */ = {
+		147FBB271EE6482000D2441D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		14053C961ED394A80094E780 /* Frameworks */ = {
+		147FBB311EE6482000D2441D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AAA3F3E83781FE45D9182960 /* Pods_WebServiceControllerTests.framework in Frameworks */,
+				147FBB351EE6482000D2441D /* WebServiceController.framework in Frameworks */,
+				681A275D412E80D830339675 /* Pods_WebServiceControllerTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		14053C7C1ED394A80094E780 = {
+		147FBB211EE6482000D2441D = {
 			isa = PBXGroup;
 			children = (
-				14053C871ED394A80094E780 /* WebServiceController */,
-				14053C9C1ED394A80094E780 /* WebServiceControllerTests */,
-				14B291581ED4933A00057D8E /* Frameworks */,
-				14053C861ED394A80094E780 /* Products */,
-				EBE6C6DF5719A7E70585BBBF /* Pods */,
+				147FBB931EE6490400D2441D /* WebServiceController */,
+				147FBB9C1EE6490400D2441D /* WebServiceControllerTests */,
+				147FBB2C1EE6482000D2441D /* Products */,
+				390F08416C606840D9BC62E2 /* Pods */,
+				3743868EF4E53F29D6B810EC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		14053C861ED394A80094E780 /* Products */ = {
+		147FBB2C1EE6482000D2441D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				14053C851ED394A80094E780 /* WebServiceController.app */,
-				14053C991ED394A80094E780 /* WebServiceControllerTests.xctest */,
+				147FBB2B1EE6482000D2441D /* WebServiceController.framework */,
+				147FBB341EE6482000D2441D /* WebServiceControllerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		14053C871ED394A80094E780 /* WebServiceController */ = {
+		147FBB931EE6490400D2441D /* WebServiceController */ = {
 			isa = PBXGroup;
 			children = (
-				14B291211ED3952F00057D8E /* Application */,
-				14B291351ED3964A00057D8E /* Controllers */,
-				14B2913A1ED3988500057D8E /* Models */,
-				14B291531ED3DB1F00057D8E /* Networking */,
-				14B291291ED3952F00057D8E /* ViewControllers */,
-				14B2913F1ED39AD800057D8E /* ViewModels */,
-				14B291461ED39E2C00057D8E /* Views */,
-				14B2914D1ED3D6A600057D8E /* WebServiceController */,
+				147FBB941EE6490400D2441D /* Info.plist */,
+				147FBB951EE6490400D2441D /* WebServiceController */,
+				147FBB9B1EE6490400D2441D /* WebServiceController.h */,
 			);
 			path = WebServiceController;
 			sourceTree = "<group>";
 		};
-		14053C9C1ED394A80094E780 /* WebServiceControllerTests */ = {
+		147FBB951EE6490400D2441D /* WebServiceController */ = {
 			isa = PBXGroup;
 			children = (
-				14053C9F1ED394A80094E780 /* Info.plist */,
-				14D90EEE1EDE1F3D002D0ABA /* WebServiceControllerTests */,
+				147FBB961EE6490400D2441D /* JSONHandler.swift */,
+				147FBB971EE6490400D2441D /* JSONHandling.swift */,
+				147FBB981EE6490400D2441D /* URLConstructor.swift */,
+				147FBB991EE6490400D2441D /* WebServiceController.swift */,
+				147FBB9A1EE6490400D2441D /* WebServiceError.swift */,
+			);
+			path = WebServiceController;
+			sourceTree = "<group>";
+		};
+		147FBB9C1EE6490400D2441D /* WebServiceControllerTests */ = {
+			isa = PBXGroup;
+			children = (
+				147FBB9D1EE6490400D2441D /* Info.plist */,
+				147FBB9E1EE6490400D2441D /* WebServiceControllerTests */,
 			);
 			path = WebServiceControllerTests;
 			sourceTree = "<group>";
 		};
-		14B291211ED3952F00057D8E /* Application */ = {
+		147FBB9E1EE6490400D2441D /* WebServiceControllerTests */ = {
 			isa = PBXGroup;
 			children = (
-				14B291221ED3952F00057D8E /* AppDelegate.swift */,
-				14B291231ED3952F00057D8E /* Assets.xcassets */,
-				14B291241ED3952F00057D8E /* LaunchScreen.storyboard */,
-				14B291281ED3952F00057D8E /* Info.plist */,
-				14B291501ED3D91500057D8E /* WebServiceController-BridgingHeader.h */,
+				147FBB9F1EE6490400D2441D /* JSONHandlerSpec.swift */,
+				147FBBA01EE6490400D2441D /* MockJSONHandler.swift */,
+				147FBBA11EE6490400D2441D /* MockJSONSerialization.swift */,
+				147FBBA21EE6490400D2441D /* MockSession.swift */,
+				147FBBA31EE6490400D2441D /* URLConstructorSpec.swift */,
+				147FBBA41EE6490400D2441D /* WebServiceControllerSpec.swift */,
+				147FBBA51EE6490400D2441D /* WebServiceErrorSpec.swift */,
 			);
-			path = Application;
+			path = WebServiceControllerTests;
 			sourceTree = "<group>";
 		};
-		14B291291ED3952F00057D8E /* ViewControllers */ = {
+		3743868EF4E53F29D6B810EC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				14024B851ED5E89E006B6F39 /* EditPostViewController.swift */,
-				14024B861ED5E89E006B6F39 /* EditPostViewController.xib */,
-				14B291311ED3959200057D8E /* PostsViewController.swift */,
-				14B291321ED3959200057D8E /* PostsViewController.xib */,
-			);
-			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		14B291351ED3964A00057D8E /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				14B291361ED3964A00057D8E /* TableViewDataSource.swift */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		14B2913A1ED3988500057D8E /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				14B2913B1ED3988500057D8E /* Post.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		14B2913F1ED39AD800057D8E /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				14B291401ED39AD800057D8E /* PostViewModel.swift */,
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		14B291461ED39E2C00057D8E /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				14B291471ED39E2C00057D8E /* PostCell.swift */,
-				14B291481ED39E2C00057D8E /* PostCell.xib */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		14B2914D1ED3D6A600057D8E /* WebServiceController */ = {
-			isa = PBXGroup;
-			children = (
-				14B831CB1ED4E34A0004A605 /* JSONHandling.swift */,
-				14B831C91ED4E2FA0004A605 /* JSONHandler.swift */,
-				14024B891ED5F111006B6F39 /* URLConstructor.swift */,
-				14B2914E1ED3D6A600057D8E /* WebServiceController.swift */,
-				14B291561ED489AE00057D8E /* WebServiceError.swift */,
-			);
-			path = WebServiceController;
-			sourceTree = "<group>";
-		};
-		14B291531ED3DB1F00057D8E /* Networking */ = {
-			isa = PBXGroup;
-			children = (
-				14D90F461EE067E5002D0ABA /* MyWebServiceController.swift */,
-				14B291541ED3DB1F00057D8E /* PostController.swift */,
-			);
-			path = Networking;
-			sourceTree = "<group>";
-		};
-		14B291581ED4933A00057D8E /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				FC97E0C297F701B32FD529EB /* Pods_WebServiceControllerTests.framework */,
+				7BB7433E3EB7FB81B6D8BDD9 /* Pods_WebServiceControllerTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		14D90EEE1EDE1F3D002D0ABA /* WebServiceControllerTests */ = {
+		390F08416C606840D9BC62E2 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				14D90EEF1EDE1F3D002D0ABA /* JSONHandlerSpec.swift */,
-				14D90EF01EDE1F3D002D0ABA /* MockJSONHandler.swift */,
-				14D90EF11EDE1F3D002D0ABA /* MockJSONSerialization.swift */,
-				14D90EF21EDE1F3D002D0ABA /* MockSession.swift */,
-				14D90EF31EDE1F3D002D0ABA /* URLConstructorSpec.swift */,
-				14D90EF41EDE1F3D002D0ABA /* WebServiceControllerSpec.swift */,
-				14D90EF51EDE1F3D002D0ABA /* WebServiceErrorSpec.swift */,
-			);
-			path = WebServiceControllerTests;
-			sourceTree = "<group>";
-		};
-		EBE6C6DF5719A7E70585BBBF /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				CB71FD1A4A4242536D750E5E /* Pods-WebServiceControllerTests.debug.xcconfig */,
-				B4C866147C1498B93AC09A91 /* Pods-WebServiceControllerTests.release.xcconfig */,
+				804FACC918EF8BC287EF9593 /* Pods-WebServiceControllerTests.debug.xcconfig */,
+				481E3F5AD5ED06292CB38784 /* Pods-WebServiceControllerTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		147FBB281EE6482000D2441D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				147FBBAC1EE6490400D2441D /* WebServiceController.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
-		14053C841ED394A80094E780 /* WebServiceController */ = {
+		147FBB2A1EE6482000D2441D /* WebServiceController */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 14053CA21ED394A80094E780 /* Build configuration list for PBXNativeTarget "WebServiceController" */;
+			buildConfigurationList = 147FBB3F1EE6482000D2441D /* Build configuration list for PBXNativeTarget "WebServiceController" */;
 			buildPhases = (
-				14053C811ED394A80094E780 /* Sources */,
-				14053C821ED394A80094E780 /* Frameworks */,
-				14053C831ED394A80094E780 /* Resources */,
+				147FBB261EE6482000D2441D /* Sources */,
+				147FBB271EE6482000D2441D /* Frameworks */,
+				147FBB281EE6482000D2441D /* Headers */,
+				147FBB291EE6482000D2441D /* Resources */,
 			);
 			buildRules = (
 			);
@@ -284,87 +190,81 @@
 			);
 			name = WebServiceController;
 			productName = WebServiceController;
-			productReference = 14053C851ED394A80094E780 /* WebServiceController.app */;
-			productType = "com.apple.product-type.application";
+			productReference = 147FBB2B1EE6482000D2441D /* WebServiceController.framework */;
+			productType = "com.apple.product-type.framework";
 		};
-		14053C981ED394A80094E780 /* WebServiceControllerTests */ = {
+		147FBB331EE6482000D2441D /* WebServiceControllerTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 14053CA51ED394A80094E780 /* Build configuration list for PBXNativeTarget "WebServiceControllerTests" */;
+			buildConfigurationList = 147FBB421EE6482000D2441D /* Build configuration list for PBXNativeTarget "WebServiceControllerTests" */;
 			buildPhases = (
-				F205CD0676769F01B3520C0F /* [CP] Check Pods Manifest.lock */,
-				14053C951ED394A80094E780 /* Sources */,
-				14053C961ED394A80094E780 /* Frameworks */,
-				14053C971ED394A80094E780 /* Resources */,
-				14B2915F1ED493FB00057D8E /* Copy Carthage Frameworks */,
-				96B70736F2939477E9A07C6F /* [CP] Embed Pods Frameworks */,
-				6A908E8A1D8A6E76FFED13C7 /* [CP] Copy Pods Resources */,
+				A2CBAB7ED5ADB15632165A4B /* [CP] Check Pods Manifest.lock */,
+				147FBB301EE6482000D2441D /* Sources */,
+				147FBB311EE6482000D2441D /* Frameworks */,
+				147FBB321EE6482000D2441D /* Resources */,
+				B566BB63509BE95F4636FF94 /* [CP] Embed Pods Frameworks */,
+				D87F7360F6613ABFE20E3329 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				14053C9B1ED394A80094E780 /* PBXTargetDependency */,
+				147FBB371EE6482000D2441D /* PBXTargetDependency */,
 			);
 			name = WebServiceControllerTests;
 			productName = WebServiceControllerTests;
-			productReference = 14053C991ED394A80094E780 /* WebServiceControllerTests.xctest */;
+			productReference = 147FBB341EE6482000D2441D /* WebServiceControllerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		14053C7D1ED394A80094E780 /* Project object */ = {
+		147FBB221EE6482000D2441D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Sean Kladek";
 				TargetAttributes = {
-					14053C841ED394A80094E780 = {
+					147FBB2A1EE6482000D2441D = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = MV978XDK83;
 						ProvisioningStyle = Automatic;
 					};
-					14053C981ED394A80094E780 = {
+					147FBB331EE6482000D2441D = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = MV978XDK83;
 						ProvisioningStyle = Automatic;
-						TestTargetID = 14053C841ED394A80094E780;
 					};
 				};
 			};
-			buildConfigurationList = 14053C801ED394A80094E780 /* Build configuration list for PBXProject "WebServiceController" */;
+			buildConfigurationList = 147FBB251EE6482000D2441D /* Build configuration list for PBXProject "WebServiceController" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
 			);
-			mainGroup = 14053C7C1ED394A80094E780;
-			productRefGroup = 14053C861ED394A80094E780 /* Products */;
+			mainGroup = 147FBB211EE6482000D2441D;
+			productRefGroup = 147FBB2C1EE6482000D2441D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				14053C841ED394A80094E780 /* WebServiceController */,
-				14053C981ED394A80094E780 /* WebServiceControllerTests */,
+				147FBB2A1EE6482000D2441D /* WebServiceController */,
+				147FBB331EE6482000D2441D /* WebServiceControllerTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		14053C831ED394A80094E780 /* Resources */ = {
+		147FBB291EE6482000D2441D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14B2914A1ED39E2C00057D8E /* PostCell.xib in Resources */,
-				14B2912C1ED3952F00057D8E /* Assets.xcassets in Resources */,
-				14B291341ED3959200057D8E /* PostsViewController.xib in Resources */,
-				14B2912D1ED3952F00057D8E /* LaunchScreen.storyboard in Resources */,
-				14024B881ED5E89E006B6F39 /* EditPostViewController.xib in Resources */,
+				147FBBAD1EE6490400D2441D /* Info.plist in Resources */,
+				147FBBA61EE6490400D2441D /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		14053C971ED394A80094E780 /* Resources */ = {
+		147FBB321EE6482000D2441D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -374,37 +274,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6A908E8A1D8A6E76FFED13C7 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WebServiceControllerTests/Pods-WebServiceControllerTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		96B70736F2939477E9A07C6F /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WebServiceControllerTests/Pods-WebServiceControllerTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F205CD0676769F01B3520C0F /* [CP] Check Pods Manifest.lock */ = {
+		A2CBAB7ED5ADB15632165A4B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -419,71 +289,80 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		B566BB63509BE95F4636FF94 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WebServiceControllerTests/Pods-WebServiceControllerTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D87F7360F6613ABFE20E3329 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WebServiceControllerTests/Pods-WebServiceControllerTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		14053C811ED394A80094E780 /* Sources */ = {
+		147FBB261EE6482000D2441D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14B291411ED39AD800057D8E /* PostViewModel.swift in Sources */,
-				14B831CA1ED4E2FA0004A605 /* JSONHandler.swift in Sources */,
-				14B291551ED3DB1F00057D8E /* PostController.swift in Sources */,
-				14024B8A1ED5F111006B6F39 /* URLConstructor.swift in Sources */,
-				14B2914F1ED3D6A600057D8E /* WebServiceController.swift in Sources */,
-				14B291371ED3964A00057D8E /* TableViewDataSource.swift in Sources */,
-				14B291331ED3959200057D8E /* PostsViewController.swift in Sources */,
-				14B2912B1ED3952F00057D8E /* AppDelegate.swift in Sources */,
-				14B2913C1ED3988500057D8E /* Post.swift in Sources */,
-				14B831CC1ED4E34A0004A605 /* JSONHandling.swift in Sources */,
-				14D90F471EE067E5002D0ABA /* MyWebServiceController.swift in Sources */,
-				14B291571ED489AE00057D8E /* WebServiceError.swift in Sources */,
-				14024B871ED5E89E006B6F39 /* EditPostViewController.swift in Sources */,
-				14B291491ED39E2C00057D8E /* PostCell.swift in Sources */,
+				147FBBB01EE6490400D2441D /* MockJSONSerialization.swift in Sources */,
+				147FBBAB1EE6490400D2441D /* WebServiceError.swift in Sources */,
+				147FBBAA1EE6490400D2441D /* WebServiceController.swift in Sources */,
+				147FBBB31EE6490400D2441D /* WebServiceControllerSpec.swift in Sources */,
+				147FBBB21EE6490400D2441D /* URLConstructorSpec.swift in Sources */,
+				147FBBA91EE6490400D2441D /* URLConstructor.swift in Sources */,
+				147FBBAE1EE6490400D2441D /* JSONHandlerSpec.swift in Sources */,
+				147FBBA81EE6490400D2441D /* JSONHandling.swift in Sources */,
+				147FBBB41EE6490400D2441D /* WebServiceErrorSpec.swift in Sources */,
+				147FBBB11EE6490400D2441D /* MockSession.swift in Sources */,
+				147FBBA71EE6490400D2441D /* JSONHandler.swift in Sources */,
+				147FBBAF1EE6490400D2441D /* MockJSONHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		14053C951ED394A80094E780 /* Sources */ = {
+		147FBB301EE6482000D2441D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14D90EF71EDE1F3D002D0ABA /* MockJSONHandler.swift in Sources */,
-				14D90EF61EDE1F3D002D0ABA /* JSONHandlerSpec.swift in Sources */,
-				14D90EF91EDE1F3D002D0ABA /* MockSession.swift in Sources */,
-				14D90EFB1EDE1F3D002D0ABA /* WebServiceControllerSpec.swift in Sources */,
-				14D90EFA1EDE1F3D002D0ABA /* URLConstructorSpec.swift in Sources */,
-				14D90EFC1EDE1F3D002D0ABA /* WebServiceErrorSpec.swift in Sources */,
-				14D90EF81EDE1F3D002D0ABA /* MockJSONSerialization.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		14053C9B1ED394A80094E780 /* PBXTargetDependency */ = {
+		147FBB371EE6482000D2441D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 14053C841ED394A80094E780 /* WebServiceController */;
-			targetProxy = 14053C9A1ED394A80094E780 /* PBXContainerItemProxy */;
+			target = 147FBB2A1EE6482000D2441D /* WebServiceController */;
+			targetProxy = 147FBB361EE6482000D2441D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		14B291241ED3952F00057D8E /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				14B291251ED3952F00057D8E /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
-		14053CA01ED394A80094E780 /* Debug */ = {
+		147FBB3D1EE6482000D2441D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				BASE_URL = "https://jsonplaceholder.typicode.com/";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -504,6 +383,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -526,16 +406,17 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OBJC_BRIDGING_HEADER = "WebServiceController/Application/WebServiceController-BridgingHeader.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		14053CA11ED394A80094E780 /* Release */ = {
+		147FBB3E1EE6482000D2441D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				BASE_URL = "https://jsonplaceholder.typicode.com/";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -556,6 +437,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -570,134 +452,109 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OBJC_BRIDGING_HEADER = "WebServiceController/Application/WebServiceController-BridgingHeader.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
-		14053CA31ED394A80094E780 /* Debug */ = {
+		147FBB401EE6482000D2441D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				BASE_URL = "https://jsonplaceholder.typicode.com/";
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = MV978XDK83;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"BASE_URL=(@\\\"${BASE_URL}\\\")",
-					"DEBUG=1",
-				);
-				INFOPLIST_FILE = "$(SRCROOT)/WebServiceController/Application/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = WebServiceController/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.skladek.WebServiceController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "WebServiceController/Application/WebServiceController-BridgingHeader.h";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
-		14053CA41ED394A80094E780 /* Release */ = {
+		147FBB411EE6482000D2441D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				BASE_URL = "https://jsonplaceholder.typicode.com/";
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = MV978XDK83;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = "BASE_URL=(@\\\"${BASE_URL}\\\")";
-				INFOPLIST_FILE = "$(SRCROOT)/WebServiceController/Application/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = WebServiceController/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.skladek.WebServiceController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "WebServiceController/Application/WebServiceController-BridgingHeader.h";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
-		14053CA61ED394A80094E780 /* Debug */ = {
+		147FBB431EE6482000D2441D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CB71FD1A4A4242536D750E5E /* Pods-WebServiceControllerTests.debug.xcconfig */;
+			baseConfigurationReference = 804FACC918EF8BC287EF9593 /* Pods-WebServiceControllerTests.debug.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = MV978XDK83;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"BASE_URL=(@\\\"${BASE_URL}\\\")",
-					"$(inherited)",
-				);
 				INFOPLIST_FILE = WebServiceControllerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.skladek.WebServiceControllerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "WebServiceController/Application/WebServiceController-BridgingHeader.h";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WebServiceController.app/WebServiceController";
 			};
 			name = Debug;
 		};
-		14053CA71ED394A80094E780 /* Release */ = {
+		147FBB441EE6482000D2441D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B4C866147C1498B93AC09A91 /* Pods-WebServiceControllerTests.release.xcconfig */;
+			baseConfigurationReference = 481E3F5AD5ED06292CB38784 /* Pods-WebServiceControllerTests.release.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = MV978XDK83;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"BASE_URL=(@\\\"${BASE_URL}\\\")",
-					"$(inherited)",
-				);
 				INFOPLIST_FILE = WebServiceControllerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.skladek.WebServiceControllerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "WebServiceController/Application/WebServiceController-BridgingHeader.h";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WebServiceController.app/WebServiceController";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		14053C801ED394A80094E780 /* Build configuration list for PBXProject "WebServiceController" */ = {
+		147FBB251EE6482000D2441D /* Build configuration list for PBXProject "WebServiceController" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				14053CA01ED394A80094E780 /* Debug */,
-				14053CA11ED394A80094E780 /* Release */,
+				147FBB3D1EE6482000D2441D /* Debug */,
+				147FBB3E1EE6482000D2441D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		14053CA21ED394A80094E780 /* Build configuration list for PBXNativeTarget "WebServiceController" */ = {
+		147FBB3F1EE6482000D2441D /* Build configuration list for PBXNativeTarget "WebServiceController" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				14053CA31ED394A80094E780 /* Debug */,
-				14053CA41ED394A80094E780 /* Release */,
+				147FBB401EE6482000D2441D /* Debug */,
+				147FBB411EE6482000D2441D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		14053CA51ED394A80094E780 /* Build configuration list for PBXNativeTarget "WebServiceControllerTests" */ = {
+		147FBB421EE6482000D2441D /* Build configuration list for PBXNativeTarget "WebServiceControllerTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				14053CA61ED394A80094E780 /* Debug */,
-				14053CA71ED394A80094E780 /* Release */,
+				147FBB431EE6482000D2441D /* Debug */,
+				147FBB441EE6482000D2441D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 14053C7D1ED394A80094E780 /* Project object */;
+	rootObject = 147FBB221EE6482000D2441D /* Project object */;
 }
