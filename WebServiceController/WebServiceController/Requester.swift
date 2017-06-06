@@ -13,7 +13,6 @@ protocol Requesting {
 
     func imageCompletion(data: Data?, response: URLResponse?, error: Error?, completion: @escaping WebServiceController.ImageCompletion)
     func jsonCompletion(data: Data?, response: URLResponse?, error: Error?, completion: @escaping WebServiceController.JSONCompletion)
-
     func performRequest(_ request: URLRequest, httpMethod: WebServiceController.HTTPMethod, json: Any?, completion: @escaping RequestCompletion) -> URLSessionDataTask?
     func performRequest(endpoint: String?, parameters: [String : String]?, json: Any?, httpMethod: WebServiceController.HTTPMethod, completion: @escaping RequestCompletion) -> URLSessionDataTask?
 }
@@ -24,9 +23,8 @@ class Requester: Requesting {
 
     private let jsonHandler: JSONHandling
 
-    let session: URLSession
+    private let session: URLSession
 
-    /// The object to construct URLs from.
     let urlConstructor: URLConstructor
 
     init(defaultParameters: [String : String], jsonHandler: JSONHandling, session: URLSession, urlConstructor: URLConstructor) {

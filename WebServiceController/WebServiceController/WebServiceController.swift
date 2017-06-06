@@ -11,7 +11,7 @@ import UIKit
 public class WebServiceController: NSObject {
 
 
-    // MARK: Class Types
+    // MARK: Public Class Types
 
 
     /// The completion that is returned with image requests.
@@ -21,7 +21,7 @@ public class WebServiceController: NSObject {
     public typealias JSONCompletion = (Any?, URLResponse?, Error?) -> ()
 
 
-    // MARK: Private Class Types
+    // MARK: Internal Class Types
 
 
     enum HTTPMethod: String {
@@ -35,14 +35,17 @@ public class WebServiceController: NSObject {
     // MARK: Internal Properties
 
 
-    /// The object that handles and performs requests.
     let requester: Requesting
 
 
     // MARK: Init Methods
 
 
-    /// Creates a controller with the defualt values.
+    /// Creates a controller that will perform requests on the base URL with the default parameters appended to each request.
+    ///
+    /// - Parameters:
+    ///   - baseURL: The URL that all requests are built from.
+    ///   - defaultParameters: The parameters to be appended to the end of the URL string.
     public init(baseURL: String, defaultParameters: [String : String] = [:]) {
         let jsonHandler = JSONHandler()
         let session = URLSession(configuration: .default)
@@ -50,15 +53,8 @@ public class WebServiceController: NSObject {
         self.requester = Requester(defaultParameters: defaultParameters, jsonHandler: jsonHandler, session: session, urlConstructor: urlConstructor)
     }
 
-    /// Creates a controller with the session and JSON Handler values for testing purposes. Do not use this initializer in production.
-    ///
-    /// - Parameters:
-    ///   - testingSession: The URL session to be used.
-    ///   - jsonHandler: The JSON handler to be used.
-    init(testingBaseURL: String, defaultParameters: [String : String], session: URLSession, jsonHandler: JSONHandling? = nil, requester: Requesting? = nil) {
-        let jsonHandler = jsonHandler ?? JSONHandler()
-        let urlConstructor = URLConstructor(baseURL: testingBaseURL)
-        self.requester = requester ?? Requester(defaultParameters: defaultParameters, jsonHandler: jsonHandler, session: session, urlConstructor: urlConstructor)
+    init(testRequester: Requesting) {
+        self.requester = testRequester
     }
 
 
