@@ -23,10 +23,6 @@
 		14B2914F1ED3D6A600057D8E /* WebServiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B2914E1ED3D6A600057D8E /* WebServiceController.swift */; };
 		14B291551ED3DB1F00057D8E /* PostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B291541ED3DB1F00057D8E /* PostController.swift */; };
 		14B291571ED489AE00057D8E /* WebServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B291561ED489AE00057D8E /* WebServiceError.swift */; };
-		14B2915D1ED4937F00057D8E /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B291591ED4935F00057D8E /* Nimble.framework */; };
-		14B2915E1ED4937F00057D8E /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B2915A1ED4935F00057D8E /* Quick.framework */; };
-		14B291601ED4940E00057D8E /* Nimble.framework in Copy Carthage Frameworks */ = {isa = PBXBuildFile; fileRef = 14B291591ED4935F00057D8E /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		14B291611ED4940E00057D8E /* Quick.framework in Copy Carthage Frameworks */ = {isa = PBXBuildFile; fileRef = 14B2915A1ED4935F00057D8E /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		14B831CA1ED4E2FA0004A605 /* JSONHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B831C91ED4E2FA0004A605 /* JSONHandler.swift */; };
 		14B831CC1ED4E34A0004A605 /* JSONHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B831CB1ED4E34A0004A605 /* JSONHandling.swift */; };
 		14D90EF61EDE1F3D002D0ABA /* JSONHandlerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D90EEF1EDE1F3D002D0ABA /* JSONHandlerSpec.swift */; };
@@ -37,6 +33,7 @@
 		14D90EFB1EDE1F3D002D0ABA /* WebServiceControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D90EF41EDE1F3D002D0ABA /* WebServiceControllerSpec.swift */; };
 		14D90EFC1EDE1F3D002D0ABA /* WebServiceErrorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D90EF51EDE1F3D002D0ABA /* WebServiceErrorSpec.swift */; };
 		14D90F471EE067E5002D0ABA /* MyWebServiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D90F461EE067E5002D0ABA /* MyWebServiceController.swift */; };
+		AAA3F3E83781FE45D9182960 /* Pods_WebServiceControllerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC97E0C297F701B32FD529EB /* Pods_WebServiceControllerTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,8 +53,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				14B291601ED4940E00057D8E /* Nimble.framework in Copy Carthage Frameworks */,
-				14B291611ED4940E00057D8E /* Quick.framework in Copy Carthage Frameworks */,
 			);
 			name = "Copy Carthage Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -86,8 +81,6 @@
 		14B291501ED3D91500057D8E /* WebServiceController-BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WebServiceController-BridgingHeader.h"; sourceTree = "<group>"; };
 		14B291541ED3DB1F00057D8E /* PostController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostController.swift; sourceTree = "<group>"; };
 		14B291561ED489AE00057D8E /* WebServiceError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceError.swift; sourceTree = "<group>"; };
-		14B291591ED4935F00057D8E /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
-		14B2915A1ED4935F00057D8E /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		14B831C91ED4E2FA0004A605 /* JSONHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONHandler.swift; sourceTree = "<group>"; };
 		14B831CB1ED4E34A0004A605 /* JSONHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONHandling.swift; sourceTree = "<group>"; };
 		14D90EEF1EDE1F3D002D0ABA /* JSONHandlerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONHandlerSpec.swift; sourceTree = "<group>"; };
@@ -98,6 +91,9 @@
 		14D90EF41EDE1F3D002D0ABA /* WebServiceControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceControllerSpec.swift; sourceTree = "<group>"; };
 		14D90EF51EDE1F3D002D0ABA /* WebServiceErrorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceErrorSpec.swift; sourceTree = "<group>"; };
 		14D90F461EE067E5002D0ABA /* MyWebServiceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyWebServiceController.swift; sourceTree = "<group>"; };
+		B4C866147C1498B93AC09A91 /* Pods-WebServiceControllerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebServiceControllerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WebServiceControllerTests/Pods-WebServiceControllerTests.release.xcconfig"; sourceTree = "<group>"; };
+		CB71FD1A4A4242536D750E5E /* Pods-WebServiceControllerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebServiceControllerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WebServiceControllerTests/Pods-WebServiceControllerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		FC97E0C297F701B32FD529EB /* Pods_WebServiceControllerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebServiceControllerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,8 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14B2915E1ED4937F00057D8E /* Quick.framework in Frameworks */,
-				14B2915D1ED4937F00057D8E /* Nimble.framework in Frameworks */,
+				AAA3F3E83781FE45D9182960 /* Pods_WebServiceControllerTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,6 +122,7 @@
 				14053C9C1ED394A80094E780 /* WebServiceControllerTests */,
 				14B291581ED4933A00057D8E /* Frameworks */,
 				14053C861ED394A80094E780 /* Products */,
+				EBE6C6DF5719A7E70585BBBF /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -243,8 +239,7 @@
 		14B291581ED4933A00057D8E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				14B291591ED4935F00057D8E /* Nimble.framework */,
-				14B2915A1ED4935F00057D8E /* Quick.framework */,
+				FC97E0C297F701B32FD529EB /* Pods_WebServiceControllerTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -261,6 +256,15 @@
 				14D90EF51EDE1F3D002D0ABA /* WebServiceErrorSpec.swift */,
 			);
 			path = WebServiceControllerTests;
+			sourceTree = "<group>";
+		};
+		EBE6C6DF5719A7E70585BBBF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CB71FD1A4A4242536D750E5E /* Pods-WebServiceControllerTests.debug.xcconfig */,
+				B4C866147C1498B93AC09A91 /* Pods-WebServiceControllerTests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,10 +291,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 14053CA51ED394A80094E780 /* Build configuration list for PBXNativeTarget "WebServiceControllerTests" */;
 			buildPhases = (
+				F205CD0676769F01B3520C0F /* [CP] Check Pods Manifest.lock */,
 				14053C951ED394A80094E780 /* Sources */,
 				14053C961ED394A80094E780 /* Frameworks */,
 				14053C971ED394A80094E780 /* Resources */,
 				14B2915F1ED493FB00057D8E /* Copy Carthage Frameworks */,
+				96B70736F2939477E9A07C6F /* [CP] Embed Pods Frameworks */,
+				6A908E8A1D8A6E76FFED13C7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -365,6 +372,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6A908E8A1D8A6E76FFED13C7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WebServiceControllerTests/Pods-WebServiceControllerTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		96B70736F2939477E9A07C6F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WebServiceControllerTests/Pods-WebServiceControllerTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F205CD0676769F01B3520C0F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		14053C811ED394A80094E780 /* Sources */ = {
@@ -566,15 +621,18 @@
 		};
 		14053CA61ED394A80094E780 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB71FD1A4A4242536D750E5E /* Pods-WebServiceControllerTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = MV978XDK83;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				GCC_PREPROCESSOR_DEFINITIONS = "BASE_URL=(@\\\"${BASE_URL}\\\")";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"BASE_URL=(@\\\"${BASE_URL}\\\")",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = WebServiceControllerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.skladek.WebServiceControllerTests;
@@ -587,15 +645,18 @@
 		};
 		14053CA71ED394A80094E780 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B4C866147C1498B93AC09A91 /* Pods-WebServiceControllerTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = MV978XDK83;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				GCC_PREPROCESSOR_DEFINITIONS = "BASE_URL=(@\\\"${BASE_URL}\\\")";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"BASE_URL=(@\\\"${BASE_URL}\\\")",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = WebServiceControllerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.skladek.WebServiceControllerTests;
