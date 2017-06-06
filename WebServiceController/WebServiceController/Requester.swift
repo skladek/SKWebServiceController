@@ -70,7 +70,7 @@ class Requester: Requesting {
         }
     }
 
-    func performRequest(_ request: URLRequest, httpMethod: WebServiceController.HTTPMethod, json: Any? = nil, completion: @escaping RequestCompletion) -> URLSessionDataTask? {
+    func performRequest(_ request: URLRequest, httpMethod: WebServiceController.HTTPMethod, json: Any?, completion: @escaping RequestCompletion) -> URLSessionDataTask? {
         var data: Data? = nil
         var sessionTask: URLSessionDataTask? = nil
 
@@ -94,7 +94,7 @@ class Requester: Requesting {
         return sessionTask
     }
 
-    func performRequest(endpoint: String?, parameters: [String : String]? = nil, json: Any? = nil, httpMethod: WebServiceController.HTTPMethod, completion: @escaping RequestCompletion) -> URLSessionDataTask? {
+    func performRequest(endpoint: String?, parameters: [String : String]?, json: Any?, httpMethod: WebServiceController.HTTPMethod, completion: @escaping RequestCompletion) -> URLSessionDataTask? {
         var combinedParameters = defaultParameters
         parameters?.forEach{ (key, value) in combinedParameters[key] = value }
         let urlTuple = urlConstructor.urlWith(endpoint: endpoint, parameters: combinedParameters)

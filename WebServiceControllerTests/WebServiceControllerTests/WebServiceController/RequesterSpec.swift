@@ -126,6 +126,55 @@ class RequesterSpec: QuickSpec {
                     }
                 }
             }
+
+            context("performRequest(_:httpMethod:json:completion:)") {
+                var request: URLRequest!
+
+                beforeEach {
+                    let url = URL(string: "https://example.url/")!
+                    request = URLRequest(url: url)
+                }
+
+                it("Should not call json to data if nil json is provided") {
+                    let _ = unitUnderTest.performRequest(request, httpMethod: .get, json: nil, completion: { (_, _, _) in })
+                    expect(jsonHandler.jsonToDataCalled).to(beFalse())
+                }
+
+                it("Should call json to data if json is provided") {
+                    let _ = unitUnderTest.performRequest(request, httpMethod: .get, json: [:], completion: { (_, _, _) in })
+                    expect(jsonHandler.jsonToDataCalled).to(beTrue())
+                }
+
+                it("Should return an error through the completion if the json handler returns an error") {
+                    jsonHandler.mockError = true
+                    waitUntil { done in
+                        let _ = unitUnderTest.performRequest(request, httpMethod: .get, json: [:], completion: { (_, _, outputError) in
+                            expect(outputError).toNot(beNil())
+                            done()
+                        })
+                    }
+                }
+
+                it("Should call dataTask for a delete request") {
+                    let _ = unitUnderTest.performRequest(request, httpMethod: .delete, json: nil, completion: { (_, _, _) in })
+                    expect(session.dataTaskWithRequestCalled).to(beTrue())
+                }
+
+                it("Should call dataTask for a get request") {
+                    let _ = unitUnderTest.performRequest(request, httpMethod: .get, json: nil, completion: { (_, _, _) in })
+                    expect(session.dataTaskWithRequestCalled).to(beTrue())
+                }
+
+                it("Should call uploadTask for a post request") {
+                    let _ = unitUnderTest.performRequest(request, httpMethod: .post, json: nil, completion: { (_, _, _) in })
+                    expect(session.uploadTaskCalled).to(beTrue())
+                }
+
+                it("Should call uploadTask for a put request") {
+                    let _ = unitUnderTest.performRequest(request, httpMethod: .put, json: nil, completion: { (_, _, _) in })
+                    expect(session.uploadTaskCalled).to(beTrue())
+                }
+            }
         }
     }
 }

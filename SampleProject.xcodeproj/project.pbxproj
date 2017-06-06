@@ -10,7 +10,6 @@
 		147FBB6E1EE6487700D2441D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FBB471EE6487700D2441D /* AppDelegate.swift */; };
 		147FBB6F1EE6487700D2441D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 147FBB481EE6487700D2441D /* Assets.xcassets */; };
 		147FBB701EE6487700D2441D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 147FBB491EE6487700D2441D /* LaunchScreen.storyboard */; };
-		147FBB711EE6487700D2441D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 147FBB4B1EE6487700D2441D /* Info.plist */; };
 		147FBB721EE6487700D2441D /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FBB4E1EE6487700D2441D /* TableViewDataSource.swift */; };
 		147FBB731EE6487700D2441D /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FBB501EE6487700D2441D /* Post.swift */; };
 		147FBB741EE6487700D2441D /* MyWebServiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FBB521EE6487700D2441D /* MyWebServiceController.swift */; };
@@ -311,7 +310,6 @@
 				147FBB701EE6487700D2441D /* LaunchScreen.storyboard in Resources */,
 				147FBB771EE6487700D2441D /* EditPostViewController.xib in Resources */,
 				147FBB791EE6487700D2441D /* PostsViewController.xib in Resources */,
-				147FBB711EE6487700D2441D /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,10 +452,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				BASE_URL = "https://jsonplaceholder.typicode.com/";
 				DEVELOPMENT_TEAM = MV978XDK83;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"BASE_URL=(@\\\"${BASE_URL}\\\")",
 					"DEBUG=1",
@@ -476,10 +470,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				BASE_URL = "https://jsonplaceholder.typicode.com/";
 				DEVELOPMENT_TEAM = MV978XDK83;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				GCC_PREPROCESSOR_DEFINITIONS = "BASE_URL=(@\\\"${BASE_URL}\\\")";
 				INFOPLIST_FILE = "$(SRCROOT)/SampleProject/Application/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
