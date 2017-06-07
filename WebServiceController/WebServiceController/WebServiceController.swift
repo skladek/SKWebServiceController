@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class WebServiceController: NSObject {
+open class WebServiceController: NSObject {
 
 
     // MARK: Public Class Types

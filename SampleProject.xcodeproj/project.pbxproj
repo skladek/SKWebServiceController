@@ -21,11 +21,6 @@
 		147FBB7A1EE6487700D2441D /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FBB5A1EE6487700D2441D /* PostViewModel.swift */; };
 		147FBB7B1EE6487700D2441D /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FBB5C1EE6487700D2441D /* PostCell.swift */; };
 		147FBB7C1EE6487700D2441D /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 147FBB5D1EE6487700D2441D /* PostCell.xib */; };
-		147FBB7D1EE6487700D2441D /* JSONHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FBB5F1EE6487700D2441D /* JSONHandler.swift */; };
-		147FBB7E1EE6487700D2441D /* JSONHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FBB601EE6487700D2441D /* JSONHandling.swift */; };
-		147FBB7F1EE6487700D2441D /* URLConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FBB611EE6487700D2441D /* URLConstructor.swift */; };
-		147FBB801EE6487700D2441D /* WebServiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FBB621EE6487700D2441D /* WebServiceController.swift */; };
-		147FBB811EE6487700D2441D /* WebServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FBB631EE6487700D2441D /* WebServiceError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,11 +58,6 @@
 		147FBB5A1EE6487700D2441D /* PostViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
 		147FBB5C1EE6487700D2441D /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		147FBB5D1EE6487700D2441D /* PostCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
-		147FBB5F1EE6487700D2441D /* JSONHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONHandler.swift; sourceTree = "<group>"; };
-		147FBB601EE6487700D2441D /* JSONHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONHandling.swift; sourceTree = "<group>"; };
-		147FBB611EE6487700D2441D /* URLConstructor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLConstructor.swift; sourceTree = "<group>"; };
-		147FBB621EE6487700D2441D /* WebServiceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceController.swift; sourceTree = "<group>"; };
-		147FBB631EE6487700D2441D /* WebServiceError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceError.swift; sourceTree = "<group>"; };
 		147FBB8A1EE648C900D2441D /* WebServiceController.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = WebServiceController.xcodeproj; sourceTree = "<group>"; };
 		B4C866147C1498B93AC09A91 /* Pods-WebServiceControllerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebServiceControllerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WebServiceControllerTests/Pods-WebServiceControllerTests.release.xcconfig"; sourceTree = "<group>"; };
 		CB71FD1A4A4242536D750E5E /* Pods-WebServiceControllerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebServiceControllerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WebServiceControllerTests/Pods-WebServiceControllerTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -114,7 +104,6 @@
 				147FBB541EE6487700D2441D /* ViewControllers */,
 				147FBB591EE6487700D2441D /* ViewModels */,
 				147FBB5B1EE6487700D2441D /* Views */,
-				147FBB5E1EE6487700D2441D /* WebServiceController */,
 			);
 			path = SampleProject;
 			sourceTree = "<group>";
@@ -182,18 +171,6 @@
 				147FBB5D1EE6487700D2441D /* PostCell.xib */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		147FBB5E1EE6487700D2441D /* WebServiceController */ = {
-			isa = PBXGroup;
-			children = (
-				147FBB5F1EE6487700D2441D /* JSONHandler.swift */,
-				147FBB601EE6487700D2441D /* JSONHandling.swift */,
-				147FBB611EE6487700D2441D /* URLConstructor.swift */,
-				147FBB621EE6487700D2441D /* WebServiceController.swift */,
-				147FBB631EE6487700D2441D /* WebServiceError.swift */,
-			);
-			path = WebServiceController;
 			sourceTree = "<group>";
 		};
 		147FBB8B1EE648C900D2441D /* Products */ = {
@@ -320,20 +297,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				147FBB7F1EE6487700D2441D /* URLConstructor.swift in Sources */,
 				147FBB7A1EE6487700D2441D /* PostViewModel.swift in Sources */,
 				147FBB781EE6487700D2441D /* PostsViewController.swift in Sources */,
-				147FBB7E1EE6487700D2441D /* JSONHandling.swift in Sources */,
 				147FBB751EE6487700D2441D /* PostController.swift in Sources */,
-				147FBB801EE6487700D2441D /* WebServiceController.swift in Sources */,
 				147FBB741EE6487700D2441D /* MyWebServiceController.swift in Sources */,
 				147FBB731EE6487700D2441D /* Post.swift in Sources */,
 				147FBB7B1EE6487700D2441D /* PostCell.swift in Sources */,
-				147FBB7D1EE6487700D2441D /* JSONHandler.swift in Sources */,
 				147FBB721EE6487700D2441D /* TableViewDataSource.swift in Sources */,
 				147FBB761EE6487700D2441D /* EditPostViewController.swift in Sources */,
 				147FBB6E1EE6487700D2441D /* AppDelegate.swift in Sources */,
-				147FBB811EE6487700D2441D /* WebServiceError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

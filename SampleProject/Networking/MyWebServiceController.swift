@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import WebServiceController
 
 class MyWebServiceController: WebServiceController {
     static let sharedInstance = MyWebServiceController()
