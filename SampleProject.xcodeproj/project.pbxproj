@@ -21,6 +21,8 @@
 		147FBB7A1EE6487700D2441D /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FBB5A1EE6487700D2441D /* PostViewModel.swift */; };
 		147FBB7B1EE6487700D2441D /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FBB5C1EE6487700D2441D /* PostCell.swift */; };
 		147FBB7C1EE6487700D2441D /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 147FBB5D1EE6487700D2441D /* PostCell.xib */; };
+		14F7D0271EE88F8700C232AB /* WebServiceController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 147FBB901EE648C900D2441D /* WebServiceController.framework */; };
+		14F7D0281EE88F8700C232AB /* WebServiceController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 147FBB901EE648C900D2441D /* WebServiceController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +40,28 @@
 			remoteGlobalIDString = 147FBB341EE6482000D2441D;
 			remoteInfo = WebServiceControllerTests;
 		};
+		14F7D0291EE88F8700C232AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 147FBB8A1EE648C900D2441D /* WebServiceController.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 147FBB2A1EE6482000D2441D;
+			remoteInfo = WebServiceController;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		14F7D02B1EE88F8700C232AB /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				14F7D0281EE88F8700C232AB /* WebServiceController.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		14053C851ED394A80094E780 /* SampleProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14F7D0271EE88F8700C232AB /* WebServiceController.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,10 +233,12 @@
 				14053C811ED394A80094E780 /* Sources */,
 				14053C821ED394A80094E780 /* Frameworks */,
 				14053C831ED394A80094E780 /* Resources */,
+				14F7D02B1EE88F8700C232AB /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				14F7D02A1EE88F8700C232AB /* PBXTargetDependency */,
 			);
 			name = SampleProject;
 			productName = WebServiceController;
@@ -310,6 +336,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		14F7D02A1EE88F8700C232AB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = WebServiceController;
+			targetProxy = 14F7D0291EE88F8700C232AB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		147FBB491EE6487700D2441D /* LaunchScreen.storyboard */ = {
@@ -421,6 +455,7 @@
 		14053CA31ED394A80094E780 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				BASE_URL = "https://jsonplaceholder.typicode.com/";
 				DEVELOPMENT_TEAM = MV978XDK83;
@@ -439,6 +474,7 @@
 		14053CA41ED394A80094E780 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				BASE_URL = "https://jsonplaceholder.typicode.com/";
 				DEVELOPMENT_TEAM = MV978XDK83;
