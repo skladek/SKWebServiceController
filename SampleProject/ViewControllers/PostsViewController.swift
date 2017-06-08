@@ -29,6 +29,11 @@ class PostsViewController: UIViewController {
         }
     }
 
+    func images() {
+        let imagesViewController = ImageRequestsViewController()
+        navigationController?.pushViewController(imagesViewController, animated: true)
+    }
+
     func newPost() {
         pushEditPostViewController(post: nil)
     }
@@ -61,8 +66,9 @@ class PostsViewController: UIViewController {
         tableView.estimatedRowHeight = 100
 
         let refreshButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(getPosts))
+        let imagesButton = UIBarButtonItem(title: "IMAGES", style: .plain, target: self, action: #selector(images))
         let newPostButton = UIBarButtonItem(title: "NEW POST", style: .plain, target: self, action: #selector(newPost))
-        navigationItem.leftBarButtonItem = refreshButton
+        navigationItem.leftBarButtonItems = [refreshButton, imagesButton]
         navigationItem.rightBarButtonItem = newPostButton
 
         getPosts()
