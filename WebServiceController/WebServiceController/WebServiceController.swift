@@ -32,9 +32,11 @@ open class WebServiceController: NSObject {
 
     // MARK: Internal Properties
 
-    var inFlightImageCompletions: [String: [ImageCompletion]] = [:]
+    var inFlightImageCompletions: [URL: [ImageCompletion]] = [:]
 
     let requester: Requesting
+
+    let threadLock = NSRecursiveLock()
 
     // MARK: Init Methods
 
@@ -94,13 +96,19 @@ open class WebServiceController: NSObject {
         var request = URLRequest(url: url)
         request.httpMethod = HTTPMethod.get.rawValue
 
-        if shouldPerformRequestForURL(url, completionObject: completion) == false {
+        self.threadLock.lock()
+        let shouldPerformRequest = shouldPerformRequestForURL(url, completionObject: completion)
+        self.threadLock.unlock()
+
+        if shouldPerformRequest == false {
             return nil
         }
 
         return requester.performRequest(request, httpMethod: .get, json: nil, completion: { (data, response, error) in
+            self.threadLock.lock()
             let completionObjects = self.completionArrayForURL(url) ?? [completion]
             self.removeCompletionsForURL(url)
+            self.threadLock.unlock()
 
             self.requester.imageCompletion(data: data, response: response, error: error, completionObjects: completionObjects)
         })
@@ -156,18 +164,14 @@ open class WebServiceController: NSObject {
     }
 
     func completionArrayForURL(_ url: URL) -> [ImageCompletion]? {
-        return inFlightImageCompletions[url.absoluteString]
+        return inFlightImageCompletions[url]
     }
 
     func removeCompletionsForURL(_ url: URL) {
-        inFlightImageCompletions[url.absoluteString] = nil
+        inFlightImageCompletions[url] = nil
     }
 
     func setArray(_ array: [ImageCompletion], forURL url: URL) {
-        print("\n\n\n\n")
-        print(array)
-        print(url)
-        print(inFlightImageCompletions)
-        inFlightImageCompletions[url.absoluteString] = array
+        inFlightImageCompletions[url] = array
     }
 }
