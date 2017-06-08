@@ -21,31 +21,22 @@
 		147FBB7A1EE6487700D2441D /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FBB5A1EE6487700D2441D /* PostViewModel.swift */; };
 		147FBB7B1EE6487700D2441D /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FBB5C1EE6487700D2441D /* PostCell.swift */; };
 		147FBB7C1EE6487700D2441D /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 147FBB5D1EE6487700D2441D /* PostCell.xib */; };
-		14F7D0271EE88F8700C232AB /* WebServiceController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 147FBB901EE648C900D2441D /* WebServiceController.framework */; };
-		14F7D0281EE88F8700C232AB /* WebServiceController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 147FBB901EE648C900D2441D /* WebServiceController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		147FBB8F1EE648C900D2441D /* PBXContainerItemProxy */ = {
+		141C0A1F1EE9F1E200CA245D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 147FBB8A1EE648C900D2441D /* WebServiceController.xcodeproj */;
+			containerPortal = 141C0A1A1EE9F1E200CA245D /* WebServiceController.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 147FBB2B1EE6482000D2441D;
 			remoteInfo = WebServiceController;
 		};
-		147FBB911EE648C900D2441D /* PBXContainerItemProxy */ = {
+		141C0A211EE9F1E200CA245D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 147FBB8A1EE648C900D2441D /* WebServiceController.xcodeproj */;
+			containerPortal = 141C0A1A1EE9F1E200CA245D /* WebServiceController.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 147FBB341EE6482000D2441D;
 			remoteInfo = WebServiceControllerTests;
-		};
-		14F7D0291EE88F8700C232AB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 147FBB8A1EE648C900D2441D /* WebServiceController.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 147FBB2A1EE6482000D2441D;
-			remoteInfo = WebServiceController;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -56,7 +47,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				14F7D0281EE88F8700C232AB /* WebServiceController.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -65,6 +55,7 @@
 
 /* Begin PBXFileReference section */
 		14053C851ED394A80094E780 /* SampleProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		141C0A1A1EE9F1E200CA245D /* WebServiceController.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = WebServiceController.xcodeproj; path = ../WebServiceController.xcodeproj; sourceTree = "<group>"; };
 		147FBB471EE6487700D2441D /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		147FBB481EE6487700D2441D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		147FBB4A1EE6487700D2441D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -81,7 +72,6 @@
 		147FBB5A1EE6487700D2441D /* PostViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
 		147FBB5C1EE6487700D2441D /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		147FBB5D1EE6487700D2441D /* PostCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
-		147FBB8A1EE648C900D2441D /* WebServiceController.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = WebServiceController.xcodeproj; sourceTree = "<group>"; };
 		B4C866147C1498B93AC09A91 /* Pods-WebServiceControllerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebServiceControllerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WebServiceControllerTests/Pods-WebServiceControllerTests.release.xcconfig"; sourceTree = "<group>"; };
 		CB71FD1A4A4242536D750E5E /* Pods-WebServiceControllerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebServiceControllerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WebServiceControllerTests/Pods-WebServiceControllerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FC97E0C297F701B32FD529EB /* Pods_WebServiceControllerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebServiceControllerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,7 +82,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14F7D0271EE88F8700C232AB /* WebServiceController.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,7 +95,7 @@
 				14B291581ED4933A00057D8E /* Frameworks */,
 				14053C861ED394A80094E780 /* Products */,
 				EBE6C6DF5719A7E70585BBBF /* Pods */,
-				147FBB8A1EE648C900D2441D /* WebServiceController.xcodeproj */,
+				141C0A1A1EE9F1E200CA245D /* WebServiceController.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -114,6 +103,15 @@
 			isa = PBXGroup;
 			children = (
 				14053C851ED394A80094E780 /* SampleProject.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		141C0A1B1EE9F1E200CA245D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				141C0A201EE9F1E200CA245D /* WebServiceController.framework */,
+				141C0A221EE9F1E200CA245D /* WebServiceControllerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -197,15 +195,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		147FBB8B1EE648C900D2441D /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				147FBB901EE648C900D2441D /* WebServiceController.framework */,
-				147FBB921EE648C900D2441D /* WebServiceControllerTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		14B291581ED4933A00057D8E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -238,7 +227,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				14F7D02A1EE88F8700C232AB /* PBXTargetDependency */,
 			);
 			name = SampleProject;
 			productName = WebServiceController;
@@ -275,8 +263,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 147FBB8B1EE648C900D2441D /* Products */;
-					ProjectRef = 147FBB8A1EE648C900D2441D /* WebServiceController.xcodeproj */;
+					ProductGroup = 141C0A1B1EE9F1E200CA245D /* Products */;
+					ProjectRef = 141C0A1A1EE9F1E200CA245D /* WebServiceController.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -287,18 +275,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		147FBB901EE648C900D2441D /* WebServiceController.framework */ = {
+		141C0A201EE9F1E200CA245D /* WebServiceController.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = WebServiceController.framework;
-			remoteRef = 147FBB8F1EE648C900D2441D /* PBXContainerItemProxy */;
+			remoteRef = 141C0A1F1EE9F1E200CA245D /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		147FBB921EE648C900D2441D /* WebServiceControllerTests.xctest */ = {
+		141C0A221EE9F1E200CA245D /* WebServiceControllerTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = WebServiceControllerTests.xctest;
-			remoteRef = 147FBB911EE648C900D2441D /* PBXContainerItemProxy */;
+			remoteRef = 141C0A211EE9F1E200CA245D /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -336,14 +324,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		14F7D02A1EE88F8700C232AB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = WebServiceController;
-			targetProxy = 14F7D0291EE88F8700C232AB /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		147FBB491EE6487700D2441D /* LaunchScreen.storyboard */ = {
