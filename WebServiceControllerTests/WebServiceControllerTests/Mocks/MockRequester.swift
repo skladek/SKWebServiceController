@@ -18,10 +18,12 @@ class MockRequester: Requesting {
     var performRequestWithEndpointCalled = false
     var request: URLRequest? = nil
 
-    func imageCompletion(data: Data?, response: URLResponse?, error: Error?, completion: @escaping WebServiceController.ImageCompletion) {
+    func imageCompletion(data: Data?, response: URLResponse?, error: Error?, completionObjects: [WebServiceController.ImageCompletion]) {
         imageCompletionCalled = true
 
-        completion(nil, nil, nil)
+        for completion in completionObjects {
+            completion(nil, nil, nil)
+        }
     }
 
     func jsonCompletion(data: Data?, response: URLResponse?, error: Error?, completion: @escaping WebServiceController.JSONCompletion) {

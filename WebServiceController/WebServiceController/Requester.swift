@@ -42,32 +42,40 @@ class Requester: Requesting {
     }
 
     func imageCompletion(data: Data?, response: URLResponse?, error: Error?, completionObjects: [WebServiceController.ImageCompletion]) {
-        DispatchQueue.main.async {
-            for completion in completionObjects {
-                if let error = error {
+        for completion in completionObjects {
+            if let error = error {
+                DispatchQueue.main.async {
                     completion(nil, response, error)
-                    return
                 }
+                return
+            }
 
-                guard let data = data else {
+            guard let data = data else {
+                DispatchQueue.main.async {
                     completion(nil, response, error)
-                    return
                 }
+                return
+            }
 
-                let image = UIImage(data: data)
+            let image = UIImage(data: data)
+
+            DispatchQueue.main.async {
                 completion(image, response, error)
             }
         }
     }
 
     func jsonCompletion(data: Data?, response: URLResponse?, error: Error?, completion: @escaping WebServiceController.JSONCompletion) {
-        DispatchQueue.main.async {
-            if let error = error {
+        if let error = error {
+            DispatchQueue.main.async {
                 completion(nil, response, error)
-                return
             }
+            return
+        }
 
-            let result = self.jsonHandler.dataToJSON(data)
+        let result = self.jsonHandler.dataToJSON(data)
+
+        DispatchQueue.main.async {
             completion(result.object, response, result.error)
         }
     }

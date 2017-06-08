@@ -54,10 +54,10 @@ class RequesterSpec: QuickSpec {
                 it("Should execute the completion on the main thread") {
                     waitUntil { done in
                         DispatchQueue.global(qos: .background).async {
-                            unitUnderTest.imageCompletion(data: nil, response: nil, error: nil, completion: { (_, _, _) in
+                            unitUnderTest.imageCompletion(data: nil, response: nil, error: nil, completionObjects: [{ (_, _, _) in
                                 expect(Thread.isMainThread).to(beTrue())
                                 done()
-                            })
+                            }])
                         }
                     }
                 }
@@ -65,19 +65,19 @@ class RequesterSpec: QuickSpec {
                 it("Should return an error in the completion if an error is passed in") {
                     let inputError = NSError(domain: "com.test.domain", code: 999, userInfo: nil)
                     waitUntil { done in
-                        unitUnderTest.imageCompletion(data: nil, response: nil, error: inputError, completion: { (_, _, outputError) in
+                        unitUnderTest.imageCompletion(data: nil, response: nil, error: inputError, completionObjects: [{ (_, _, outputError) in
                             expect(outputError).to(be(inputError))
                             done()
-                        })
+                        }])
                     }
                 }
 
                 it("Should return a nil image parameter if no data is passed in") {
                     waitUntil { done in
-                        unitUnderTest.imageCompletion(data: nil, response: nil, error: nil, completion: { (outputImage, _, _) in
+                        unitUnderTest.imageCompletion(data: nil, response: nil, error: nil, completionObjects: [{ (outputImage, _, _) in
                             expect(outputImage).to(beNil())
                             done()
-                        })
+                        }])
                     }
                 }
 
@@ -87,10 +87,10 @@ class RequesterSpec: QuickSpec {
                     let data = UIImagePNGRepresentation(image!)
 
                     waitUntil { done in
-                        unitUnderTest.imageCompletion(data: data, response: nil, error: nil, completion: { (outputImage, _, _) in
+                        unitUnderTest.imageCompletion(data: data, response: nil, error: nil, completionObjects: [{ (outputImage, _, _) in
                             expect(outputImage).toNot(beNil())
                             done()
-                        })
+                        }])
                     }
                 }
             }
