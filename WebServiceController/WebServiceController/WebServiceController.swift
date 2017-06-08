@@ -27,7 +27,12 @@ open class WebServiceController: NSObject {
         case put = "PUT"
     }
 
+
+    public var groupIdenticalImageRequests = true
+
     // MARK: Internal Properties
+
+    var inFlightImageCompletions: [String: [ImageCompletion]] = [:]
 
     let requester: Requesting
 
@@ -89,8 +94,15 @@ open class WebServiceController: NSObject {
         var request = URLRequest(url: url)
         request.httpMethod = HTTPMethod.get.rawValue
 
+        if shouldPerformRequestForURL(url, completionObject: completion) == false {
+            return nil
+        }
+
         return requester.performRequest(request, httpMethod: .get, json: nil, completion: { (data, response, error) in
-            self.requester.imageCompletion(data: data, response: response, error: error, completion: completion)
+            let completionObjects = self.completionArrayForURL(url) ?? [completion]
+            self.removeCompletionsForURL(url)
+
+            self.requester.imageCompletion(data: data, response: response, error: error, completionObjects: completionObjects)
         })
     }
 
@@ -122,5 +134,40 @@ open class WebServiceController: NSObject {
         return requester.performRequest(endpoint: endpoint, parameters: parameters, json: json, httpMethod: .put, completion: { (data, response, error) in
             self.requester.jsonCompletion(data: data, response: response, error: error, completion: completion)
         })
+    }
+
+    // MARK: Internal Methods
+
+    func shouldPerformRequestForURL(_ url: URL, completionObject: @escaping ImageCompletion) -> Bool {
+        if groupIdenticalImageRequests == false {
+            return true
+        }
+
+        if var completionArray = completionArrayForURL(url) {
+            completionArray.append(completionObject)
+            setArray(completionArray, forURL: url)
+
+            return false
+        }
+
+        setArray([completionObject], forURL: url)
+
+        return true
+    }
+
+    func completionArrayForURL(_ url: URL) -> [ImageCompletion]? {
+        return inFlightImageCompletions[url.absoluteString]
+    }
+
+    func removeCompletionsForURL(_ url: URL) {
+        inFlightImageCompletions[url.absoluteString] = nil
+    }
+
+    func setArray(_ array: [ImageCompletion], forURL url: URL) {
+        print("\n\n\n\n")
+        print(array)
+        print(url)
+        print(inFlightImageCompletions)
+        inFlightImageCompletions[url.absoluteString] = array
     }
 }

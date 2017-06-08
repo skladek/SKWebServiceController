@@ -13,7 +13,7 @@ class ImageCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
 
     func loadImage() {
-        let url = URL(string: "https://unsplash.it/2000.png")
+        let url = URL(string: "https://unsplash.it/200.png")
         guard let unwrappedUrl = url else {
             return
         }

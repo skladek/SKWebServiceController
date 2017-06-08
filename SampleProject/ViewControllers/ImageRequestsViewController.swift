@@ -13,19 +13,26 @@ class ImageRequestsViewController: UIViewController {
     static let reuseId = "ImageCellReuseId"
 
     @IBOutlet weak var collecitonView: UICollectionView!
+    @IBOutlet weak var groupSwitch: UISwitch!
+
+    @IBAction func switchValueChanged(sender: UISwitch) {
+        MyWebServiceController.sharedInstance.groupIdenticalImageRequests = sender.isOn
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let nib = UINib(nibName: "ImageCell", bundle: nil)
         collecitonView.register(nib, forCellWithReuseIdentifier: ImageRequestsViewController.reuseId)
+
+        groupSwitch.isOn = MyWebServiceController.sharedInstance.groupIdenticalImageRequests
     }
 
 }
 
 extension ImageRequestsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 100
+        return 1500
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

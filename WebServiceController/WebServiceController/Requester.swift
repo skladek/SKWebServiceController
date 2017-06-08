@@ -11,7 +11,7 @@ import Foundation
 protocol Requesting {
     typealias RequestCompletion = (Data?, URLResponse?, Error?) -> Void
 
-    func imageCompletion(data: Data?, response: URLResponse?, error: Error?, completion: @escaping WebServiceController.ImageCompletion)
+    func imageCompletion(data: Data?, response: URLResponse?, error: Error?, completionObjects: [WebServiceController.ImageCompletion])
     func jsonCompletion(data: Data?, response: URLResponse?, error: Error?, completion: @escaping WebServiceController.JSONCompletion)
     func performRequest(_ request: URLRequest, httpMethod: WebServiceController.HTTPMethod, json: Any?, completion: @escaping RequestCompletion) -> URLSessionDataTask?
     func performRequest(endpoint: String?, parameters: [String : String]?, json: Any?, httpMethod: WebServiceController.HTTPMethod, completion: @escaping RequestCompletion) -> URLSessionDataTask?
@@ -41,20 +41,22 @@ class Requester: Requesting {
         return dataTask
     }
 
-    func imageCompletion(data: Data?, response: URLResponse?, error: Error?, completion: @escaping WebServiceController.ImageCompletion) {
+    func imageCompletion(data: Data?, response: URLResponse?, error: Error?, completionObjects: [WebServiceController.ImageCompletion]) {
         DispatchQueue.main.async {
-            if let error = error {
-                completion(nil, response, error)
-                return
-            }
+            for completion in completionObjects {
+                if let error = error {
+                    completion(nil, response, error)
+                    return
+                }
 
-            guard let data = data else {
-                completion(nil, response, error)
-                return
-            }
+                guard let data = data else {
+                    completion(nil, response, error)
+                    return
+                }
 
-            let image = UIImage(data: data)
-            completion(image, response, error)
+                let image = UIImage(data: data)
+                completion(image, response, error)
+            }
         }
     }
 
