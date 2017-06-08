@@ -3,6 +3,11 @@ platform :ios, '10.0'
 use_frameworks!
 inhibit_all_warnings!
 
+target 'WebServiceController' do
+	project 'WebServiceController.xcodeproj'
+	pod 'SwiftLint', '= 0.19.0'
+end
+
 target 'WebServiceControllerTests' do
 	workspace 'WebServiceController.xcworkspace'
 	project 'WebServiceController.xcodeproj'

@@ -10,19 +10,15 @@ import UIKit
 
 open class WebServiceController: NSObject {
 
-
     // MARK: Public Class Types
 
-
     /// The completion that is returned with image requests.
-    public typealias ImageCompletion = (UIImage?, URLResponse?, Error?) -> ()
+    public typealias ImageCompletion = (UIImage?, URLResponse?, Error?) -> Void
 
     /// The completion that is returned with JSON requests.
-    public typealias JSONCompletion = (Any?, URLResponse?, Error?) -> ()
-
+    public typealias JSONCompletion = (Any?, URLResponse?, Error?) -> Void
 
     // MARK: Internal Class Types
-
 
     enum HTTPMethod: String {
         case delete = "DELETE"
@@ -31,15 +27,11 @@ open class WebServiceController: NSObject {
         case put = "PUT"
     }
 
-
     // MARK: Internal Properties
-
 
     let requester: Requesting
 
-
     // MARK: Init Methods
-
 
     /// Creates a controller that will perform requests on the base URL with the default parameters appended to each request.
     ///
@@ -57,9 +49,7 @@ open class WebServiceController: NSObject {
         self.requester = testRequester
     }
 
-
     // MARK: Instance Methods
-
 
     /// Performs a delete request on the url formed from the base URL and endpoint.
     ///

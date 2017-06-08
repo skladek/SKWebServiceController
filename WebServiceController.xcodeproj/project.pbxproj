@@ -27,6 +27,7 @@
 		147FBBDF1EE71D5B00D2441D /* testimage.png in Resources */ = {isa = PBXBuildFile; fileRef = 147FBBDE1EE71D5B00D2441D /* testimage.png */; };
 		147FBBE31EE73B6600D2441D /* MockURLConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FBBE21EE73B6600D2441D /* MockURLConstructor.swift */; };
 		681A275D412E80D830339675 /* Pods_WebServiceControllerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BB7433E3EB7FB81B6D8BDD9 /* Pods_WebServiceControllerTests.framework */; };
+		BC49985AB8DEA78802DC0196 /* Pods_WebServiceController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEEE1F353BF5E0500133BE6B /* Pods_WebServiceController.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,9 @@
 		481E3F5AD5ED06292CB38784 /* Pods-WebServiceControllerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebServiceControllerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WebServiceControllerTests/Pods-WebServiceControllerTests.release.xcconfig"; sourceTree = "<group>"; };
 		7BB7433E3EB7FB81B6D8BDD9 /* Pods_WebServiceControllerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebServiceControllerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		804FACC918EF8BC287EF9593 /* Pods-WebServiceControllerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebServiceControllerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WebServiceControllerTests/Pods-WebServiceControllerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		AC3EFDAA1FB3331CEF45C9F0 /* Pods-WebServiceController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebServiceController.release.xcconfig"; path = "Pods/Target Support Files/Pods-WebServiceController/Pods-WebServiceController.release.xcconfig"; sourceTree = "<group>"; };
+		AECC16EBF940E80E8B8F9A58 /* Pods-WebServiceController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebServiceController.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WebServiceController/Pods-WebServiceController.debug.xcconfig"; sourceTree = "<group>"; };
+		CEEE1F353BF5E0500133BE6B /* Pods_WebServiceController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebServiceController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC49985AB8DEA78802DC0196 /* Pods_WebServiceController.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				7BB7433E3EB7FB81B6D8BDD9 /* Pods_WebServiceControllerTests.framework */,
+				CEEE1F353BF5E0500133BE6B /* Pods_WebServiceController.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -184,6 +190,8 @@
 			children = (
 				804FACC918EF8BC287EF9593 /* Pods-WebServiceControllerTests.debug.xcconfig */,
 				481E3F5AD5ED06292CB38784 /* Pods-WebServiceControllerTests.release.xcconfig */,
+				AECC16EBF940E80E8B8F9A58 /* Pods-WebServiceController.debug.xcconfig */,
+				AC3EFDAA1FB3331CEF45C9F0 /* Pods-WebServiceController.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -206,10 +214,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 147FBB3F1EE6482000D2441D /* Build configuration list for PBXNativeTarget "WebServiceController" */;
 			buildPhases = (
+				6AFFF945E640A6A3D57216FA /* [CP] Check Pods Manifest.lock */,
 				147FBB261EE6482000D2441D /* Sources */,
 				147FBB271EE6482000D2441D /* Frameworks */,
 				147FBB281EE6482000D2441D /* Headers */,
 				147FBB291EE6482000D2441D /* Resources */,
+				B5D6CD8BEE57DDA22C88EB90 /* [CP] Copy Pods Resources */,
+				1433BE2E1EE90460005D54B3 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -301,6 +312,35 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1433BE2E1EE90460005D54B3 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint";
+		};
+		6AFFF945E640A6A3D57216FA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		A2CBAB7ED5ADB15632165A4B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -329,6 +369,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WebServiceControllerTests/Pods-WebServiceControllerTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B5D6CD8BEE57DDA22C88EB90 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WebServiceController/Pods-WebServiceController-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D87F7360F6613ABFE20E3329 /* [CP] Copy Pods Resources */ = {
@@ -492,6 +547,7 @@
 		};
 		147FBB401EE6482000D2441D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AECC16EBF940E80E8B8F9A58 /* Pods-WebServiceController.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
@@ -512,6 +568,7 @@
 		};
 		147FBB411EE6482000D2441D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC3EFDAA1FB3331CEF45C9F0 /* Pods-WebServiceController.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;

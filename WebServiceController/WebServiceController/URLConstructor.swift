@@ -24,7 +24,6 @@ class URLConstructor: URLConstructable {
 
     // MARK: Init Methods
 
-
     /// Initializes a URL constructor with a base URL to use to construct URLs from.
     ///
     /// - Parameter baseURL: The URL to append endpoints and parameters onto.
@@ -86,7 +85,7 @@ class URLConstructor: URLConstructable {
         }
 
         let parametersString = parametersArray.joined(separator: "&")
-        
+
         return (parametersString.isEmpty) ? nil : parametersString
     }
 }

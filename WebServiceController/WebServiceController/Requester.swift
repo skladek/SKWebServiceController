@@ -9,7 +9,7 @@
 import Foundation
 
 protocol Requesting {
-    typealias RequestCompletion = (Data?, URLResponse?, Error?) -> ()
+    typealias RequestCompletion = (Data?, URLResponse?, Error?) -> Void
 
     func imageCompletion(data: Data?, response: URLResponse?, error: Error?, completion: @escaping WebServiceController.ImageCompletion)
     func jsonCompletion(data: Data?, response: URLResponse?, error: Error?, completion: @escaping WebServiceController.JSONCompletion)
@@ -96,7 +96,7 @@ class Requester: Requesting {
 
     func performRequest(endpoint: String?, parameters: [String : String]?, json: Any?, httpMethod: WebServiceController.HTTPMethod, completion: @escaping RequestCompletion) -> URLSessionDataTask? {
         var combinedParameters = defaultParameters
-        parameters?.forEach{ (key, value) in combinedParameters[key] = value }
+        parameters?.forEach { (key, value) in combinedParameters[key] = value }
         let urlTuple = urlConstructor.urlWith(endpoint: endpoint, parameters: combinedParameters)
 
         guard let url = urlTuple.url else {
@@ -113,7 +113,7 @@ class Requester: Requesting {
     func uploadTask(request: URLRequest, data: Data?, completion: @escaping RequestCompletion) -> URLSessionDataTask {
         let dataTask = session.uploadTask(with: request, from: data, completionHandler: completion)
         dataTask.resume()
-        
+
         return dataTask
     }
 }

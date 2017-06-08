@@ -1,0 +1,6 @@
+framework module Pods_WebServiceController {
+  umbrella header "Pods-WebServiceController-umbrella.h"
+
+  export *
+  module * { export * }
+}
