@@ -8,7 +8,7 @@
 
 import Foundation
 
-@testable import WebServiceController
+@testable import SKWebServiceController
 
 class MockJSONHandler: JSONHandling {
     var dataToJSONCalled = false

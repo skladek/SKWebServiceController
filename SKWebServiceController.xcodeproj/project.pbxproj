@@ -26,9 +26,7 @@
 		1410F3EC1EE9EF9300F37AC8 /* WebServiceErrorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1410F3CE1EE9EF8600F37AC8 /* WebServiceErrorSpec.swift */; };
 		147FBB351EE6482000D2441D /* SKWebServiceController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 147FBB2B1EE6482000D2441D /* SKWebServiceController.framework */; };
 		169AAD7EA4581B72CCE53CC2 /* Pods_SKWebServiceController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D726AC5538B76873923D2DB /* Pods_SKWebServiceController.framework */; };
-		681A275D412E80D830339675 /* Pods_WebServiceControllerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BB7433E3EB7FB81B6D8BDD9 /* Pods_WebServiceControllerTests.framework */; };
 		B14C656EB21170FA611441D6 /* Pods_SKWebServiceControllerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2532553274957FA118AFD4C6 /* Pods_SKWebServiceControllerTests.framework */; };
-		BC49985AB8DEA78802DC0196 /* Pods_WebServiceController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEEE1F353BF5E0500133BE6B /* Pods_WebServiceController.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,16 +63,12 @@
 		147FBB341EE6482000D2441D /* SKWebServiceControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SKWebServiceControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2532553274957FA118AFD4C6 /* Pods_SKWebServiceControllerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SKWebServiceControllerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D726AC5538B76873923D2DB /* Pods_SKWebServiceController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SKWebServiceController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		481E3F5AD5ED06292CB38784 /* Pods-WebServiceControllerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebServiceControllerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WebServiceControllerTests/Pods-WebServiceControllerTests.release.xcconfig"; sourceTree = "<group>"; };
+		6E4CD9426C29FF302AEF4CC5 /* Pods-SKWebServiceControllerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKWebServiceControllerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SKWebServiceControllerTests/Pods-SKWebServiceControllerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7BB7433E3EB7FB81B6D8BDD9 /* Pods_WebServiceControllerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebServiceControllerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7CFFA110E9928A9050BE39CC /* Pods-SKWebServiceController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKWebServiceController.release.xcconfig"; path = "Pods/Target Support Files/Pods-SKWebServiceController/Pods-SKWebServiceController.release.xcconfig"; sourceTree = "<group>"; };
-		804FACC918EF8BC287EF9593 /* Pods-WebServiceControllerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebServiceControllerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WebServiceControllerTests/Pods-WebServiceControllerTests.debug.xcconfig"; sourceTree = "<group>"; };
-		AC3EFDAA1FB3331CEF45C9F0 /* Pods-WebServiceController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebServiceController.release.xcconfig"; path = "Pods/Target Support Files/Pods-WebServiceController/Pods-WebServiceController.release.xcconfig"; sourceTree = "<group>"; };
-		AECC16EBF940E80E8B8F9A58 /* Pods-WebServiceController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebServiceController.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WebServiceController/Pods-WebServiceController.debug.xcconfig"; sourceTree = "<group>"; };
-		C5CB3408E94CB5E393351E58 /* Pods-SKWebServiceControllerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKWebServiceControllerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SKWebServiceControllerTests/Pods-SKWebServiceControllerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B1B81F0931889406D4335F99 /* Pods-SKWebServiceController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKWebServiceController.release.xcconfig"; path = "Pods/Target Support Files/Pods-SKWebServiceController/Pods-SKWebServiceController.release.xcconfig"; sourceTree = "<group>"; };
+		B3A2A40EC291B50D1D2584CC /* Pods-SKWebServiceControllerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKWebServiceControllerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SKWebServiceControllerTests/Pods-SKWebServiceControllerTests.release.xcconfig"; sourceTree = "<group>"; };
 		CEEE1F353BF5E0500133BE6B /* Pods_WebServiceController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebServiceController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E0B1775D0FE463A20CFDC9E6 /* Pods-SKWebServiceControllerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKWebServiceControllerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SKWebServiceControllerTests/Pods-SKWebServiceControllerTests.release.xcconfig"; sourceTree = "<group>"; };
-		E4DDE40CB3D2FD590932A527 /* Pods-SKWebServiceController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKWebServiceController.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SKWebServiceController/Pods-SKWebServiceController.debug.xcconfig"; sourceTree = "<group>"; };
+		D7B120D0F1D37F6D7C9D1A0E /* Pods-SKWebServiceController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKWebServiceController.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SKWebServiceController/Pods-SKWebServiceController.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +76,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC49985AB8DEA78802DC0196 /* Pods_WebServiceController.framework in Frameworks */,
 				169AAD7EA4581B72CCE53CC2 /* Pods_SKWebServiceController.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -92,7 +85,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				147FBB351EE6482000D2441D /* SKWebServiceController.framework in Frameworks */,
-				681A275D412E80D830339675 /* Pods_WebServiceControllerTests.framework in Frameworks */,
 				B14C656EB21170FA611441D6 /* Pods_SKWebServiceControllerTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -155,8 +147,8 @@
 				1410F3B81EE9EF8600F37AC8 /* Source */,
 				1410F3C01EE9EF8600F37AC8 /* Tests */,
 				147FBB2C1EE6482000D2441D /* Products */,
-				390F08416C606840D9BC62E2 /* Pods */,
 				3743868EF4E53F29D6B810EC /* Frameworks */,
+				F249FB2C67D08C3956084BDE /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -180,17 +172,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		390F08416C606840D9BC62E2 /* Pods */ = {
+		F249FB2C67D08C3956084BDE /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				804FACC918EF8BC287EF9593 /* Pods-WebServiceControllerTests.debug.xcconfig */,
-				481E3F5AD5ED06292CB38784 /* Pods-WebServiceControllerTests.release.xcconfig */,
-				AECC16EBF940E80E8B8F9A58 /* Pods-WebServiceController.debug.xcconfig */,
-				AC3EFDAA1FB3331CEF45C9F0 /* Pods-WebServiceController.release.xcconfig */,
-				E4DDE40CB3D2FD590932A527 /* Pods-SKWebServiceController.debug.xcconfig */,
-				7CFFA110E9928A9050BE39CC /* Pods-SKWebServiceController.release.xcconfig */,
-				C5CB3408E94CB5E393351E58 /* Pods-SKWebServiceControllerTests.debug.xcconfig */,
-				E0B1775D0FE463A20CFDC9E6 /* Pods-SKWebServiceControllerTests.release.xcconfig */,
+				D7B120D0F1D37F6D7C9D1A0E /* Pods-SKWebServiceController.debug.xcconfig */,
+				B1B81F0931889406D4335F99 /* Pods-SKWebServiceController.release.xcconfig */,
+				6E4CD9426C29FF302AEF4CC5 /* Pods-SKWebServiceControllerTests.debug.xcconfig */,
+				B3A2A40EC291B50D1D2584CC /* Pods-SKWebServiceControllerTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -545,7 +533,7 @@
 		};
 		147FBB401EE6482000D2441D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E4DDE40CB3D2FD590932A527 /* Pods-SKWebServiceController.debug.xcconfig */;
+			baseConfigurationReference = D7B120D0F1D37F6D7C9D1A0E /* Pods-SKWebServiceController.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
@@ -566,7 +554,7 @@
 		};
 		147FBB411EE6482000D2441D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7CFFA110E9928A9050BE39CC /* Pods-SKWebServiceController.release.xcconfig */;
+			baseConfigurationReference = B1B81F0931889406D4335F99 /* Pods-SKWebServiceController.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
@@ -587,9 +575,8 @@
 		};
 		147FBB431EE6482000D2441D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C5CB3408E94CB5E393351E58 /* Pods-SKWebServiceControllerTests.debug.xcconfig */;
+			baseConfigurationReference = 6E4CD9426C29FF302AEF4CC5 /* Pods-SKWebServiceControllerTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = MV978XDK83;
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -601,9 +588,8 @@
 		};
 		147FBB441EE6482000D2441D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E0B1775D0FE463A20CFDC9E6 /* Pods-SKWebServiceControllerTests.release.xcconfig */;
+			baseConfigurationReference = B3A2A40EC291B50D1D2584CC /* Pods-SKWebServiceControllerTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = MV978XDK83;
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

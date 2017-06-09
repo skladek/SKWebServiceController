@@ -5,9 +5,9 @@
       location = "group:SKWebServiceController.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Pods/Pods.xcodeproj">
+      location = "group:SampleProject/SampleProject.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:SampleProject/SampleProject.xcodeproj">
+      location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>
