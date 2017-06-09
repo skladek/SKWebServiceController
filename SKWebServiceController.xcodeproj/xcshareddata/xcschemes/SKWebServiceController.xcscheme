@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "147FBB2A1EE6482000D2441D"
-               BuildableName = "WebServiceController.framework"
-               BlueprintName = "WebServiceController"
-               ReferencedContainer = "container:WebServiceController.xcodeproj">
+               BuildableName = "SKWebServiceController.framework"
+               BlueprintName = "SKWebServiceController"
+               ReferencedContainer = "container:SKWebServiceController.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,9 +34,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "147FBB331EE6482000D2441D"
-               BuildableName = "WebServiceControllerTests.xctest"
-               BlueprintName = "WebServiceControllerTests"
-               ReferencedContainer = "container:WebServiceController.xcodeproj">
+               BuildableName = "SKWebServiceControllerTests.xctest"
+               BlueprintName = "SKWebServiceControllerTests"
+               ReferencedContainer = "container:SKWebServiceController.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -44,9 +44,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "147FBB2A1EE6482000D2441D"
-            BuildableName = "WebServiceController.framework"
-            BlueprintName = "WebServiceController"
-            ReferencedContainer = "container:WebServiceController.xcodeproj">
+            BuildableName = "SKWebServiceController.framework"
+            BlueprintName = "SKWebServiceController"
+            ReferencedContainer = "container:SKWebServiceController.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -66,9 +66,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "147FBB2A1EE6482000D2441D"
-            BuildableName = "WebServiceController.framework"
-            BlueprintName = "WebServiceController"
-            ReferencedContainer = "container:WebServiceController.xcodeproj">
+            BuildableName = "SKWebServiceController.framework"
+            BlueprintName = "SKWebServiceController"
+            ReferencedContainer = "container:SKWebServiceController.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -84,9 +84,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "147FBB2A1EE6482000D2441D"
-            BuildableName = "WebServiceController.framework"
-            BlueprintName = "WebServiceController"
-            ReferencedContainer = "container:WebServiceController.xcodeproj">
+            BuildableName = "SKWebServiceController.framework"
+            BlueprintName = "SKWebServiceController"
+            ReferencedContainer = "container:SKWebServiceController.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

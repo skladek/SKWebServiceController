@@ -24,19 +24,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		141C0A1F1EE9F1E200CA245D /* PBXContainerItemProxy */ = {
+		14AEEF4B1EEAECAC006463C9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 141C0A1A1EE9F1E200CA245D /* WebServiceController.xcodeproj */;
+			containerPortal = 14AEEF461EEAECAC006463C9 /* SKWebServiceController.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 147FBB2B1EE6482000D2441D;
-			remoteInfo = WebServiceController;
+			remoteInfo = SKWebServiceController;
 		};
-		141C0A211EE9F1E200CA245D /* PBXContainerItemProxy */ = {
+		14AEEF4D1EEAECAC006463C9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 141C0A1A1EE9F1E200CA245D /* WebServiceController.xcodeproj */;
+			containerPortal = 14AEEF461EEAECAC006463C9 /* SKWebServiceController.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 147FBB341EE6482000D2441D;
-			remoteInfo = WebServiceControllerTests;
+			remoteInfo = SKWebServiceControllerTests;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -55,7 +55,6 @@
 
 /* Begin PBXFileReference section */
 		14053C851ED394A80094E780 /* SampleProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		141C0A1A1EE9F1E200CA245D /* WebServiceController.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = WebServiceController.xcodeproj; path = ../WebServiceController.xcodeproj; sourceTree = "<group>"; };
 		147FBB471EE6487700D2441D /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		147FBB481EE6487700D2441D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		147FBB4A1EE6487700D2441D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -72,6 +71,7 @@
 		147FBB5A1EE6487700D2441D /* PostViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
 		147FBB5C1EE6487700D2441D /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		147FBB5D1EE6487700D2441D /* PostCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
+		14AEEF461EEAECAC006463C9 /* SKWebServiceController.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SKWebServiceController.xcodeproj; path = ../SKWebServiceController.xcodeproj; sourceTree = "<group>"; };
 		B4C866147C1498B93AC09A91 /* Pods-WebServiceControllerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebServiceControllerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WebServiceControllerTests/Pods-WebServiceControllerTests.release.xcconfig"; sourceTree = "<group>"; };
 		CB71FD1A4A4242536D750E5E /* Pods-WebServiceControllerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebServiceControllerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WebServiceControllerTests/Pods-WebServiceControllerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FC97E0C297F701B32FD529EB /* Pods_WebServiceControllerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebServiceControllerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,7 +95,7 @@
 				14B291581ED4933A00057D8E /* Frameworks */,
 				14053C861ED394A80094E780 /* Products */,
 				EBE6C6DF5719A7E70585BBBF /* Pods */,
-				141C0A1A1EE9F1E200CA245D /* WebServiceController.xcodeproj */,
+				14AEEF461EEAECAC006463C9 /* SKWebServiceController.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,15 +103,6 @@
 			isa = PBXGroup;
 			children = (
 				14053C851ED394A80094E780 /* SampleProject.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		141C0A1B1EE9F1E200CA245D /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				141C0A201EE9F1E200CA245D /* WebServiceController.framework */,
-				141C0A221EE9F1E200CA245D /* WebServiceControllerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -195,6 +186,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		14AEEF471EEAECAC006463C9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				14AEEF4C1EEAECAC006463C9 /* SKWebServiceController.framework */,
+				14AEEF4E1EEAECAC006463C9 /* SKWebServiceControllerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		14B291581ED4933A00057D8E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -263,8 +263,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 141C0A1B1EE9F1E200CA245D /* Products */;
-					ProjectRef = 141C0A1A1EE9F1E200CA245D /* WebServiceController.xcodeproj */;
+					ProductGroup = 14AEEF471EEAECAC006463C9 /* Products */;
+					ProjectRef = 14AEEF461EEAECAC006463C9 /* SKWebServiceController.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -275,18 +275,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		141C0A201EE9F1E200CA245D /* WebServiceController.framework */ = {
+		14AEEF4C1EEAECAC006463C9 /* SKWebServiceController.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
-			path = WebServiceController.framework;
-			remoteRef = 141C0A1F1EE9F1E200CA245D /* PBXContainerItemProxy */;
+			path = SKWebServiceController.framework;
+			remoteRef = 14AEEF4B1EEAECAC006463C9 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		141C0A221EE9F1E200CA245D /* WebServiceControllerTests.xctest */ = {
+		14AEEF4E1EEAECAC006463C9 /* SKWebServiceControllerTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = WebServiceControllerTests.xctest;
-			remoteRef = 141C0A211EE9F1E200CA245D /* PBXContainerItemProxy */;
+			path = SKWebServiceControllerTests.xctest;
+			remoteRef = 14AEEF4D1EEAECAC006463C9 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */

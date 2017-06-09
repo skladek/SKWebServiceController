@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_WebServiceControllerVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_WebServiceControllerVersionString[];
+FOUNDATION_EXPORT double Pods_SKWebServiceControllerVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_SKWebServiceControllerVersionString[];
 

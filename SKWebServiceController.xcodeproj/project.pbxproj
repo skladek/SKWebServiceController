@@ -24,8 +24,10 @@
 		1410F3EA1EE9EF9300F37AC8 /* URLConstructorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1410F3CC1EE9EF8600F37AC8 /* URLConstructorSpec.swift */; };
 		1410F3EB1EE9EF9300F37AC8 /* WebServiceControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1410F3CD1EE9EF8600F37AC8 /* WebServiceControllerSpec.swift */; };
 		1410F3EC1EE9EF9300F37AC8 /* WebServiceErrorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1410F3CE1EE9EF8600F37AC8 /* WebServiceErrorSpec.swift */; };
-		147FBB351EE6482000D2441D /* WebServiceController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 147FBB2B1EE6482000D2441D /* WebServiceController.framework */; };
+		147FBB351EE6482000D2441D /* SKWebServiceController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 147FBB2B1EE6482000D2441D /* SKWebServiceController.framework */; };
+		169AAD7EA4581B72CCE53CC2 /* Pods_SKWebServiceController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D726AC5538B76873923D2DB /* Pods_SKWebServiceController.framework */; };
 		681A275D412E80D830339675 /* Pods_WebServiceControllerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BB7433E3EB7FB81B6D8BDD9 /* Pods_WebServiceControllerTests.framework */; };
+		B14C656EB21170FA611441D6 /* Pods_SKWebServiceControllerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2532553274957FA118AFD4C6 /* Pods_SKWebServiceControllerTests.framework */; };
 		BC49985AB8DEA78802DC0196 /* Pods_WebServiceController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEEE1F353BF5E0500133BE6B /* Pods_WebServiceController.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,14 +61,20 @@
 		1410F3CC1EE9EF8600F37AC8 /* URLConstructorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLConstructorSpec.swift; sourceTree = "<group>"; };
 		1410F3CD1EE9EF8600F37AC8 /* WebServiceControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceControllerSpec.swift; sourceTree = "<group>"; };
 		1410F3CE1EE9EF8600F37AC8 /* WebServiceErrorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceErrorSpec.swift; sourceTree = "<group>"; };
-		147FBB2B1EE6482000D2441D /* WebServiceController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WebServiceController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		147FBB341EE6482000D2441D /* WebServiceControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WebServiceControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		147FBB2B1EE6482000D2441D /* SKWebServiceController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SKWebServiceController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		147FBB341EE6482000D2441D /* SKWebServiceControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SKWebServiceControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2532553274957FA118AFD4C6 /* Pods_SKWebServiceControllerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SKWebServiceControllerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D726AC5538B76873923D2DB /* Pods_SKWebServiceController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SKWebServiceController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		481E3F5AD5ED06292CB38784 /* Pods-WebServiceControllerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebServiceControllerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WebServiceControllerTests/Pods-WebServiceControllerTests.release.xcconfig"; sourceTree = "<group>"; };
 		7BB7433E3EB7FB81B6D8BDD9 /* Pods_WebServiceControllerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebServiceControllerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7CFFA110E9928A9050BE39CC /* Pods-SKWebServiceController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKWebServiceController.release.xcconfig"; path = "Pods/Target Support Files/Pods-SKWebServiceController/Pods-SKWebServiceController.release.xcconfig"; sourceTree = "<group>"; };
 		804FACC918EF8BC287EF9593 /* Pods-WebServiceControllerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebServiceControllerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WebServiceControllerTests/Pods-WebServiceControllerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AC3EFDAA1FB3331CEF45C9F0 /* Pods-WebServiceController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebServiceController.release.xcconfig"; path = "Pods/Target Support Files/Pods-WebServiceController/Pods-WebServiceController.release.xcconfig"; sourceTree = "<group>"; };
 		AECC16EBF940E80E8B8F9A58 /* Pods-WebServiceController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebServiceController.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WebServiceController/Pods-WebServiceController.debug.xcconfig"; sourceTree = "<group>"; };
+		C5CB3408E94CB5E393351E58 /* Pods-SKWebServiceControllerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKWebServiceControllerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SKWebServiceControllerTests/Pods-SKWebServiceControllerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CEEE1F353BF5E0500133BE6B /* Pods_WebServiceController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebServiceController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0B1775D0FE463A20CFDC9E6 /* Pods-SKWebServiceControllerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKWebServiceControllerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SKWebServiceControllerTests/Pods-SKWebServiceControllerTests.release.xcconfig"; sourceTree = "<group>"; };
+		E4DDE40CB3D2FD590932A527 /* Pods-SKWebServiceController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKWebServiceController.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SKWebServiceController/Pods-SKWebServiceController.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +83,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC49985AB8DEA78802DC0196 /* Pods_WebServiceController.framework in Frameworks */,
+				169AAD7EA4581B72CCE53CC2 /* Pods_SKWebServiceController.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,8 +91,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				147FBB351EE6482000D2441D /* WebServiceController.framework in Frameworks */,
+				147FBB351EE6482000D2441D /* SKWebServiceController.framework in Frameworks */,
 				681A275D412E80D830339675 /* Pods_WebServiceControllerTests.framework in Frameworks */,
+				B14C656EB21170FA611441D6 /* Pods_SKWebServiceControllerTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,8 +163,8 @@
 		147FBB2C1EE6482000D2441D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				147FBB2B1EE6482000D2441D /* WebServiceController.framework */,
-				147FBB341EE6482000D2441D /* WebServiceControllerTests.xctest */,
+				147FBB2B1EE6482000D2441D /* SKWebServiceController.framework */,
+				147FBB341EE6482000D2441D /* SKWebServiceControllerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -164,6 +174,8 @@
 			children = (
 				7BB7433E3EB7FB81B6D8BDD9 /* Pods_WebServiceControllerTests.framework */,
 				CEEE1F353BF5E0500133BE6B /* Pods_WebServiceController.framework */,
+				2D726AC5538B76873923D2DB /* Pods_SKWebServiceController.framework */,
+				2532553274957FA118AFD4C6 /* Pods_SKWebServiceControllerTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -175,6 +187,10 @@
 				481E3F5AD5ED06292CB38784 /* Pods-WebServiceControllerTests.release.xcconfig */,
 				AECC16EBF940E80E8B8F9A58 /* Pods-WebServiceController.debug.xcconfig */,
 				AC3EFDAA1FB3331CEF45C9F0 /* Pods-WebServiceController.release.xcconfig */,
+				E4DDE40CB3D2FD590932A527 /* Pods-SKWebServiceController.debug.xcconfig */,
+				7CFFA110E9928A9050BE39CC /* Pods-SKWebServiceController.release.xcconfig */,
+				C5CB3408E94CB5E393351E58 /* Pods-SKWebServiceControllerTests.debug.xcconfig */,
+				E0B1775D0FE463A20CFDC9E6 /* Pods-SKWebServiceControllerTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -193,9 +209,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		147FBB2A1EE6482000D2441D /* WebServiceController */ = {
+		147FBB2A1EE6482000D2441D /* SKWebServiceController */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 147FBB3F1EE6482000D2441D /* Build configuration list for PBXNativeTarget "WebServiceController" */;
+			buildConfigurationList = 147FBB3F1EE6482000D2441D /* Build configuration list for PBXNativeTarget "SKWebServiceController" */;
 			buildPhases = (
 				6AFFF945E640A6A3D57216FA /* [CP] Check Pods Manifest.lock */,
 				147FBB261EE6482000D2441D /* Sources */,
@@ -209,14 +225,14 @@
 			);
 			dependencies = (
 			);
-			name = WebServiceController;
+			name = SKWebServiceController;
 			productName = WebServiceController;
-			productReference = 147FBB2B1EE6482000D2441D /* WebServiceController.framework */;
+			productReference = 147FBB2B1EE6482000D2441D /* SKWebServiceController.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		147FBB331EE6482000D2441D /* WebServiceControllerTests */ = {
+		147FBB331EE6482000D2441D /* SKWebServiceControllerTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 147FBB421EE6482000D2441D /* Build configuration list for PBXNativeTarget "WebServiceControllerTests" */;
+			buildConfigurationList = 147FBB421EE6482000D2441D /* Build configuration list for PBXNativeTarget "SKWebServiceControllerTests" */;
 			buildPhases = (
 				A2CBAB7ED5ADB15632165A4B /* [CP] Check Pods Manifest.lock */,
 				147FBB301EE6482000D2441D /* Sources */,
@@ -230,9 +246,9 @@
 			dependencies = (
 				147FBB371EE6482000D2441D /* PBXTargetDependency */,
 			);
-			name = WebServiceControllerTests;
+			name = SKWebServiceControllerTests;
 			productName = WebServiceControllerTests;
-			productReference = 147FBB341EE6482000D2441D /* WebServiceControllerTests.xctest */;
+			productReference = 147FBB341EE6482000D2441D /* SKWebServiceControllerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -257,7 +273,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 147FBB251EE6482000D2441D /* Build configuration list for PBXProject "WebServiceController" */;
+			buildConfigurationList = 147FBB251EE6482000D2441D /* Build configuration list for PBXProject "SKWebServiceController" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -269,8 +285,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				147FBB2A1EE6482000D2441D /* WebServiceController */,
-				147FBB331EE6482000D2441D /* WebServiceControllerTests */,
+				147FBB2A1EE6482000D2441D /* SKWebServiceController */,
+				147FBB331EE6482000D2441D /* SKWebServiceControllerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -350,7 +366,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WebServiceControllerTests/Pods-WebServiceControllerTests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SKWebServiceControllerTests/Pods-SKWebServiceControllerTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B5D6CD8BEE57DDA22C88EB90 /* [CP] Copy Pods Resources */ = {
@@ -365,7 +381,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WebServiceController/Pods-WebServiceController-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SKWebServiceController/Pods-SKWebServiceController-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D87F7360F6613ABFE20E3329 /* [CP] Copy Pods Resources */ = {
@@ -380,7 +396,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WebServiceControllerTests/Pods-WebServiceControllerTests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SKWebServiceControllerTests/Pods-SKWebServiceControllerTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -420,7 +436,7 @@
 /* Begin PBXTargetDependency section */
 		147FBB371EE6482000D2441D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 147FBB2A1EE6482000D2441D /* WebServiceController */;
+			target = 147FBB2A1EE6482000D2441D /* SKWebServiceController */;
 			targetProxy = 147FBB361EE6482000D2441D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -529,7 +545,7 @@
 		};
 		147FBB401EE6482000D2441D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AECC16EBF940E80E8B8F9A58 /* Pods-WebServiceController.debug.xcconfig */;
+			baseConfigurationReference = E4DDE40CB3D2FD590932A527 /* Pods-SKWebServiceController.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
@@ -541,7 +557,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.skladek.WebServiceController;
+				PRODUCT_BUNDLE_IDENTIFIER = com.skladek.SKWebServiceController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -550,7 +566,7 @@
 		};
 		147FBB411EE6482000D2441D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AC3EFDAA1FB3331CEF45C9F0 /* Pods-WebServiceController.release.xcconfig */;
+			baseConfigurationReference = 7CFFA110E9928A9050BE39CC /* Pods-SKWebServiceController.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
@@ -562,7 +578,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.skladek.WebServiceController;
+				PRODUCT_BUNDLE_IDENTIFIER = com.skladek.SKWebServiceController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -571,7 +587,7 @@
 		};
 		147FBB431EE6482000D2441D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 804FACC918EF8BC287EF9593 /* Pods-WebServiceControllerTests.debug.xcconfig */;
+			baseConfigurationReference = C5CB3408E94CB5E393351E58 /* Pods-SKWebServiceControllerTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = MV978XDK83;
@@ -585,7 +601,7 @@
 		};
 		147FBB441EE6482000D2441D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 481E3F5AD5ED06292CB38784 /* Pods-WebServiceControllerTests.release.xcconfig */;
+			baseConfigurationReference = E0B1775D0FE463A20CFDC9E6 /* Pods-SKWebServiceControllerTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = MV978XDK83;
@@ -600,7 +616,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		147FBB251EE6482000D2441D /* Build configuration list for PBXProject "WebServiceController" */ = {
+		147FBB251EE6482000D2441D /* Build configuration list for PBXProject "SKWebServiceController" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				147FBB3D1EE6482000D2441D /* Debug */,
@@ -609,7 +625,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		147FBB3F1EE6482000D2441D /* Build configuration list for PBXNativeTarget "WebServiceController" */ = {
+		147FBB3F1EE6482000D2441D /* Build configuration list for PBXNativeTarget "SKWebServiceController" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				147FBB401EE6482000D2441D /* Debug */,
@@ -618,7 +634,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		147FBB421EE6482000D2441D /* Build configuration list for PBXNativeTarget "WebServiceControllerTests" */ = {
+		147FBB421EE6482000D2441D /* Build configuration list for PBXNativeTarget "SKWebServiceControllerTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				147FBB431EE6482000D2441D /* Debug */,

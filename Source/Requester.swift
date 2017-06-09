@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol Requesting {
     typealias RequestCompletion = (Data?, URLResponse?, Error?) -> Void
