@@ -1,3 +1,3 @@
-# WebServiceController
+# SKWebServiceController
 
-![Travis Status](https://travis-ci.org/skladek/WebServiceController.svg?branch=master)
+![Travis Status](https://travis-ci.org/skladek/SKWebServiceController.svg?branch=master)

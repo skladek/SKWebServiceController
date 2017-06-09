@@ -1,0 +1,6 @@
+framework module Pods_SKWebServiceController {
+  umbrella header "Pods-SKWebServiceController-umbrella.h"
+
+  export *
+  module * { export * }
+}

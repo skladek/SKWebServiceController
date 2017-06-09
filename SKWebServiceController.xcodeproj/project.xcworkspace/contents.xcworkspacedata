@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:WebServiceController.xcodeproj">
+      location = "self:/Users/sean/Development/WebServiceController/SKWebServiceController.xcodeproj">
    </FileRef>
 </Workspace>

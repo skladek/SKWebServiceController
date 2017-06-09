@@ -8,7 +8,7 @@ lane :test do
   )
 
   scan(
-    scheme: "WebServiceController",
-    workspace: "WebServiceController.xcworkspace"
+    scheme: "SKWebServiceController",
+    workspace: "SKWebServiceController.xcworkspace"
   )
 end

@@ -8,7 +8,7 @@
 
 import Foundation
 
-@testable import WebServiceController
+@testable import SKWebServiceController
 
 class MockURLConstructor: URLConstructable {
     var urlWithEndpointCalled = false
