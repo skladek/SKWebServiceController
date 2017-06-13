@@ -2,7 +2,6 @@ included:
   - Source
 
 excluded:
-  - Carthage
   - Pods
 
 disabled_rules:
