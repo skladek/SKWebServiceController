@@ -8,7 +8,7 @@
 
 import Foundation
 
-@testable import WebServiceController
+@testable import SKWebServiceController
 
 class MockRequester: Requesting {
     var dataTask: URLSessionDataTask?

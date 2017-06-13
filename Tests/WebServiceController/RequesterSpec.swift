@@ -10,7 +10,7 @@ import Foundation
 import Nimble
 import Quick
 
-@testable import WebServiceController
+@testable import SKWebServiceController
 
 class RequesterSpec: QuickSpec {
 

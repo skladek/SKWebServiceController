@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_WebServiceControllerTestsVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_WebServiceControllerTestsVersionString[];
+FOUNDATION_EXPORT double SKTableViewDataSourceVersionNumber;
+FOUNDATION_EXPORT const unsigned char SKTableViewDataSourceVersionString[];
 

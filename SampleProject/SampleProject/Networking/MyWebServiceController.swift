@@ -6,8 +6,8 @@
 //  Copyright © 2017 Sean Kladek. All rights reserved.
 //
 
+import SKWebServiceController
 import UIKit
-import WebServiceController
 
 class MyWebServiceController: WebServiceController {
     static let sharedInstance = MyWebServiceController()

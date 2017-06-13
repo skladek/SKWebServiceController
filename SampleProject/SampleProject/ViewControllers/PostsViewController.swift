@@ -6,6 +6,7 @@
 //  Copyright © 2017 Sean Kladek. All rights reserved.
 //
 
+import SKTableViewDataSource
 import UIKit
 
 class PostsViewController: UIViewController {
@@ -24,7 +25,7 @@ class PostsViewController: UIViewController {
                 return
             }
 
-            self?.dataSource?.objects(posts)
+            self?.dataSource?.setObjects(posts)
             self?.tableView.reloadData()
         }
     }
