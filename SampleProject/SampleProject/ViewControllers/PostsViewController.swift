@@ -10,7 +10,6 @@ import SKTableViewDataSource
 import UIKit
 
 class PostsViewController: UIViewController {
-    static let reuseId = "PostsTableViewCellReuseId"
 
     @IBOutlet weak var tableView: UITableView!
 
@@ -44,10 +43,9 @@ class PostsViewController: UIViewController {
 
         title = "Posts"
 
-        let postCellNib = UINib(nibName: "PostCell", bundle: Bundle.main)
-        tableView.register(postCellNib, forCellReuseIdentifier: PostsViewController.reuseId)
+        let cellNib = UINib(nibName: "PostCell", bundle: Bundle.main)
 
-        dataSource = TableViewDataSource(objects: [Post](), cellReuseId: PostsViewController.reuseId, cellPresenter: { (cell, object) in
+        dataSource = TableViewDataSource(objects: [Post](), cell: cellNib, cellPresenter: { (cell, object) in
             guard let cell = cell as? PostCell else {
                 return
             }

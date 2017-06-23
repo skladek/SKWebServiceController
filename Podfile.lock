@@ -1,21 +1,21 @@
 PODS:
   - Nimble (7.0.0)
   - Quick (1.1.0)
-  - SKTableViewDataSource (0.0.2)
-  - SwiftLint (0.19.0)
+  - SKTableViewDataSource (1.0.0)
+  - SwiftLint (0.20.0)
 
 DEPENDENCIES:
   - Nimble (= 7.0.0)
   - Quick (= 1.1.0)
-  - SKTableViewDataSource (= 0.0.2)
-  - SwiftLint (= 0.19.0)
+  - SKTableViewDataSource (= 1.0.0)
+  - SwiftLint (= 0.20.0)
 
 SPEC CHECKSUMS:
   Nimble: 874982b605d4d752fcac6be695d13c502de84b1b
   Quick: dafc587e21eed9f4cab3249b9f9015b0b7a7f71d
-  SKTableViewDataSource: 4f530783f3ab2e1c2a2b3e8e8e0e7e19f3b7d856
-  SwiftLint: 3537a05b34060e78e7510f04fb7537d738247803
+  SKTableViewDataSource: c2a4645761da0d64446927edf57423d01ca42f2b
+  SwiftLint: 3f7543509c931d1291395335f34e245d3919b7f2
 
-PODFILE CHECKSUM: 4164ea566c5499c45f4be51a46def8c744bd28f8
+PODFILE CHECKSUM: f31a32181d712af9d05d1b50bdd1ccb5f3aaa909
 
 COCOAPODS: 1.2.1

@@ -503,7 +503,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 69AD90B243E15102B96638F2 /* Pods-SampleProject.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				BASE_URL = "https://jsonplaceholder.typicode.com/";
 				DEVELOPMENT_TEAM = MV978XDK83;
@@ -524,7 +523,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 97956239387194D4104D403B /* Pods-SampleProject.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				BASE_URL = "https://jsonplaceholder.typicode.com/";
 				DEVELOPMENT_TEAM = MV978XDK83;
