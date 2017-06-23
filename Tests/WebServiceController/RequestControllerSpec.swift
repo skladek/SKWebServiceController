@@ -193,7 +193,7 @@ class RequestControllerSpec: QuickSpec {
                 it("Should add the parameters from the request configuration to the url constructor") {
                     let requestConfiguration = RequestConfiguration(queryParameters: ["key1" : "value1"])
                     let _ = unitUnderTest.performRequest(endpoint: nil, json: nil, httpMethod: .get, requestConfiguration: requestConfiguration, completion: { (_, _, _) in })
-                    expect(urlConstructor.parameters).to(equal(["key1" : "value1"]))
+                    expect(urlConstructor.parameters as? [String : String]).to(equal(["key1" : "value1"]))
                 }
 
                 it("Should call urlWith on the URL Constructor") {

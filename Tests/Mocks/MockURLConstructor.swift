@@ -12,10 +12,10 @@ import Foundation
 
 class MockURLConstructor: URLConstructable {
     var urlWithEndpointCalled = false
-    var parameters: [String : String]? = nil
+    var parameters: [AnyHashable : Any]? = nil
     var shouldReturnError = false
 
-    func urlWith(endpoint: String?, parameters: [String : String]?) -> URLResult {
+    func urlWith(endpoint: String?, parameters: [AnyHashable : Any]?) -> URLResult {
         urlWithEndpointCalled = true
         self.parameters = parameters
         let url = shouldReturnError ? nil : URL(string: "https://example.url/")
