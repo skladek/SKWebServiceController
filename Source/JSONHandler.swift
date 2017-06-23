@@ -8,7 +8,6 @@
 
 import Foundation
 
-/// A tuple containing the converted object or an error encountered while converting.
 typealias ConvertedJSON = (object: Any?, error: Error?)
 
 protocol JSONHandling {
@@ -25,10 +24,6 @@ class JSONHandler: JSONHandling {
 
     // MARK: Instance Methods
 
-    /// Converts the provided data into a JSON object.
-    ///
-    /// - Parameter data: The data to be converted into a JSON object.
-    /// - Returns: A tuple containing the JSON object or an error.
     func dataToJSON(_ data: Data?) -> ConvertedJSON {
         guard let data = data else {
             let error = WebServiceError(code: .noData, message: "The server returned without error and without data.")
@@ -47,10 +42,6 @@ class JSONHandler: JSONHandling {
         return (jsonObject, serializationError)
     }
 
-    /// Converts the provided JSON object into data.
-    ///
-    /// - Parameter jsonObject: The JSON object to be converted. This must be a valid JSON object.
-    /// - Returns: A tuple containing the JSON object or an error.
     func jsonToData(_ jsonObject: Any?) -> ConvertedJSON {
         guard let jsonObject = jsonObject else {
             let error = WebServiceError(code: .noData, message: "The JSON object to be converted was nil.")
