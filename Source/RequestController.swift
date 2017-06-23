@@ -1,5 +1,5 @@
 //
-//  Requester.swift
+//  RequestController.swift
 //  WebServiceController
 //
 //  Created by Sean on 6/6/17.
@@ -18,18 +18,15 @@ protocol Requesting {
     func performRequest(endpoint: String?, parameters: [String : String]?, json: Any?, httpMethod: WebServiceController.HTTPMethod, completion: @escaping RequestCompletion) -> URLSessionDataTask?
 }
 
-class Requester: Requesting {
+class RequestController: Requesting {
 
-    let defaultParameters: [String : String]
-
-    private let jsonHandler: JSONHandling
-
-    private let session: URLSession
-
+    let defaultRequestConfiguration: RequestConfiguration
+    let jsonHandler: JSONHandling
+    let session: URLSession
     let urlConstructor: URLConstructable
 
-    init(defaultParameters: [String : String], jsonHandler: JSONHandling, session: URLSession, urlConstructor: URLConstructable) {
-        self.defaultParameters = defaultParameters
+    init(defaultRequestConfiguration: RequestConfiguration?, jsonHandler: JSONHandling, session: URLSession, urlConstructor: URLConstructable) {
+        self.defaultRequestConfiguration = defaultRequestConfiguration ?? RequestConfiguration()
         self.jsonHandler = jsonHandler
         self.session = session
         self.urlConstructor = urlConstructor
@@ -71,6 +68,15 @@ class Requester: Requesting {
         }
     }
 
+    func parametersMergedWithDefaults(_ inputParameters: [String : String]?) -> [String : String] {
+        var combinedParameters = defaultRequestConfiguration.queryParameters
+        inputParameters?.forEach { (key, value) in
+            combinedParameters[key] = value
+        }
+
+        return combinedParameters
+    }
+
     func performRequest(_ request: URLRequest, httpMethod: WebServiceController.HTTPMethod, json: Any?, completion: @escaping RequestCompletion) -> URLSessionDataTask? {
         var data: Data? = nil
         var sessionTask: URLSessionDataTask? = nil
@@ -96,8 +102,7 @@ class Requester: Requesting {
     }
 
     func performRequest(endpoint: String?, parameters: [String : String]?, json: Any?, httpMethod: WebServiceController.HTTPMethod, completion: @escaping RequestCompletion) -> URLSessionDataTask? {
-        var combinedParameters = defaultParameters
-        parameters?.forEach { (key, value) in combinedParameters[key] = value }
+        let combinedParameters = parametersMergedWithDefaults(parameters)
         let urlTuple = urlConstructor.urlWith(endpoint: endpoint, parameters: combinedParameters)
 
         guard let url = urlTuple.url else {

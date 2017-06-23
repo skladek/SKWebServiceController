@@ -39,11 +39,12 @@ open class WebServiceController: NSObject {
     /// - Parameters:
     ///   - baseURL: The URL that all requests are built from.
     ///   - defaultParameters: The parameters to be appended to the end of the URL string.
-    public init(baseURL: String, defaultParameters: [String : String] = [:]) {
+    // TODO: Update docs
+    public init(baseURL: String, defaultRequestConfiguration: RequestConfiguration? = nil, sessionConfiguration: URLSessionConfiguration = URLSessionConfiguration.default) {
         let jsonHandler = JSONHandler()
-        let session = URLSession.shared
+        let session = URLSession(configuration: sessionConfiguration)
         let urlConstructor = URLConstructor(baseURL: baseURL)
-        self.requester = Requester(defaultParameters: defaultParameters, jsonHandler: jsonHandler, session: session, urlConstructor: urlConstructor)
+        self.requester = RequestController(defaultRequestConfiguration: defaultRequestConfiguration, jsonHandler: jsonHandler, session: session, urlConstructor: urlConstructor)
     }
 
     init(testRequester: Requesting) {

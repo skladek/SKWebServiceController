@@ -1,5 +1,5 @@
 //
-//  RequesterSpec.swift
+//  RequestControllerSpec.swift
 //  WebServiceController
 //
 //  Created by Sean on 6/6/17.
@@ -12,22 +12,48 @@ import Quick
 
 @testable import SKWebServiceController
 
-class RequesterSpec: QuickSpec {
+class RequestControllerSpec: QuickSpec {
 
     override func spec() {
         describe("Requester") {
             var defaultParameters: [String : String]!
             var jsonHandler: MockJSONHandler!
+            var requestConfiguration: RequestConfiguration!
             var session: MockSession!
             var urlConstructor: MockURLConstructor!
-            var unitUnderTest: Requester!
+            var unitUnderTest: RequestController!
 
             beforeEach {
                 defaultParameters = ["key1" : "value1", "key2" : "value2"]
                 jsonHandler = MockJSONHandler()
                 session = MockSession()
                 urlConstructor = MockURLConstructor()
-                unitUnderTest = Requester(defaultParameters: defaultParameters, jsonHandler: jsonHandler, session: session, urlConstructor: urlConstructor)
+                requestConfiguration = RequestConfiguration(queryParameters: defaultParameters)
+
+                unitUnderTest = RequestController(defaultRequestConfiguration: requestConfiguration, jsonHandler: jsonHandler, session: session, urlConstructor: urlConstructor)
+            }
+
+            context("init(defaultRequestConfiguration:jsonHandler:session:urlConstructor:)") {
+                it("Should set the request configuration if one is passed in") {
+                    expect(unitUnderTest.defaultRequestConfiguration).to(be(requestConfiguration))
+                }
+
+                it("Should set a default request configuration if nil is passed in") {
+                    unitUnderTest = RequestController(defaultRequestConfiguration: nil, jsonHandler: jsonHandler, session: session, urlConstructor: urlConstructor)
+                    expect(unitUnderTest.defaultRequestConfiguration).toNot(beNil())
+                }
+
+                it("Should set the JSON handler") {
+                    expect(unitUnderTest.jsonHandler).to(be(jsonHandler))
+                }
+
+                it("Should set the session") {
+                    expect(unitUnderTest.session).to(be(session))
+                }
+
+                it("Should set the URL constructor") {
+                    expect(unitUnderTest.urlConstructor).to(be(urlConstructor))
+                }
             }
 
             context("dataTask(request: URLRequest, completion: @escaping RequestCompletion)") {
