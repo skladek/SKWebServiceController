@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Provides a controller for web services.
 open class WebServiceController: NSObject {
 
     // MARK: Public Class Types
