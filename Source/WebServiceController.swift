@@ -37,9 +37,8 @@ open class WebServiceController: NSObject {
     /// Creates a controller that will perform requests on the base URL with the default parameters appended to each request.
     ///
     /// - Parameters:
-    ///   - baseURL: The URL that all requests are built from.
-    ///   - defaultParameters: The parameters to be appended to the end of the URL string.
-    // TODO: Update docs
+    ///   - baseURL: he URL that all requests are built from.
+    ///   - sessionConfiguration: The session configuration object. The default value is URLSessionConfiguration.default
     public init(baseURL: String, sessionConfiguration: URLSessionConfiguration = URLSessionConfiguration.default) {
         let jsonHandler = JSONHandler()
         let session = URLSession(configuration: sessionConfiguration)
@@ -59,6 +58,7 @@ open class WebServiceController: NSObject {
     ///
     /// - Parameters:
     ///   - endpoint: The endpoint to perform the request on.
+    ///   - requestConfiguration: A configuration objects affecting only a single request.
     ///   - completion: The closure called when the request completes.
     /// - Returns: The data task to be performed.
     @discardableResult
@@ -72,7 +72,7 @@ open class WebServiceController: NSObject {
     ///
     /// - Parameters:
     ///   - endpoint: The endpoint to perform the request on.
-    ///   - parameters: The query parameters to be included in the URL.
+    ///   - requestConfiguration: A configuration objects affecting only a single request.
     ///   - completion: The closure called when the request completes.
     /// - Returns: The data task to be performed.
     @discardableResult
@@ -102,8 +102,8 @@ open class WebServiceController: NSObject {
     ///
     /// - Parameters:
     ///   - endpoint: The endpoint to perform the request on.
-    ///   - parameters: The query parameters to be included in the URL.
     ///   - json: The JSON object to be converted to data. This must be a valid JSON object type.
+    ///   - requestConfiguration: A configuration objects affecting only a single request.
     ///   - completion: The closure called when the request completes.
     /// - Returns: The upload task to be performed.
     @discardableResult
@@ -117,8 +117,8 @@ open class WebServiceController: NSObject {
     ///
     /// - Parameters:
     ///   - endpoint: The endpoint to perform the request on.
-    ///   - parameters: The query parameters to be included in the URL.
     ///   - json: The JSON object to be converted to data. This must be a valid JSON object type.
+    ///   - requestConfiguration: A configuration objects affecting only a single request.
     ///   - completion: The closure called when the request completes.
     /// - Returns: The upload task to be performed.
     @discardableResult
