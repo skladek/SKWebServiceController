@@ -52,8 +52,6 @@ open class WebServiceController: NSObject {
 
     // MARK: Instance Methods
 
-    // TODO: Update all docs
-
     /// Performs a delete request on the url formed from the base URL and endpoint.
     ///
     /// - Parameters:
