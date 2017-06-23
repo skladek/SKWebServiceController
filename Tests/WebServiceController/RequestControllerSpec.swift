@@ -16,33 +16,20 @@ class RequestControllerSpec: QuickSpec {
 
     override func spec() {
         describe("Requester") {
-            var defaultParameters: [String : String]!
             var jsonHandler: MockJSONHandler!
-            var requestConfiguration: RequestConfiguration!
             var session: MockSession!
             var urlConstructor: MockURLConstructor!
             var unitUnderTest: RequestController!
 
             beforeEach {
-                defaultParameters = ["key1" : "value1", "key2" : "value2"]
                 jsonHandler = MockJSONHandler()
                 session = MockSession()
                 urlConstructor = MockURLConstructor()
-                requestConfiguration = RequestConfiguration(queryParameters: defaultParameters)
 
-                unitUnderTest = RequestController(defaultRequestConfiguration: requestConfiguration, jsonHandler: jsonHandler, session: session, urlConstructor: urlConstructor)
+                unitUnderTest = RequestController(jsonHandler: jsonHandler, session: session, urlConstructor: urlConstructor)
             }
 
             context("init(defaultRequestConfiguration:jsonHandler:session:urlConstructor:)") {
-                it("Should set the request configuration if one is passed in") {
-                    expect(unitUnderTest.defaultRequestConfiguration).to(be(requestConfiguration))
-                }
-
-                it("Should set a default request configuration if nil is passed in") {
-                    unitUnderTest = RequestController(defaultRequestConfiguration: nil, jsonHandler: jsonHandler, session: session, urlConstructor: urlConstructor)
-                    expect(unitUnderTest.defaultRequestConfiguration).toNot(beNil())
-                }
-
                 it("Should set the JSON handler") {
                     expect(unitUnderTest.jsonHandler).to(be(jsonHandler))
                 }
@@ -203,20 +190,21 @@ class RequestControllerSpec: QuickSpec {
             }
 
             context("performRequest(endpoint:parameters:json:httpMethod:completion:)") {
-                it("Should combine the default parameters with the provided parameters") {
-                    let _ = unitUnderTest.performRequest(endpoint: nil, parameters: ["key3" : "value3"], json: nil, httpMethod: .get, completion: { (_, _, _) in })
-                    expect(urlConstructor.parameters).to(equal(["key1" : "value1", "key2" : "value2", "key3" : "value3"]))
+                it("Should add the parameters from the request configuration to the url constructor") {
+                    let requestConfiguration = RequestConfiguration(queryParameters: ["key1" : "value1"])
+                    let _ = unitUnderTest.performRequest(endpoint: nil, json: nil, httpMethod: .get, requestConfiguration: requestConfiguration, completion: { (_, _, _) in })
+                    expect(urlConstructor.parameters).to(equal(["key1" : "value1"]))
                 }
 
                 it("Should call urlWith on the URL Constructor") {
-                    let _ = unitUnderTest.performRequest(endpoint: nil, parameters: nil, json: nil, httpMethod: .get, completion: { (_, _, _) in })
+                    let _ = unitUnderTest.performRequest(endpoint: nil, json: nil, httpMethod: .get, requestConfiguration: nil, completion: { (_, _, _) in })
                     expect(urlConstructor.urlWithEndpointCalled).to(beTrue())
                 }
 
                 it("Should return an error through the closure if the URL constructor returns an error") {
                     urlConstructor.shouldReturnError = true
                     waitUntil { done in
-                        let _ = unitUnderTest.performRequest(endpoint: nil, parameters: nil, json: nil, httpMethod: .get, completion: { (_, _, outputError) in
+                        let _ = unitUnderTest.performRequest(endpoint: nil, json: nil, httpMethod: .get, requestConfiguration: nil, completion: { (_, _, outputError) in
                             expect(outputError).toNot(beNil())
                             done()
                         })

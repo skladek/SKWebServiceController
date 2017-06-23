@@ -9,9 +9,11 @@
 import Foundation
 
 public class RequestConfiguration {
+    let additionalHTTPHeaders: [AnyHashable : Any]?
     let queryParameters: [String : String]
 
-    init(queryParameters: [String : String] = [:]) {
+    init(additionalHTTPHeaders: [AnyHashable : Any]? = nil, queryParameters: [String : String] = [:]) {
+        self.additionalHTTPHeaders = additionalHTTPHeaders
         self.queryParameters = queryParameters
     }
 }

@@ -25,23 +25,15 @@ class WebServiceControllerSpec: QuickSpec {
         describe("WebServiceController") {
             context("init(baseURL:defaultParameters:)") {
                 var baseURL: String!
-                var defaultParameters: [String : String]!
-                var defaultRequestConfiguration: RequestConfiguration!
 
                 beforeEach {
                     baseURL = "https://testbaseurl.com"
-                    defaultParameters = ["key1" : "value1", "key2" : "value2"]
-                    defaultRequestConfiguration = RequestConfiguration(queryParameters: defaultParameters)
 
-                    unitUnderTest = WebServiceController(baseURL: baseURL, defaultRequestConfiguration: defaultRequestConfiguration)
+                    unitUnderTest = WebServiceController(baseURL: baseURL)
                 }
 
                 it("Should pass the base URL to the URLConstructor") {
                     expect(((unitUnderTest.requester as! RequestController).urlConstructor as! URLConstructor).baseURL).to(equal(baseURL))
-                }
-
-                it("Should pass the default parameters to the requester") {
-                    expect((unitUnderTest.requester as! RequestController).defaultRequestConfiguration.queryParameters).to(equal(defaultParameters))
                 }
             }
 

@@ -40,11 +40,11 @@ open class WebServiceController: NSObject {
     ///   - baseURL: The URL that all requests are built from.
     ///   - defaultParameters: The parameters to be appended to the end of the URL string.
     // TODO: Update docs
-    public init(baseURL: String, defaultRequestConfiguration: RequestConfiguration? = nil, sessionConfiguration: URLSessionConfiguration = URLSessionConfiguration.default) {
+    public init(baseURL: String, sessionConfiguration: URLSessionConfiguration = URLSessionConfiguration.default) {
         let jsonHandler = JSONHandler()
         let session = URLSession(configuration: sessionConfiguration)
         let urlConstructor = URLConstructor(baseURL: baseURL)
-        self.requester = RequestController(defaultRequestConfiguration: defaultRequestConfiguration, jsonHandler: jsonHandler, session: session, urlConstructor: urlConstructor)
+        self.requester = RequestController(jsonHandler: jsonHandler, session: session, urlConstructor: urlConstructor)
     }
 
     init(testRequester: Requesting) {
@@ -53,6 +53,8 @@ open class WebServiceController: NSObject {
 
     // MARK: Instance Methods
 
+    // TODO: Update all docs
+
     /// Performs a delete request on the url formed from the base URL and endpoint.
     ///
     /// - Parameters:
@@ -60,8 +62,8 @@ open class WebServiceController: NSObject {
     ///   - completion: The closure called when the request completes.
     /// - Returns: The data task to be performed.
     @discardableResult
-    public func delete(_ endpoint: String? = nil, completion: @escaping JSONCompletion) -> URLSessionDataTask? {
-        return requester.performRequest(endpoint: endpoint, parameters: nil, json: nil, httpMethod: .delete, completion: { (data, response, error) in
+    public func delete(_ endpoint: String? = nil, requestConfiguration: RequestConfiguration? = nil, completion: @escaping JSONCompletion) -> URLSessionDataTask? {
+        return requester.performRequest(endpoint: endpoint, json: nil, httpMethod: .delete, requestConfiguration: requestConfiguration, completion: { (data, response, error) in
             self.requester.jsonCompletion(data: data, response: response, error: error, completion: completion)
         })
     }
@@ -74,8 +76,8 @@ open class WebServiceController: NSObject {
     ///   - completion: The closure called when the request completes.
     /// - Returns: The data task to be performed.
     @discardableResult
-    public func get(_ endpoint: String? = nil, parameters: [String : String]? = nil, completion: @escaping JSONCompletion) -> URLSessionDataTask? {
-        return requester.performRequest(endpoint: endpoint, parameters: parameters, json: nil, httpMethod: .get, completion: { (data, response, error) in
+    public func get(_ endpoint: String? = nil, requestConfiguration: RequestConfiguration? = nil, completion: @escaping JSONCompletion) -> URLSessionDataTask? {
+        return requester.performRequest(endpoint: endpoint, json: nil, httpMethod: .get, requestConfiguration: requestConfiguration, completion: { (data, response, error) in
             self.requester.jsonCompletion(data: data, response: response, error: error, completion: completion)
         })
     }
@@ -105,8 +107,8 @@ open class WebServiceController: NSObject {
     ///   - completion: The closure called when the request completes.
     /// - Returns: The upload task to be performed.
     @discardableResult
-    public func post(_ endpoint: String? = nil, parameters: [String : String]? = nil, json: Any?, completion: @escaping JSONCompletion) -> URLSessionDataTask? {
-        return requester.performRequest(endpoint: endpoint, parameters: parameters, json: json, httpMethod: .post, completion: { (data, response, error) in
+    public func post(_ endpoint: String? = nil, json: Any?, requestConfiguration: RequestConfiguration? = nil, completion: @escaping JSONCompletion) -> URLSessionDataTask? {
+        return requester.performRequest(endpoint: endpoint, json: json, httpMethod: .post, requestConfiguration: requestConfiguration, completion: { (data, response, error) in
             self.requester.jsonCompletion(data: data, response: response, error: error, completion: completion)
         })
     }
@@ -120,8 +122,8 @@ open class WebServiceController: NSObject {
     ///   - completion: The closure called when the request completes.
     /// - Returns: The upload task to be performed.
     @discardableResult
-    public func put(_ endpoint: String? = nil, parameters: [String : String]? = nil, json: Any?, completion: @escaping JSONCompletion) -> URLSessionDataTask? {
-        return requester.performRequest(endpoint: endpoint, parameters: parameters, json: json, httpMethod: .put, completion: { (data, response, error) in
+    public func put(_ endpoint: String? = nil, json: Any?, requestConfiguration: RequestConfiguration? = nil, completion: @escaping JSONCompletion) -> URLSessionDataTask? {
+        return requester.performRequest(endpoint: endpoint, json: json, httpMethod: .put, requestConfiguration: requestConfiguration, completion: { (data, response, error) in
             self.requester.jsonCompletion(data: data, response: response, error: error, completion: completion)
         })
     }
