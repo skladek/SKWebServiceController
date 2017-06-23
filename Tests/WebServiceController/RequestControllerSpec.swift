@@ -211,6 +211,27 @@ class RequestControllerSpec: QuickSpec {
                     }
                 }
             }
+
+            context("setHeadersOnRequest(_:headers:)") {
+                var request: URLRequest!
+                var url: URL!
+
+                beforeEach {
+                    url = URL(string: "http://testurl.com")!
+                    request = URLRequest(url: url)
+                }
+
+                it("Should return the request if there are no headers") {
+                    expect(unitUnderTest.setHeadersOnRequest(request, headers: nil)).to(equal(request))
+                }
+
+                it("Should set the provided header values on the request") {
+                    let headers = ["testHeader" : "testValue"]
+                    let result = unitUnderTest.setHeadersOnRequest(request, headers: headers)
+
+                    expect(result.allHTTPHeaderFields).to(equal(headers))
+                }
+            }
         }
     }
 }

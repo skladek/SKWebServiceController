@@ -113,10 +113,11 @@ class RequestController: Requesting {
         var mutableRequest = request
 
         for key in headers.keys {
-            let object = headers[key]
-            let stringValue = String(describing: object)
-            let stringKey = String(describing: key)
-            mutableRequest.setValue(stringValue, forHTTPHeaderField: stringKey)
+            if let object = headers[key] {
+                let stringValue = String(describing: object)
+                let stringKey = String(describing: key)
+                mutableRequest.setValue(stringValue, forHTTPHeaderField: stringKey)
+            }
         }
 
         return mutableRequest
