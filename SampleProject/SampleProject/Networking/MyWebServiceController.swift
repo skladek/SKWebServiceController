@@ -7,11 +7,8 @@
 //
 
 import SKWebServiceController
-import UIKit
 
 class MyWebServiceController: WebServiceController {
-    static let sharedInstance = MyWebServiceController()
-
     init() {
         super.init(baseURL: "https://jsonplaceholder.typicode.com/")
     }

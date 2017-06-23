@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Provides a controller for web services.
 open class WebServiceController: NSObject {
 
     // MARK: Public Class Types
@@ -40,7 +41,7 @@ open class WebServiceController: NSObject {
     ///   - defaultParameters: The parameters to be appended to the end of the URL string.
     public init(baseURL: String, defaultParameters: [String : String] = [:]) {
         let jsonHandler = JSONHandler()
-        let session = URLSession(configuration: .default)
+        let session = URLSession.shared
         let urlConstructor = URLConstructor(baseURL: baseURL)
         self.requester = Requester(defaultParameters: defaultParameters, jsonHandler: jsonHandler, session: session, urlConstructor: urlConstructor)
     }
