@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		142AB15C38C97EE9DEFF7932 /* Pods_SampleProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6388AD0CA977D6A99BD2C4FE /* Pods_SampleProject.framework */; };
+		142EDA5C1EFC557600585859 /* SKWebServiceController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14AEEF4C1EEAECAC006463C9 /* SKWebServiceController.framework */; };
+		142EDA5D1EFC557600585859 /* SKWebServiceController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 14AEEF4C1EEAECAC006463C9 /* SKWebServiceController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		147FBB6E1EE6487700D2441D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FBB471EE6487700D2441D /* AppDelegate.swift */; };
 		147FBB6F1EE6487700D2441D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 147FBB481EE6487700D2441D /* Assets.xcassets */; };
 		147FBB701EE6487700D2441D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 147FBB491EE6487700D2441D /* LaunchScreen.storyboard */; };
@@ -24,6 +26,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		142EDA5E1EFC557600585859 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 14AEEF461EEAECAC006463C9 /* SKWebServiceController.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 147FBB2A1EE6482000D2441D;
+			remoteInfo = SKWebServiceController;
+		};
 		14AEEF4B1EEAECAC006463C9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 14AEEF461EEAECAC006463C9 /* SKWebServiceController.xcodeproj */;
@@ -47,6 +56,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				142EDA5D1EFC557600585859 /* SKWebServiceController.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -84,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				142EDA5C1EFC557600585859 /* SKWebServiceController.framework in Frameworks */,
 				142AB15C38C97EE9DEFF7932 /* Pods_SampleProject.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -227,6 +238,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				142EDA5F1EFC557600585859 /* PBXTargetDependency */,
 			);
 			name = SampleProject;
 			productName = WebServiceController;
@@ -371,6 +383,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		142EDA5F1EFC557600585859 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SKWebServiceController;
+			targetProxy = 142EDA5E1EFC557600585859 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		147FBB491EE6487700D2441D /* LaunchScreen.storyboard */ = {
