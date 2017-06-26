@@ -5,7 +5,7 @@ inhibit_all_warnings!
 
 target 'SKWebServiceController' do
 	project 'SKWebServiceController.xcodeproj'
-	pod 'SwiftLint', '= 0.19.0'
+	pod 'SwiftLint', '= 0.20.0'
 end
 
 target 'SKWebServiceControllerTests' do
@@ -17,5 +17,5 @@ end
 
 target 'SampleProject' do
 	project 'SampleProject/SampleProject.xcodeproj'
-	pod 'SKTableViewDataSource', '= 0.0.2'
+	pod 'SKTableViewDataSource', '= 1.0.0'
 end

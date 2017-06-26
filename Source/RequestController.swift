@@ -1,5 +1,5 @@
 //
-//  Requester.swift
+//  RequestController.swift
 //  WebServiceController
 //
 //  Created by Sean on 6/6/17.
@@ -15,21 +15,16 @@ protocol Requesting {
     func imageCompletion(data: Data?, response: URLResponse?, error: Error?, completion: @escaping WebServiceController.ImageCompletion)
     func jsonCompletion(data: Data?, response: URLResponse?, error: Error?, completion: @escaping WebServiceController.JSONCompletion)
     func performRequest(_ request: URLRequest, httpMethod: WebServiceController.HTTPMethod, json: Any?, completion: @escaping RequestCompletion) -> URLSessionDataTask?
-    func performRequest(endpoint: String?, parameters: [String : String]?, json: Any?, httpMethod: WebServiceController.HTTPMethod, completion: @escaping RequestCompletion) -> URLSessionDataTask?
+    func performRequest(endpoint: String?, json: Any?, httpMethod: WebServiceController.HTTPMethod, requestConfiguration: RequestConfiguration?, completion: @escaping RequestCompletion) -> URLSessionDataTask?
 }
 
-class Requester: Requesting {
+class RequestController: Requesting {
 
-    let defaultParameters: [String : String]
-
-    private let jsonHandler: JSONHandling
-
-    private let session: URLSession
-
+    let jsonHandler: JSONHandling
+    let session: URLSession
     let urlConstructor: URLConstructable
 
-    init(defaultParameters: [String : String], jsonHandler: JSONHandling, session: URLSession, urlConstructor: URLConstructable) {
-        self.defaultParameters = defaultParameters
+    init(jsonHandler: JSONHandling, session: URLSession, urlConstructor: URLConstructable) {
         self.jsonHandler = jsonHandler
         self.session = session
         self.urlConstructor = urlConstructor
@@ -95,10 +90,8 @@ class Requester: Requesting {
         return sessionTask
     }
 
-    func performRequest(endpoint: String?, parameters: [String : String]?, json: Any?, httpMethod: WebServiceController.HTTPMethod, completion: @escaping RequestCompletion) -> URLSessionDataTask? {
-        var combinedParameters = defaultParameters
-        parameters?.forEach { (key, value) in combinedParameters[key] = value }
-        let urlTuple = urlConstructor.urlWith(endpoint: endpoint, parameters: combinedParameters)
+    func performRequest(endpoint: String?, json: Any?, httpMethod: WebServiceController.HTTPMethod, requestConfiguration: RequestConfiguration?, completion: @escaping RequestCompletion) -> URLSessionDataTask? {
+        let urlTuple = urlConstructor.urlWith(endpoint: endpoint, parameters: requestConfiguration?.queryParameters)
 
         guard let url = urlTuple.url else {
             completion(nil, nil, urlTuple.error)
@@ -107,8 +100,27 @@ class Requester: Requesting {
 
         var request = URLRequest(url: url)
         request.httpMethod = httpMethod.rawValue
+        request = setHeadersOnRequest(request, headers: requestConfiguration?.additionalHTTPHeaders)
 
         return performRequest(request, httpMethod: httpMethod, json: json, completion: completion)
+    }
+
+    func setHeadersOnRequest(_ request: URLRequest, headers: [AnyHashable : Any]?) -> URLRequest {
+        guard let headers = headers else {
+            return request
+        }
+
+        var mutableRequest = request
+
+        for key in headers.keys {
+            if let object = headers[key] {
+                let stringValue = String(describing: object)
+                let stringKey = String(describing: key)
+                mutableRequest.setValue(stringValue, forHTTPHeaderField: stringKey)
+            }
+        }
+
+        return mutableRequest
     }
 
     func uploadTask(request: URLRequest, data: Data?, completion: @escaping RequestCompletion) -> URLSessionDataTask {

@@ -11,7 +11,7 @@ import UIKit
 typealias URLResult = (url: URL?, error: NSError?)
 
 protocol URLConstructable {
-    func urlWith(endpoint: String?, parameters: [String : String]?) -> URLResult
+    func urlWith(endpoint: String?, parameters: [AnyHashable : Any]?) -> URLResult
 }
 
 class URLConstructor: URLConstructable {
@@ -29,7 +29,7 @@ class URLConstructor: URLConstructable {
 
     // MARK: Instance Methods
 
-    func urlWith(endpoint: String?, parameters: [String : String]?) -> URLResult {
+    func urlWith(endpoint: String?, parameters: [AnyHashable : Any]?) -> URLResult {
         var fullURLString = baseURL
 
         if let endpoint = endpoint {
@@ -52,16 +52,18 @@ class URLConstructor: URLConstructable {
         return (url, nil)
     }
 
-    func queryParametersString(_ parametersDictionary: [String : String]? = nil) -> String? {
+    func queryParametersString(_ parametersDictionary: [AnyHashable : Any]? = nil) -> String? {
         guard let parametersDictionary = parametersDictionary else {
             return nil
         }
 
+        let stringsDictionary = parametersDictionary.toStringDictionary()
+
         var parametersArray = [String]()
 
-        for key in parametersDictionary.keys.sorted() {
+        for key in stringsDictionary.keys.sorted() {
             if let encodedKey = key.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
-                let encodedValue = parametersDictionary[key]?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
+                let encodedValue = stringsDictionary[key]?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
                 parametersArray.append("\(encodedKey)=\(encodedValue)")
             }
         }
