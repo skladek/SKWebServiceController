@@ -47,7 +47,7 @@ class PostController: NSObject {
 
         let endpoint = String(format: Endpoints.postsWithId, postId)
 
-        webServiceController.put(endpoint, parameters: nil, json: post.toJSON()) { (objects, response, error) in
+        webServiceController.put(endpoint, json: post.toJSON()) { (objects, response, error) in
             completion(error)
         }
     }
