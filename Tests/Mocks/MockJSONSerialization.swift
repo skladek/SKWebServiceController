@@ -1,11 +1,3 @@
-//
-//  MockJSONSerialization.swift
-//  WebServiceController
-//
-//  Created by Sean on 5/30/17.
-//  Copyright © 2017 Sean Kladek. All rights reserved.
-//
-
 import Foundation
 
 class MockJSONSerialization: JSONSerialization {
