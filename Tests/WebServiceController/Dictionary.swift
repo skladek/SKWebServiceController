@@ -1,11 +1,3 @@
-//
-//  Dictionary.swift
-//  SKWebServiceController
-//
-//  Created by Sean on 6/23/17.
-//  Copyright © 2017 Sean Kladek. All rights reserved.
-//
-
 import Foundation
 import Nimble
 import Quick

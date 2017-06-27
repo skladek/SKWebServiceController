@@ -1,11 +1,3 @@
-//
-//  URLConstructor.swift
-//  WebServiceController
-//
-//  Created by Sean on 5/24/17.
-//  Copyright © 2017 Sean Kladek. All rights reserved.
-//
-
 import UIKit
 
 typealias URLResult = (url: URL?, error: NSError?)
