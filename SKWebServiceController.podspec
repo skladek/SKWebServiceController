@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name = 'SKWebServiceController'
-  spec.version = '0.0.4'
+  spec.version = '0.0.5'
   spec.license = 'MIT'
   spec.summary = 'A barebones network controller.'
   spec.homepage = 'https://github.com/skladek/SKWebServiceController'
