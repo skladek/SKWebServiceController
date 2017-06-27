@@ -1,11 +1,3 @@
-//
-//  PostController.swift
-//  WebServiceController
-//
-//  Created by Sean on 5/22/17.
-//  Copyright © 2017 Sean Kladek. All rights reserved.
-//
-
 import UIKit
 
 class PostController: NSObject {
@@ -47,7 +39,7 @@ class PostController: NSObject {
 
         let endpoint = String(format: Endpoints.postsWithId, postId)
 
-        webServiceController.put(endpoint, parameters: nil, json: post.toJSON()) { (objects, response, error) in
+        webServiceController.put(endpoint, json: post.toJSON(), requestConfiguration: nil) { (objects, response, error) in
             completion(error)
         }
     }
