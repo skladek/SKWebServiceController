@@ -9,6 +9,7 @@ class MockRequester: Requesting {
     var performRequestCalled = false
     var performRequestWithEndpointCalled = false
     var request: URLRequest? = nil
+    var useLocalFiles: Bool = false
 
     func imageCompletion(data: Data?, response: URLResponse?, error: Error?, completion: @escaping WebServiceController.ImageCompletion) {
         imageCompletionCalled = true

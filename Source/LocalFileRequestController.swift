@@ -1,6 +1,12 @@
 import UIKit
 
-class LocalFileRequestController {
+protocol LocalFileRequestControllerProtocol {
+    func getDataFromURL(_ url: URL, completion: @escaping RequestController.RequestCompletion)
+    func getFileURLFromRequest(_ request: URLRequest, completion: @escaping RequestController.RequestCompletion) -> URL?
+    func getFileWithRequest(_ request: URLRequest, completion: @escaping RequestController.RequestCompletion)
+}
+
+class LocalFileRequestController: LocalFileRequestControllerProtocol {
     func getDataFromURL(_ url: URL, completion: @escaping RequestController.RequestCompletion) {
         do {
             let data = try Data(contentsOf: url)
@@ -9,14 +15,6 @@ class LocalFileRequestController {
             completion(nil, nil, error)
             return
         }
-    }
-
-    func getFileWithRequest(_ request: URLRequest, completion: @escaping RequestController.RequestCompletion) {
-        guard let fileURL = getFileURLFromRequest(request, completion: completion) else {
-            return
-        }
-
-        getDataFromURL(fileURL, completion: completion)
     }
 
     func getFileURLFromRequest(_ request: URLRequest, completion: @escaping RequestController.RequestCompletion) -> URL? {
@@ -33,5 +31,13 @@ class LocalFileRequestController {
         }
 
         return URL(fileURLWithPath: path)
+    }
+
+    func getFileWithRequest(_ request: URLRequest, completion: @escaping RequestController.RequestCompletion) {
+        guard let fileURL = getFileURLFromRequest(request, completion: completion) else {
+            return
+        }
+
+        getDataFromURL(fileURL, completion: completion)
     }
 }

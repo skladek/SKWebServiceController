@@ -9,16 +9,18 @@ class RequestControllerSpec: QuickSpec {
     override func spec() {
         describe("Requester") {
             var jsonHandler: MockJSONHandler!
+            var localFileController: MockLocalFileRequestController!
             var session: MockSession!
             var urlConstructor: MockURLConstructor!
             var unitUnderTest: RequestController!
 
             beforeEach {
                 jsonHandler = MockJSONHandler()
+                localFileController = MockLocalFileRequestController()
                 session = MockSession()
                 urlConstructor = MockURLConstructor()
 
-                unitUnderTest = RequestController(jsonHandler: jsonHandler, session: session, urlConstructor: urlConstructor)
+                unitUnderTest = RequestController(jsonHandler: jsonHandler, localFileController: localFileController, session: session, urlConstructor: urlConstructor)
             }
 
             context("init(defaultRequestConfiguration:jsonHandler:session:urlConstructor:)") {
@@ -138,6 +140,13 @@ class RequestControllerSpec: QuickSpec {
                 beforeEach {
                     let url = URL(string: "https://example.url/")!
                     request = URLRequest(url: url)
+                }
+
+                it("Should call getFileWithRequest if useLocalFiles is true") {
+                    unitUnderTest.useLocalFiles = true
+                    let _ = unitUnderTest.performRequest(request, httpMethod: .get, json: nil, completion: { (_, _, _) in })
+
+                    expect(localFileController.getFileWithRequestCalled).to(beTrue())
                 }
 
                 it("Should not call json to data if nil json is provided") {
