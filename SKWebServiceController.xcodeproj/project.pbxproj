@@ -27,6 +27,7 @@
 		142EDA651EFD8F1300585859 /* RequestConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142EDA641EFD8F1300585859 /* RequestConfiguration.swift */; };
 		142EDA691EFDCCAE00585859 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142EDA681EFDCCAE00585859 /* Dictionary.swift */; };
 		142EDA6B1EFDCD9400585859 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142EDA6A1EFDCD9400585859 /* Dictionary.swift */; };
+		14447C4C1F10419300901C11 /* LocalFileRequestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14447C4B1F10419300901C11 /* LocalFileRequestController.swift */; };
 		147FBB351EE6482000D2441D /* SKWebServiceController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 147FBB2B1EE6482000D2441D /* SKWebServiceController.framework */; };
 		169AAD7EA4581B72CCE53CC2 /* Pods_SKWebServiceController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D726AC5538B76873923D2DB /* Pods_SKWebServiceController.framework */; };
 		B14C656EB21170FA611441D6 /* Pods_SKWebServiceControllerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2532553274957FA118AFD4C6 /* Pods_SKWebServiceControllerTests.framework */; };
@@ -65,6 +66,7 @@
 		142EDA641EFD8F1300585859 /* RequestConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestConfiguration.swift; sourceTree = "<group>"; };
 		142EDA681EFDCCAE00585859 /* Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
 		142EDA6A1EFDCD9400585859 /* Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
+		14447C4B1F10419300901C11 /* LocalFileRequestController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalFileRequestController.swift; sourceTree = "<group>"; };
 		147FBB2B1EE6482000D2441D /* SKWebServiceController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SKWebServiceController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		147FBB341EE6482000D2441D /* SKWebServiceControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SKWebServiceControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2532553274957FA118AFD4C6 /* Pods_SKWebServiceControllerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SKWebServiceControllerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,6 +105,7 @@
 			children = (
 				142EDA681EFDCCAE00585859 /* Dictionary.swift */,
 				1410F3B91EE9EF8600F37AC8 /* Info.plist */,
+				14447C4B1F10419300901C11 /* LocalFileRequestController.swift */,
 				1410F3BA1EE9EF8600F37AC8 /* JSONHandler.swift */,
 				142EDA641EFD8F1300585859 /* RequestConfiguration.swift */,
 				1410F3BB1EE9EF8600F37AC8 /* RequestController.swift */,
@@ -409,6 +412,7 @@
 				1410F3D21EE9EF8600F37AC8 /* URLConstructor.swift in Sources */,
 				142EDA691EFDCCAE00585859 /* Dictionary.swift in Sources */,
 				1410F3D11EE9EF8600F37AC8 /* RequestController.swift in Sources */,
+				14447C4C1F10419300901C11 /* LocalFileRequestController.swift in Sources */,
 				1410F3D01EE9EF8600F37AC8 /* JSONHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

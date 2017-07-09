@@ -11,6 +11,16 @@ open class WebServiceController: NSObject {
     /// The completion that is returned with JSON requests.
     public typealias JSONCompletion = (Any?, URLResponse?, Error?) -> Void
 
+    // MARK: Public Properties
+
+    public var useLocalFiles: Bool {
+        get {
+            return requester.useLocalFiles
+        } set {
+            requester.useLocalFiles = newValue
+        }
+    }
+
     // MARK: Internal Class Types
 
     enum HTTPMethod: String {
@@ -22,7 +32,7 @@ open class WebServiceController: NSObject {
 
     // MARK: Internal Properties
 
-    let requester: Requesting
+    var requester: Requesting
 
     // MARK: Init Methods
 
