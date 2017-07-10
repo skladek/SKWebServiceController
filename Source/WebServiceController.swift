@@ -13,6 +13,9 @@ open class WebServiceController: NSObject {
 
     // MARK: Public Properties
 
+    /// Provides a toggle to utilize local files instead of making an external URL request. This should only be
+    /// used for debugging. The local files will be searched for using the last path component. For example, with
+    /// the URL http://example.com/test, a file with the name test.json would be searched for in the main bundle.
     public var useLocalFiles: Bool {
         get {
             return requester.useLocalFiles

@@ -38,7 +38,6 @@ class LocalFileRequestControllerSpec: QuickSpec {
                 it("Should return nil if a file cannot be found with the last path component") {
                     let url = URL(string: "https://example.com/invalidLastPathComponent")!
                     let request = URLRequest(url: url)
-                    let bundle = Bundle(for: type(of: self))
 
                     let result = unitUnderTest.getFileURLFromRequest(request, completion: { (_, _, _) in })
 
