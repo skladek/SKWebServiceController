@@ -164,6 +164,26 @@ class WebServiceControllerSpec: QuickSpec {
                     expect(returnedTask).to(beNil())
                 }
             }
+
+            context("useLocalFiles") {
+                it("Should return the useLocalFiles value from the requester") {
+                    requester = MockRequester()
+                    requester.useLocalFiles = true
+                    unitUnderTest = WebServiceController(testRequester: requester)
+
+                    expect(unitUnderTest.useLocalFiles).to(beTrue())
+                }
+
+                it("Should set the useLocalFiles value on the requester") {
+                    requester = MockRequester()
+                    requester.useLocalFiles = true
+                    unitUnderTest = WebServiceController(testRequester: requester)
+                    unitUnderTest.useLocalFiles = false
+
+                    expect(requester.useLocalFiles).to(beFalse())
+                }
+
+            }
         }
     }
 }

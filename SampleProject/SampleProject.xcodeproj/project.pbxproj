@@ -10,6 +10,7 @@
 		142AB15C38C97EE9DEFF7932 /* Pods_SampleProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6388AD0CA977D6A99BD2C4FE /* Pods_SampleProject.framework */; };
 		142EDA5C1EFC557600585859 /* SKWebServiceController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14AEEF4C1EEAECAC006463C9 /* SKWebServiceController.framework */; };
 		142EDA5D1EFC557600585859 /* SKWebServiceController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 14AEEF4C1EEAECAC006463C9 /* SKWebServiceController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		144A9DDC1F12DA2D00B30702 /* posts.json in Resources */ = {isa = PBXBuildFile; fileRef = 144A9DDB1F12DA2D00B30702 /* posts.json */; };
 		147FBB6E1EE6487700D2441D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FBB471EE6487700D2441D /* AppDelegate.swift */; };
 		147FBB6F1EE6487700D2441D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 147FBB481EE6487700D2441D /* Assets.xcassets */; };
 		147FBB701EE6487700D2441D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 147FBB491EE6487700D2441D /* LaunchScreen.storyboard */; };
@@ -65,6 +66,7 @@
 
 /* Begin PBXFileReference section */
 		14053C851ED394A80094E780 /* SampleProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		144A9DDB1F12DA2D00B30702 /* posts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = posts.json; sourceTree = "<group>"; };
 		147FBB471EE6487700D2441D /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		147FBB481EE6487700D2441D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		147FBB4A1EE6487700D2441D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -120,12 +122,21 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		144A9DDA1F12DA2D00B30702 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				144A9DDB1F12DA2D00B30702 /* posts.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		147FBB451EE6487700D2441D /* SampleProject */ = {
 			isa = PBXGroup;
 			children = (
 				147FBB461EE6487700D2441D /* Application */,
 				147FBB4F1EE6487700D2441D /* Models */,
 				147FBB511EE6487700D2441D /* Networking */,
+				144A9DDA1F12DA2D00B30702 /* Resources */,
 				147FBB541EE6487700D2441D /* ViewControllers */,
 				147FBB591EE6487700D2441D /* ViewModels */,
 				147FBB5B1EE6487700D2441D /* Views */,
@@ -307,6 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				147FBB6F1EE6487700D2441D /* Assets.xcassets in Resources */,
+				144A9DDC1F12DA2D00B30702 /* posts.json in Resources */,
 				147FBB7C1EE6487700D2441D /* PostCell.xib in Resources */,
 				147FBB701EE6487700D2441D /* LaunchScreen.storyboard in Resources */,
 				147FBB771EE6487700D2441D /* EditPostViewController.xib in Resources */,
