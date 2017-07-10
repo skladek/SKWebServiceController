@@ -7,6 +7,12 @@ protocol LocalFileRequestControllerProtocol {
 }
 
 class LocalFileRequestController: LocalFileRequestControllerProtocol {
+    let bundle: Bundle
+
+    init(bundle: Bundle = Bundle.main) {
+        self.bundle = bundle
+    }
+
     func getDataFromURL(_ url: URL, completion: @escaping RequestController.RequestCompletion) {
         do {
             let data = try Data(contentsOf: url)
@@ -18,14 +24,9 @@ class LocalFileRequestController: LocalFileRequestControllerProtocol {
     }
 
     func getFileURLFromRequest(_ request: URLRequest, completion: @escaping RequestController.RequestCompletion) -> URL? {
-        guard let lastPathComponent = request.url?.lastPathComponent else {
-            let error = WebServiceError(code: .noData, message: "The last path component was not found for the URL: \(String(describing: request.url)).")
-            completion(nil, nil, error)
-            return nil
-        }
-
-        guard let path = Bundle.main.path(forResource: lastPathComponent, ofType: ".json") else {
-            let error = WebServiceError(code: .noData, message: "A file named \(lastPathComponent).json was not found in the main bundle. Currently, only json files are accepted.")
+        guard let lastPathComponent = request.url?.lastPathComponent,
+            let path = bundle.path(forResource: lastPathComponent, ofType: ".json") else {
+            let error = WebServiceError(code: .noData, message: "A file named \(String(describing: request.url?.lastPathComponent)).json was not found in the main bundle. Currently, only json files are accepted.")
             completion(nil, nil, error)
             return nil
         }
@@ -34,10 +35,8 @@ class LocalFileRequestController: LocalFileRequestControllerProtocol {
     }
 
     func getFileWithRequest(_ request: URLRequest, completion: @escaping RequestController.RequestCompletion) {
-        guard let fileURL = getFileURLFromRequest(request, completion: completion) else {
-            return
+        if let fileURL = getFileURLFromRequest(request, completion: completion) {
+            getDataFromURL(fileURL, completion: completion)
         }
-
-        getDataFromURL(fileURL, completion: completion)
     }
 }
