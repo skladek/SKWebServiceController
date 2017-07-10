@@ -4,6 +4,8 @@ import UIKit
 protocol Requesting {
     typealias RequestCompletion = (Data?, URLResponse?, Error?) -> Void
 
+    var useLocalFiles: Bool { get set }
+
     func imageCompletion(data: Data?, response: URLResponse?, error: Error?, completion: @escaping WebServiceController.ImageCompletion)
     func jsonCompletion(data: Data?, response: URLResponse?, error: Error?, completion: @escaping WebServiceController.JSONCompletion)
     func performRequest(_ request: URLRequest, httpMethod: WebServiceController.HTTPMethod, json: Any?, completion: @escaping RequestCompletion) -> URLSessionDataTask?
@@ -13,11 +15,14 @@ protocol Requesting {
 class RequestController: Requesting {
 
     let jsonHandler: JSONHandling
+    let localFileController: LocalFileRequestControllerProtocol
     let session: URLSession
     let urlConstructor: URLConstructable
+    var useLocalFiles: Bool = false
 
-    init(jsonHandler: JSONHandling, session: URLSession, urlConstructor: URLConstructable) {
+    init(jsonHandler: JSONHandling, localFileController: LocalFileRequestControllerProtocol = LocalFileRequestController(), session: URLSession, urlConstructor: URLConstructable) {
         self.jsonHandler = jsonHandler
+        self.localFileController = localFileController
         self.session = session
         self.urlConstructor = urlConstructor
     }
@@ -59,6 +64,12 @@ class RequestController: Requesting {
     }
 
     func performRequest(_ request: URLRequest, httpMethod: WebServiceController.HTTPMethod, json: Any?, completion: @escaping RequestCompletion) -> URLSessionDataTask? {
+
+        if useLocalFiles == true {
+            localFileController.getFileWithRequest(request, completion: completion)
+            return nil
+        }
+
         var data: Data? = nil
         var sessionTask: URLSessionDataTask? = nil
 

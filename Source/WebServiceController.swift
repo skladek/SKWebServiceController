@@ -11,6 +11,19 @@ open class WebServiceController: NSObject {
     /// The completion that is returned with JSON requests.
     public typealias JSONCompletion = (Any?, URLResponse?, Error?) -> Void
 
+    // MARK: Public Properties
+
+    /// Provides a toggle to utilize local files instead of making an external URL request. This should only be
+    /// used for debugging. The local files will be searched for using the last path component. For example, with
+    /// the URL http://example.com/test, a file with the name test.json would be searched for in the main bundle.
+    public var useLocalFiles: Bool {
+        get {
+            return requester.useLocalFiles
+        } set {
+            requester.useLocalFiles = newValue
+        }
+    }
+
     // MARK: Internal Class Types
 
     enum HTTPMethod: String {
@@ -22,7 +35,7 @@ open class WebServiceController: NSObject {
 
     // MARK: Internal Properties
 
-    let requester: Requesting
+    var requester: Requesting
 
     // MARK: Init Methods
 
