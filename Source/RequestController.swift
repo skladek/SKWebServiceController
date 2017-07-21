@@ -4,6 +4,7 @@ import UIKit
 protocol Requesting {
     typealias RequestCompletion = (Data?, URLResponse?, Error?) -> Void
 
+    var urlConstructor: URLConstructable { get }
     var useLocalFiles: Bool { get set }
 
     func imageCompletion(data: Data?, response: URLResponse?, error: Error?, completion: @escaping WebServiceController.ImageCompletion)
@@ -13,7 +14,7 @@ protocol Requesting {
 }
 
 class RequestController: Requesting {
-
+    
     let jsonHandler: JSONHandling
     let localFileController: LocalFileRequestControllerProtocol
     let session: URLSession
