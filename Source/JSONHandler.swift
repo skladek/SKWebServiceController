@@ -8,12 +8,7 @@ protocol JSONHandling {
 }
 
 class JSONHandler: JSONHandling {
-
-    // MARK: Internal Properties
-
     let jsonSerialization: JSONSerialization.Type
-
-    // MARK: Init Methods
 
     init(JSONSerializationType: JSONSerialization.Type = JSONSerialization.self) {
         self.jsonSerialization = JSONSerializationType
