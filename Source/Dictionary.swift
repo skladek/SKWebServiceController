@@ -1,6 +1,9 @@
 import Foundation
 
 extension Dictionary {
+
+    // MARK: Instance Methods
+
     func toStringDictionary() -> [String : String] {
         var stringDictionary: [String : String] = [:]
 
