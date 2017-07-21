@@ -1,6 +1,7 @@
 import UIKit
 
 class WebServiceError: NSError {
+
     // MARK: Class Types
 
     enum Code: Int {
