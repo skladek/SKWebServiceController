@@ -14,12 +14,16 @@ protocol Requesting {
 }
 
 class RequestController: Requesting {
-    
+
+    // MARK: Internal Properties
+
     let jsonHandler: JSONHandling
     let localFileController: LocalFileRequestControllerProtocol
     let session: URLSession
     let urlConstructor: URLConstructable
     var useLocalFiles: Bool = false
+
+    // MARK: Init Methods
 
     init(jsonHandler: JSONHandling, localFileController: LocalFileRequestControllerProtocol = LocalFileRequestController(), session: URLSession, urlConstructor: URLConstructable) {
         self.jsonHandler = jsonHandler
@@ -27,6 +31,8 @@ class RequestController: Requesting {
         self.session = session
         self.urlConstructor = urlConstructor
     }
+
+    // MARK: Instance Methods
 
     func dataTask(request: URLRequest, completion: @escaping RequestCompletion) -> URLSessionDataTask {
         let dataTask = session.dataTask(with: request, completionHandler: completion)

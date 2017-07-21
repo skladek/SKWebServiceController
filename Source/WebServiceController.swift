@@ -14,9 +14,7 @@ open class WebServiceController: NSObject {
     // MARK: Public Properties
 
     public var baseURL: String {
-        get {
-            return requester.urlConstructor.baseURL
-        }
+        return requester.urlConstructor.baseURL
     }
 
     /// Provides a toggle to utilize local files instead of making an external URL request. This should only be
