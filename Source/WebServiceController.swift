@@ -13,6 +13,7 @@ open class WebServiceController: NSObject {
 
     // MARK: Public Properties
 
+    /// The base URL used for all requests.
     public var baseURL: String {
         return requester.urlConstructor.baseURL
     }
