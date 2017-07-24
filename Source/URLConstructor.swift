@@ -3,11 +3,11 @@ import UIKit
 typealias URLResult = (url: URL?, error: NSError?)
 
 protocol URLConstructable {
-    var baseURL: String { get }
     func urlWith(endpoint: String?, parameters: [AnyHashable : Any]?) -> URLResult
 }
 
 class URLConstructor: URLConstructable {
+    // MARK: Class Types
 
     // MARK: Internal Properties
 

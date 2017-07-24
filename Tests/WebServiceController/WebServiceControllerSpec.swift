@@ -165,15 +165,6 @@ class WebServiceControllerSpec: QuickSpec {
                 }
             }
 
-            context("baseURL") {
-                it("Should return the baseURL from the URLConstructor") {
-                    let requester = MockRequester(baseURL: "testBaseURL")
-                    unitUnderTest = WebServiceController(testRequester: requester)
-
-                    expect(unitUnderTest.baseURL).to(equal("testBaseURL"))
-                }
-            }
-
             context("useLocalFiles") {
                 it("Should return the useLocalFiles value from the requester") {
                     requester = MockRequester()
