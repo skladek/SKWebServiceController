@@ -2,9 +2,6 @@ import Foundation
 
 /// Provides values to configure a single request.
 public class RequestConfiguration {
-
-    // MARK: Internal Properties
-
     let additionalHTTPHeaders: [AnyHashable : Any]?
     let queryParameters: [AnyHashable : Any]
 

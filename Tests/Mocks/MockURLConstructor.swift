@@ -4,7 +4,6 @@ import Foundation
 
 class MockURLConstructor: URLConstructable {
     var urlWithEndpointCalled = false
-    var baseURL: String = ""
     var parameters: [AnyHashable : Any]? = nil
     var shouldReturnError = false
 
