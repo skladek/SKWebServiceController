@@ -7,11 +7,18 @@ protocol LocalFileRequestControllerProtocol {
 }
 
 class LocalFileRequestController: LocalFileRequestControllerProtocol {
+
+    // MARK: Internal Properties
+
     let bundle: Bundle
+
+    // MARK: Init Methods
 
     init(bundle: Bundle = Bundle.main) {
         self.bundle = bundle
     }
+
+    // MARK: Instance Methods
 
     func getDataFromURL(_ url: URL, completion: @escaping RequestController.RequestCompletion) {
         do {
