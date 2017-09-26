@@ -165,6 +165,31 @@ class WebServiceControllerSpec: QuickSpec {
                 }
             }
 
+            context("removeAuthorizationToken()") {
+                it("Should remove any set authorization token from the requester") {
+                    unitUnderTest.requester.token = "Test Token"
+                    unitUnderTest.removeAuthorizationToken()
+                    expect(unitUnderTest.requester.token).to(beNil())
+                }
+            }
+
+            context("setBearerToken(_:)") {
+                it("Should set the token on the requester") {
+                    unitUnderTest.setBearerToken("Bearer TestToken")
+                    expect(unitUnderTest.requester.token).to(equal("Bearer TestToken"))
+                }
+
+                it("Should append the Bearer prefix if the input token does not contain it") {
+                    unitUnderTest.setBearerToken("TestToken")
+                    expect(unitUnderTest.requester.token).to(equal("Bearer TestToken"))
+                }
+
+                it("Should return an error if the input string is nil") {
+                    let result = unitUnderTest.setBearerToken(nil)
+                    expect((result as NSError?)?.code).to(equal(WebServiceError.Code.invalidData.rawValue))
+                }
+            }
+
             context("baseURL") {
                 it("Should return the baseURL from the URLConstructor") {
                     let requester = MockRequester(baseURL: "testBaseURL")

@@ -116,9 +116,21 @@ class RequestController: Requesting {
 
         var request = URLRequest(url: url)
         request.httpMethod = httpMethod.rawValue
+        request = setAuthorizationHeaderOnRequest(request)
         request = setHeadersOnRequest(request, headers: requestConfiguration?.additionalHTTPHeaders)
 
         return performRequest(request, httpMethod: httpMethod, json: json, completion: completion)
+    }
+
+    func setAuthorizationHeaderOnRequest(_ request: URLRequest) -> URLRequest {
+        guard let token = token else {
+            return request
+        }
+
+        var mutableRequest = request
+        mutableRequest.setValue(token, forHTTPHeaderField: RequestController.authorizationHeader)
+
+        return mutableRequest
     }
 
     func setHeadersOnRequest(_ request: URLRequest, headers: [AnyHashable : Any]?) -> URLRequest {
@@ -127,10 +139,6 @@ class RequestController: Requesting {
         }
 
         var mutableRequest = request
-
-        if token != nil {
-            mutableRequest.setValue(token, forHTTPHeaderField: RequestController.authorizationHeader)
-        }
 
         for key in headers.keys {
             if let object = headers[key] {

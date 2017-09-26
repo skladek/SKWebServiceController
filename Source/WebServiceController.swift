@@ -146,10 +146,11 @@ open class WebServiceController: NSObject {
     }
 
     /// Sets the input token as a bearer token. If the token is passed in without the "Bearer " prefix, it will be appended.
-    /// If this is set, it will be passed with every request unless overridden in a request's RequestConfiguration object.
+    /// If this is set, it will be passed with every request.
     ///
     /// - Parameter token: The token to be set. This can be passed in with or without the "Bearer " prefix.
     /// - Returns: An optional error.
+    @discardableResult
     open func setBearerToken(_ token: String?) -> Error? {
         guard var token = token else {
             let error = WebServiceError(code: .invalidData, message: "Cannot set bearer token. The input token was nil.")
