@@ -4,6 +4,7 @@ import UIKit
 protocol Requesting {
     typealias RequestCompletion = (Data?, URLResponse?, Error?) -> Void
 
+    var token: String? { get set }
     var urlConstructor: URLConstructable { get }
     var useLocalFiles: Bool { get set }
 
@@ -15,11 +16,16 @@ protocol Requesting {
 
 class RequestController: Requesting {
 
+    // MARK: Static Variables
+
+    static let authorizationHeader = "Authorization"
+
     // MARK: Internal Properties
 
     let jsonHandler: JSONHandling
     let localFileController: LocalFileRequestControllerProtocol
     let session: URLSession
+    var token: String?
     let urlConstructor: URLConstructable
     var useLocalFiles: Bool = false
 
@@ -110,9 +116,21 @@ class RequestController: Requesting {
 
         var request = URLRequest(url: url)
         request.httpMethod = httpMethod.rawValue
+        request = setAuthorizationHeaderOnRequest(request)
         request = setHeadersOnRequest(request, headers: requestConfiguration?.additionalHTTPHeaders)
 
         return performRequest(request, httpMethod: httpMethod, json: json, completion: completion)
+    }
+
+    func setAuthorizationHeaderOnRequest(_ request: URLRequest) -> URLRequest {
+        guard let token = token else {
+            return request
+        }
+
+        var mutableRequest = request
+        mutableRequest.setValue(token, forHTTPHeaderField: RequestController.authorizationHeader)
+
+        return mutableRequest
     }
 
     func setHeadersOnRequest(_ request: URLRequest, headers: [AnyHashable : Any]?) -> URLRequest {

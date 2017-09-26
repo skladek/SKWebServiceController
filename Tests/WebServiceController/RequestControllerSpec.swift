@@ -213,6 +213,30 @@ class RequestControllerSpec: QuickSpec {
                 }
             }
 
+            context("setAuthorizationHeaderOnRequest(_:)") {
+                var request: URLRequest!
+                var url: URL!
+
+                beforeEach {
+                    url = URL(string: "http://testurl.com")!
+                    request = URLRequest(url: url)
+                }
+
+                it("Should not set an authorization header if token is nil") {
+                    unitUnderTest.token = nil
+                    let result = unitUnderTest.setAuthorizationHeaderOnRequest(request)
+
+                    expect(result.allHTTPHeaderFields?[RequestController.authorizationHeader]).to(beNil())
+                }
+
+                it("Should set an authorization header if a token is present") {
+                    unitUnderTest.token = "TestToken"
+                    let result = unitUnderTest.setAuthorizationHeaderOnRequest(request)
+
+                    expect(result.allHTTPHeaderFields?[RequestController.authorizationHeader]).to(equal("TestToken"))
+                }
+            }
+
             context("setHeadersOnRequest(_:headers:)") {
                 var request: URLRequest!
                 var url: URL!
