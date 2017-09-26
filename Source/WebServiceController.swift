@@ -11,6 +11,10 @@ open class WebServiceController: NSObject {
     /// The completion that is returned with JSON requests.
     public typealias JSONCompletion = (Any?, URLResponse?, Error?) -> Void
 
+    // MARK: Static Variables
+
+    static let bearerPrefix = "Bearer "
+
     // MARK: Public Properties
 
     /// The base URL used for all requests.
@@ -134,5 +138,31 @@ open class WebServiceController: NSObject {
         return requester.performRequest(endpoint: endpoint, json: json, httpMethod: .put, requestConfiguration: requestConfiguration, completion: { (data, response, error) in
             self.requester.jsonCompletion(data: data, response: response, error: error, completion: completion)
         })
+    }
+
+    /// Clears any set tokens. This will prevent the authorization token from being set on requests.
+    open func removeAuthorizationToken() {
+        requester.token = nil
+    }
+
+    /// Sets the input token as a bearer token. If the token is passed in without the "Bearer " prefix, it will be appended.
+    /// If this is set, it will be passed with every request.
+    ///
+    /// - Parameter token: The token to be set. This can be passed in with or without the "Bearer " prefix.
+    /// - Returns: An optional error.
+    @discardableResult
+    open func setBearerToken(_ token: String?) -> Error? {
+        guard var token = token else {
+            let error = WebServiceError(code: .invalidData, message: "Cannot set bearer token. The input token was nil.")
+
+            return error
+        }
+
+        if !token.hasPrefix(WebServiceController.bearerPrefix) {
+            token = "Bearer \(token)"
+        }
+        requester.token = token
+
+        return nil
     }
 }
