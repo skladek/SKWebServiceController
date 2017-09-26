@@ -9,6 +9,7 @@ class MockRequester: Requesting {
     var performRequestCalled = false
     var performRequestWithEndpointCalled = false
     var request: URLRequest? = nil
+    var token: String? = nil
     var urlConstructor: URLConstructable = URLConstructor(baseURL: "")
     var useLocalFiles: Bool = false
 
