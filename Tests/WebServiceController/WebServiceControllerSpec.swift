@@ -6,12 +6,14 @@ import Quick
 
 class WebServiceControllerSpec: QuickSpec {
     override func spec() {
+        var keychain: MockKeychain!
         var requester: MockRequester!
         var unitUnderTest: WebServiceController!
 
         beforeEach {
+            keychain = MockKeychain()
             requester = MockRequester()
-            unitUnderTest = WebServiceController(testRequester: requester)
+            unitUnderTest = WebServiceController(testRequester: requester, keychain: keychain)
         }
 
         describe("WebServiceController") {
@@ -193,7 +195,7 @@ class WebServiceControllerSpec: QuickSpec {
             context("baseURL") {
                 it("Should return the baseURL from the URLConstructor") {
                     let requester = MockRequester(baseURL: "testBaseURL")
-                    unitUnderTest = WebServiceController(testRequester: requester)
+                    unitUnderTest = WebServiceController(testRequester: requester, keychain: keychain)
 
                     expect(unitUnderTest.baseURL).to(equal("testBaseURL"))
                 }
@@ -202,7 +204,7 @@ class WebServiceControllerSpec: QuickSpec {
             context("token") {
                 it("Should return the token value from the requester") {
                     requester = MockRequester(token: "TestToken")
-                    unitUnderTest = WebServiceController(testRequester: requester)
+                    unitUnderTest = WebServiceController(testRequester: requester, keychain: keychain)
 
                     expect(unitUnderTest.token).to(equal("TestToken"))
                 }
@@ -212,7 +214,7 @@ class WebServiceControllerSpec: QuickSpec {
                 it("Should return the useLocalFiles value from the requester") {
                     requester = MockRequester()
                     requester.useLocalFiles = true
-                    unitUnderTest = WebServiceController(testRequester: requester)
+                    unitUnderTest = WebServiceController(testRequester: requester, keychain: keychain)
 
                     expect(unitUnderTest.useLocalFiles).to(beTrue())
                 }
@@ -220,7 +222,7 @@ class WebServiceControllerSpec: QuickSpec {
                 it("Should set the useLocalFiles value on the requester") {
                     requester = MockRequester()
                     requester.useLocalFiles = true
-                    unitUnderTest = WebServiceController(testRequester: requester)
+                    unitUnderTest = WebServiceController(testRequester: requester, keychain: keychain)
                     unitUnderTest.useLocalFiles = false
 
                     expect(requester.useLocalFiles).to(beFalse())

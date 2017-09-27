@@ -31,10 +31,11 @@ class RequestController: Requesting {
 
     // MARK: Init Methods
 
-    init(jsonHandler: JSONHandling, localFileController: LocalFileRequestControllerProtocol = LocalFileRequestController(), session: URLSession, urlConstructor: URLConstructable) {
+    init(jsonHandler: JSONHandling, localFileController: LocalFileRequestControllerProtocol = LocalFileRequestController(), session: URLSession, token: String?, urlConstructor: URLConstructable) {
         self.jsonHandler = jsonHandler
         self.localFileController = localFileController
         self.session = session
+        self.token = token
         self.urlConstructor = urlConstructor
     }
 

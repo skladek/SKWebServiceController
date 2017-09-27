@@ -13,6 +13,8 @@ open class WebServiceController: NSObject {
 
     // MARK: Static Variables
 
+    static let authTokenKeychainKey = "AuthorizationTokenKey"
+
     static let bearerPrefix = "Bearer "
 
     // MARK: Public Properties
@@ -49,6 +51,8 @@ open class WebServiceController: NSObject {
 
     // MARK: Internal Properties
 
+    var keychain: KeychainProtocol
+
     var requester: Requesting
 
     // MARK: Init Methods
@@ -59,14 +63,23 @@ open class WebServiceController: NSObject {
     ///   - baseURL: he URL that all requests are built from.
     ///   - sessionConfiguration: The session configuration object. The default value is URLSessionConfiguration.default
     public init(baseURL: String, sessionConfiguration: URLSessionConfiguration = URLSessionConfiguration.default) {
+        self.keychain = Keychain()
+
         let jsonHandler = JSONHandler()
         let session = URLSession(configuration: sessionConfiguration)
         let urlConstructor = URLConstructor(baseURL: baseURL)
-        self.requester = RequestController(jsonHandler: jsonHandler, session: session, urlConstructor: urlConstructor)
+
+        var authToken: String? = nil
+        if let authTokenData = self.keychain.load(key: WebServiceController.authTokenKeychainKey) {
+            authToken = String(data: authTokenData, encoding: .utf8)
+        }
+
+        self.requester = RequestController(jsonHandler: jsonHandler, session: session, token: authToken, urlConstructor: urlConstructor)
     }
 
-    init(testRequester: Requesting) {
+    init(testRequester: Requesting, keychain: KeychainProtocol) {
         self.requester = testRequester
+        self.keychain = keychain
     }
 
     // MARK: Instance Methods
@@ -147,6 +160,7 @@ open class WebServiceController: NSObject {
 
     /// Clears any set tokens. This will prevent the authorization token from being set on requests.
     open func removeAuthorizationToken() {
+        keychain.delete(key: WebServiceController.authTokenKeychainKey)
         requester.token = nil
     }
 
@@ -159,13 +173,17 @@ open class WebServiceController: NSObject {
     open func setBearerToken(_ token: String?) -> Error? {
         guard var token = token else {
             let error = WebServiceError(code: .invalidData, message: "Cannot set bearer token. The input token was nil.")
-
             return error
         }
 
         if !token.hasPrefix(WebServiceController.bearerPrefix) {
             token = "Bearer \(token)"
         }
+
+        if let tokenData = token.data(using: .utf8, allowLossyConversion: false) {
+            keychain.save(key: WebServiceController.authTokenKeychainKey, data: tokenData)
+        }
+
         requester.token = token
 
         return nil

@@ -31,6 +31,8 @@
 		144A9DE01F12DE1100B30702 /* MockLocalFileRequestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144A9DDE1F12DC7000B30702 /* MockLocalFileRequestController.swift */; };
 		144A9DE31F12DFFC00B30702 /* LocalFileRequestControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144A9DE11F12DF1000B30702 /* LocalFileRequestControllerSpec.swift */; };
 		144A9DE71F13C78500B30702 /* posts.json in Resources */ = {isa = PBXBuildFile; fileRef = 144A9DE51F13C6A600B30702 /* posts.json */; };
+		145719AF1F7C3BC00002AAF7 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145719AE1F7C3BC00002AAF7 /* Keychain.swift */; };
+		145BCEBB1F7C47A400550B91 /* MockKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145BCEB91F7C470E00550B91 /* MockKeychain.swift */; };
 		147FBB351EE6482000D2441D /* SKWebServiceController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 147FBB2B1EE6482000D2441D /* SKWebServiceController.framework */; };
 		169AAD7EA4581B72CCE53CC2 /* Pods_SKWebServiceController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D726AC5538B76873923D2DB /* Pods_SKWebServiceController.framework */; };
 		B14C656EB21170FA611441D6 /* Pods_SKWebServiceControllerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2532553274957FA118AFD4C6 /* Pods_SKWebServiceControllerTests.framework */; };
@@ -73,6 +75,8 @@
 		144A9DDE1F12DC7000B30702 /* MockLocalFileRequestController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockLocalFileRequestController.swift; sourceTree = "<group>"; };
 		144A9DE11F12DF1000B30702 /* LocalFileRequestControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalFileRequestControllerSpec.swift; sourceTree = "<group>"; };
 		144A9DE51F13C6A600B30702 /* posts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = posts.json; sourceTree = "<group>"; };
+		145719AE1F7C3BC00002AAF7 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
+		145BCEB91F7C470E00550B91 /* MockKeychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockKeychain.swift; sourceTree = "<group>"; };
 		147FBB2B1EE6482000D2441D /* SKWebServiceController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SKWebServiceController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		147FBB341EE6482000D2441D /* SKWebServiceControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SKWebServiceControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2532553274957FA118AFD4C6 /* Pods_SKWebServiceControllerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SKWebServiceControllerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,6 +117,7 @@
 				1410F3B91EE9EF8600F37AC8 /* Info.plist */,
 				14447C4B1F10419300901C11 /* LocalFileRequestController.swift */,
 				1410F3BA1EE9EF8600F37AC8 /* JSONHandler.swift */,
+				145719AE1F7C3BC00002AAF7 /* Keychain.swift */,
 				142EDA641EFD8F1300585859 /* RequestConfiguration.swift */,
 				1410F3BB1EE9EF8600F37AC8 /* RequestController.swift */,
 				1410F3BC1EE9EF8600F37AC8 /* URLConstructor.swift */,
@@ -139,6 +144,7 @@
 			children = (
 				1410F3C31EE9EF8600F37AC8 /* MockJSONHandler.swift */,
 				1410F3C41EE9EF8600F37AC8 /* MockJSONSerialization.swift */,
+				145BCEB91F7C470E00550B91 /* MockKeychain.swift */,
 				144A9DDE1F12DC7000B30702 /* MockLocalFileRequestController.swift */,
 				1410F3C51EE9EF8600F37AC8 /* MockRequester.swift */,
 				1410F3C61EE9EF8600F37AC8 /* MockSession.swift */,
@@ -430,6 +436,7 @@
 				1410F3D21EE9EF8600F37AC8 /* URLConstructor.swift in Sources */,
 				142EDA691EFDCCAE00585859 /* Dictionary.swift in Sources */,
 				1410F3D11EE9EF8600F37AC8 /* RequestController.swift in Sources */,
+				145719AF1F7C3BC00002AAF7 /* Keychain.swift in Sources */,
 				14447C4C1F10419300901C11 /* LocalFileRequestController.swift in Sources */,
 				1410F3D01EE9EF8600F37AC8 /* JSONHandler.swift in Sources */,
 			);
@@ -452,6 +459,7 @@
 				144A9DE01F12DE1100B30702 /* MockLocalFileRequestController.swift in Sources */,
 				1410F3E61EE9EF8D00F37AC8 /* MockURLConstructor.swift in Sources */,
 				1410F3EA1EE9EF9300F37AC8 /* URLConstructorSpec.swift in Sources */,
+				145BCEBB1F7C47A400550B91 /* MockKeychain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

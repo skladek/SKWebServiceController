@@ -20,7 +20,7 @@ class RequestControllerSpec: QuickSpec {
                 session = MockSession()
                 urlConstructor = MockURLConstructor()
 
-                unitUnderTest = RequestController(jsonHandler: jsonHandler, localFileController: localFileController, session: session, urlConstructor: urlConstructor)
+                unitUnderTest = RequestController(jsonHandler: jsonHandler, localFileController: localFileController, session: session, token: nil, urlConstructor: urlConstructor)
             }
 
             context("init(defaultRequestConfiguration:jsonHandler:session:urlConstructor:)") {
