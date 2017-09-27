@@ -13,7 +13,8 @@ class MockRequester: Requesting {
     var urlConstructor: URLConstructable = URLConstructor(baseURL: "")
     var useLocalFiles: Bool = false
 
-    init(baseURL: String = "") {
+    init(baseURL: String = "", token: String = "") {
+        self.token = token
         urlConstructor = URLConstructor(baseURL: baseURL)
     }
 
