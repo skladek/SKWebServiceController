@@ -199,6 +199,15 @@ class WebServiceControllerSpec: QuickSpec {
                 }
             }
 
+            context("token") {
+                it("Should return the token value from the requester") {
+                    requester = MockRequester(token: "TestToken")
+                    unitUnderTest = WebServiceController(testRequester: requester)
+
+                    expect(unitUnderTest.token).to(equal("TestToken"))
+                }
+            }
+
             context("useLocalFiles") {
                 it("Should return the useLocalFiles value from the requester") {
                     requester = MockRequester()
@@ -216,7 +225,6 @@ class WebServiceControllerSpec: QuickSpec {
 
                     expect(requester.useLocalFiles).to(beFalse())
                 }
-
             }
         }
     }
