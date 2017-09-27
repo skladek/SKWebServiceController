@@ -14,6 +14,10 @@ protocol KeychainProtocol {
 /// Provides access to the system keychain
 class Keychain: KeychainProtocol {
 
+    // MARK: Static Variables
+
+    static let authTokenKeychainKey = "AuthorizationTokenKey"
+
     // MARK: Class Methods
 
     func delete(key: String) {
@@ -30,21 +34,20 @@ class Keychain: KeychainProtocol {
                                      kSecMatchLimit as String: kSecMatchLimitOne]
 
         var data: AnyObject?
-        let status = withUnsafeMutablePointer(to: &data) { SecItemCopyMatching(query as CFDictionary, UnsafeMutablePointer($0)) }
-
-        if status != errSecSuccess {
-            return nil
-        }
+        _ = withUnsafeMutablePointer(to: &data) { SecItemCopyMatching(query as CFDictionary, UnsafeMutablePointer($0)) }
 
         return data as? Data
     }
 
     func save(key: String, data: Data) {
-        let query: [String : Any] = [kSecClass as String: kSecClassGenericPassword as String,
-                                     kSecAttrAccount as String: key,
-                                     kSecValueData as String: data]
+        let query: [String : AnyObject] = [kSecAttrAccount as String: key as AnyObject,
+                                           kSecAttrService as String: "myServiceName" as AnyObject,
+                                           kSecClass as String: kSecClassGenericPassword,
+                                           kSecValueData as String: data as AnyObject
+        ]
 
-        SecItemDelete(query as CFDictionary)
-        SecItemAdd(query as CFDictionary, nil)
+        let status = SecItemAdd(query as CFDictionary, nil)
+
+        print(status)
     }
 }

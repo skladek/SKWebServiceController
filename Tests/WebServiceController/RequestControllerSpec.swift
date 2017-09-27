@@ -20,7 +20,7 @@ class RequestControllerSpec: QuickSpec {
                 session = MockSession()
                 urlConstructor = MockURLConstructor()
 
-                unitUnderTest = RequestController(jsonHandler: jsonHandler, localFileController: localFileController, session: session, token: nil, urlConstructor: urlConstructor)
+                unitUnderTest = RequestController(jsonHandler: jsonHandler, localFileController: localFileController, session: session, urlConstructor: urlConstructor)
             }
 
             context("init(defaultRequestConfiguration:jsonHandler:session:urlConstructor:)") {
@@ -131,6 +131,33 @@ class RequestControllerSpec: QuickSpec {
                             done()
                         })
                     }
+                }
+            }
+
+            context("loadToken(keychain:)") {
+                var keychain: MockKeychain!
+
+                beforeEach {
+                    keychain = MockKeychain()
+                }
+
+                it("Should call load on the keychain") {
+                    unitUnderTest.loadToken(keychain: keychain)
+                    expect(keychain.loadCalled).to(beTrue())
+                }
+
+                it("Should not set the token if load does not return data") {
+                    keychain.shouldReturnData = false
+                    unitUnderTest.loadToken(keychain: keychain)
+
+                    expect(unitUnderTest.token).to(beNil())
+                }
+
+                it("Should set the token if load returns data") {
+                    keychain.shouldReturnData = true
+                    unitUnderTest.loadToken(keychain: keychain)
+
+                    expect(unitUnderTest.token).to(equal("TestData"))
                 }
             }
 

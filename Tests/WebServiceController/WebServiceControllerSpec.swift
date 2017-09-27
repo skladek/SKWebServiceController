@@ -168,6 +168,12 @@ class WebServiceControllerSpec: QuickSpec {
             }
 
             context("removeAuthorizationToken()") {
+                it("Should call delete on the keychain") {
+                    unitUnderTest = WebServiceController(testRequester: requester, keychain: keychain)
+                    unitUnderTest.removeAuthorizationToken()
+                    expect(keychain.deleteCalled).to(beTrue())
+                }
+
                 it("Should remove any set authorization token from the requester") {
                     unitUnderTest.requester.token = "Test Token"
                     unitUnderTest.removeAuthorizationToken()
@@ -189,6 +195,12 @@ class WebServiceControllerSpec: QuickSpec {
                 it("Should return an error if the input string is nil") {
                     let result = unitUnderTest.setBearerToken(nil)
                     expect((result as NSError?)?.code).to(equal(WebServiceError.Code.invalidData.rawValue))
+                }
+
+                it("Should call save on the keychain if a token is provided") {
+                    unitUnderTest = WebServiceController(testRequester: requester, keychain: keychain)
+                    unitUnderTest.setBearerToken("TestToken")
+                    expect(keychain.saveCalled).to(beTrue())
                 }
             }
 

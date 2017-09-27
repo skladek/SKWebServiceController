@@ -31,12 +31,13 @@ class RequestController: Requesting {
 
     // MARK: Init Methods
 
-    init(jsonHandler: JSONHandling, localFileController: LocalFileRequestControllerProtocol = LocalFileRequestController(), session: URLSession, token: String?, urlConstructor: URLConstructable) {
+    init(jsonHandler: JSONHandling, localFileController: LocalFileRequestControllerProtocol = LocalFileRequestController(), session: URLSession, urlConstructor: URLConstructable) {
         self.jsonHandler = jsonHandler
         self.localFileController = localFileController
         self.session = session
-        self.token = token
         self.urlConstructor = urlConstructor
+
+        loadToken()
     }
 
     // MARK: Instance Methods
@@ -74,6 +75,12 @@ class RequestController: Requesting {
 
             let result = self.jsonHandler.dataToJSON(data)
             completion(result.object, response, result.error)
+        }
+    }
+
+    func loadToken(keychain: KeychainProtocol = Keychain()) {
+        if let authTokenData = keychain.load(key: Keychain.authTokenKeychainKey) {
+            self.token = String(data: authTokenData, encoding: .utf8)
         }
     }
 

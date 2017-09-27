@@ -13,8 +13,6 @@ open class WebServiceController: NSObject {
 
     // MARK: Static Variables
 
-    static let authTokenKeychainKey = "AuthorizationTokenKey"
-
     static let bearerPrefix = "Bearer "
 
     // MARK: Public Properties
@@ -69,12 +67,7 @@ open class WebServiceController: NSObject {
         let session = URLSession(configuration: sessionConfiguration)
         let urlConstructor = URLConstructor(baseURL: baseURL)
 
-        var authToken: String? = nil
-        if let authTokenData = self.keychain.load(key: WebServiceController.authTokenKeychainKey) {
-            authToken = String(data: authTokenData, encoding: .utf8)
-        }
-
-        self.requester = RequestController(jsonHandler: jsonHandler, session: session, token: authToken, urlConstructor: urlConstructor)
+        self.requester = RequestController(jsonHandler: jsonHandler, session: session, urlConstructor: urlConstructor)
     }
 
     init(testRequester: Requesting, keychain: KeychainProtocol) {
@@ -160,7 +153,7 @@ open class WebServiceController: NSObject {
 
     /// Clears any set tokens. This will prevent the authorization token from being set on requests.
     open func removeAuthorizationToken() {
-        keychain.delete(key: WebServiceController.authTokenKeychainKey)
+        keychain.delete(key: Keychain.authTokenKeychainKey)
         requester.token = nil
     }
 
@@ -181,7 +174,7 @@ open class WebServiceController: NSObject {
         }
 
         if let tokenData = token.data(using: .utf8, allowLossyConversion: false) {
-            keychain.save(key: WebServiceController.authTokenKeychainKey, data: tokenData)
+            keychain.save(key: Keychain.authTokenKeychainKey, data: tokenData)
         }
 
         requester.token = token
