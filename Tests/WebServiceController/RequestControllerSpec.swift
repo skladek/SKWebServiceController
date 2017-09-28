@@ -134,6 +134,33 @@ class RequestControllerSpec: QuickSpec {
                 }
             }
 
+            context("loadToken(keychain:)") {
+                var keychain: MockKeychain!
+
+                beforeEach {
+                    keychain = MockKeychain()
+                }
+
+                it("Should call load on the keychain") {
+                    unitUnderTest.loadToken(keychain: keychain)
+                    expect(keychain.loadCalled).to(beTrue())
+                }
+
+                it("Should not set the token if load does not return data") {
+                    keychain.shouldReturnData = false
+                    unitUnderTest.loadToken(keychain: keychain)
+
+                    expect(unitUnderTest.token).to(beNil())
+                }
+
+                it("Should set the token if load returns data") {
+                    keychain.shouldReturnData = true
+                    unitUnderTest.loadToken(keychain: keychain)
+
+                    expect(unitUnderTest.token).to(equal("TestData"))
+                }
+            }
+
             context("performRequest(_:httpMethod:json:completion:)") {
                 var request: URLRequest!
 

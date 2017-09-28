@@ -6,12 +6,14 @@ import Quick
 
 class WebServiceControllerSpec: QuickSpec {
     override func spec() {
+        var keychain: MockKeychain!
         var requester: MockRequester!
         var unitUnderTest: WebServiceController!
 
         beforeEach {
+            keychain = MockKeychain()
             requester = MockRequester()
-            unitUnderTest = WebServiceController(testRequester: requester)
+            unitUnderTest = WebServiceController(testRequester: requester, keychain: keychain)
         }
 
         describe("WebServiceController") {
@@ -166,6 +168,12 @@ class WebServiceControllerSpec: QuickSpec {
             }
 
             context("removeAuthorizationToken()") {
+                it("Should call delete on the keychain") {
+                    unitUnderTest = WebServiceController(testRequester: requester, keychain: keychain)
+                    unitUnderTest.removeAuthorizationToken()
+                    expect(keychain.deleteCalled).to(beTrue())
+                }
+
                 it("Should remove any set authorization token from the requester") {
                     unitUnderTest.requester.token = "Test Token"
                     unitUnderTest.removeAuthorizationToken()
@@ -188,12 +196,18 @@ class WebServiceControllerSpec: QuickSpec {
                     let result = unitUnderTest.setBearerToken(nil)
                     expect((result as NSError?)?.code).to(equal(WebServiceError.Code.invalidData.rawValue))
                 }
+
+                it("Should call save on the keychain if a token is provided") {
+                    unitUnderTest = WebServiceController(testRequester: requester, keychain: keychain)
+                    unitUnderTest.setBearerToken("TestToken")
+                    expect(keychain.saveCalled).to(beTrue())
+                }
             }
 
             context("baseURL") {
                 it("Should return the baseURL from the URLConstructor") {
                     let requester = MockRequester(baseURL: "testBaseURL")
-                    unitUnderTest = WebServiceController(testRequester: requester)
+                    unitUnderTest = WebServiceController(testRequester: requester, keychain: keychain)
 
                     expect(unitUnderTest.baseURL).to(equal("testBaseURL"))
                 }
@@ -202,7 +216,7 @@ class WebServiceControllerSpec: QuickSpec {
             context("token") {
                 it("Should return the token value from the requester") {
                     requester = MockRequester(token: "TestToken")
-                    unitUnderTest = WebServiceController(testRequester: requester)
+                    unitUnderTest = WebServiceController(testRequester: requester, keychain: keychain)
 
                     expect(unitUnderTest.token).to(equal("TestToken"))
                 }
@@ -212,7 +226,7 @@ class WebServiceControllerSpec: QuickSpec {
                 it("Should return the useLocalFiles value from the requester") {
                     requester = MockRequester()
                     requester.useLocalFiles = true
-                    unitUnderTest = WebServiceController(testRequester: requester)
+                    unitUnderTest = WebServiceController(testRequester: requester, keychain: keychain)
 
                     expect(unitUnderTest.useLocalFiles).to(beTrue())
                 }
@@ -220,7 +234,7 @@ class WebServiceControllerSpec: QuickSpec {
                 it("Should set the useLocalFiles value on the requester") {
                     requester = MockRequester()
                     requester.useLocalFiles = true
-                    unitUnderTest = WebServiceController(testRequester: requester)
+                    unitUnderTest = WebServiceController(testRequester: requester, keychain: keychain)
                     unitUnderTest.useLocalFiles = false
 
                     expect(requester.useLocalFiles).to(beFalse())

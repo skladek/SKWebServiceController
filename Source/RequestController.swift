@@ -36,6 +36,8 @@ class RequestController: Requesting {
         self.localFileController = localFileController
         self.session = session
         self.urlConstructor = urlConstructor
+
+        loadToken()
     }
 
     // MARK: Instance Methods
@@ -73,6 +75,12 @@ class RequestController: Requesting {
 
             let result = self.jsonHandler.dataToJSON(data)
             completion(result.object, response, result.error)
+        }
+    }
+
+    func loadToken(keychain: KeychainProtocol = Keychain()) {
+        if let authTokenData = keychain.load(key: Keychain.authTokenKeychainKey) {
+            self.token = String(data: authTokenData, encoding: .utf8)
         }
     }
 
