@@ -46,8 +46,6 @@ class Keychain: KeychainProtocol {
                                            kSecValueData as String: data as AnyObject
         ]
 
-        let status = SecItemAdd(query as CFDictionary, nil)
-
-        print(status)
+        SecItemAdd(query as CFDictionary, nil)
     }
 }
