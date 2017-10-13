@@ -12,7 +12,7 @@ class PostViewModel: NSObject {
     }
 
     func title() -> String {
-        guard let postId = post.id else {
+        guard let postId = post.identifier else {
             return post.title.capitalized
         }
 

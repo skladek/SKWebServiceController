@@ -4,7 +4,7 @@ typealias URLResult = (url: URL?, error: NSError?)
 
 protocol URLConstructable {
     var baseURL: String { get }
-    func urlWith(endpoint: String?, parameters: [AnyHashable : Any]?) -> URLResult
+    func urlWith(endpoint: String?, parameters: [AnyHashable: Any]?) -> URLResult
 }
 
 class URLConstructor: URLConstructable {
@@ -21,7 +21,7 @@ class URLConstructor: URLConstructable {
 
     // MARK: Instance Methods
 
-    func urlWith(endpoint: String?, parameters: [AnyHashable : Any]?) -> URLResult {
+    func urlWith(endpoint: String?, parameters: [AnyHashable: Any]?) -> URLResult {
         var fullURLString = baseURL
 
         if let endpoint = endpoint {
@@ -44,7 +44,7 @@ class URLConstructor: URLConstructable {
         return (url, nil)
     }
 
-    func queryParametersString(_ parametersDictionary: [AnyHashable : Any]? = nil) -> String? {
+    func queryParametersString(_ parametersDictionary: [AnyHashable: Any]? = nil) -> String? {
         guard let parametersDictionary = parametersDictionary else {
             return nil
         }

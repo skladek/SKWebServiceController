@@ -1,11 +1,3 @@
-//
-//  TableViewDataSource.swift
-//  TableViewDataSource
-//
-//  Created by Sean Kladek on 3/30/17.
-//  Copyright © 2017 skladek. All rights reserved.
-//
-
 import UIKit
 
 /// Provides an object to act as a UITableViewDataSource.
@@ -29,16 +21,13 @@ public class TableViewDataSource<T>: NSObject, UITableViewDataSource {
 
     // MARK: Internal Variables
 
-    let cellNib: UINib?
-
     let cellClass: UITableViewCell.Type?
-
+    let cellNib: UINib?
     var reuseId: String?
 
     // MARK: Private variables
 
     fileprivate let cellPresenter: CellPresenter?
-
     fileprivate(set) var objects: [[T]]
 
     // MARK: Initializers

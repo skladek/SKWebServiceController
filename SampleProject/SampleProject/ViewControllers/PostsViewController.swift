@@ -1,3 +1,5 @@
+// swiftlint:disable line_length
+
 import SKTableViewDataSource
 import UIKit
 
@@ -9,6 +11,7 @@ class PostsViewController: UIViewController {
 
     let postController = PostController()
 
+    @objc
     func getPosts() {
         postController.getPosts { [weak self] (posts, error) in
             if let error = error {
@@ -21,6 +24,7 @@ class PostsViewController: UIViewController {
         }
     }
 
+    @objc
     func newPost() {
         pushEditPostViewController(post: nil)
     }
