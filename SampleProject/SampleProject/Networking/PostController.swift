@@ -8,21 +8,21 @@ class PostController: NSObject {
 
     let webServiceController = MyWebServiceController()
 
-    func delete(_ post: Post, completion: @escaping (Error?) -> ()) {
-        guard let postId = post.id else {
+    func delete(_ post: Post, completion: @escaping (Error?) -> Void) {
+        guard let postId = post.identifier else {
             return
         }
 
         let endpoint = String(format: Endpoints.postsWithId, postId)
 
-        webServiceController.delete(endpoint) { (objects, response, error) in
+        webServiceController.delete(endpoint) { (_, _, error) in
             completion(error)
         }
     }
 
-    func getPosts(completion: @escaping ([Post]?, Error?) -> ()) {
-        webServiceController.get(Endpoints.posts) { (objects, response, error) in
-            guard let objects = objects as? [[String : Any]] else {
+    func getPosts(completion: @escaping ([Post]?, Error?) -> Void) {
+        webServiceController.get(Endpoints.posts) { (objects, _, error) in
+            guard let objects = objects as? [[String: Any]] else {
                 completion(nil, error)
                 return
             }
@@ -32,20 +32,20 @@ class PostController: NSObject {
         }
     }
 
-    func update(_ post: Post, completion: @escaping (Error?) -> ()) {
-        guard let postId = post.id else {
+    func update(_ post: Post, completion: @escaping (Error?) -> Void) {
+        guard let postId = post.identifier else {
             return
         }
 
         let endpoint = String(format: Endpoints.postsWithId, postId)
 
-        webServiceController.put(endpoint, json: post.toJSON(), requestConfiguration: nil) { (objects, response, error) in
+        webServiceController.put(endpoint, json: post.toJSON(), requestConfiguration: nil) { (_, _, error) in
             completion(error)
         }
     }
 
-    func uploadNew(_ post: Post, completion: @escaping (Error?) -> ()) {
-        webServiceController.post(Endpoints.posts, json: post.toJSON()) { (objects, response, error) in
+    func uploadNew(_ post: Post, completion: @escaping (Error?) -> Void) {
+        webServiceController.post(Endpoints.posts, json: post.toJSON()) { (_, _, error) in
             completion(error)
         }
     }
