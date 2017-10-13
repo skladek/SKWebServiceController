@@ -58,7 +58,7 @@ open class WebServiceController: NSObject {
     /// Creates a controller that will perform requests on the base URL with the default parameters appended to each request.
     ///
     /// - Parameters:
-    ///   - baseURL: he URL that all requests are built from.
+    ///   - baseURL: The URL that all requests are built from.
     ///   - sessionConfiguration: The session configuration object. The default value is URLSessionConfiguration.default
     public init(baseURL: String, sessionConfiguration: URLSessionConfiguration = URLSessionConfiguration.default) {
         self.keychain = Keychain()

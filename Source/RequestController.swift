@@ -141,7 +141,7 @@ class RequestController: Requesting {
         return mutableRequest
     }
 
-    func setHeadersOnRequest(_ request: URLRequest, headers: [AnyHashable : Any]?) -> URLRequest {
+    func setHeadersOnRequest(_ request: URLRequest, headers: [AnyHashable: Any]?) -> URLRequest {
         guard let headers = headers else {
             return request
         }
