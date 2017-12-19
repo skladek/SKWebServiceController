@@ -5,6 +5,9 @@ open class WebServiceController: NSObject {
 
     // MARK: Public Class Types
 
+    /// The completion that is returned with data requests.
+    public typealias DataCompletion = (Data?, URLResponse?, Error?) -> Void
+
     /// The completion that is returned with image requests.
     public typealias ImageCompletion = (UIImage?, URLResponse?, Error?) -> Void
 
@@ -102,6 +105,16 @@ open class WebServiceController: NSObject {
     open func get(_ endpoint: String? = nil, requestConfiguration: RequestConfiguration? = nil, completion: @escaping JSONCompletion) -> URLSessionDataTask? {
         return requester.performRequest(endpoint: endpoint, json: nil, httpMethod: .get, requestConfiguration: requestConfiguration, completion: { (data, response, error) in
             self.requester.jsonCompletion(data: data, response: response, error: error, completion: completion)
+        })
+    }
+
+    @discardableResult
+    open func getData(_ url: URL, completion: @escaping DataCompletion) -> URLSessionDataTask? {
+        var request = URLRequest(url: url)
+        request.httpMethod = HTTPMethod.get.rawValue
+
+        return requester.performRequest(request, httpMethod: .get, json: nil, completion: { (data, response, error) in
+            self.requester.dataCompletion(data: data, response: response, error: error, completion: completion)
         })
     }
 

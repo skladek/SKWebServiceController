@@ -83,33 +83,39 @@ class WebServiceControllerSpec: QuickSpec {
                 }
             }
 
-            context("getImage(url:completion:)") {
-                it("Should call performRequestWithEndpoint on the requester") {
-                    unitUnderTest.post(json: nil, completion: { (_, _, _) in
-                        expect(requester.performRequestWithEndpointCalled).to(beTrue())
+            context("getData(url:completion:)") {
+                var url: URL!
+
+                beforeEach {
+                    url = URL(string: "http://example.url")!
+                }
+
+                it("Should call performRequest on the requester") {
+                    unitUnderTest.getData(url, completion: { (_, _, _) in
+                        expect(requester.performRequestCalled).to(beTrue())
                     })
                 }
 
-                it("Should call the JSON handler in the completion") {
-                    unitUnderTest.post(json: nil, completion: { (_, _, _) in
-                        expect(requester.jsonCompletionCalled).to(beTrue())
+                it("Should call the image handler in the completion") {
+                    unitUnderTest.getData(url, completion: { (_, _, _) in
+                        expect(requester.dataCompletionCalled).to(beTrue())
                     })
                 }
 
                 it("Should return the data task returned by the requester") {
                     let inputTask = URLSessionDataTask()
                     requester.dataTask = inputTask
-                    let returnedTask = unitUnderTest.post(json: nil, completion: { (_, _, _) in })
+                    let returnedTask = unitUnderTest.getData(url, completion: { (_, _, _) in })
                     expect(returnedTask).to(be(inputTask))
                 }
 
                 it("Should return nil if no task is returned by the requester") {
-                    let returnedTask = unitUnderTest.post(json: nil, completion: { (_, _, _) in })
+                    let returnedTask = unitUnderTest.getData(url, completion: { (_, _, _) in })
                     expect(returnedTask).to(beNil())
                 }
             }
 
-            context("post(endpoint:parameters:json:completion:)") {
+            context("getImage(url:completion:)") {
                 var url: URL!
 
                 beforeEach {
@@ -137,6 +143,32 @@ class WebServiceControllerSpec: QuickSpec {
 
                 it("Should return nil if no task is returned by the requester") {
                     let returnedTask = unitUnderTest.getImage(url, completion: { (_, _, _) in })
+                    expect(returnedTask).to(beNil())
+                }
+            }
+
+            context("post(endpoint:parameters:json:completion:)") {
+                it("Should call performRequestWithEndpoint on the requester") {
+                    unitUnderTest.post(json: nil, completion: { (_, _, _) in
+                        expect(requester.performRequestWithEndpointCalled).to(beTrue())
+                    })
+                }
+
+                it("Should call the JSON handler in the completion") {
+                    unitUnderTest.post(json: nil, completion: { (_, _, _) in
+                        expect(requester.jsonCompletionCalled).to(beTrue())
+                    })
+                }
+
+                it("Should return the data task returned by the requester") {
+                    let inputTask = URLSessionDataTask()
+                    requester.dataTask = inputTask
+                    let returnedTask = unitUnderTest.post(json: nil, completion: { (_, _, _) in })
+                    expect(returnedTask).to(be(inputTask))
+                }
+
+                it("Should return nil if no task is returned by the requester") {
+                    let returnedTask = unitUnderTest.post(json: nil, completion: { (_, _, _) in })
                     expect(returnedTask).to(beNil())
                 }
             }
