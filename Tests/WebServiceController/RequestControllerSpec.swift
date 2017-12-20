@@ -37,6 +37,19 @@ class RequestControllerSpec: QuickSpec {
                 }
             }
 
+            context("dataCompletion(data:response:error:completion:)") {
+                it("Should execute the completion on the main thread") {
+                    waitUntil { done in
+                        DispatchQueue.global(qos: .background).async {
+                            unitUnderTest.dataCompletion(data: nil, response: nil, error: nil, completion: { (_, _, _) in
+                                expect(Thread.isMainThread).to(beTrue())
+                                done()
+                            })
+                        }
+                    }
+                }
+            }
+
             context("dataTask(request: URLRequest, completion: @escaping RequestCompletion)") {
                 it("Should call dataTask on the session") {
                     let url = URL(string: "http://example.url")!

@@ -8,6 +8,7 @@ protocol Requesting {
     var urlConstructor: URLConstructable { get }
     var useLocalFiles: Bool { get set }
 
+    func dataCompletion(data: Data?, response: URLResponse?, error: Error?, completion: @escaping WebServiceController.DataCompletion)
     func imageCompletion(data: Data?, response: URLResponse?, error: Error?, completion: @escaping WebServiceController.ImageCompletion)
     func jsonCompletion(data: Data?, response: URLResponse?, error: Error?, completion: @escaping WebServiceController.JSONCompletion)
     func performRequest(_ request: URLRequest, httpMethod: WebServiceController.HTTPMethod, json: Any?, completion: @escaping RequestCompletion) -> URLSessionDataTask?
@@ -41,6 +42,12 @@ class RequestController: Requesting {
     }
 
     // MARK: Instance Methods
+
+    func dataCompletion(data: Data?, response: URLResponse?, error: Error?, completion: @escaping WebServiceController.DataCompletion) {
+        DispatchQueue.main.async {
+            completion(data, response, error)
+        }
+    }
 
     func dataTask(request: URLRequest, completion: @escaping RequestCompletion) -> URLSessionDataTask {
         let dataTask = session.dataTask(with: request, completionHandler: completion)
