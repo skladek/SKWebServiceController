@@ -3,6 +3,7 @@ import Foundation
 @testable import SKWebServiceController
 
 class MockRequester: Requesting {
+    var dataCompletionCalled = false
     var dataTask: URLSessionDataTask?
     var imageCompletionCalled = false
     var jsonCompletionCalled = false
@@ -16,6 +17,12 @@ class MockRequester: Requesting {
     init(baseURL: String = "", token: String = "") {
         self.token = token
         urlConstructor = URLConstructor(baseURL: baseURL)
+    }
+
+    func dataCompletion(data: Data?, response: URLResponse?, error: Error?, completion: @escaping WebServiceController.DataCompletion) {
+        dataCompletionCalled = true
+
+        completion(nil, nil, nil)
     }
 
     func imageCompletion(data: Data?, response: URLResponse?, error: Error?, completion: @escaping WebServiceController.ImageCompletion) {
