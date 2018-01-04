@@ -108,6 +108,13 @@ open class WebServiceController: NSObject {
         })
     }
 
+    /// Performs a get request on the provided URL.
+    ///
+    /// - Parameters:
+    ///   - url: The URL to perform the GET request on.
+    ///   - headers: An optional dictionary of headers to be added to the request.
+    ///   - completion: The closure called when the request completes.
+    /// - Returns: The data task to be performed.
     @discardableResult
     open func getData(_ url: URL, headers: [AnyHashable: Any]? = nil, completion: @escaping DataCompletion) -> URLSessionDataTask? {
         var request = URLRequest(url: url)
@@ -122,6 +129,7 @@ open class WebServiceController: NSObject {
     ///
     /// - Parameters:
     ///   - url: The URL to perform the GET request on.
+    ///   - headers: An optional dictionary of headers to be added to the request.
     ///   - completion: The closure called when the request completes.
     /// - Returns: The data task to be performed.
     @discardableResult
