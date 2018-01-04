@@ -89,7 +89,7 @@ open class WebServiceController: NSObject {
     /// - Returns: The data task to be performed.
     @discardableResult
     open func delete(_ endpoint: String? = nil, requestConfiguration: RequestConfiguration? = nil, completion: @escaping JSONCompletion) -> URLSessionDataTask? {
-        return requester.performRequest(endpoint: endpoint, json: nil, httpMethod: .delete, requestConfiguration: requestConfiguration, completion: { (data, response, error) in
+        return requester.performRequest(endpoint: endpoint, httpMethod: .delete, json: nil, requestConfiguration: requestConfiguration, completion: { (data, response, error) in
             self.requester.jsonCompletion(data: data, response: response, error: error, completion: completion)
         })
     }
@@ -103,17 +103,24 @@ open class WebServiceController: NSObject {
     /// - Returns: The data task to be performed.
     @discardableResult
     open func get(_ endpoint: String? = nil, requestConfiguration: RequestConfiguration? = nil, completion: @escaping JSONCompletion) -> URLSessionDataTask? {
-        return requester.performRequest(endpoint: endpoint, json: nil, httpMethod: .get, requestConfiguration: requestConfiguration, completion: { (data, response, error) in
+        return requester.performRequest(endpoint: endpoint, httpMethod: .get, json: nil, requestConfiguration: requestConfiguration, completion: { (data, response, error) in
             self.requester.jsonCompletion(data: data, response: response, error: error, completion: completion)
         })
     }
 
+    /// Performs a get request on the provided URL.
+    ///
+    /// - Parameters:
+    ///   - url: The URL to perform the GET request on.
+    ///   - headers: An optional dictionary of headers to be added to the request.
+    ///   - completion: The closure called when the request completes.
+    /// - Returns: The data task to be performed.
     @discardableResult
-    open func getData(_ url: URL, completion: @escaping DataCompletion) -> URLSessionDataTask? {
+    open func getData(_ url: URL, headers: [AnyHashable: Any]? = nil, completion: @escaping DataCompletion) -> URLSessionDataTask? {
         var request = URLRequest(url: url)
         request.httpMethod = HTTPMethod.get.rawValue
 
-        return requester.performRequest(request, httpMethod: .get, json: nil, completion: { (data, response, error) in
+        return requester.performRequest(request, headers: headers, httpMethod: .get, json: nil, completion: { (data, response, error) in
             self.requester.dataCompletion(data: data, response: response, error: error, completion: completion)
         })
     }
@@ -122,14 +129,15 @@ open class WebServiceController: NSObject {
     ///
     /// - Parameters:
     ///   - url: The URL to perform the GET request on.
+    ///   - headers: An optional dictionary of headers to be added to the request.
     ///   - completion: The closure called when the request completes.
     /// - Returns: The data task to be performed.
     @discardableResult
-    open func getImage(_ url: URL, completion: @escaping ImageCompletion) -> URLSessionDataTask? {
+    open func getImage(_ url: URL, headers: [AnyHashable: Any]? = nil, completion: @escaping ImageCompletion) -> URLSessionDataTask? {
         var request = URLRequest(url: url)
         request.httpMethod = HTTPMethod.get.rawValue
 
-        return requester.performRequest(request, httpMethod: .get, json: nil, completion: { (data, response, error) in
+        return requester.performRequest(request, headers: headers, httpMethod: .get, json: nil, completion: { (data, response, error) in
             self.requester.imageCompletion(data: data, response: response, error: error, completion: completion)
         })
     }
@@ -144,7 +152,7 @@ open class WebServiceController: NSObject {
     /// - Returns: The upload task to be performed.
     @discardableResult
     open func post(_ endpoint: String? = nil, json: Any?, requestConfiguration: RequestConfiguration? = nil, completion: @escaping JSONCompletion) -> URLSessionDataTask? {
-        return requester.performRequest(endpoint: endpoint, json: json, httpMethod: .post, requestConfiguration: requestConfiguration, completion: { (data, response, error) in
+        return requester.performRequest(endpoint: endpoint, httpMethod: .post, json: json, requestConfiguration: requestConfiguration, completion: { (data, response, error) in
             self.requester.jsonCompletion(data: data, response: response, error: error, completion: completion)
         })
     }
@@ -159,7 +167,7 @@ open class WebServiceController: NSObject {
     /// - Returns: The upload task to be performed.
     @discardableResult
     open func put(_ endpoint: String? = nil, json: Any?, requestConfiguration: RequestConfiguration? = nil, completion: @escaping JSONCompletion) -> URLSessionDataTask? {
-        return requester.performRequest(endpoint: endpoint, json: json, httpMethod: .put, requestConfiguration: requestConfiguration, completion: { (data, response, error) in
+        return requester.performRequest(endpoint: endpoint, httpMethod: .put, json: json, requestConfiguration: requestConfiguration, completion: { (data, response, error) in
             self.requester.jsonCompletion(data: data, response: response, error: error, completion: completion)
         })
     }
