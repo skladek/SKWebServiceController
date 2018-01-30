@@ -40,8 +40,10 @@ class Keychain: KeychainProtocol {
     }
 
     func save(key: String, data: Data) {
+        let bundleId = Bundle.main.bundleIdentifier ?? ""
+
         let query: [String: AnyObject] = [kSecAttrAccount as String: key as AnyObject,
-                                          kSecAttrService as String: "myServiceName" as AnyObject,
+                                          kSecAttrService as String: bundleId as AnyObject,
                                           kSecClass as String: kSecClassGenericPassword,
                                           kSecValueData as String: data as AnyObject
         ]
