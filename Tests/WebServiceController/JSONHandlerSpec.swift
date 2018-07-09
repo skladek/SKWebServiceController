@@ -20,22 +20,35 @@ class JSONHandlerSpec: QuickSpec {
                     expect((result.error as NSError?)?.code).to(equal(WebServiceError.Code.noData.rawValue))
                 }
 
-                it("Should deserialize valid data and return the object through the completion closure") {
+                it("Should deserialize valid dictionary data and return the object through the completion closure") {
                     let dictionary = ["key1" : "value1", "key2" : "value2"]
                     var jsonData: Data?
-
-                    do {
-                        jsonData = try JSONSerialization.data(withJSONObject: dictionary, options: .prettyPrinted)
-                    } catch {
-                        print(error)
-                    }
+                    jsonData = try! JSONSerialization.data(withJSONObject: dictionary, options: .prettyPrinted)
 
                     let result: ConvertedJSON<[String: String]> = unitUnderTest.dataToJSON(jsonData)
                     expect(result.object).to(equal(dictionary))
                 }
 
+                it("Should deserialize valid array data and return the object through the completion closure") {
+                    let dictionary = ["value1", "value2", "value3"]
+                    var jsonData: Data?
+                    jsonData = try! JSONSerialization.data(withJSONObject: dictionary, options: .prettyPrinted)
+
+                    let result: ConvertedJSON<[String]> = unitUnderTest.dataToJSON(jsonData)
+                    expect(result.object).to(equal(dictionary))
+                }
+
                 it("Should return an error if the data cannot be deserialized") {
                     let result: ConvertedJSON<Any> = unitUnderTest.dataToJSON(Data())
+                    expect(result.error).toNot(beNil())
+                }
+
+                it("Should return an error if the deserialized data does not match the generic type") {
+                    let dictionary = ["key1" : "value1", "key2" : "value2"]
+                    var jsonData: Data?
+                    jsonData = try! JSONSerialization.data(withJSONObject: dictionary, options: .prettyPrinted)
+
+                    let result: ConvertedJSON<String> = unitUnderTest.dataToJSON(jsonData)
                     expect(result.error).toNot(beNil())
                 }
             }
