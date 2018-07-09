@@ -15,14 +15,14 @@ class PostController: NSObject {
 
         let endpoint = String(format: Endpoints.postsWithId, postId)
 
-        webServiceController.delete(endpoint) { (_, _, error) in
+        webServiceController.delete(endpoint) { (_: Any?, _, error) in
             completion(error)
         }
     }
 
     func getPosts(completion: @escaping ([Post]?, Error?) -> Void) {
-        webServiceController.get(Endpoints.posts) { (objects, _, error) in
-            guard let objects = objects as? [[String: Any]] else {
+        webServiceController.get(Endpoints.posts) { (objects: [[String: Any]]?, _, error) in
+            guard let objects = objects else {
                 completion(nil, error)
                 return
             }
@@ -39,13 +39,13 @@ class PostController: NSObject {
 
         let endpoint = String(format: Endpoints.postsWithId, postId)
 
-        webServiceController.put(endpoint, json: post.toJSON(), requestConfiguration: nil) { (_, _, error) in
+        webServiceController.put(endpoint, json: post.toJSON(), requestConfiguration: nil) { (_: Any?, _, error) in
             completion(error)
         }
     }
 
     func uploadNew(_ post: Post, completion: @escaping (Error?) -> Void) {
-        webServiceController.post(Endpoints.posts, json: post.toJSON()) { (_, _, error) in
+        webServiceController.post(Endpoints.posts, json: post.toJSON()) { (_: Any?, _, error) in
             completion(error)
         }
     }

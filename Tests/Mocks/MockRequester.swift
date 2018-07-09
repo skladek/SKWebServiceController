@@ -31,7 +31,7 @@ class MockRequester: Requesting {
         completion(nil, nil, nil)
     }
 
-    func jsonCompletion(data: Data?, response: URLResponse?, error: Error?, completion: @escaping WebServiceController.JSONCompletion) {
+    func jsonCompletion<T>(data: Data?, response: URLResponse?, error: Error?, completion: @escaping WebServiceController.JSONCompletion<T>) {
         jsonCompletionCalled = true
 
         completion(nil, nil, nil)
