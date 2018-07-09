@@ -10,7 +10,7 @@ protocol Requesting {
 
     func dataCompletion(data: Data?, response: URLResponse?, error: Error?, completion: @escaping WebServiceController.DataCompletion)
     func imageCompletion(data: Data?, response: URLResponse?, error: Error?, completion: @escaping WebServiceController.ImageCompletion)
-    func jsonCompletion(data: Data?, response: URLResponse?, error: Error?, completion: @escaping WebServiceController.JSONCompletion)
+    func jsonCompletion<T>(data: Data?, response: URLResponse?, error: Error?, completion: @escaping WebServiceController.JSONCompletion<T>)
     func performRequest(_ request: URLRequest, headers: [AnyHashable: Any]?, httpMethod: WebServiceController.HTTPMethod, json: Any?, completion: @escaping RequestCompletion) -> URLSessionDataTask?
     func performRequest(endpoint: String?, httpMethod: WebServiceController.HTTPMethod, json: Any?, requestConfiguration: RequestConfiguration?, completion: @escaping RequestCompletion) -> URLSessionDataTask?
 }
@@ -73,14 +73,14 @@ class RequestController: Requesting {
         }
     }
 
-    func jsonCompletion(data: Data?, response: URLResponse?, error: Error?, completion: @escaping WebServiceController.JSONCompletion) {
+    func jsonCompletion<T>(data: Data?, response: URLResponse?, error: Error?, completion: @escaping WebServiceController.JSONCompletion<T>) {
         DispatchQueue.main.async {
             if let error = error {
                 completion(nil, response, error)
                 return
             }
 
-            let result = self.jsonHandler.dataToJSON(data)
+            let result: ConvertedJSON<T> = self.jsonHandler.dataToJSON(data)
             completion(result.object, response, result.error)
         }
     }
@@ -110,7 +110,7 @@ class RequestController: Requesting {
                 return nil
             }
 
-            data = convertedJSON.object as? Data
+            data = convertedJSON.object
         }
 
         switch httpMethod {

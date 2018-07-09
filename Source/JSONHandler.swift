@@ -1,10 +1,10 @@
 import Foundation
 
-typealias ConvertedJSON = (object: Any?, error: Error?)
+typealias ConvertedJSON<T> = (object: T?, error: Error?)
 
 protocol JSONHandling {
-    func dataToJSON(_ data: Data?) -> ConvertedJSON
-    func jsonToData(_ jsonObject: Any?) -> ConvertedJSON
+    func dataToJSON<T>(_ data: Data?) -> ConvertedJSON<T>
+    func jsonToData(_ jsonObject: Any?) -> ConvertedJSON<Data>
 }
 
 class JSONHandler: JSONHandling {
@@ -21,7 +21,7 @@ class JSONHandler: JSONHandling {
 
     // MARK: Instance Methods
 
-    func dataToJSON(_ data: Data?) -> ConvertedJSON {
+    func dataToJSON<T>(_ data: Data?) -> ConvertedJSON<T> {
         guard let data = data else {
             let error = WebServiceError(code: .noData, message: "The server returned without error and without data.")
             return (nil, error)
@@ -36,10 +36,21 @@ class JSONHandler: JSONHandling {
             serializationError = error
         }
 
-        return (jsonObject, serializationError)
+        guard let typedJSONObject = jsonObject as? T else {
+            var receivedTypeString = "nil"
+
+            if let jsonObject = jsonObject {
+                receivedTypeString = String(describing: type(of: jsonObject))
+            }
+
+            let typeError = WebServiceError(code: .invalidData, message: "The JSON object was not the expected type. Received \(receivedTypeString), expected \(T.self)")
+            return (nil, typeError)
+        }
+
+        return (typedJSONObject, serializationError)
     }
 
-    func jsonToData(_ jsonObject: Any?) -> ConvertedJSON {
+    func jsonToData(_ jsonObject: Any?) -> ConvertedJSON<Data> {
         guard let jsonObject = jsonObject else {
             let error = WebServiceError(code: .noData, message: "The JSON object to be converted was nil.")
             return (nil, error)
@@ -50,7 +61,7 @@ class JSONHandler: JSONHandling {
             return (nil, error)
         }
 
-        var jsonData: Any? = nil
+        var jsonData: Data? = nil
         var serializationError: Error? = nil
 
         do {
