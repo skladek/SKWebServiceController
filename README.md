@@ -66,7 +66,7 @@ If the return data is expected to be a dictionary, that GET call would be writte
 
     }
     
-This will support any type that can be output by `JSONSerialization.jsonObject(with:options:)`. If the call should return `Data` or a `UIImage`, there are separate methods to retrieve that. See Data Methods and Image Methods below.
+This will support any type that can be output by `JSONSerialization.jsonObject(with:options:)`. If the call should return `Data` or a `UIImage`, there are separate methods to retrieve that. See Data Methods and Image Methods below. If the type is unknown or the version 1.x behavior is preferred, `Any?` can be specified as the type.
 
 #### Delete
 
