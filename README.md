@@ -54,7 +54,19 @@ The WebServiceController subclass will be used to perform requests. There are me
 
 ### JSON Methods
 
-These methods are used to interact with endpoints that send and receive JSON. All requests have a `JSONCompletion` object that is executed when the request is complete.
+These methods are used to interact with endpoints that send and receive JSON. All requests have a `JSONCompletion` object that is executed when the request is complete. The methods require a generic type to be specified for the expected type of the JSON. For instance, a GET call that returns an array would call the following:
+
+    get { (json: [Any]?, response, error) in
+
+    }
+    
+If the return data is expected to be a dictionary, that GET call would be written as such:
+
+    get { (json: [String: Any]?, response, error) in
+
+    }
+    
+This will support any type that can be output by `JSONSerialization.jsonObject(with:options:)`. If the call should return `Data` or a `UIImage`, there are separate methods to retrieve that. See Data Methods and Image Methods below.
 
 #### Delete
 
@@ -71,6 +83,14 @@ Performs a post request on the provided endpoint. This method has an optional js
 #### Put
 
 Performs a put request on the provided endpoint. This method has an optional json parameter. This object must be a valid JSON object. This will be converted to data and sent with the request.
+
+### Data Methods
+
+There is currently a single method for getting data from a URL. This method has a `DataCompletion` object that is executed when the request is complete. This does not attempt to parse or format the data in any way, it simply returns whatever data is sent by the web service.
+
+#### Get Data
+
+This method takes a full URL and will return any data returned by the web service without attempting to format or manipulate it in any way.
 
 ### Image Methods
 
