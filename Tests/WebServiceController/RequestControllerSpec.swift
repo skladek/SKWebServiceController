@@ -119,7 +119,7 @@ class RequestControllerSpec: QuickSpec {
                 it("Should execute the completion on the main thread") {
                     waitUntil { done in
                         DispatchQueue.global(qos: .background).async {
-                            unitUnderTest.jsonCompletion(data: nil, response: nil, error: nil, completion: { (_, _, _) in
+                            unitUnderTest.jsonCompletion(data: nil, response: nil, error: nil, completion: { (_: Any?, _, _) in
                                 expect(Thread.isMainThread).to(beTrue())
                                 done()
                             })
@@ -130,7 +130,7 @@ class RequestControllerSpec: QuickSpec {
                 it("Should return an error in the completion if an error is passed in") {
                     let inputError = NSError(domain: "com.test.domain", code: 999, userInfo: nil)
                     waitUntil { done in
-                        unitUnderTest.jsonCompletion(data: nil, response: nil, error: inputError, completion: { (_, _, outputError) in
+                        unitUnderTest.jsonCompletion(data: nil, response: nil, error: inputError, completion: { (_: Any?, _, outputError) in
                             expect(outputError).to(be(inputError))
                             done()
                         })
@@ -139,7 +139,7 @@ class RequestControllerSpec: QuickSpec {
 
                 it("Should call data to json on the json handler if no error is passed in") {
                     waitUntil { done in
-                        unitUnderTest.jsonCompletion(data: nil, response: nil, error: nil, completion: { (_, _, _) in
+                        unitUnderTest.jsonCompletion(data: nil, response: nil, error: nil, completion: { (_: Any?, _, _) in
                             expect(jsonHandler.dataToJSONCalled).to(beTrue())
                             done()
                         })
