@@ -33,13 +33,13 @@ class WebServiceControllerSpec: QuickSpec {
 
             context("delete(endpoint:completion:)") {
                 it("Should call performRequestWithEndpoint on the requester") {
-                    unitUnderTest.delete(completion: { (_, _, _) in
+                    unitUnderTest.delete(completion: { (_: Any?, _, _) in
                         expect(requester.performRequestWithEndpointCalled).to(beTrue())
                     })
                 }
 
                 it("Should call the JSON handler in the completion") {
-                    unitUnderTest.delete(completion: { (_, _, _) in
+                    unitUnderTest.delete(completion: { (_: Any?, _, _) in
                         expect(requester.jsonCompletionCalled).to(beTrue())
                     })
                 }
@@ -47,25 +47,25 @@ class WebServiceControllerSpec: QuickSpec {
                 it("Should return the data task returned by the requester") {
                     let inputTask = URLSessionDataTask()
                     requester.dataTask = inputTask
-                    let returnedTask = unitUnderTest.delete(completion: { (_, _, _) in })
+                    let returnedTask = unitUnderTest.delete(completion: { (_: Any?, _, _) in })
                     expect(returnedTask).to(be(inputTask))
                 }
 
                 it("Should return nil if no task is returned by the requester") {
-                    let returnedTask = unitUnderTest.delete(completion: { (_, _, _) in })
+                    let returnedTask = unitUnderTest.delete(completion: { (_: Any?, _, _) in })
                     expect(returnedTask).to(beNil())
                 }
             }
 
             context("get(endpoint:parameters:completion:") {
                 it("Should call performRequestWithEndpoint on the requester") {
-                    unitUnderTest.get(completion: { (_, _, _) in
+                    unitUnderTest.get(completion: { (_: Any?, _, _) in
                         expect(requester.performRequestWithEndpointCalled).to(beTrue())
                     })
                 }
 
                 it("Should call the JSON handler in the completion") {
-                    unitUnderTest.get(completion: { (_, _, _) in
+                    unitUnderTest.get(completion: { (_: Any?, _, _) in
                         expect(requester.jsonCompletionCalled).to(beTrue())
                     })
                 }
@@ -73,12 +73,12 @@ class WebServiceControllerSpec: QuickSpec {
                 it("Should return the data task returned by the requester") {
                     let inputTask = URLSessionDataTask()
                     requester.dataTask = inputTask
-                    let returnedTask = unitUnderTest.get(completion: { (_, _, _) in })
+                    let returnedTask = unitUnderTest.get(completion: { (_: Any?, _, _) in })
                     expect(returnedTask).to(be(inputTask))
                 }
 
                 it("Should return nil if no task is returned by the requester") {
-                    let returnedTask = unitUnderTest.get(completion: { (_, _, _) in })
+                    let returnedTask = unitUnderTest.get(completion: { (_: Any?, _, _) in })
                     expect(returnedTask).to(beNil())
                 }
             }
@@ -149,13 +149,13 @@ class WebServiceControllerSpec: QuickSpec {
 
             context("post(endpoint:parameters:json:completion:)") {
                 it("Should call performRequestWithEndpoint on the requester") {
-                    unitUnderTest.post(json: nil, completion: { (_, _, _) in
+                    unitUnderTest.post(json: nil, completion: { (_: Any?, _, _) in
                         expect(requester.performRequestWithEndpointCalled).to(beTrue())
                     })
                 }
 
                 it("Should call the JSON handler in the completion") {
-                    unitUnderTest.post(json: nil, completion: { (_, _, _) in
+                    unitUnderTest.post(json: nil, completion: { (_: Any?, _, _) in
                         expect(requester.jsonCompletionCalled).to(beTrue())
                     })
                 }
@@ -163,25 +163,25 @@ class WebServiceControllerSpec: QuickSpec {
                 it("Should return the data task returned by the requester") {
                     let inputTask = URLSessionDataTask()
                     requester.dataTask = inputTask
-                    let returnedTask = unitUnderTest.post(json: nil, completion: { (_, _, _) in })
+                    let returnedTask = unitUnderTest.post(json: nil, completion: { (_: Any?, _, _) in })
                     expect(returnedTask).to(be(inputTask))
                 }
 
                 it("Should return nil if no task is returned by the requester") {
-                    let returnedTask = unitUnderTest.post(json: nil, completion: { (_, _, _) in })
+                    let returnedTask = unitUnderTest.post(json: nil, completion: { (_: Any?, _, _) in })
                     expect(returnedTask).to(beNil())
                 }
             }
 
             context("put(endpoint:parameters:json:completion:)") {
                 it("Should call performRequestWithEndpoint on the requester") {
-                    unitUnderTest.put(json: nil, completion: { (_, _, _) in
+                    unitUnderTest.put(json: nil, completion: { (_: Any?, _, _) in
                         expect(requester.performRequestWithEndpointCalled).to(beTrue())
                     })
                 }
 
                 it("Should call the JSON handler in the completion") {
-                    unitUnderTest.put(json: nil, completion: { (_, _, _) in
+                    unitUnderTest.put(json: nil, completion: { (_: Any?, _, _) in
                         expect(requester.jsonCompletionCalled).to(beTrue())
                     })
                 }
@@ -189,12 +189,12 @@ class WebServiceControllerSpec: QuickSpec {
                 it("Should return the data task returned by the requester") {
                     let inputTask = URLSessionDataTask()
                     requester.dataTask = inputTask
-                    let returnedTask = unitUnderTest.put(json: nil, completion: { (_, _, _) in })
+                    let returnedTask = unitUnderTest.put(json: nil, completion: { (_: Any?, _, _) in })
                     expect(returnedTask).to(be(inputTask))
                 }
 
                 it("Should return nil if no task is returned by the requester") {
-                    let returnedTask = unitUnderTest.put(json: nil, completion: { (_, _, _) in })
+                    let returnedTask = unitUnderTest.put(json: nil, completion: { (_: Any?, _, _) in })
                     expect(returnedTask).to(beNil())
                 }
             }

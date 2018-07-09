@@ -16,7 +16,7 @@ class JSONHandlerSpec: QuickSpec {
 
             context("dataToJSON(_:") {
                 it("Should return an error if data is nil") {
-                    let result = unitUnderTest.dataToJSON(nil)
+                    let result: ConvertedJSON<Any> = unitUnderTest.dataToJSON(nil)
                     expect((result.error as NSError?)?.code).to(equal(WebServiceError.Code.noData.rawValue))
                 }
 
@@ -30,12 +30,12 @@ class JSONHandlerSpec: QuickSpec {
                         print(error)
                     }
 
-                    let result = unitUnderTest.dataToJSON(jsonData)
-                    expect(result.object as? [String : String]).to(equal(dictionary))
+                    let result: ConvertedJSON<[String: String]> = unitUnderTest.dataToJSON(jsonData)
+                    expect(result.object).to(equal(dictionary))
                 }
 
                 it("Should return an error if the data cannot be deserialized") {
-                    let result = unitUnderTest.dataToJSON(Data())
+                    let result: ConvertedJSON<Any> = unitUnderTest.dataToJSON(Data())
                     expect(result.error).toNot(beNil())
                 }
             }
