@@ -37,12 +37,16 @@ class MockRequester: Requesting {
         completion(nil, nil, nil)
     }
 
-    func performRequest(_ request: URLRequest, headers: [AnyHashable: Any]?, httpMethod: WebServiceController.HTTPMethod, json: Any?, completion: @escaping RequestCompletion) -> URLSessionDataTask? {
+    func performRequest(_ request: URLRequest, data: Data?, headers: [AnyHashable: Any]?, httpMethod: WebServiceController.HTTPMethod, completion: @escaping RequestCompletion) -> URLSessionDataTask? {
         self.request = request
         performRequestCalled = true
         completion(nil, nil, nil)
 
         return dataTask
+    }
+
+    func performRequest(data: Data?, endpoint: String?, httpMethod: WebServiceController.HTTPMethod, requestConfiguration: RequestConfiguration?, completion: @escaping RequestCompletion) -> URLSessionDataTask? {
+        return nil
     }
 
     func performRequest(endpoint: String?, httpMethod: WebServiceController.HTTPMethod, json: Any?, requestConfiguration: RequestConfiguration?, completion: @escaping Requesting.RequestCompletion) -> URLSessionDataTask? {
