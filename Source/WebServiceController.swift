@@ -120,7 +120,7 @@ open class WebServiceController: NSObject {
         var request = URLRequest(url: url)
         request.httpMethod = HTTPMethod.get.rawValue
 
-        return requester.performRequest(request, headers: headers, httpMethod: .get, json: nil, completion: { (data, response, error) in
+        return requester.performRequest(request, data: nil, headers: headers, httpMethod: .get, completion: { (data, response, error) in
             self.requester.dataCompletion(data: data, response: response, error: error, completion: completion)
         })
     }
@@ -137,8 +137,15 @@ open class WebServiceController: NSObject {
         var request = URLRequest(url: url)
         request.httpMethod = HTTPMethod.get.rawValue
 
-        return requester.performRequest(request, headers: headers, httpMethod: .get, json: nil, completion: { (data, response, error) in
+        return requester.performRequest(request, data: nil, headers: headers, httpMethod: .get, completion: { (data, response, error) in
             self.requester.imageCompletion(data: data, response: response, error: error, completion: completion)
+        })
+    }
+
+    @discardableResult
+    open func post<T>(_ endpoint: String? = nil, data: Data?, requestConfiguration: RequestConfiguration? = nil, completion: @escaping JSONCompletion<T>) -> URLSessionDataTask? {
+        return requester.performRequest(data: data, endpoint: endpoint, httpMethod: .post, requestConfiguration: requestConfiguration, completion: { (data, response, error) in
+            self.requester.jsonCompletion(data: data, response: response, error: error, completion: completion)
         })
     }
 

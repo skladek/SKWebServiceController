@@ -5,14 +5,14 @@ inhibit_all_warnings!
 
 target 'SKWebServiceController' do
 	project 'SKWebServiceController.xcodeproj'
-	pod 'SwiftLint', '= 0.23.1'
+	pod 'SwiftLint', '= 0.27.0'
 end
 
 target 'SKWebServiceControllerTests' do
 	workspace 'SKWebServiceController.xcworkspace'
 	project 'SKWebServiceController.xcodeproj'
-	pod 'Nimble', '= 7.0.2'
-	pod 'Quick', '= 1.2.0'
+	pod 'Nimble', '= 7.3.0'
+	pod 'Quick', '= 1.3.1'
 end
 
 target 'SampleProject' do
