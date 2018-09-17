@@ -2,12 +2,17 @@
 All notable changes to this project will be documented in this file.
 
 #### 2.x Releases
-- `2.0.x` Releases - [2.0.0](#200)
+- `2.0.x` Releases - [2.0.0](#200), [2.1.0](#210)
 
 #### 1.x Releases
 - `1.2.x` Releases - [1.2.0](#120), [1.2.1](#121)
 - `1.1.x` Releases - [1.1.0](#110)
 - `1.0.x` Releases - [1.0.0](#100)
+
+## [2.1.0](https://github.com/skladek/SKWebServiceController/releases/tag/2.1.0)
+
+#### Added
+- The ability to create POST requests with a `Data` payload
 
 ## [2.0.0](https://github.com/skladek/SKWebServiceController/releases/tag/2.0.0)
 

@@ -142,6 +142,14 @@ open class WebServiceController: NSObject {
         })
     }
 
+    /// Performs a post request on the url formed from the base URL, endpoint, and parameters.
+    ///
+    /// - Parameters:
+    ///   - endpoint: The endpoint to perform the request on.
+    ///   - data: The Data object to be included as the request body.
+    ///   - requestConfiguration: A configuration objects affecting only a single request.
+    ///   - completion: The closure called when the request completes.
+    /// - Returns: The upload task to be performed.
     @discardableResult
     open func post<T>(_ endpoint: String? = nil, data: Data?, requestConfiguration: RequestConfiguration? = nil, completion: @escaping JSONCompletion<T>) -> URLSessionDataTask? {
         return requester.performRequest(data: data, endpoint: endpoint, httpMethod: .post, requestConfiguration: requestConfiguration, completion: { (data, response, error) in
