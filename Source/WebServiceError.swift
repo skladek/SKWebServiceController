@@ -24,7 +24,7 @@ class WebServiceError: NSError {
             localizedDescription = "An unknown error occurred."
         }
 
-        var userInfo: [String: Any]? = nil
+        var userInfo: [String: Any]?
         if let message = localizedDescription {
             userInfo = [NSLocalizedDescriptionKey: message]
         }

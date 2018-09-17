@@ -100,8 +100,8 @@ class RequestController: Requesting {
         var request = request
         request = setHeadersOnRequest(request, headers: headers)
 
-        var data: Data? = nil
-        var sessionTask: URLSessionDataTask? = nil
+        var data: Data?
+        var sessionTask: URLSessionDataTask?
 
         if let json = json {
             let convertedJSON = jsonHandler.jsonToData(json)

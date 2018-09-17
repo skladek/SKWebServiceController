@@ -27,8 +27,8 @@ class JSONHandler: JSONHandling {
             return (nil, error)
         }
 
-        var jsonObject: Any? = nil
-        var serializationError: Error? = nil
+        var jsonObject: Any?
+        var serializationError: Error?
 
         do {
             jsonObject = try jsonSerialization.jsonObject(with: data, options: .allowFragments)
@@ -61,8 +61,8 @@ class JSONHandler: JSONHandling {
             return (nil, error)
         }
 
-        var jsonData: Data? = nil
-        var serializationError: Error? = nil
+        var jsonData: Data?
+        var serializationError: Error?
 
         do {
             jsonData = try jsonSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted)
