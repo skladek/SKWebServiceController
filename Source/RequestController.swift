@@ -11,7 +11,8 @@ protocol Requesting {
     func dataCompletion(data: Data?, response: URLResponse?, error: Error?, completion: @escaping WebServiceController.DataCompletion)
     func imageCompletion(data: Data?, response: URLResponse?, error: Error?, completion: @escaping WebServiceController.ImageCompletion)
     func jsonCompletion<T>(data: Data?, response: URLResponse?, error: Error?, completion: @escaping WebServiceController.JSONCompletion<T>)
-    func performRequest(_ request: URLRequest, headers: [AnyHashable: Any]?, httpMethod: WebServiceController.HTTPMethod, json: Any?, completion: @escaping RequestCompletion) -> URLSessionDataTask?
+    func performRequest(_ request: URLRequest, data: Data?, headers: [AnyHashable: Any]?, httpMethod: WebServiceController.HTTPMethod, completion: @escaping RequestCompletion) -> URLSessionDataTask?
+    func performRequest(data: Data?, endpoint: String?, httpMethod: WebServiceController.HTTPMethod, requestConfiguration: RequestConfiguration?, completion: @escaping RequestCompletion) -> URLSessionDataTask?
     func performRequest(endpoint: String?, httpMethod: WebServiceController.HTTPMethod, json: Any?, requestConfiguration: RequestConfiguration?, completion: @escaping RequestCompletion) -> URLSessionDataTask?
 }
 
@@ -91,7 +92,7 @@ class RequestController: Requesting {
         }
     }
 
-    func performRequest(_ request: URLRequest, headers: [AnyHashable: Any]?, httpMethod: WebServiceController.HTTPMethod, json: Any?, completion: @escaping RequestCompletion) -> URLSessionDataTask? {
+    func performRequest(_ request: URLRequest, data: Data?, headers: [AnyHashable: Any]?, httpMethod: WebServiceController.HTTPMethod, completion: @escaping RequestCompletion) -> URLSessionDataTask? {
         if useLocalFiles == true {
             localFileController.getFileWithRequest(request, completion: completion)
             return nil
@@ -100,18 +101,7 @@ class RequestController: Requesting {
         var request = request
         request = setHeadersOnRequest(request, headers: headers)
 
-        var data: Data? = nil
-        var sessionTask: URLSessionDataTask? = nil
-
-        if let json = json {
-            let convertedJSON = jsonHandler.jsonToData(json)
-            if convertedJSON.error != nil {
-                completion(nil, nil, convertedJSON.error)
-                return nil
-            }
-
-            data = convertedJSON.object
-        }
+        var sessionTask: URLSessionDataTask?
 
         switch httpMethod {
         case .delete, .get:
@@ -123,7 +113,7 @@ class RequestController: Requesting {
         return sessionTask
     }
 
-    func performRequest(endpoint: String?, httpMethod: WebServiceController.HTTPMethod, json: Any?, requestConfiguration: RequestConfiguration?, completion: @escaping RequestCompletion) -> URLSessionDataTask? {
+    func performRequest(data: Data?, endpoint: String?, httpMethod: WebServiceController.HTTPMethod, requestConfiguration: RequestConfiguration?, completion: @escaping RequestCompletion) -> URLSessionDataTask? {
         let urlTuple = urlConstructor.urlWith(endpoint: endpoint, parameters: requestConfiguration?.queryParameters)
 
         guard let url = urlTuple.url else {
@@ -135,7 +125,22 @@ class RequestController: Requesting {
         request.httpMethod = httpMethod.rawValue
         request = setAuthorizationHeaderOnRequest(request)
 
-        return performRequest(request, headers: requestConfiguration?.additionalHTTPHeaders, httpMethod: httpMethod, json: json, completion: completion)
+        return performRequest(request, data: data, headers: requestConfiguration?.additionalHTTPHeaders, httpMethod: httpMethod, completion: completion)
+    }
+
+    func performRequest(endpoint: String?, httpMethod: WebServiceController.HTTPMethod, json: Any?, requestConfiguration: RequestConfiguration?, completion: @escaping RequestCompletion) -> URLSessionDataTask? {
+        var data: Data?
+        if let json = json {
+            let convertedJSON = jsonHandler.jsonToData(json)
+            if convertedJSON.error != nil {
+                completion(nil, nil, convertedJSON.error)
+                return nil
+            }
+
+            data = convertedJSON.object
+        }
+
+        return performRequest(data: data, endpoint: endpoint, httpMethod: httpMethod, requestConfiguration: requestConfiguration, completion: completion)
     }
 
     func setAuthorizationHeaderOnRequest(_ request: URLRequest) -> URLRequest {
